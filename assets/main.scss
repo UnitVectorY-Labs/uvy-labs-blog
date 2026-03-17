@@ -18,7 +18,14 @@ $code-function: #fca5a5;
 $code-entity: #67e8f9;
 $code-accent: #fde68a;
 
-@import "minima";
+@use "minima" with (
+  $text-color: $text-color,
+  $background-color: $background-color,
+  $brand-color: $brand-color,
+  $grey-color: $grey-color,
+  $grey-color-light: $grey-color-light,
+  $grey-color-dark: $grey-color-dark
+);
 
 body {
   background: $background-color;
