@@ -1,12 +1,12 @@
 title: UnitVectorY Labs Blog
 description: >-
-  The official blog for UnitVectorY Labs — sharing insights, deep dives, and
-  updates on our open source projects spanning GCP, security, and cloud infrastructure.
+  Updates from UnitVectorY Labs, this content is AI generated and may contain inaccuracies.
 baseurl: "/uvy-labs-blog"
 url: "https://unitvectory-labs.github.io"
 
-author:
-  name: UnitVectorY Labs
+author: Jared Hatfield
+github_username: UnitVectorY-Labs
+rss: RSS
 
 # Navigation header links
 header_pages:
@@ -15,10 +15,6 @@ header_pages:
 
 # Theme
 theme: minima
-minima:
-  skin: classic
-  social_links:
-    - { platform: github, user_url: "https://github.com/UnitVectorY-Labs" }
 
 # Plugins
 plugins:
@@ -30,10 +26,8 @@ plugins:
 markdown: kramdown
 highlighter: rouge
 
-# Pagination
 show_excerpts: true
 
-# Collections
 defaults:
   - scope:
       path: ""

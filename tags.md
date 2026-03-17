@@ -34,15 +34,16 @@ permalink: /tags/
 }
 .tag-badge {
   display: inline-block;
-  background: #e8e8e8;
+  background: #1f2937;
+  border: 1px solid #374151;
   border-radius: 3px;
   padding: 2px 8px;
   margin: 2px;
   font-size: 0.9em;
   text-decoration: none;
-  color: #333;
+  color: #d1d5db;
 }
 .tag-badge:hover {
-  background: #d0d0d0;
+  background: #273244;
 }
 </style>
