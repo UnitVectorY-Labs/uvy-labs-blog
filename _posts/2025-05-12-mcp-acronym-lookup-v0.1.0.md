@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing mcp-acronym-lookup: Your AI Assistant's New Dictionary for Acronyms
+title: "Introducing mcp-acronym-lookup: Your AI Assistant's New Dictionary for Acronyms"
 date: 2025-05-12 10:49:00 -0500
 tags: [mcp-acronym-lookup, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
 ---

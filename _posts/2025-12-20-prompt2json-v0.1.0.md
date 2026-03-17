@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing prompt2json v0.1.0: LLM-Powered JSON Generation for Shell Workflows
+title: "Introducing prompt2json v0.1.0: LLM-Powered JSON Generation for Shell Workflows"
 date: 2025-12-20 20:04:02 -0500
 tags: [prompt2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
 ---
