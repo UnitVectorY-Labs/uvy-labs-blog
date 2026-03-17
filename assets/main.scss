@@ -56,6 +56,46 @@ a:visited {
   border-top-color: #252a33;
 }
 
+.site-footer .footer-col-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-left: 0;
+}
+
+.site-footer .footer-col {
+  float: none;
+  width: auto;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.site-footer .footer-col-2 {
+  flex: 0 0 auto;
+}
+
+.site-footer .footer-col-3 {
+  flex: 1 1 24rem;
+  min-width: 0;
+}
+
+.site-footer .social-media-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 600px) {
+  .site-footer .footer-col-wrapper {
+    display: block;
+  }
+
+  .site-footer .footer-col {
+    margin-bottom: 1rem;
+  }
+}
+
 .footer-col-wrapper,
 .post-meta,
 .rss-subscribe {
