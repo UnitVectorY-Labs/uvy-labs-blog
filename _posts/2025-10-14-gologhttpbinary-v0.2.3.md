@@ -2,7 +2,7 @@
 layout: post
 title: "gologhttpbinary v0.2.3: Maintenance Update"
 date: 2025-10-14 09:00:00 -0500
-tags: [gologhttpbinary, unsloth-Qwen3.5-122B-A10B-GGUF-Q4_K_M]
+tags: [gologhttpbinary, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
 ---
 
 gologhttpbinary v0.2.3 was released on October 14, 2025 as a maintenance-focused update designed to keep the project's build environment and CI/CD tooling current.
