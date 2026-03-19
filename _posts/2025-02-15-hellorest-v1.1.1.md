@@ -2,7 +2,7 @@
 layout: post
 title: "hellorest v1.1.1 Released: Improved Portability and Go 1.24 Updates"
 date: 2025-02-15 16:24:09 -0500
-tags: [hellorest, unsloth-Qwen3.5-122B-A10B-GGUF-Q4_K_M]
+tags: [hellorest, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
 ---
 
 We're pleased to announce the availability of hellorest v1.1.1, released on February 15, 2025. This maintenance release delivers important infrastructure improvements that enhance portability and keep the project current with the latest Go version.

@@ -2,7 +2,7 @@
 layout: post
 title: ghprmerge v0.1.1 Released - Smarter Repository Discovery
 date: 2026-02-25 02:26:00 -0500
-tags: [ghprmerge, unsloth-Qwen3.5-122B-A10B-GGUF-Q4_K_M]
+tags: [ghprmerge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
 ---
 
 We're excited to announce the release of ghprmerge v0.1.1! This update brings improved efficiency and cleaner output when scanning your organization for pull requests ready to merge.

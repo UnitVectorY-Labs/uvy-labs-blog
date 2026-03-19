@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing tofu-template-tester v0.1.1"
 date: 2025-10-14 09:00:00 -0500
-tags: [tofu-template-tester, unsloth-Qwen3.5-122B-A10B-GGUF-Q4_K_M]
+tags: [tofu-template-tester, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
 ---
 
 # What's New in v0.1.1

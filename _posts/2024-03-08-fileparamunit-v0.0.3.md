@@ -2,7 +2,7 @@
 layout: post
 title: "fileparamunit v0.0.3: Reliability and Quality Improvements"
 date: 2024-03-08 01:48:07 -0500
-tags: [fileparamunit, unsloth-Qwen3-5-122B-A10B-GGUF-Q4_K_M]
+tags: [fileparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
 ---
 
 We're excited to announce the release of fileparamunit v0.0.3, published on March 8, 2024. This maintenance release focuses on enhancing the reliability and quality of the library while maintaining full backward compatibility with previous versions.
