@@ -1,8 +1,8 @@
 title: UnitVectorY Labs Blog
 description: >-
   The latest updates from UnitVectorY Labs.
-baseurl: "/uvy-labs-blog"
-url: "https://unitvectory-labs.github.io"
+baseurl: "/"
+url: "https://blog.unitvectorylabs.com"
 
 author: Jared Hatfield
 github_username: UnitVectorY-Labs
@@ -19,8 +19,17 @@ theme: minima
 # Plugins
 plugins:
   - jekyll-feed
+  - jekyll-paginate-v2
   - jekyll-seo-tag
   - jekyll-sitemap
+
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: "/page/:num/"
+  title: ":title - page :num"
+  sort_field: "date"
+  sort_reverse: true
 
 # Build settings
 markdown: kramdown

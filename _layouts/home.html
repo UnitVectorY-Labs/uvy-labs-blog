@@ -5,10 +5,12 @@ layout: default
 <div class="home">
   {{ content }}
 
-  {%- if site.posts.size > 0 -%}
+  {%- assign posts = paginator.posts | default: site.posts -%}
+
+  {%- if posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list post-list-rich">
-      {%- for post in site.posts -%}
+      {%- for post in posts -%}
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {%- assign post_preview = post.content | strip_html | normalize_whitespace | truncatewords: 80 -%}
       <li class="post-card">
@@ -23,6 +25,17 @@ layout: default
       </li>
       {%- endfor -%}
     </ul>
+
+    {%- if paginator and paginator.total_pages > 1 -%}
+      <nav class="pagination" aria-label="Pagination">
+        {%- if paginator.previous_page -%}
+          <a class="previous page-numbers" href="{{ paginator.previous_page_path | relative_url }}">Newer posts</a>
+        {%- endif -%}
+        {%- if paginator.next_page -%}
+          <a class="next page-numbers" href="{{ paginator.next_page_path | relative_url }}">Older posts</a>
+        {%- endif -%}
+      </nav>
+    {%- endif -%}
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   {%- endif -%}
