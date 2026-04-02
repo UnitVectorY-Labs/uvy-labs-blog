@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-vertex-search-snippets v0.1.3 Released"
 date: 2025-10-08 00:02:14 -0500
-tags: [mcp-vertex-search-snippets, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-vertex-search-snippets", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 Version 0.1.3 of mcp-vertex-search-snippets was released on October 8, 2025, bringing an important API stability fix and keeping dependencies up to date for all users.

@@ -2,7 +2,7 @@
 layout: post
 title: "simplegoogleidtoken v0.0.6 Released: Security Updates and Dependency Maintenance"
 date: 2025-05-26 13:47:09 -0500
-tags: [simplegoogleidtoken, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["simplegoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **simplegoogleidtoken v0.0.6**, published on May 26, 2025. This maintenance release focuses on keeping your dependencies secure and up-to-date while maintaining full backward compatibility.

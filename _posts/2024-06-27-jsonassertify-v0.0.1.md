@@ -2,7 +2,7 @@
 layout: post
 title: Introducing JSONassertify v0.0.1 - A Modernized JSON Testing Library
 date: 2024-06-27 09:00:00 -0500
-tags: [JSONassertify, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonassertify", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing JSONassertify

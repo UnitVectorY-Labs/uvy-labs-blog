@@ -2,7 +2,7 @@
 layout: post
 title: "IAP Headers v0.3.0 Released"
 date: 2024-12-14 00:00:00 -0500
-tags: [iapheaders, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

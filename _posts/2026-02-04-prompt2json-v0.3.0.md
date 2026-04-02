@@ -2,7 +2,7 @@
 layout: post
 title: "prompt2json v0.3.0: Multi-Provider Support Arrives"
 date: 2026-02-04 00:25:55 -0500
-tags: [prompt2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 # prompt2json v0.3.0: Multi-Provider Support Arrives

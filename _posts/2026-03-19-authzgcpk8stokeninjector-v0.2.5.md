@@ -2,7 +2,7 @@
 layout: post
 title: "authzgcpk8stokeninjector v0.2.5: Security Hardening and Infrastructure Updates"
 date: 2026-03-19 00:00:00 -0500
-tags: [authzgcpk8stokeninjector, "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the availability of **authzgcpk8sTokenInjector v0.2.5**, released on March 19, 2026. This maintenance release focuses on security hardening, dependency updates, and infrastructure improvements that keep your deployments secure and up-to-date without requiring any configuration changes.

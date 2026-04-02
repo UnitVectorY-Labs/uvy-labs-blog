@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing firestore-batch-incrementer v0.1.0: Bulk Update Firestore Documents to Trigger Eventarc"
 date: 2025-05-03 17:42:19 -0500
-tags: [firestore-batch-incrementer, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestore-batch-incrementer", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 # What's New

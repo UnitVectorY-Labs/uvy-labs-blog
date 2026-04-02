@@ -2,7 +2,7 @@
 layout: post
 title: "goenvecho v1.2.0: Security Enhancements and Maintenance Updates"
 date: 2025-12-27 09:00:00 -0500
-tags: [goenvecho, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["goenvecho", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

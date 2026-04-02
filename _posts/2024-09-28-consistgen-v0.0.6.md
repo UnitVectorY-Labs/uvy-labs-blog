@@ -2,7 +2,7 @@
 layout: post
 title: consistgen v0.0.6 Released
 date: 2024-09-28 16:31:31 -0500
-tags: [consistgen, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Release Announcement

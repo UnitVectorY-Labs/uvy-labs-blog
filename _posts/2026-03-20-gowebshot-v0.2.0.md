@@ -2,7 +2,7 @@
 layout: post
 title: "gowebshot v0.2.0: Precision Crop Control for Web Screenshots"
 date: 2026-03-20 19:32:00 -0400
-tags: [gowebshot, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gowebshot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 gowebshot v0.2.0 is now available, bringing powerful new screenshot manipulation capabilities that give you precise control over what gets captured—and what gets left out. Released on March 20, 2026, this update addresses a common pain point for developers, testers, and content creators who regularly capture webpages: removing unwanted elements while maintaining consistent output dimensions.

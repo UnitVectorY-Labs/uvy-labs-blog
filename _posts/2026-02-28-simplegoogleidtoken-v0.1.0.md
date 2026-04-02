@@ -2,7 +2,7 @@
 layout: post
 title: "simplegoogleidtoken v0.1.0: A Milestone of Stability"
 date: 2026-02-28 09:00:00 -0500
-tags: [simplegoogleidtoken, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["simplegoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

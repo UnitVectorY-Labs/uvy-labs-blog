@@ -2,7 +2,7 @@
 layout: post
 title: "kubetogoogleidtoken v0.1.1: Security Enhancements and Dependency Updates"
 date: 2025-05-26 09:00:00 -0500
-tags: [kubetogoogleidtoken, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["kubetogoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 Released on May 26, 2025, kubetogoogleidtoken v0.1.1 is a focused maintenance release that strengthens the security posture and reliability of this Java library for obtaining Google ID tokens through Kubernetes Service Accounts with GCP Workload Identity Federation.

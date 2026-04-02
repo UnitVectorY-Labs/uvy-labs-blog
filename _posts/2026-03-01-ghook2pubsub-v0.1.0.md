@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing ghook2pubsub v0.1.0: GitHub Webhooks to GCP Pub/Sub"
 date: 2026-03-01 00:07:15 -0500
-tags: [ghook2pubsub, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghook2pubsub", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the first public release of **ghook2pubsub** – a lightweight service that bridges GitHub webhooks to Google Cloud Pub/Sub for event-driven architectures.

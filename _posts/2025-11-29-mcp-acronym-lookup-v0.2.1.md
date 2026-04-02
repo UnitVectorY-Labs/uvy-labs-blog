@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-acronym-lookup v0.2.1 Released"
 date: 2025-11-29 18:36:00 -0500
-tags: [mcp-acronym-lookup, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-acronym-lookup", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

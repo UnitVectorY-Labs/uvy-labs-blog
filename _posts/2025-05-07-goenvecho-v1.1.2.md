@@ -2,7 +2,7 @@
 layout: post
 title: "goenvecho v1.1.2 Released: Maintenance Updates and Go Runtime Upgrades"
 date: 2025-05-07 22:57:00 -0500
-tags: [goenvecho, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["goenvecho", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

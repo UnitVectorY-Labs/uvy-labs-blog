@@ -2,7 +2,7 @@
 layout: post
 title: "ghorgsync v0.1.2: Better Handling for Archived Repositories"
 date: 2026-02-25 23:07:41 -0000
-tags: [ghorgsync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghorgsync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A Smarter Way to Sync Archived Repositories

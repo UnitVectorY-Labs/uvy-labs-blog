@@ -2,7 +2,7 @@
 layout: post
 title: "prompt2json v0.6.0: Schema Validation and Development Flexibility"
 date: 2026-03-06 09:00:00 -0500
-tags: [prompt2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of prompt2json v0.6.0, published on March 6, 2026. This update brings two major features that make working with LLM-powered JSON extraction more reliable and flexible: automatic schema validation before API calls and support for connecting to development servers with self-signed certificates.

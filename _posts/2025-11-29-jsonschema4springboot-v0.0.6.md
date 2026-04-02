@@ -2,7 +2,7 @@
 layout: post
 title: "jsonschema4springboot v0.0.6 Released: Dependency Updates and Maintenance"
 date: 2025-11-29 00:00:00 -0500
-tags: [jsonschema4springboot, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of jsonschema4springboot version 0.0.6, published on November 29, 2025. This maintenance release focuses on keeping your dependencies current and secure, with updates across the board while maintaining full backward compatibility.

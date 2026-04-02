@@ -2,7 +2,7 @@
 layout: post
 title: "isplaintextfile v0.0.3 Released: Maintenance Update for Enhanced Compatibility"
 date: 2025-05-07 22:54:21 -0500
-tags: [isplaintextfile, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["isplaintextfile", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-vertex-search-snippets v0.1.2 Released: Critical Bug Fix for US Location Users"
 date: 2025-09-03 22:18:21 -0500
-tags: [mcp-vertex-search-snippets, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-vertex-search-snippets", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

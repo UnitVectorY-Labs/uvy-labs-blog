@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.4.0: Introducing SSE Mode for HTTP-Based MCP Operations"
 date: 2025-05-03 21:49:52 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing v0.4.0

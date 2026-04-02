@@ -2,7 +2,7 @@
 layout: post
 title: "authzjwtbearerinjector v0.2.0 Released"
 date: 2024-10-17 23:31:30 -0500
-tags: [authzjwtbearerinjector, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["authzjwtbearerinjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

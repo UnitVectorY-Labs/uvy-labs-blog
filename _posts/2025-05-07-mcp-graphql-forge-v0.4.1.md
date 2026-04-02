@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.4.1 Released"
 date: 2025-05-07 22:51:22 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A Steady Step Forward

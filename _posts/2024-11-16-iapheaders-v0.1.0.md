@@ -2,7 +2,7 @@
 layout: post
 title: Introducing iapheaders v0.1.0 - A Tool for Debugging GCP IAP Headers
 date: 2024-11-16 23:02:25 -0500
-tags: [iapheaders, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 **Released:** November 16, 2024

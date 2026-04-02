@@ -2,7 +2,7 @@
 layout: post
 title: ConsistGen v0.0.7 Release
 date: 2024-09-29 09:00:00 -0500
-tags: [consistgen, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of ConsistGen v0.0.7, published on September 29, 2024. This release focuses on strengthening the delivery infrastructure behind ConsistGen, making it easier and more secure for users to access and verify the library artifacts they depend on.

@@ -2,7 +2,7 @@
 layout: post
 title: "firestoreproto2json v0.0.3 Released"
 date: 2024-03-19 09:00:00 -0500
-tags: [firestoreproto2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A Streamlined Build for Your Firestore Cloud Functions

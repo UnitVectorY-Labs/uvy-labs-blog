@@ -2,7 +2,7 @@
 layout: post
 title: "firestore-batch-incrementer v0.1.1 Released"
 date: 2025-05-07 23:17:31 -0500
-tags: [firestore-batch-incrementer, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestore-batch-incrementer", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of firestore-batch-incrementer v0.1.1, published on May 7, 2025. This maintenance release continues our commitment to keeping the project up-to-date with the latest Go runtime versions while maintaining full backward compatibility.

@@ -2,7 +2,7 @@
 layout: post
 title: "firestoreproto2json v0.0.6 Released"
 date: 2024-11-23 09:00:00 -0500
-tags: [firestoreproto2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of firestoreproto2json v0.0.6, published on November 23, 2024. This maintenance release continues our commitment to keeping the library's dependencies up-to-date and our build infrastructure reliable.

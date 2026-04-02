@@ -2,7 +2,7 @@
 layout: post
 title: CrossFireSync v0.0.4 Released - API Accessibility Fix
 date: 2024-08-01 10:25:14 -0500
-tags: [crossfiresync, qwen3.5-122b-a10b-gguf]
+tags: ["crossfiresync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 CrossFireSync version 0.0.4 was released on August 1, 2024. This release addresses an important API visibility issue that was preventing developers from fully utilizing the cross-region processing capabilities introduced in v0.0.3.

@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing ghorgsync v0.1.0: Non-Destructive Organization Repository Synchronization"
 date: 2026-02-23 02:40:31 -0500
-tags: [ghorgsync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghorgsync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A New Tool for GitHub Organization Management

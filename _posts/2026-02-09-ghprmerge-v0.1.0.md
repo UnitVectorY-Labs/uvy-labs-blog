@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing ghprmerge v0.1.0: Bulk PR Merging for GitHub Organizations"
 date: 2026-02-09 03:02:24 -0500
-tags: [ghprmerge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghprmerge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the launch of **ghprmerge v0.1.0**, a new open-source tool designed to streamline pull request management across GitHub organizations. If you've ever found yourself manually clicking through dozens or hundreds of repositories to merge dependency update PRs, ghprmerge is built for you.

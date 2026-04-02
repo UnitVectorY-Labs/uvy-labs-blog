@@ -2,7 +2,7 @@
 layout: post
 title: "firestoreproto2map v0.0.4: Strengthening Build Security"
 date: 2024-09-29 17:08:32 -0500
-tags: [firestoreproto2map, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2map", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

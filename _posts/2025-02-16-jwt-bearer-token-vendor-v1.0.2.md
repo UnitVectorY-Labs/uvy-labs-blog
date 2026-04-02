@@ -2,7 +2,7 @@
 layout: post
 title: jwt-bearer-token-vendor v1.0.2 Release
 date: 2025-02-16 01:39:27 -0500
-tags: [jwt-bearer-token-vendor, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jwt-bearer-token-vendor", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Strengthening Security and Reliability

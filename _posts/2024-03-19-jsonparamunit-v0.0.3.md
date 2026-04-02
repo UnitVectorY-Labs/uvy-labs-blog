@@ -2,7 +2,7 @@
 layout: post
 title: "jsonparamunit v0.0.3 Released"
 date: 2024-03-19 09:00:00 -0500
-tags: [jsonparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of jsonparamunit v0.0.3, a maintenance update that keeps your testing library dependencies current and secure. Released on March 19, 2024, this version upgrades the underlying Jackson library to 2.17.0, bringing users the latest improvements in JSON processing performance and security.

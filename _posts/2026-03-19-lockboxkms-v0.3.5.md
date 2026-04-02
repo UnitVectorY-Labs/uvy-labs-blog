@@ -2,7 +2,7 @@
 layout: post
 title: "LockboxKMS v0.3.5: Streamlined Deployment and Better Visibility"
 date: 2026-03-19 22:46:29 -0500
-tags: [lockboxkms, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

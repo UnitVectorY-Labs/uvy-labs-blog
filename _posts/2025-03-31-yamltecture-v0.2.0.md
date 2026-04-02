@@ -2,7 +2,7 @@
 layout: post
 title: "YAMLtecture v0.2.0: Smarter Validation, Subgraph Labels, and Consistent Output"
 date: 2025-03-31 01:12:00 -0000
-tags: [YAMLtecture, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["yamltecture", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing YAMLtecture v0.2.0

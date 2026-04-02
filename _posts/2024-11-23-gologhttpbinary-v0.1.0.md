@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing gologhttpbinary: Debug Binary HTTP Payloads with Confidence"
 date: 2024-11-23 20:44:15 -0500
-tags: [gologhttpbinary, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gologhttpbinary", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A New Tool for HTTP Binary Debugging

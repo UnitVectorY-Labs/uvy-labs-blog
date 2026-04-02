@@ -2,7 +2,7 @@
 layout: post
 title: Crossfiresync v0.0.7 Released
 date: 2025-10-26 00:00:00 -0500
-tags: [crossfiresync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["crossfiresync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 Crossfiresync v0.0.7 is now available, published on October 26, 2025. This maintenance release continues our commitment to keeping the library secure and up-to-date with the latest upstream dependencies while maintaining full backward compatibility.

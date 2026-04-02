@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing mcp-tf-provider-docs v0.1.0: Terraform Documentation for AI Agents"
 date: 2025-06-19 01:35:04 -0500
-tags: [mcp-tf-provider-docs, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-tf-provider-docs", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing mcp-tf-provider-docs

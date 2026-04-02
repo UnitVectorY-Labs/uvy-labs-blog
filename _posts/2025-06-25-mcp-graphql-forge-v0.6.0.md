@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.6.0: Introducing MCP Annotations Support"
 date: 2025-06-25 02:28:56 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing v0.6.0 with Enhanced Tool Annotations

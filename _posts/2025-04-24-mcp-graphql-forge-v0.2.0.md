@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.2.0: Windows Support and Improved Error Handling"
 date: 2025-04-24 00:26:45 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing v0.2.0

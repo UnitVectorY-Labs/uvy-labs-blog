@@ -2,7 +2,7 @@
 layout: post
 title: "hellorest v1.1.0 Release: Module Namespace Update"
 date: 2025-01-26 00:00:00 -0500
-tags: [hellorest, qwen35-122b-a10b]
+tags: ["hellorest", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

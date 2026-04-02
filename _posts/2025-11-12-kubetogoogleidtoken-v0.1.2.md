@@ -2,7 +2,7 @@
 layout: post
 title: "kubetogoogleidtoken v0.1.2 Released: Security and Dependency Updates"
 date: 2025-11-12 09:00:00 -0500
-tags: [kubetogoogleidtoken, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["kubetogoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing LockboxKMS v0.1.0: Secure Encryption Made Simple"
 date: 2024-10-20 09:00:00 -0500
-tags: [lockboxkms, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're thrilled to announce the launch of **LockboxKMS v0.1.0**, the initial release of a simple yet powerful web application that brings Google Cloud KMS encryption within easy reach of any development team.

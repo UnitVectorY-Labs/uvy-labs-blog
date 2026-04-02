@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.8.0: Improved Reliability and Code Foundation"
 date: 2025-08-21 09:00:00 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing v0.8.0

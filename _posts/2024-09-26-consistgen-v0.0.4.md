@@ -2,7 +2,7 @@
 layout: post
 title: "ConsistGen v0.0.4 Release Announcement"
 date: 2024-09-26 23:32:19 -0500
-tags: [consistgen, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of ConsistGen v0.0.4, published on September 26, 2024. This release brings important consistency improvements to the library's API design while maintaining its core mission of providing predictable test data through dependency injection.

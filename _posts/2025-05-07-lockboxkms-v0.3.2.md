@@ -2,7 +2,7 @@
 layout: post
 title: "LockboxKMS v0.3.2 Release"
 date: 2025-05-07 22:59:00 -0500
-tags: [lockboxkms, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 LockboxKMS v0.3.2 is now available, released on May 7, 2025. This maintenance release focuses on keeping your encryption service secure and up-to-date with the latest Google Cloud KMS SDK and Go runtime improvements.

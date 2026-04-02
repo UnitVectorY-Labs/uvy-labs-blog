@@ -2,7 +2,7 @@
 layout: post
 title: "FirestoreProto2Map v0.0.6 Released: Dependency Updates for a Secure Future"
 date: 2025-11-29 09:00:00 -0500
-tags: [firestoreproto2map, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2map", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 FirestoreProto2Map v0.0.6 was released on November 29, 2025, marking another step forward in maintaining this essential Java helper library for Cloud Functions developers. This release focuses exclusively on keeping your dependencies current and secure while preserving the complete stability you expect from the library.

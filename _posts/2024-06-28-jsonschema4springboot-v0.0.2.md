@@ -2,7 +2,7 @@
 layout: post
 title: "jsonschema4springboot v0.0.2 Released: Maintenance Updates and Infrastructure Improvements"
 date: 2024-06-28 09:00:00 -0500
-tags: [jsonschema4springboot, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the availability of jsonschema4springboot v0.0.2, released on June 28, 2024. This maintenance release focuses on keeping your dependencies up-to-date while maintaining full backward compatibility with v0.0.1.

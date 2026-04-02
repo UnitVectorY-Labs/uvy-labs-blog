@@ -2,7 +2,7 @@
 layout: post
 title: "CrossFireSync v0.0.5 Released"
 date: 2024-09-28 16:48:55 -0500
-tags: [crossfiresync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["crossfiresync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 CrossFireSync v0.0.5 was released on September 28, 2024. This maintenance release keeps your multi-region Firestore synchronization infrastructure up-to-date with the latest dependencies and enhanced build security features.

@@ -2,7 +2,7 @@
 layout: post
 title: "Consistgen v0.0.9 Released: Maintenance and Dependency Updates"
 date: 2025-10-20 23:04:50 -0500
-tags: [consistgen, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

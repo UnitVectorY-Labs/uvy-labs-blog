@@ -2,7 +2,7 @@
 layout: post
 title: "tofu-template-tester v0.2.0 Improves Version Reporting"
 date: 2026-02-09 03:04:00 -0500
-tags: [tofu-template-tester, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["tofu-template-tester", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the availability of tofu-template-tester v0.2.0, released on February 9, 2026. This maintenance release focuses on reliability improvements and infrastructure updates that enhance the user experience.

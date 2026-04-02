@@ -2,7 +2,7 @@
 layout: post
 title: "kube-oidc-gateway v1.1.0: Enhanced Cache Control and Improved Documentation"
 date: 2026-03-02 11:56:00 -0500
-tags: [kube-oidc-gateway, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["kube-oidc-gateway", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing kube-oidc-gateway v1.1.0

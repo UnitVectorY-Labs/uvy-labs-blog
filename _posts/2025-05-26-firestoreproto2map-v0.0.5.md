@@ -2,7 +2,7 @@
 layout: post
 title: "firestoreproto2map v0.0.5 Released"
 date: 2025-05-26 13:45:08 -0500
-tags: [firestoreproto2map, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2map", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 FirestoreProto2Map v0.0.5 was released on May 26, 2025, bringing important documentation improvements and updated dependencies to this Java helper library for Firebase Cloud Functions developers.

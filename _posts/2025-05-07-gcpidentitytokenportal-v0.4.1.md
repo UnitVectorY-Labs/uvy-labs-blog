@@ -2,7 +2,7 @@
 layout: post
 title: "gcpidentitytokenportal v0.4.1 Released: Keeping Your Token Portal Secure and Stable"
 date: 2025-05-07 09:00:00 -0500
-tags: [gcpidentitytokenportal, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **gcpidentitytokenportal v0.4.1**, published on May 7, 2025. This maintenance release continues our commitment to keeping your GCP identity token portal secure, stable, and up-to-date with the latest improvements from the Go and Google Cloud ecosystems.

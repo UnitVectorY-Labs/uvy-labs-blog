@@ -2,7 +2,7 @@
 layout: post
 title: "gcpidentitytokenportal v0.5.0: Production-Ready Observability"
 date: 2026-01-18 02:43:00 -0000
-tags: [gcpidentitytokenportal, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Production Observability Arrives in v0.5.0

@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing gowebshot v0.1.0: CLI and TUI Screenshot Tool"
 date: 2026-03-07 16:44:40 -0500
-tags: [gowebshot, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gowebshot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the launch of gowebshot v0.1.0, a new command-line tool for capturing webpage screenshots using headless Chrome/Chromium. Released on March 7, 2026, this initial release brings a powerful yet simple solution for automated screenshot capture with both scripting-friendly CLI mode and an interactive terminal UI.

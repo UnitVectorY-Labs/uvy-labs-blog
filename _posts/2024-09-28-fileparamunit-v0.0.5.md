@@ -2,7 +2,7 @@
 layout: post
 title: "fileparamunit v0.0.5 Release: Dependency Updates and Security Enhancements"
 date: 2024-09-28 10:48:36 -0500
-tags: [fileparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["fileparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

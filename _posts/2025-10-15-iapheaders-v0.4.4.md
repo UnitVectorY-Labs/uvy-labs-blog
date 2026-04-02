@@ -2,7 +2,7 @@
 layout: post
 title: "iapheaders v0.4.4: Infrastructure Updates and Continued Maintenance"
 date: 2025-10-15 00:11:57 -0500
-tags: [iapheaders, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Maintaining a Strong Foundation

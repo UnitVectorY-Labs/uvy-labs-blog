@@ -2,7 +2,7 @@
 layout: post
 title: "ConsistGen v0.0.3 Now Available: String Generation for Predictable Testing"
 date: 2024-09-25 22:14:55 -0400
-tags: [consistgen, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of ConsistGen v0.0.3, a significant update that completes the library's core test data generation capabilities with the addition of flexible string generation.

@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.10.0 Released: Improved Version Detection"
 date: 2026-02-09 03:03:00 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **mcp-graphql-forge v0.10.0**, available now on GitHub. This maintenance release delivers a practical improvement for developers who install mcp-graphql-forge from source, along with continued infrastructure updates to keep our build pipeline reliable.

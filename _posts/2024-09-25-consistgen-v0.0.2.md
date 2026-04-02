@@ -2,7 +2,7 @@
 layout: post
 title: "ConsistGen v0.0.2 Now Available"
 date: 2024-09-25 10:49:46 -0500
-tags: [consistgen, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of ConsistGen v0.0.2, published on September 25, 2024. This update brings enhanced testing flexibility to Java developers who rely on predictable data generation for their test cases.

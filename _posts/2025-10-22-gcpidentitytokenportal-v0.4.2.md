@@ -2,7 +2,7 @@
 layout: post
 title: "gcpidentitytokenportal v0.4.2 Released"
 date: 2025-10-22 09:00:00 -0500
-tags: [gcpidentitytokenportal, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the availability of gcpidentitytokenportal v0.4.2, released on October 22, 2025. This maintenance release focuses on keeping the application secure and up-to-date with the latest dependency versions.

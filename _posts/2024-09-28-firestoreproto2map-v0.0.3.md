@@ -2,7 +2,7 @@
 layout: post
 title: "firestoreproto2map v0.0.3 Released"
 date: 2024-09-28 00:00:00 -0500
-tags: [firestoreproto2map, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2map", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 # What's in firestoreproto2map v0.0.3

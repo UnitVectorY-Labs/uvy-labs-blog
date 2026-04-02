@@ -2,7 +2,7 @@
 layout: post
 title: Announcing bulkfilepr v0.1.0 - Automate Batch File Updates Across GitHub Repositories
 date: 2026-01-16 09:00:00 -0500
-tags: [bulkfilepr, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["bulkfilepr", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 Today marks the launch of bulkfilepr v0.1.0, a new Go-based command-line tool designed to automate one of the most tedious tasks in repository maintenance: updating standardized files across multiple GitHub repositories. Released on January 16, 2026, this initial release delivers a complete, production-ready tool from day one.

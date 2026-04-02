@@ -2,7 +2,7 @@
 layout: post
 title: iapheaders v0.3.1 Release - Infrastructure Improvements
 date: 2025-01-19 10:09:00 -0500
-tags: [iapheaders, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

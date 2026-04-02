@@ -2,7 +2,7 @@
 layout: post
 title: "prompt2json v0.1.1: Validation, Documentation, and Global Support"
 date: 2026-01-02 16:08:55 -0500
-tags: [prompt2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of prompt2json v0.1.1, available now on GitHub. Released on January 2, 2026, this update brings critical input validation, a complete documentation suite, and fixes for global region support in Vertex AI.

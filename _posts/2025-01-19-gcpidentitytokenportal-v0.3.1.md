@@ -2,7 +2,7 @@
 layout: post
 title: GCP Identity Token Portal v0.3.1 Released
 date: 2025-01-19 10:24:00 -0500
-tags: [gcpidentitytokenportal, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A Maintenance Update for Enhanced Reliability

@@ -2,7 +2,7 @@
 layout: post
 title: "jsonparamunit v0.0.5 Released"
 date: 2024-06-28 01:36:33 -0500
-tags: [jsonparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 jsonparamunit v0.0.5 was released on June 28, 2024. This maintenance release strengthens the project's foundation by switching to a more actively maintained dependency, ensuring long-term stability for your parameterized JSON tests without requiring any changes to your existing test code.

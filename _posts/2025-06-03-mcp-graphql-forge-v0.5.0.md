@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.5.0: Environment Variable Support for Token Commands"
 date: 2025-06-03 02:07:38 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Announcing mcp-graphql-forge v0.5.0

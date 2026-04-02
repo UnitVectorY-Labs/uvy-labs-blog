@@ -2,7 +2,7 @@
 layout: post
 title: "gcpidentitytokenportal v0.5.1 Released: Enhanced Visibility and Simplified Deployment"
 date: 2026-03-19 22:46:54 -0500
-tags: [gcpidentitytokenportal, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing v0.5.1

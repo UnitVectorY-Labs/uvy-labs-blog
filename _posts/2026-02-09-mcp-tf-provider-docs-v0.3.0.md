@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-tf-provider-docs v0.3.0 Released"
 date: 2026-02-09 03:06:25 -0500
-tags: [mcp-tf-provider-docs, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-tf-provider-docs", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of **mcp-tf-provider-docs v0.3.0**, published on February 9, 2026. This release continues our commitment to keeping the project up-to-date with the latest dependencies and ensuring a smooth, reliable experience for users integrating Terraform provider documentation into their AI-powered development workflows.

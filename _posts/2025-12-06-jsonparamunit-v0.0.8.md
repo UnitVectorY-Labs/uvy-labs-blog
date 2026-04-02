@@ -2,7 +2,7 @@
 layout: post
 title: "jsonparamunit v0.0.8 Released: Maintenance Update with Critical Dependency Updates"
 date: 2025-12-06 09:00:00 -0500
-tags: [jsonparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

@@ -2,7 +2,7 @@
 layout: post
 title: "simplegoogleidtoken v0.0.3 Released"
 date: 2024-09-10 09:00:00 -0500
-tags: [simplegoogleidtoken, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["simplegoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **simplegoogleidtoken v0.0.3**, available now on Maven Central. This maintenance release focuses on keeping the library up-to-date with the latest dependencies while adding valuable technical documentation for developers.

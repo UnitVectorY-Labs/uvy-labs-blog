@@ -2,7 +2,7 @@
 layout: post
 title: "YAMLtecture v0.2.1: Version Support and Infrastructure Improvements"
 date: 2025-10-21 09:00:00 -0500
-tags: [YAMLtecture, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["yamltecture", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing YAMLtecture v0.2.1

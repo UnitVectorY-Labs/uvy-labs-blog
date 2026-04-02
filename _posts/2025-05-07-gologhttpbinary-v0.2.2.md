@@ -2,7 +2,7 @@
 layout: post
 title: "gologhttpbinary v0.2.2 Released: Infrastructure Updates and CI/CD Improvements"
 date: 2025-05-07 22:55:58 -0500
-tags: [gologhttpbinary, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gologhttpbinary", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 On May 7, 2025, we released gologhttpbinary v0.2.2, a maintenance update focused on strengthening the project's infrastructure and automation capabilities. While this release doesn't introduce new application features, it delivers important updates to keep your debugging tool running on the latest Go runtime and improves the development workflow for future releases.

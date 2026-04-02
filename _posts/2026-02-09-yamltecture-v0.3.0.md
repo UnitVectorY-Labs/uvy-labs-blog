@@ -2,7 +2,7 @@
 layout: post
 title: YAMLtecture v0.3.0 - Stability and Polish
 date: 2026-02-09 03:05:56 -0500
-tags: [YAMLtecture, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["yamltecture", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing YAMLtecture v0.3.0

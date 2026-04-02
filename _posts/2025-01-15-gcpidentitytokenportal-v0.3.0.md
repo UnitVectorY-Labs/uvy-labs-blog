@@ -2,7 +2,7 @@
 layout: post
 title: "gcpidentitytokenportal v0.3.0 - Kubernetes Support with Workload Identity Federation"
 date: 2025-01-15 09:00:00 -0500
-tags: [gcpidentitytokenportal, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing Kubernetes Support for Multi-Cloud Deployments

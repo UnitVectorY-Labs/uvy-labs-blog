@@ -2,7 +2,7 @@
 layout: post
 title: "JSONassertify v0.0.3 Released: Security Updates and Enhanced Stability"
 date: 2025-01-04 08:42:00 -0500
-tags: [JSONassertify, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonassertify", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing JSONassertify v0.0.3

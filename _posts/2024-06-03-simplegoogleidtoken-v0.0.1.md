@@ -2,7 +2,7 @@
 layout: post
 title: Introducing simplegoogleidtoken v0.0.1
 date: 2024-06-03 02:03:51 -0500
-tags: [simplegoogleidtoken, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["simplegoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Announcing simplegoogleidtoken v0.0.1

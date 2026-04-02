@@ -2,7 +2,7 @@
 layout: post
 title: "authzgcpk8stokeninjector v0.2.2 Released"
 date: 2025-03-13 02:27:07 -0500
-tags: [authzgcpk8stokeninjector, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

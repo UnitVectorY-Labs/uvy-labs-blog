@@ -2,7 +2,7 @@
 layout: post
 title: "bulkfilepr v0.2.0: Multi-Hash Matching for Flexible Standard Updates"
 date: 2026-02-08 22:34:19 -0500
-tags: [bulkfilepr, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["bulkfilepr", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 On February 8, 2026, bulkfilepr released version 0.2.0, introducing a powerful enhancement to the `--expect-sha256` option that makes it significantly easier to update standardized files across repositories running different baseline versions.

@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-tf-provider-docs v0.2.0 Released: Enhanced MCP Integration and Active Project Status"
 date: 2025-06-25 01:41:23 -0500
-tags: [mcp-tf-provider-docs, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-tf-provider-docs", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of **mcp-tf-provider-docs v0.2.0**, published on June 25, 2025. This minor release delivers an important protocol-level enhancement that improves how MCP clients interact with our Terraform documentation server, while also marking a milestone in the project's maturity.

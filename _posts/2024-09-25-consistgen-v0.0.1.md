@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing ConsistGen v0.0.1: Testable Code Made Simple"
 date: 2024-09-25 09:00:00 -0500
-tags: [consistgen, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the launch of ConsistGen, a lightweight Java library that makes testing timestamp and UUID-dependent code significantly easier. Version 0.0.1 was released on September 25, 2024, marking the introduction of this new tool to the Java development community.

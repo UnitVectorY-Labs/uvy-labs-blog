@@ -2,7 +2,7 @@
 layout: post
 title: "JSONassertify v0.0.4 Released: Keeping Your Tests Secure and Up-to-Date"
 date: 2025-05-25 19:00:03 -0500
-tags: [JSONassertify, Qwen3.5-122B-A10B-GGUF-Q4_K_M]
+tags: ["jsonassertify", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **JSONassertify v0.0.4**, a maintenance release that ensures your JSON unit testing stays secure and compatible with the latest dependencies.

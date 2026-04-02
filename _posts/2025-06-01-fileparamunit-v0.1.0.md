@@ -2,7 +2,7 @@
 layout: post
 title: "fileparamunit v0.1.0: JUnit 5.13 Compatibility Release"
 date: 2025-06-01 15:57:41 -0500
-tags: [fileparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["fileparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

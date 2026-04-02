@@ -2,7 +2,7 @@
 layout: post
 title: "iapheaders v0.4.2: Security Maintenance Release"
 date: 2025-05-07 22:58:31 -0500
-tags: [iapheaders, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

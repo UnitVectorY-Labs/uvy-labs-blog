@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.9.0: Configurable Output Formats for Smarter AI Workflows"
 date: 2025-12-17 09:00:00 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of mcp-graphql-forge v0.9.0, bringing a highly requested feature that significantly improves token efficiency when working with AI agents and GraphQL APIs.

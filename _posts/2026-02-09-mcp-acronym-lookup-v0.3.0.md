@@ -2,7 +2,7 @@
 layout: post
 title: "v0.3.0: Improved Version Detection"
 date: 2026-02-09 03:03:26 -0500
-tags: [mcp-acronym-lookup, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-acronym-lookup", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **mcp-acronym-lookup v0.3.0**, published on February 9, 2026. This maintenance release focuses on improving version detection reliability for developers who install the tool via `go install`.

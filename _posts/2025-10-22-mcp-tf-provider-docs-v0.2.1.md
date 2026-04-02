@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-tf-provider-docs v0.2.1 Release"
 date: 2025-10-22 00:00:00 -0500
-tags: [mcp-tf-provider-docs, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-tf-provider-docs", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A Stability and Security Update

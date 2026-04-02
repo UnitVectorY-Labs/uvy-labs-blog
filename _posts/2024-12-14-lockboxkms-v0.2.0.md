@@ -2,7 +2,7 @@
 layout: post
 title: "LockboxKMS v0.2.0: Strengthening Our Foundation"
 date: 2024-12-14 14:31:00 -0500
-tags: [lockboxkms, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 LockboxKMS v0.2.0 was released on December 14, 2024. This release represents our ongoing commitment to security, reliability, and active maintenance of your encryption infrastructure. While it doesn't introduce new features, it strengthens the foundation that powers your encrypted data workflows.

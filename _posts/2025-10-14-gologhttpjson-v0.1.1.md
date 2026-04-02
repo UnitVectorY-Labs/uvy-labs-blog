@@ -2,7 +2,7 @@
 layout: post
 title: "gologhttpjson v0.1.1 Released: Maintenance Update with Updated Dependencies"
 date: 2025-10-14 00:00:00 -0500
-tags: [gologhttpjson, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gologhttpjson", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **gologhttpjson v0.1.1**, a maintenance update that strengthens the project's infrastructure while maintaining complete backward compatibility with v0.1.0.

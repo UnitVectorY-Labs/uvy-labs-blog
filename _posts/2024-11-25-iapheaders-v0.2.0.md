@@ -2,7 +2,7 @@
 layout: post
 title: "iapheaders v0.2.0: Enhanced Header Verification for GCP IAP"
 date: 2024-11-25 23:48:36 -0500
-tags: [iapheaders, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of iapheaders v0.2.0, published on November 25, 2024. This update brings a significant improvement to how the tool validates Identity-Aware Proxy headers, making it even more reliable for developers debugging GCP IAP configurations.

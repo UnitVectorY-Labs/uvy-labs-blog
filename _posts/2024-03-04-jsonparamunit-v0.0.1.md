@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing jsonparamunit: Data-Driven JUnit 5 Testing with JSON"
 date: 2024-03-04 09:00:00 -0500
-tags: [jsonparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A New Way to Write Parameterized Tests

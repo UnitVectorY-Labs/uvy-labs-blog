@@ -2,7 +2,7 @@
 layout: post
 title: "jsonschema4springboot v0.0.3: Better Error Handling for Malformed JSON"
 date: 2024-09-18 02:42:54 -0500
-tags: [jsonschema4springboot, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

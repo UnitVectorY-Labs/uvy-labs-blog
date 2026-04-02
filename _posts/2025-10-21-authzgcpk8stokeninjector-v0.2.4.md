@@ -2,7 +2,7 @@
 layout: post
 title: "authzgcpk8stokeninjector v0.2.4 Released"
 date: 2025-10-21 09:00:00 -0500
-tags: [authzgcpk8stokeninjector, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of authzgcpk8stokeninjector v0.2.4, published on October 21, 2025. This maintenance release focuses on keeping your authorization service secure and up-to-date with the latest dependencies.

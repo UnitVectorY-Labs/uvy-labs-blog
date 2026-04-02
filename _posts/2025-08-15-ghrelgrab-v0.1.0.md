@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing ghrelgrab v0.1.0: Your Go-To Tool for GitHub Release Assets"
 date: 2025-08-15 09:00:00 -0500
-tags: [ghrelgrab, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghrelgrab", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the first release of **ghrelgrab** (v0.1.0), published on August 15, 2025. This cross-platform command-line utility simplifies one of the most common yet tedious tasks in modern development: downloading and extracting GitHub release assets.

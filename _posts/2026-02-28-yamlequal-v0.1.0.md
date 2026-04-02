@@ -2,7 +2,7 @@
 layout: post
 title: "yamlequal v0.1.0: Correct Multi-Document YAML Comparison"
 date: 2026-02-28 17:30:00 -0500
-tags: [yamlequal, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["yamlequal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of yamlequal v0.1.0, a significant update that fixes a critical bug in multi-document YAML handling and achieves 100% test coverage.

@@ -2,7 +2,7 @@
 layout: post
 title: Announcing tofu-template-tester v0.1.0
 date: 2025-05-20 00:39:49 -0500
-tags: [tofu-template-tester, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["tofu-template-tester", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to introduce tofu-template-tester, a lightweight Go CLI tool designed to make working with Terraform and OpenTofu template files simpler and more flexible. Version 0.1.0 marks the first public release of this project, now available for download.

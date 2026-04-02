@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing mcp-graphql-forge: Turn Any GraphQL Endpoint into an MCP Server"
 date: 2025-04-23 02:48:09 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the initial release of **mcp-graphql-forge** (v0.1.0), a lightweight, configuration-driven MCP server that transforms any GraphQL endpoint into an MCP server with zero custom code required.

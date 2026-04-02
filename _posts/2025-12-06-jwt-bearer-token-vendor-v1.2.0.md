@@ -2,7 +2,7 @@
 layout: post
 title: "jwt-bearer-token-vendor v1.2.0 Released"
 date: 2025-12-06 18:46:02 -0500
-tags: [jwt-bearer-token-vendor, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jwt-bearer-token-vendor", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the availability of jwt-bearer-token-vendor v1.2.0, released on December 6, 2025. This maintenance release focuses on modernizing the GitHub Actions ecosystem dependencies that power the action's development infrastructure, ensuring continued compatibility with the latest GitHub tooling while maintaining full backward compatibility for end users.

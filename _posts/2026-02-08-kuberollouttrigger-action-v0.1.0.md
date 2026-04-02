@@ -2,7 +2,7 @@
 layout: post
 title: Introducing kuberollouttrigger-action v0.1.0
 date: 2026-02-08 02:53:36 -0500
-tags: [kuberollouttrigger-action, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["kuberollouttrigger-action", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Launching kuberollouttrigger-action v0.1.0

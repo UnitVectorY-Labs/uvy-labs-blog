@@ -2,7 +2,7 @@
 layout: post
 title: "bulkfilepr v0.2.2 Released: Improved Version Reporting"
 date: 2026-02-09 02:18:16 -0500
-tags: [bulkfilepr, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["bulkfilepr", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Quick Improvement to Version Tracking

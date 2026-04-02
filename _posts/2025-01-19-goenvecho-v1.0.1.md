@@ -2,7 +2,7 @@
 layout: post
 title: "goenvecho v1.0.1 Released"
 date: 2025-01-19 15:10:00 -0500
-tags: [goenvecho, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["goenvecho", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Intro

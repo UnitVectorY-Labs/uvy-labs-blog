@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.3.0: Debug Logging for Better Observability"
 date: 2025-04-24 01:21:33 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of mcp-graphql-forge v0.3.0! Published on April 24, 2025, this update introduces debug logging capabilities that make it easier than ever to troubleshoot issues with your GraphQL integrations.

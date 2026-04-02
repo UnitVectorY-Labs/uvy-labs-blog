@@ -2,7 +2,7 @@
 layout: post
 title: "prompt2json v0.5.1: Intelligent HTTP Timeouts for Better Local and Remote API Support"
 date: 2026-03-01 08:48:40 -0500
-tags: [prompt2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of prompt2json v0.5.1, a focused update that makes working with local LLM servers smoother while giving you better control over API timeouts for remote services. Released on March 1, 2026, this version introduces intelligent HTTP timeout handling that automatically adapts to your setup.

@@ -2,7 +2,7 @@
 layout: post
 title: "ghprmerge v0.3.0: Introducing Report Mode for PR Discovery Across Organizations"
 date: 2026-03-15 00:43:51 -0000
-tags: [ghprmerge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghprmerge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing Report Mode in ghprmerge v0.3.0

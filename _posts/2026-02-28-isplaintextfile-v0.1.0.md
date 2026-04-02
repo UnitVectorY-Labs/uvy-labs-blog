@@ -2,7 +2,7 @@
 layout: post
 title: "isplaintextfile v0.1.0: Infrastructure Modernization Release"
 date: 2026-02-28 00:00:00 -0500
-tags: [isplaintextfile, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["isplaintextfile", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **isplaintextfile v0.1.0**, available now on GitHub. Released on February 28, 2026, this update focuses on modernizing the project's build infrastructure while maintaining full compatibility with existing code.

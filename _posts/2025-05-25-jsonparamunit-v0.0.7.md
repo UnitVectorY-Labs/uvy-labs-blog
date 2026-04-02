@@ -2,7 +2,7 @@
 layout: post
 title: "jsonparamunit v0.0.7 Release: Strengthening the Foundation"
 date: 2025-05-25 20:04:46 -0500
-tags: [jsonparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of jsonparamunit v0.0.7, published on May 25, 2025. This update focuses on strengthening the library's foundation through comprehensive dependency updates and enhanced CI/CD security measures, ensuring jsonparamunit remains a reliable choice for your Java testing needs.

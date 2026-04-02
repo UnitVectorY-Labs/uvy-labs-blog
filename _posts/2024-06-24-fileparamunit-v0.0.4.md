@@ -2,7 +2,7 @@
 layout: post
 title: "fileparamunit v0.0.4 Released: Maintenance and Security Updates"
 date: 2024-06-24 22:45:30 -0500
-tags: [fileparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["fileparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of fileparamunit v0.0.4, available now on June 24, 2024. This release focuses on keeping your testing infrastructure secure and up-to-date with the latest dependency versions.

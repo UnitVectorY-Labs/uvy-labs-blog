@@ -2,7 +2,7 @@
 layout: post
 title: "hellorest v1.1.3: Infrastructure Updates and Dependency Modernization"
 date: 2025-10-14 01:36:54 -0500
-tags: [hellorest, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["hellorest", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 hellorest v1.1.3 was released on October 14, 2025, bringing a focused set of infrastructure updates that keep the project's build toolchain modern and secure. While this release doesn't introduce new API features, it represents the maintainers' commitment to proactive dependency management and operational excellence.

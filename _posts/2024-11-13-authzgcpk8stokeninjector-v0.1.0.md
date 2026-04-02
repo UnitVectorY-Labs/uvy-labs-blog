@@ -2,7 +2,7 @@
 layout: post
 title: Introducing authzgcpk8stokeninjector v0.1.0 - GCP Identity Token Injection for Kubernetes
 date: 2024-11-13 09:00:00 -0500
-tags: [authzgcpk8stokeninjector, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the launch of `authzgcpk8stokeninjector` v0.1.0, a new open-source tool that brings passwordless authentication from Kubernetes workloads to Google Cloud Platform services. Released on November 13, 2024, this initial release introduces a gRPC-based ExtAuthz service designed to seamlessly inject GCP identity tokens into HTTP requests running in any Kubernetes environment.

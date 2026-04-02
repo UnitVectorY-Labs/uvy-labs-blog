@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing yamlequal: A Lightweight Go Library for YAML Semantic Equality"
 date: 2025-02-26 02:20:54 -0500
-tags: [yamlequal, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["yamlequal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the first public release of yamlequal (v0.0.1), a lightweight Go library for verifying the semantic equality of YAML files. Published on February 26, 2025, this initial release brings a simple yet powerful solution to developers who need to compare YAML content without getting tripped up by formatting differences or key ordering.

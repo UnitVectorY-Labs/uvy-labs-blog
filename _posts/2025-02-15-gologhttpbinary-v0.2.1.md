@@ -2,7 +2,7 @@
 layout: post
 title: "gologhttpbinary v0.2.1: Improved Build Reliability with Static Linking"
 date: 2025-02-15 16:16:21 -0500
-tags: [gologhttpbinary, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gologhttpbinary", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

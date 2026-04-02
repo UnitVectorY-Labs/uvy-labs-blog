@@ -2,7 +2,7 @@
 layout: post
 title: LockboxKMS v0.3.4 Released
 date: 2025-11-22 09:00:00 -0500
-tags: [lockboxkms, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A Steady Step Forward in Maintenance

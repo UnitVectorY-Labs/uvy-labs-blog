@@ -2,7 +2,7 @@
 layout: post
 title: "gcpvalidate v0.1.1: Fixing Vertex AI Model Name Validation"
 date: 2026-01-01 14:25:00 -0500
-tags: [gcpvalidate, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gcpvalidate", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 Released on January 1, 2026, gcpvalidate v0.1.1 delivers a focused fix that makes the library more accurate for real-world Vertex AI usage. This update ensures that model names containing periods—like Google's own `gemini-2.5-flash`—now validate correctly instead of being incorrectly rejected.

@@ -2,7 +2,7 @@
 layout: post
 title: "ghprmerge v0.2.1: Real-Time Feedback for Bulk Merge Operations"
 date: 2026-03-14 09:17:35 -0500
-tags: [ghprmerge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghprmerge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of **ghprmerge v0.2.1**, a targeted enhancement that improves visibility during bulk merge and rebase operations. Released on March 14, 2026, this update addresses a key user experience concern: knowing what's happening while your merge jobs run.

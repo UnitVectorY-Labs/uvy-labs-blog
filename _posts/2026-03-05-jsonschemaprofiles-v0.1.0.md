@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing jsonschemaprofiles v0.1.0: Validate JSON Schemas for LLM Provider Structured Outputs"
 date: 2026-03-05 02:21:10 -0500
-tags: [jsonschemaprofiles, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonschemaprofiles", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the launch of jsonschemaprofiles v0.1.0, released on March 5, 2026. This is the first available version of a Go library and CLI tool that solves a critical challenge for developers working with large language models: validating JSON Schemas against provider-specific structured output requirements.

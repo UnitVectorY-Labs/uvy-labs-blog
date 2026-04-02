@@ -2,7 +2,7 @@
 layout: post
 title: "LockboxKMS v0.3.3 Released: Maintenance Update with Security Enhancements"
 date: 2025-10-15 09:00:00 -0500
-tags: [lockboxkms, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 LockboxKMS v0.3.3 was released on October 15, 2025, bringing important security updates and dependency maintenance to this simple web interface for encrypting data with Google Cloud KMS.

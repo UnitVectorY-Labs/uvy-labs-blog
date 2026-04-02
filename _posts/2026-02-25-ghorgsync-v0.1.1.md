@@ -2,7 +2,7 @@
 layout: post
 title: "ghorgsync v0.1.1: Faster Cloning with Clone-Only Mode"
 date: 2026-02-25 09:00:00 -0500
-tags: [ghorgsync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghorgsync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of **ghorgsync v0.1.1**, dropping just two days after our initial launch. This quick update introduces a new clone-only mode designed for developers who need to grab newly added organization repositories without waiting through a full synchronization cycle.

@@ -2,7 +2,7 @@
 layout: post
 title: "simplegoogleidtoken v0.0.5 Released: Improved Reliability and Better Error Handling"
 date: 2024-11-18 21:17:00 -0500
-tags: [simplegoogleidtoken, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["simplegoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of **simplegoogleidtoken v0.0.5**, now available on GitHub! This maintenance release, published on November 18, 2024, brings important improvements to error handling and reliability when exchanging Google Cloud Service Account credentials for Google ID tokens.

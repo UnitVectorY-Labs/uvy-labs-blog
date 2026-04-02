@@ -2,7 +2,7 @@
 layout: post
 title: "firestoreproto2json v0.0.2 - Usability and Documentation Release"
 date: 2024-03-08 02:27:29 -0500
-tags: [firestoreproto2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of firestoreproto2json v0.0.2, published on March 8, 2024. This release focuses on dramatically improving the developer experience with comprehensive documentation, practical examples, and expanded test coverage—making it easier than ever to convert Firestore Protocol Buffer documents to JSON in your Cloud Functions.

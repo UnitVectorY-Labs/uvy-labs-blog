@@ -2,7 +2,7 @@
 layout: post
 title: YAMLtecture v0.2.2 – Security Updates and Dependency Refresh
 date: 2025-11-22 00:00:00 -0500
-tags: [YAMLtecture, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["yamltecture", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 YAMLtecture v0.2.2 was released on November 22, 2025, bringing important security updates and dependency refreshes to help keep your architecture visualization tool secure and up-to-date.

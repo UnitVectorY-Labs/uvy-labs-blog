@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing firestoreproto2json v0.0.1 - Convert Firestore Protocol Buffers to JSON"
 date: 2024-02-29 02:07:30 -0500
-tags: [firestoreproto2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Announcing firestoreproto2json v0.0.1

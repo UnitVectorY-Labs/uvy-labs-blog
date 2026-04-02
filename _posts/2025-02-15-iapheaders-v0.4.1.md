@@ -2,7 +2,7 @@
 layout: post
 title: "iapheaders v0.4.1 Released: Go Runtime Update"
 date: 2025-02-15 09:00:00 -0500
-tags: [iapheaders, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 On February 15, 2025, we released iapheaders v0.4.1, a maintenance update that keeps the project running on the latest Go runtime.

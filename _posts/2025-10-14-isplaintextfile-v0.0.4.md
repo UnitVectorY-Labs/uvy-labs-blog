@@ -2,7 +2,7 @@
 layout: post
 title: "isplaintextfile v0.0.4 Released: Keeping Dependencies Current"
 date: 2025-10-14 00:00:00 -0500
-tags: [isplaintextfile, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["isplaintextfile", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 October 14, 2025 marks the release of isplaintextfile v0.0.4, a maintenance release focused on keeping the project's dependencies and infrastructure up to date. While this version doesn't introduce new features or changes to the library's API, it ensures compatibility with the latest Go toolchain (1.25.2) and modernized CI/CD workflows.

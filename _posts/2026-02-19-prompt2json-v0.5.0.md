@@ -2,7 +2,7 @@
 layout: post
 title: "prompt2json v0.5.0: OpenAI Provider Attachment Support Now Available"
 date: 2026-02-18 19:19:00 -0500
-tags: [prompt2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing Multimodal Support Across All Providers

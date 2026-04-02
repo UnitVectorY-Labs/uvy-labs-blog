@@ -2,7 +2,7 @@
 layout: post
 title: "goenvecho v1.1.1: Improved Container Compatibility with Statically Linked Binaries"
 date: 2025-02-15 09:00:00 -0500
-tags: [goenvecho, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["goenvecho", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 Released on February 15, 2025, goenvecho v1.1.1 brings important infrastructure improvements that make deploying this handy debugging tool more reliable across container environments.

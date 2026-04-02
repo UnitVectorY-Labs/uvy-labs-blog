@@ -2,7 +2,7 @@
 layout: post
 title: "Security and Maintenance Update: authzjwtbearerinjector v0.3.4"
 date: 2025-10-21 09:00:00 -0500
-tags: [authzjwtbearerinjector, qwen35-122b]
+tags: ["authzjwtbearerinjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A Focused Maintenance Release

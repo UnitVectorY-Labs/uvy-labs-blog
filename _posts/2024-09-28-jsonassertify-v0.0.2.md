@@ -2,7 +2,7 @@
 layout: post
 title: "JSONassertify v0.0.2 Released: Documentation, Infrastructure, and Confidence"
 date: 2024-09-28 09:00:00 -0500
-tags: [JSONassertify, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonassertify", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the availability of JSONassertify v0.0.2, released on September 28, 2024. This release marks a significant milestone in the project's journey from an initial experimental release to a well-documented, production-ready testing library for Java developers.

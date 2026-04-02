@@ -2,7 +2,7 @@
 layout: post
 title: hellorest v1.2.0 Released
 date: 2025-12-26 20:00:20 -0500
-tags: [hellorest, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["hellorest", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of hellorest v1.2.0, published on December 26, 2025. This update brings important security improvements and runtime enhancements to the minimal Go REST API container that developers rely on for testing deployments and configurations.

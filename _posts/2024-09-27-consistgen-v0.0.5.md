@@ -2,7 +2,7 @@
 layout: post
 title: "consistgen v0.0.5 Released"
 date: 2024-09-27 00:44:00 -0500
-tags: [consistgen, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

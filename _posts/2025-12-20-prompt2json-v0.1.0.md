@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing prompt2json v0.1.0: LLM-Powered JSON Generation for Shell Workflows"
 date: 2025-12-20 20:04:02 -0500
-tags: [prompt2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 Today we're excited to announce the launch of `prompt2json` v0.1.0, a Unix-style command-line tool that transforms natural language prompts into schema-validated JSON output. Released on December 20, 2025, this initial release brings production-ready capabilities for integrating LLM-powered data extraction directly into shell scripts and automation pipelines.

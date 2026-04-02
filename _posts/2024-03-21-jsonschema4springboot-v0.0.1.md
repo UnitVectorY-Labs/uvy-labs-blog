@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing jsonschema4springboot v0.0.1: JSON Schema Validation for Spring Boot 3"
 date: 2024-03-21 02:10:38 -0500
-tags: [jsonschema4springboot, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the initial release of **jsonschema4springboot** (v0.0.1), a new Spring Boot 3 library that brings JSON Schema validation to your REST APIs through simple annotations. Published on March 21, 2024, this library enables developers to enforce strict JSON input validation without writing custom validators.

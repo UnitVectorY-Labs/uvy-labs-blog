@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing mcp-acronym-lookup: Your AI Assistant's New Dictionary for Acronyms"
 date: 2025-05-12 10:49:00 -0500
-tags: [mcp-acronym-lookup, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-acronym-lookup", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 Today we're excited to announce the initial public release of **mcp-acronym-lookup** (v0.1.0), a lightweight MCP server that brings instant acronym clarity to your AI workflows. Released on May 12, 2025, this tool solves a common pain point for teams working with domain-specific terminology: helping AI assistants quickly look up the meanings of acronyms and initialisms.

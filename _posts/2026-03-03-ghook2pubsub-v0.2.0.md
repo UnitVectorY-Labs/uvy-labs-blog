@@ -2,7 +2,7 @@
 layout: post
 title: "ghook2pubsub v0.2.0: Introducing Payload Compression for Pub/Sub"
 date: 2026-03-03 01:35:00 -0500
-tags: [ghook2pubsub, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghook2pubsub", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ghook2pubsub v0.2.0 was released on March 3, 2026, bringing a highly requested capability to reduce your Google Cloud Pub/Sub costs: **optional payload compression**. This feature release enables users to compress webhook payloads before publishing them to Pub/Sub, with flexible algorithm choices and configuration options—all without breaking existing deployments.

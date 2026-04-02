@@ -2,7 +2,7 @@
 layout: post
 title: "firestoreproto2json v0.0.5 Released"
 date: 2024-09-28 09:00:00 -0500
-tags: [firestoreproto2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Maintaining Excellence: firestoreproto2json v0.0.5 Now Available

@@ -2,7 +2,7 @@
 layout: post
 title: "Firestore Batch Incrementer v0.1.3 Released"
 date: 2025-11-22 16:11:27 -0500
-tags: [firestore-batch-incrementer, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestore-batch-incrementer", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

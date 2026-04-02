@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-graphql-forge v0.7.0: Modernizing Transport and Configuration"
 date: 2025-08-17 19:23:32 -0500
-tags: [mcp-graphql-forge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing v0.7.0

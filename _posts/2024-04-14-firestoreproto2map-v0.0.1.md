@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing firestoreproto2map v0.0.1: Converting Firestore Protocol Buffers to Java Maps"
 date: 2024-04-14 14:16:36 -0500
-tags: [firestoreproto2map, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2map", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Welcome to firestoreproto2map

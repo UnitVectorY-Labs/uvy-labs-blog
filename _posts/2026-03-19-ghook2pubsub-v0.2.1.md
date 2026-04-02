@@ -2,7 +2,7 @@
 layout: post
 title: "ghook2pubsub v0.2.1: Keeping Your Infrastructure Current"
 date: 2026-03-19 22:45:36 -0500
-tags: [ghook2pubsub, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghook2pubsub", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Intro

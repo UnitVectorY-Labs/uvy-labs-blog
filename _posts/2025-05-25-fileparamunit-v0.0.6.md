@@ -2,7 +2,7 @@
 layout: post
 title: "FileParamUnit v0.0.6 Release"
 date: 2025-05-25 19:14:00 -0500
-tags: [fileparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["fileparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing gcpvalidate v0.1.0: Client-Side Validation for Google Cloud Resource Identifiers"
 date: 2026-01-01 09:00:00 -0500
-tags: [gcpvalidate, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gcpvalidate", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the launch of **gcpvalidate v0.1.0**, our new Go library for client-side syntactic validation of Google Cloud resource identifiers. Released on January 1, 2026, this initial release gives developers a lightweight, dependency-free way to validate GCP identifiers before making API calls.

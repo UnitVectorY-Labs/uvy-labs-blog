@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-acronym-lookup v0.2.0: Streamlined HTTP Transport and Enhanced Tool Annotations"
 date: 2025-08-12 02:15:18 -0500
-tags: [mcp-acronym-lookup, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-acronym-lookup", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of mcp-acronym-lookup v0.2.0, published on August 12, 2025. This release represents a significant evolution in how your AI agents connect to the acronym lookup service, bringing improved protocol support and better integration with Model Context Protocol clients.

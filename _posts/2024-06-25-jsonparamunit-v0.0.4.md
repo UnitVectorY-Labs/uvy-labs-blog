@@ -2,7 +2,7 @@
 layout: post
 title: "jsonparamunit v0.0.4 Released: Security Updates and Build Improvements"
 date: 2024-06-25 09:00:00 -0500
-tags: [jsonparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing jsonparamunit v0.0.4

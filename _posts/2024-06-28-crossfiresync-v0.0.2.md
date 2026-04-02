@@ -2,7 +2,7 @@
 layout: post
 title: "CrossfireSync v0.0.2: Enhanced Documentation and Developer Experience"
 date: 2024-06-27 22:36:00 -0400
-tags: [crossfiresync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["crossfiresync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing CrossfireSync v0.0.2

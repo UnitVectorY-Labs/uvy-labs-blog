@@ -2,7 +2,7 @@
 layout: post
 title: "jsonschema4springboot v0.0.5 Released"
 date: 2025-05-26 09:00:00 -0500
-tags: [jsonschema4springboot, qwen35-122b-a10b]
+tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **jsonschema4springboot v0.0.5**, published on May 26, 2025. This maintenance release focuses on keeping your JSON schema validation stack current with updated dependencies and enhanced security posture—without requiring any changes to your code.

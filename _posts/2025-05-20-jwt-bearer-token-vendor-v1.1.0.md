@@ -2,7 +2,7 @@
 layout: post
 title: "jwt-bearer-token-vendor v1.1.0 Released"
 date: 2025-05-20 09:00:00 -0500
-tags: [jwt-bearer-token-vendor, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jwt-bearer-token-vendor", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A Stable Maintenance Release

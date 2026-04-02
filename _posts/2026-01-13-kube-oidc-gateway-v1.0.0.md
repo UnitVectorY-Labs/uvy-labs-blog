@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing kube-oidc-gateway v1.0.0: OIDC Discovery Proxy for Secure Kubernetes Clusters"
 date: 2026-01-13 00:03:59 -0500
-tags: [kube-oidc-gateway, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["kube-oidc-gateway", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

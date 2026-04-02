@@ -2,7 +2,7 @@
 layout: post
 title: "goenvecho v1.1.0 Release"
 date: 2025-01-26 12:47:08 -0500
-tags: [goenvecho, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["goenvecho", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 On January 26, 2025, we released goenvecho v1.1.0, a streamlined update that aligns the project with Go module best practices while maintaining full backward compatibility for container and API users.

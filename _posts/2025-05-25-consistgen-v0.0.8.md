@@ -2,7 +2,7 @@
 layout: post
 title: "ConsistGen v0.0.8: Active Maintenance Release"
 date: 2025-05-25 19:38:34 -0500
-tags: [consistgen, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

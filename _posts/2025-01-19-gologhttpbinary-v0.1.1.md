@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing gologhttpbinary v0.1.1 - A Maintenance Release with Security Enhancements"
 date: 2025-01-19 09:00:00 -0500
-tags: [gologhttpbinary, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["gologhttpbinary", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

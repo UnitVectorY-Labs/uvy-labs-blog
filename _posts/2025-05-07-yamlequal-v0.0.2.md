@@ -2,7 +2,7 @@
 layout: post
 title: "yamlequal v0.0.2: Infrastructure and Documentation Improvements"
 date: 2025-05-07 22:58:08 -0500
-tags: [yamlequal, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["yamlequal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of yamlequal v0.0.2, published on May 7, 2025. This release focuses on strengthening the project's infrastructure and improving documentation for a better developer experience.

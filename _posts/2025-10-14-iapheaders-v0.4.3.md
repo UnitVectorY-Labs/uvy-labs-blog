@@ -2,7 +2,7 @@
 layout: post
 title: "iapheaders v0.4.3 Release: Infrastructure Updates and Go Runtime Modernization"
 date: 2025-10-14 09:00:00 -0500
-tags: [iapheaders, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

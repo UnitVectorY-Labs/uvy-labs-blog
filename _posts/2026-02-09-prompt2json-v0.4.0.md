@@ -2,7 +2,7 @@
 layout: post
 title: "prompt2json v0.4.0 — Improved Version Reporting and Reliability Updates"
 date: 2026-02-09 03:04:32 -0500
-tags: [prompt2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

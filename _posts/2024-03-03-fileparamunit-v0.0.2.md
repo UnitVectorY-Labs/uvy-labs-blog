@@ -2,7 +2,7 @@
 layout: post
 title: "fileparamunit v0.0.2 Release - Quality First Approach"
 date: 2024-03-03 16:21:58 -0500
-tags: [fileparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["fileparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing v0.0.2

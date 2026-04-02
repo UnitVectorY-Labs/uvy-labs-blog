@@ -2,7 +2,7 @@
 layout: post
 title: "authzjwtbearerinjector v0.2.1 Released: Security Enhancements and Dependency Updates"
 date: 2025-01-02 22:57:42 -0500
-tags: [authzjwtbearerinjector, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["authzjwtbearerinjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

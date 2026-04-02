@@ -2,7 +2,7 @@
 layout: post
 title: "bulkfilepr v0.2.3 Released - Security Updates and Go 1.26 Support"
 date: 2026-02-25 01:34:46 -0500
-tags: [bulkfilepr, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["bulkfilepr", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of bulkfilepr v0.2.3, a maintenance release that strengthens the project's security posture and updates its build infrastructure. Released on February 25, 2026, this version focuses on supply chain hardening while maintaining full compatibility with existing installations.

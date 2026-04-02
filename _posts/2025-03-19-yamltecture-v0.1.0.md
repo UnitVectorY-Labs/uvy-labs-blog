@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing YAMLtecture v0.1.0: Define Your Architecture in YAML, Visualize with Mermaid"
 date: 2025-03-19 09:00:00 -0500
-tags: [YAMLtecture, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["yamltecture", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the initial release of **YAMLtecture** (v0.1.0), a lightweight CLI tool that transforms how architects define and visualize system architectures.

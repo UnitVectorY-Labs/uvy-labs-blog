@@ -2,7 +2,7 @@
 layout: post
 title: CrossfireSync v0.0.6 Maintenance Release
 date: 2025-05-26 09:00:00 -0500
-tags: [crossfiresync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["crossfiresync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 CrossfireSync v0.0.6 was released on May 26, 2025, marking a focused maintenance update for this Java library that enables real-time Firestore synchronization across GCP regions using Pub/Sub. This release continues the project's commitment to stability and security through comprehensive dependency updates.

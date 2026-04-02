@@ -2,7 +2,7 @@
 layout: post
 title: "hellorest v1.1.2 Released: Infrastructure Refinements and Go 1.24.3"
 date: 2025-05-07 22:57:00 -0000
-tags: [hellorest, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["hellorest", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

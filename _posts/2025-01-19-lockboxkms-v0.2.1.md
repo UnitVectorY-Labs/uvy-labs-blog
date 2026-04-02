@@ -2,7 +2,7 @@
 layout: post
 title: "LockboxKMS v0.2.1 Released: Security Hardening and Dependency Updates"
 date: 2025-01-19 09:00:00 -0500
-tags: [lockboxkms, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 LockboxKMS v0.2.1 is now available! Released on January 19, 2025, this update brings important security improvements and keeps your encryption service running on the latest patched dependencies.

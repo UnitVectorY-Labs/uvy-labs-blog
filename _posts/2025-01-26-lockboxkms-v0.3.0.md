@@ -2,7 +2,7 @@
 layout: post
 title: LockboxKMS v0.3.0 Release
 date: 2025-01-26 13:44:42 -0500
-tags: [lockboxkms, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 LockboxKMS v0.3.0 was released on January 26, 2025. This maintenance release focuses on code hygiene and module path standardization, preparing the project for future improvements while maintaining full compatibility for Docker-deployed users.

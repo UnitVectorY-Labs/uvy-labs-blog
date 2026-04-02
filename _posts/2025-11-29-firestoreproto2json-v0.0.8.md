@@ -2,7 +2,7 @@
 layout: post
 title: "FirestoreProto2JSON v0.0.8 Released"
 date: 2025-11-29 14:40:13 -0500
-tags: [firestoreproto2json, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 FirestoreProto2JSON version 0.0.8 was released on November 29, 2025. This maintenance release keeps your library dependencies current while maintaining full backward compatibility with previous versions.

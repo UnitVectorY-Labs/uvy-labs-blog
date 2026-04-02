@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing isplaintextfile v0.0.1: A Lightweight Go Library for Plaintext Detection"
 date: 2025-02-12 00:23:05 -0500
-tags: [isplaintextfile, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["isplaintextfile", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing isplaintextfile

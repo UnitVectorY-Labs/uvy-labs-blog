@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing CrossFireSync: Real-Time Firestore Replication Across GCP Regions"
 date: 2024-04-16 01:06:36 -0500
-tags: [crossfiresync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["crossfiresync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing CrossFireSync

@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing gcpidentitytokenportal v0.1.0"
 date: 2024-11-10 14:32:00 -0000
-tags: [gcpidentitytokenportal, qwen35-122b-a10b-gguf]
+tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the launch of **gcpidentitytokenportal**, now available in its initial release (v0.1.0)!

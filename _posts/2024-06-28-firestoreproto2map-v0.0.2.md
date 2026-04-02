@@ -2,7 +2,7 @@
 layout: post
 title: "firestoreproto2map v0.0.2 Released"
 date: 2024-06-28 02:05:00 -0500
-tags: [firestoreproto2map, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["firestoreproto2map", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 FirestoreProto2Map v0.0.2 is now available, bringing important dependency updates and documentation improvements to this Java helper library for working with Firestore Protocol Buffers in Cloud Functions.

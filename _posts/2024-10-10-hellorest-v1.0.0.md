@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing hellorest v1.0.0: Your Minimal Go REST API for Testing"
 date: 2024-10-10 18:30:31 -0400
-tags: [hellorest, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["hellorest", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the first release of **hellorest** (v1.0.0), published on October 10, 2024. This minimal Go-based REST API provides an elegantly simple solution for validating deployment setups and testing networking configurations.

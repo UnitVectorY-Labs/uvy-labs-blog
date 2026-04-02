@@ -2,7 +2,7 @@
 layout: post
 title: Introducing jwt-bearer-token-vendor v1.0.0 - Secure OAuth 2.0 Authentication for GitHub Actions
 date: 2024-09-16 00:32:00 -0500
-tags: [jwt-bearer-token-vendor, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jwt-bearer-token-vendor", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Bridging GitHub OIDC and External APIs

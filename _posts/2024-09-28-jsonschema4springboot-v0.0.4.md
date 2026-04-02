@@ -2,7 +2,7 @@
 layout: post
 title: "jsonschema4springboot v0.0.4 Released"
 date: 2024-09-28 01:50:38 -0500
-tags: [jsonschema4springboot, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of **jsonschema4springboot v0.0.4**, published on September 28, 2024. This maintenance release delivers important updates to the underlying JSON schema validation engine, bringing bug fixes and security improvements to Spring Boot 3 developers who rely on declarative JSON validation in their APIs.

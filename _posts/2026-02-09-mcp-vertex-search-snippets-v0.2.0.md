@@ -2,7 +2,7 @@
 layout: post
 title: "mcp-vertex-search-snippets v0.2.0: Stable API Integration and Version Reporting Improvements"
 date: 2026-02-09 03:05:26 -0500
-tags: [mcp-vertex-search-snippets, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["mcp-vertex-search-snippets", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

@@ -2,7 +2,7 @@
 layout: post
 title: "hellorest v1.0.1: Strengthening Our Foundation"
 date: 2025-01-19 14:57:55 -0500
-tags: [hellorest, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["hellorest", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

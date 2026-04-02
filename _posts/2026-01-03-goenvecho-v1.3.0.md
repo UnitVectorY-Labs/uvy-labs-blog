@@ -2,7 +2,7 @@
 layout: post
 title: "goenvecho v1.3.0: Pretty-Printed JSON Output Now Available"
 date: 2026-01-03 18:06:29 -0500
-tags: [goenvecho, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["goenvecho", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 On January 3, 2026, goenvecho v1.3.0 was released with a focused quality-of-life improvement that many developers have been requesting: the ability to get pretty-printed JSON output when debugging environment variables.

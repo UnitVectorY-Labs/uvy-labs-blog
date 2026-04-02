@@ -2,7 +2,7 @@
 layout: post
 title: "kuberollouttrigger-action v0.2.0: Multiple Tags and Version Expansion"
 date: 2026-02-11 09:00:00 -0500
-tags: [kuberollouttrigger-action, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["kuberollouttrigger-action", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## A More Flexible Way to Trigger Container Rollouts

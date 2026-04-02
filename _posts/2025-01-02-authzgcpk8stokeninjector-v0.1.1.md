@@ -2,7 +2,7 @@
 layout: post
 title: "AuthZ GCP K8s Token Injector v0.1.1 Released"
 date: 2025-01-02 22:58:00 -0500
-tags: [authzgcpk8stokeninjector, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introduction

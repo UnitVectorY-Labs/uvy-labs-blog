@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing goenvecho v1.0.0: A Simple Tool for Container Environment Debugging"
 date: 2024-11-07 23:40:47 -0500
-tags: [goenvecho, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["goenvecho", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the initial release of **goenvecho**, a lightweight Go web application designed to help developers debug environment variable configuration in containerized environments. Released on November 7, 2024, this first version establishes the foundation for a simple yet powerful tool that responds to HTTP requests with a JSON payload containing all runtime environment variables.

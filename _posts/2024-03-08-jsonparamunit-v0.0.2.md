@@ -2,7 +2,7 @@
 layout: post
 title: "jsonparamunit v0.0.2 Release: Quality Refinements and Context Support"
 date: 2024-03-08 02:07:49 -0500
-tags: [jsonparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the availability of jsonparamunit v0.0.2, released on March 8, 2024. Just four days after our initial release, this iteration represents our commitment to rapid improvement and code quality from day one.

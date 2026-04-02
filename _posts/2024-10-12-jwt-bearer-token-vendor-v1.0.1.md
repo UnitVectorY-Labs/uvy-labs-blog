@@ -2,7 +2,7 @@
 layout: post
 title: jwt-bearer-token-vendor v1.0.1 Released
 date: 2024-10-12 00:54:51 -0500
-tags: [jwt-bearer-token-vendor, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jwt-bearer-token-vendor", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of jwt-bearer-token-vendor v1.0.1, published on October 12, 2024. This maintenance update strengthens the action's underlying dependencies while maintaining full backward compatibility with existing workflows.

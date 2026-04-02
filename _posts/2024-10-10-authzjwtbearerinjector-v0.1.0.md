@@ -2,7 +2,7 @@
 layout: post
 title: "Announcing authzjwtbearerinjector v0.1.0: OAuth 2.0 JWT-Bearer Authentication for Envoy Proxy"
 date: 2024-10-10 03:03:50 -0500
-tags: [authzjwtbearerinjector, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["authzjwtbearerinjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Introducing authzjwtbearerinjector

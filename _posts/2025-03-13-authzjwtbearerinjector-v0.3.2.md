@@ -2,7 +2,7 @@
 layout: post
 title: "authzjwtbearerinjector v0.3.2 Release"
 date: 2025-03-13 02:26:00 -0500
-tags: [authzjwtbearerinjector, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["authzjwtbearerinjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 ## Intro

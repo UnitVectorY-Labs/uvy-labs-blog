@@ -2,7 +2,7 @@
 layout: post
 title: "LockboxKMS v0.3.1 Release: Strengthening the Foundation"
 date: 2025-02-15 09:58:00 -0500
-tags: [lockboxkms, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 LockboxKMS v0.3.1 was released on February 15, 2025, marking an important infrastructure-focused update to the simple web interface for encrypting text using Google Cloud KMS. While this release doesn't introduce new user-facing features, it delivers meaningful improvements to deployment reliability and container portability that benefit all users.

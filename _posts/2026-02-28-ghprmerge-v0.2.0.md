@@ -2,7 +2,7 @@
 layout: post
 title: "ghprmerge v0.2.0: A Visual Transformation"
 date: 2026-03-17 09:00:00 -0500
-tags: [ghprmerge, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["ghprmerge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're excited to announce the release of ghprmerge v0.2.0, launched on February 28, 2026. This update brings a completely redesigned terminal experience that makes managing pull requests across your organization faster to scan and easier to understand at a glance.

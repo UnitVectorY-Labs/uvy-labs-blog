@@ -2,7 +2,7 @@
 layout: post
 title: "jsonparamunit v0.0.6: Dependency Maintenance Release"
 date: 2024-09-28 00:00:00 -0500
-tags: [jsonparamunit, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 jsonparamunit v0.0.6 was released on September 28, 2024. This release focuses on keeping your testing framework current with updated dependencies and improved build reliability.

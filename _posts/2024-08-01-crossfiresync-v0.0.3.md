@@ -2,7 +2,7 @@
 layout: post
 title: "CrossfireSync v0.0.3: Cloud Run Deployment Support"
 date: 2024-08-01 09:58:38 -0500
-tags: [crossfiresync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+tags: ["crossfiresync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
 ---
 
 We're pleased to announce the release of CrossfireSync v0.0.3, published on August 1, 2024. This update brings a significant deployment enhancement that gives users more flexibility in how they run their Firestore cross-region synchronization.
