@@ -3,6 +3,8 @@ description: >-
   The latest updates from UnitVectorY Labs.
 baseurl: "/"
 url: "https://blog.unitvectorylabs.com"
+timezone: America/New_York
+future: true
 
 author: Jared Hatfield
 github_username: UnitVectorY-Labs
