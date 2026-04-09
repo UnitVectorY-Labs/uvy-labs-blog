@@ -1,50 +1,34 @@
 ---
 layout: post
-title: YAMLtecture v0.2.2 – Security Updates and Dependency Refresh
-date: 2025-11-22 00:00:00 -0500
-tags: ["yamltecture", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "YAMLtecture v0.2.2: Keeping the Foundation Strong"
+date: 2025-11-22 09:00:00 -0500
+tags: ["yamltecture", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-YAMLtecture v0.2.2 was released on November 22, 2025, bringing important security updates and dependency refreshes to help keep your architecture visualization tool secure and up-to-date.
+Released on November 22, 2025, YAMLtecture v0.2.2 is a targeted maintenance release. While this update doesn't introduce new features, it focuses on the critical infrastructure that keeps the tool secure, stable, and compatible with the latest standards in the Go ecosystem.
 
-## What's New
+## What's new
 
-This maintenance release focuses on strengthening YAMLtecture's foundation with critical dependency updates:
+This release is primarily focused on dependency management and runtime updates:
 
-- **Go 1.25.4**: Updated to the latest Go runtime for improved performance and stability
-- **Security packages**: Bumped `golang.org/x/crypto` from 0.42.0 to 0.45.0, incorporating important security patches
-- **System libraries**: Updated `golang.org/x/term`, `golang.org/x/sys`, and `golang.org/x/text` to their latest versions
+*   **Go Runtime Upgrade:** The project has been updated to use Go version 1.25.4, ensuring we leverage the latest performance improvements and language refinements.
+*   **Security & Core Library Updates:** We've bumped several key dependencies, including `golang.org/x/crypto` to v0.45.0 and `golang.org/x/term` to v0.37.0, to incorporate the latest security patches and bug fixes.
+*   **CI/CD Refinements:** Our build pipelines have been modernized with updated GitHub Actions, including `actions/checkout` v6 and `astral-sh/setup-uv` v7, for faster and more reliable releases.
 
-All existing functionality remains unchanged. Your YAML architecture definitions and generated Mermaid diagrams work exactly as before.
+## Why it matters
 
-## Why It Matters
+Maintenance releases like v0.2.2 are the unsung heroes of software longevity. By updating the Go runtime and core cryptographic libraries, we ensure that YAMLtecture remains resilient against emerging security vulnerabilities and continues to run efficiently on modern hardware. These changes provide a more stable foundation for the features you rely on and ensure that the tool remains easy to maintain as the ecosystem evolves.
 
-While v0.2.2 doesn't introduce new features, it's an important release for users who prioritize security and reliability:
+## Getting the latest version
 
-- **Security first**: The cryptographic library updates include upstream security fixes that protect against potential vulnerabilities
-- **Modern toolchain**: Running on Go 1.25.4 ensures compatibility with the latest ecosystem improvements
-- **Zero disruption**: This is a drop-in replacement with no breaking changes—upgrade without worry
+Upgrading to v0.2.2 is straightforward. You can download the latest binaries directly from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/YAMLtecture/releases/tag/v0.2.2) or update your installation via Go:
 
-For teams using YAMLtecture to document critical system architectures, staying current with security patches is essential. This release makes that straightforward.
-
-## Get Started
-
-Ready to upgrade? Here's how:
-
-**Pre-built binaries** are available for all major platforms on the [GitHub Releases page](https://github.com/UnitVectorY-Labs/YAMLtecture/releases/tag/v0.2.2). Each asset includes SHA256 checksums for verification.
-
-**Install via Go:**
-```bash
-go install github.com/UnitVectorY-Labs/YAMLtecture@v0.2.2
-```
-
-**Or simply update to latest:**
 ```bash
 go install github.com/UnitVectorY-Labs/YAMLtecture@latest
 ```
 
-All v0.2.x releases maintain full backward compatibility. Your existing YAML files and workflows continue to work without modification.
+We encourage all users to upgrade to ensure they have the latest security updates.
 
----
+***
 
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Source: [UnitVectorY-Labs/YAMLtecture](https://github.com/UnitVectorY-Labs/YAMLtecture), Release v0.2.2, November 22, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. It was created on 2026-04-09 based on the [UnitVectorY-Labs/YAMLtecture](https://github.com/UnitVectorY-Labs/YAMLtecture) v0.2.2 release. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

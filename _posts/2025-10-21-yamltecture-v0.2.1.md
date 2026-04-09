@@ -1,69 +1,30 @@
 ---
 layout: post
-title: "YAMLtecture v0.2.1: Version Support and Infrastructure Improvements"
+title: "YAMLtecture v0.2.1: Strengthening the Foundation for Architecture-as-Code"
 date: 2025-10-21 09:00:00 -0500
-tags: ["yamltecture", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["yamltecture", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introducing YAMLtecture v0.2.1
+On October 21, 2025, we released YAMLtecture v0.2.1. This release is a maintenance and stability update focused on ensuring that your architecture-as-code workflows remain secure, stable, and up-to-date. While it doesn't introduce sweeping new features, it provides critical infrastructure improvements that solidify the tool's reliability.
 
-We're excited to announce the release of YAMLtecture v0.2.1, published on October 21, 2025. This release brings official version support to the CLI and continues our commitment to security and infrastructure stability.
+## What's new
 
-YAMLtecture is a lightweight Go-based CLI tool that helps architects generate Mermaid diagrams and other outputs from YAML-defined system architectures. Version 0.2.1 focuses on maturing the project's infrastructure while adding essential user-facing capabilities.
+- **CLI Versioning**: You can now check your installed version easily using the `yamltecture --version` flag.
+- **Enhanced Reliability**: We've significantly expanded our test suite, particularly for complex link conditions (using 'and'/'or' logic) and folder loading, ensuring your architecture definitions are parsed exactly as intended.
+- **Modernized Core**: The tool has been updated to Go v1.25.3, along with several key dependency updates, bringing the latest security patches and performance improvements to the engine.
 
-## What's New
+## Why it matters
 
-### Version Support
-The most significant addition in v0.2.1 is official version support for the CLI. You can now verify your installation with a simple command:
-
-```bash
-YAMLtecture --version
-```
-
-This feature addresses a common need among users who want to confirm which version they have installed and ensure compatibility with documentation or support requests. The version information is injected at build time during release workflows, ensuring accuracy across all distributed binaries.
-
-### Enhanced Security Verification
-This release introduces build provenance attestations through GitHub Actions. When you download pre-compiled binaries from the release page, you now have access to cryptographic verification that confirms the artifact's origin and build process—a critical addition for enterprise environments with strict supply chain security requirements.
-
-## Why It Matters
-
-While v0.2.1 may appear as a maintenance release, it represents important maturation of the YAMLtecture project. The ability to check versions is fundamental infrastructure that every CLI tool needs, and its addition signals the project's growing maturity.
-
-The six-and-a-half-month development period between v0.2.0 and v0.2.1 focused heavily on:
-
-- **Security hygiene**: Regular updates to the Go runtime (through version 1.25.3) and dependencies ensure your installations benefit from the latest security patches
-- **Test coverage**: New test cases for complex query operations with 'and'/'or' conditions strengthen the reliability of link filtering features
-- **Platform support**: Pre-compiled binaries are available for seven platform and architecture combinations across Linux, macOS, and Windows
-
-This commitment to infrastructure quality means users can trust YAMLtecture as a stable tool for their architectural documentation workflows.
+For architects relying on YAMLtecture to visualize complex systems, precision is everything. By strengthening the validation of links and folder loading, we're reducing the risk of misrepresenting your system architecture. Additionally, the transition to the latest Go toolchain ensures that YAMLtecture remains compatible with modern environments and benefits from the latest language optimizations.
 
 ## Getting Started
 
-### Installation Options
-
-**Binary Download (Recommended)**
-Visit the [v0.2.1 release page](https://github.com/UnitVectorY-Labs/YAMLtecture/releases/tag/v0.2.1) to download pre-compiled binaries for your platform. Each archive includes checksum files for verification:
-
-- Linux: amd64, 386, arm64
-- macOS: amd64, arm64 (Apple Silicon)
-- Windows: amd64, 386
-
-**Go Installation**
-If you have Go installed, you can install directly from the source:
+Upgrading to v0.2.1 is simple. You can download the latest pre-compiled binaries from our [GitHub Releases](https://github.com/UnitVectorY-Labs/YAMLtecture/releases/tag/v0.2.1) page or install directly via Go:
 
 ```bash
-go install github.com/UnitVectorY-Labs/YAMLtecture@v0.2.1
+go install github.com/UnitVectorY-Labs/YAMLtecture@latest
 ```
-
-### Upgrade Notes
-Upgrading from v0.2.0 is seamless—there are no breaking changes in this release. The new `--version` flag is purely additive and doesn't affect existing functionality.
-
-## Looking Forward
-
-Version 0.2.1 lays important groundwork for future development. With version tracking in place and security infrastructure matured, the project is well-positioned for continued feature development while maintaining the reliability that architects depend on for their documentation workflows.
-
-We appreciate the community's engagement with YAMLtecture. Whether you're using it to visualize microservices architectures, document cloud infrastructure, or create system diagrams for technical specifications, your feedback drives our priorities.
 
 ---
 
-*This post was AI-generated by unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M on March 17, 2026, based on the v0.2.1 release of [YAMLtecture](https://github.com/UnitVectorY-Labs/YAMLtecture). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. It was created on 2026-04-09 based on the [UnitVectorY-Labs/YAMLtecture](https://github.com/UnitVectorY-Labs/YAMLtecture) repository and the [v0.2.1 release](https://github.com/UnitVectorY-Labs/YAMLtecture/releases/tag/v0.2.1). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

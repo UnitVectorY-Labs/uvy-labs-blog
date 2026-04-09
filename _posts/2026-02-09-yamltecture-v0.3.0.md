@@ -1,57 +1,35 @@
 ---
 layout: post
-title: YAMLtecture v0.3.0 - Stability and Polish
-date: 2026-02-09 03:05:56 -0500
-tags: ["yamltecture", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "YAMLtecture v0.3.0: Enhancing Stability and Precision"
+date: 2026-02-09 09:00:00 -0500
+tags: ["yamltecture", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introducing YAMLtecture v0.3.0
+Released on February 9, 2026, YAMLtecture v0.3.0 is a dedicated maintenance update focused on refining the tool's internal stability and ensuring a more reliable experience for application architects. While this release doesn't introduce sprawling new features, it brings critical polish to the core infrastructure that powers your architecture definitions.
 
-Released on February 9, 2026, YAMLtecture v0.3.0 is a stability-focused release that delivers an important user-facing improvement alongside routine maintenance updates. This release ensures version information displays correctly for all installation methods and maintains full backward compatibility with previous versions.
+## What's new
 
-YAMLtecture is a lightweight CLI tool for application architects to generate outputs—including Mermaid diagrams—from YAML-defined system architectures. Version 0.3.0 continues the project's commitment to reliable, version-controlled infrastructure tooling.
+The standout improvement in this version is the overhaul of the version reporting mechanism. Previously, some users encountered a "dev" version string even when using official release binaries. We've resolved this by integrating Go's build information directly into the versioning logic. Now, when you run the `--version` flag, you'll get the precise release version of the binary you're using, eliminating ambiguity.
 
-## What's New
+Under the hood, we've also modernized the engine:
+- **Toolchain Upgrade**: Moved to Go 1.25.7 for improved performance and security.
+- **Dependency Refresh**: Updated key libraries including `validator` and `x/term` to their latest stable versions.
+- **CI/CD Optimization**: Refined our build workflows and updated GitHub Actions runners to ensure faster and more reliable releases.
 
-### Accurate Version Display
-The headline improvement in v0.3.0 addresses version reporting for source installations. Running `YAMLtecture --version` now correctly displays the actual release version (e.g., "v0.3.0") instead of "dev" when installed via `go install`. This change improves debugging and support interactions by providing accurate version information in CLI output.
+## Why it matters
 
-### Documentation Updates
-The documentation site has been updated with the Just-the-Docs theme v0.12.0, bringing styling improvements and enhancements to the online documentation experience.
+For architects who rely on YAMLtecture to maintain version-controlled system definitions, stability is paramount. By updating the Go toolchain and core dependencies, we are ensuring that the tool remains secure and compatible with modern environments. The fix to version reporting may seem small, but it is essential for teams managing multiple environments and versions of their tooling, providing the certainty needed for reproducible architecture generation.
 
-### Security and Dependency Updates
-This release includes important security patches and dependency updates:
-- `golang.org/x/term`: Updated from 0.37.0 through 0.39.0
-- `github.com/go-playground/validator/v10`: Updated from 10.28.0 through 10.30.1
-- GitHub Actions workflows updated to latest versions for improved CI/CD reliability
+## Getting started with v0.3.0
 
-## Why It Matters
+Upgrading to v0.3.0 is seamless, as this release is fully backward compatible with all YAML configurations created for v0.2.2.
 
-While v0.3.0 may appear as a maintenance release on the surface, the version display fix addresses a real usability issue for developers who prefer installing tools via `go install`. Previously, these users had no quick way to confirm which version they were running—now it's immediate and accurate.
+You can get the latest version by downloading the pre-compiled binaries for macOS, Linux, or Windows from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/YAMLtecture/releases/tag/v0.3.0), or by installing directly from source using Go:
 
-The backward-compatible nature of this release means you can upgrade with confidence. All existing YAML configuration files continue to work exactly as before, making this a safe update for production environments.
-
-For teams relying on YAMLtecture to document and visualize their system architectures, the stability improvements and security updates provide peace of mind while maintaining the familiar workflow you depend on.
-
-## Get Started
-
-### Download Pre-compiled Binaries
-Choose the asset that matches your platform from the [v0.3.0 GitHub Release](https://github.com/UnitVectorY-Labs/YAMLtecture/releases/tag/v0.3.0):
-
-- macOS: `darwin-amd64` or `darwin-arm64`
-- Linux: `linux-amd64`, `linux-arm64`, or `linux-386`
-- Windows: `windows-amd64.zip` or `windows-386.zip`
-
-Each asset includes SHA256 and MD5 checksums for verification.
-
-### Install via Go
 ```bash
-go install github.com/UnitVectorY-Labs/YAMLtecture@v0.3.0
+go install github.com/UnitVectorY-Labs/YAMLtecture@latest
 ```
 
-### Upgrade Considerations
-No breaking changes in this release. Simply download the new binaries or reinstall via `go install` to get the version display fix and updated dependencies.
+***
 
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Source: [UnitVectorY-Labs/YAMLtecture](https://github.com/UnitVectorY-Labs/YAMLtecture), Release v0.3.0, published February 9, 2026. Generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was based on the [YAMLtecture](https://github.com/UnitVectorY-Labs/YAMLtecture) repository, specifically release [v0.3.0](https://github.com/UnitVectorY-Labs/YAMLtecture/releases/tag/v0.3.0), and generated on April 9, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
