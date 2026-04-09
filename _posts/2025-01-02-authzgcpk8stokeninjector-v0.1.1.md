@@ -1,60 +1,32 @@
 ---
 layout: post
-title: "AuthZ GCP K8s Token Injector v0.1.1 Released"
-date: 2025-01-02 22:58:00 -0500
-tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "authzgcpk8stokeninjector v0.1.1: Maintenance and Stability Update"
+date: 2025-01-02 09:00:00 -0500
+tags: ["authzgcpk8stokeninjector", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on January 2, 2025, version v0.1.1 of `authzgcpk8stokeninjector` is a maintenance release dedicated to enhancing the stability and security of our External Authorization service. This update ensures the project remains aligned with the latest upstream dependencies and language standards.
 
-On January 2, 2025, we released version 0.1.1 of AuthZ GCP K8s Token Injector—a security-focused maintenance update that strengthens the build pipeline and ensures all dependencies remain current.
+## What's new
 
-This release maintains the core functionality you rely on while introducing important security improvements to our CI/CD workflows and updating critical dependencies including gRPC to version 1.69.2.
+This release focuses on under-the-hood improvements to keep the service robust:
 
-## What's New
+- **Dependency Updates**: We have updated key libraries, including `google.golang.org/grpc` (to v1.69.2) and `github.com/envoyproxy/go-control-plane` (to v0.13.2), ensuring the service benefits from the latest bug fixes and performance improvements.
+- **Go Toolchain Upgrade**: The project has been updated to Go 1.23.4, bringing in the latest language optimizations and security patches.
+- **CI/CD Enhancements**: We've refined our automation workflows and updated our build provenance tooling to improve the reliability of our release process.
 
-### Security Enhancements
+## Why it matters
 
-This release prioritizes supply chain security with several workflow improvements:
+While this release doesn't introduce new features, these updates are critical for production environments. By keeping gRPC and Envoy control plane dependencies current, we reduce the risk of security vulnerabilities and improve the overall reliability of token injection in Kubernetes. The move to Go 1.23.4 ensures the service is running on a modern, supported runtime.
 
-- **Credential Hardening:** All GitHub Actions workflows now include `persist-credentials: false`, following industry best practices to reduce credential exposure risks in build artifacts
-- **Automated Security Auditing:** A new zizmor workflow continuously scans our GitHub Actions for security vulnerabilities, running on every push, pull request, and scheduled weekly scans
-- **Artifact Attestation Update:** Upgraded from v1 to v2 for improved provenance tracking and supply chain security
+## Getting Started
 
-### Dependency Updates
+Users can upgrade to v0.1.1 by pulling the latest Docker image from the GitHub Container Registry:
 
-We've kept dependencies current with several important updates:
+`ghcr.io/unitvectory-labs/authzgcpk8stokeninjector:v0.1.1`
 
-- **Go 1.23.4:** Updated from 1.23, including bug fixes and improvements
-- **gRPC 1.69.2:** Upgraded from 1.68.0 through multiple intermediate versions, bringing performance improvements and bug fixes
-- **Protocol Buffers v1.35.2:** Major version bump with new features
-- Various indirect dependencies updated for security and stability
-
-### Documentation Improvements
-
-- Added a release badge to the README, making it easier for users to quickly identify the latest version
-
-## Why It Matters
-
-This update demonstrates our commitment to security without disrupting your deployments. The changes in v0.1.1 are entirely backend-focused—no application code, configuration, or API changes were made. You can upgrade with confidence knowing that:
-
-- Your existing environment variables and configurations remain valid
-- The gRPC endpoint continues listening on port 50051 by default
-- Token caching behavior is unchanged
-- No redeployment procedures beyond updating the container image are required
-
-For teams running this in production, this release ensures you benefit from the latest security patches in gRPC and other dependencies while benefiting from a more secure build pipeline.
-
-## Upgrade Instructions
-
-Upgrading to v0.1.1 is straightforward. Pull the latest Docker image:
-
-```
-ghcr.io/unitvectory-labs/authzgcpk8stokeninjector:v0.1.1
-```
-
-No configuration changes are needed. Simply update your container image tag and redeploy.
+As there are no breaking changes, this is a drop-in replacement for previous versions.
 
 ---
 
-*This post was AI-generated using unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M on January 2, 2025. Source repository: [UnitVectorY-Labs/authzgcpk8stokeninjector](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector). Release: [v0.1.1](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector/releases/tag/v0.1.1). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on April 9, 2026, based on the [authzgcpk8stokeninjector](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector) repository and the [v0.1.1 release](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector/releases/tag/v0.1.1). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

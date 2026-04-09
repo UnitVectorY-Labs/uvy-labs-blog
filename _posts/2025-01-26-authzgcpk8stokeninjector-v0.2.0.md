@@ -1,70 +1,31 @@
 ---
 layout: post
-title: "authzgcpk8stokeninjector v0.2.0 Release"
+title: "authzgcpk8stokeninjector v0.2.0: Streamlining Our Foundation"
 date: 2025-01-26 09:00:00 -0500
-tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["authzgcpk8stokeninjector", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on January 26, 2025, authzgcpk8stokeninjector v0.2.0 is a maintenance update focused on the architectural health of the project. While this release doesn't introduce new functional features, it brings the project into alignment with industry standards for Go development.
 
-We're pleased to announce the release of authzgcpk8stokeninjector v0.2.0, available now on [GitHub](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector/releases/tag/v0.2.0). Released on January 26, 2025, this update brings an important structural improvement that makes the project properly consumable as a Go module dependency.
+## What's new
 
-For users familiar with authzgcpk8stokeninjector—the gRPC ExtAuthz service that injects GCP identity tokens into Envoy Proxy requests in Kubernetes environments—this release ensures the project is now correctly structured for versioning and import within the Go ecosystem.
+The primary change in this release is the update of the Go module path. The module has been renamed from `authzgcpk8stokeninjector` to `github.com/UnitVectorY-Labs/authzgcpk8stokeninjector`.
 
-## What's New
+## Why it matters
 
-### Proper Go Module Path
+Standardizing the module path is a critical step for any growing Go project. By aligning the module name with its GitHub repository location, we ensure that the project is easily discoverable, importable, and maintainable by the wider community. This change follows the standard Go module naming conventions, reducing friction for developers who wish to integrate or contribute to the project.
 
-The primary change in v0.2.0 is the update of the Go module path from an incomplete local declaration to the full GitHub repository structure: `github.com/UnitVectorY-Labs/authzgcpk8stokeninjector`. This correction enables:
+## Upgrade and Installation
 
-- **Proper Go module resolution**: The project can now be imported and versioned correctly within the Go dependency management system
-- **Semantic import paths**: Developers can now use standard Go import statements with full repository path specification
-- **Better ecosystem integration**: The module is now properly discoverable via `pkg.go.dev` and other Go tooling
+For the vast majority of our users who deploy authzgcpk8stokeninjector via Docker images, this release requires no action and introduces no breaking changes to configuration or API behavior.
 
-### New Contributor Welcome
+If you are a developer using this repository as a Go module in your own project, please update your import paths to use the new fully qualified name: `github.com/UnitVectorY-Labs/authzgcpk8stokeninjector`.
 
-This release marks the first contribution from [@JaredHatfield](https://github.com/JaredHatfield), who submitted the pull request to correct the module path. Welcome to the project!
+***
 
-## Why It Matters
-
-### For Container Users
-
-If you're using authzgcpk8stokeninjector as a Docker sidecar container in your Kubernetes deployments, this release is a seamless drop-in upgrade. No configuration changes are required—simply pull the updated image:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/authzgcpk8stokeninjector:v0.2.0
-```
-
-### For Go Module Consumers
-
-For developers importing authzgcpk8stokeninjector as a Go module dependency, this fix is essential. Update your `go.mod` file:
-
-```
-require github.com/UnitVectorY-Labs/authzgcpk8stokeninjector v0.2.0
-```
-
-And update import statements throughout your codebase from:
-- `authzgcpk8stokeninjector/internal/cache` → `github.com/UnitVectorY-Labs/authzgcpk8stokeninjector/internal/cache`
-- `authzgcpk8stokeninjector/internal/token` → `github.com/UnitVectorY-Labs/authzgcpk8stokeninjector/internal/token`
-
-This change makes proper Go module versioning and dependency management possible for the project.
-
-## Getting Started
-
-The authzgcpk8stokeninjector service requires the following environment variables to operate:
-
-| Variable | Description |
-|----------|-------------|
-| `K8S_TOKEN_PATH` | Path to Kubernetes service account token |
-| `PROJECT_NUMBER` | GCP Project Number |
-| `WORKLOAD_IDENTITY_POOL` | Workload Identity Pool name |
-| `WORKLOAD_PROVIDER` | Workload Identity Provider name |
-| `SERVICE_ACCOUNT_EMAIL` | Email of GCP service account |
-
-Optional variables include `PORT` (defaults to 50051) and `DEBUG` for verbose logging.
-
-For complete installation and configuration details, see the [repository documentation](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector).
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Original release date: January 26, 2025. Repository: [UnitVectorY-Labs/authzgcpk8stokeninjector](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+This post was AI-generated.
+Model used: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+Repository: [UnitVectorY-Labs/authzgcpk8stokeninjector](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector)
+Release: [v0.2.0](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector/releases/tag/v0.2.0)
+Date of generation: 2026-04-09
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

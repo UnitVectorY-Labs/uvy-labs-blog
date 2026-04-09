@@ -1,66 +1,51 @@
 ---
 layout: post
-title: Introducing authzgcpk8stokeninjector v0.1.0 - GCP Identity Token Injection for Kubernetes
+title: "Introducing authzgcpk8stokeninjector: Seamless GCP Identity Token Injection for Envoy"
 date: 2024-11-13 09:00:00 -0500
-tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["authzgcpk8stokeninjector", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the launch of `authzgcpk8stokeninjector` v0.1.0, a new open-source tool that brings passwordless authentication from Kubernetes workloads to Google Cloud Platform services. Released on November 13, 2024, this initial release introduces a gRPC-based ExtAuthz service designed to seamlessly inject GCP identity tokens into HTTP requests running in any Kubernetes environment.
+We are excited to announce the launch of `authzgcpk8stokeninjector`, released on November 13, 2024. This new tool simplifies how applications running in Kubernetes authenticate with GCP services by automating the injection of identity tokens directly within the networking layer.
 
-## What's New
+### What it does
 
-This v0.1.0 release marks the first public version of `authzgcpk8stokeninjector`, introducing several key capabilities:
+`authzgcpk8stokeninjector` is a gRPC-based Envoy External Authorization (`ext_authz`) service. Instead of requiring your application code to handle the complexities of GCP authentication, this service acts as a sidecar to Envoy Proxy.
 
-### GCP Identity Token Injection
+It leverages GCP Workload Identity Federation to perform a secure, two-step exchange: first transforming a Kubernetes service account token into a GCP access token via the Security Token Service (STS), and then generating a signed ID token for a specific target audience via the IAM credentials API. This token is then transparently injected into the `Authorization: Bearer` header of the request before it ever reaches your backend.
 
-The core functionality enables automatic injection of GCP identity tokens into requests passing through Envoy Proxy. This eliminates the need for managing service account keys or relying on GKE-specific features, working instead with any Kubernetes cluster through Workload Identity Federation.
+To ensure high performance and reliability, the service includes:
+- **Intelligent Caching:** Identity tokens are cached in memory on a per-audience basis.
+- **Proactive Refresh:** Tokens are automatically refreshed when they reach 75% of their lifespan, eliminating latency spikes caused by expired tokens.
+- **Concurrency Control:** Built-in locking prevents "thundering herd" scenarios, ensuring only one request triggers a token refresh for a given audience.
 
-### Per-Audience Token Caching
+### Why it matters
 
-Built-in intelligent token caching reduces load on GCP OAuth servers by:
-- Keying cache entries by target service audience
-- Reusing tokens until 75% of their lifetime has elapsed
-- Preventing unnecessary token renewal requests
+For developers and platform engineers, managing identity tokens can be a repetitive and error-prone task. By moving token acquisition to the infrastructure level:
 
-### Thread-Safe Token Retrieval
+- **Decoupled Authentication:** Your application code remains clean and focused on business logic, completely unaware of the underlying token exchange process.
+- **Enhanced Security:** By utilizing Workload Identity Federation, you eliminate the need to manage long-lived service account keys within your clusters.
+- **Standardized Identity:** It provides a consistent way to propagate identity across different services and audiences using Envoy's powerful routing metadata.
 
-The implementation uses a double-check locking pattern to ensure concurrent requests don't trigger redundant token fetches, maximizing efficiency during high-traffic periods.
+### Getting Started
 
-### Simple Configuration
+To integrate `authzgcpk8stokeninjector` into your environment, deploy it as a sidecar and configure your Envoy `ext_authz` filter to point to the service. 
 
-Deployment is straightforward with environment variable-based configuration. The service requires just six variables: paths to Kubernetes tokens, GCP project details, workload identity pool and provider names, and the target service account email. Optional debug logging and custom port settings provide flexibility for different environments.
+The service is configured via environment variables, including:
+- `K8S_TOKEN_PATH`: The location of the K8s service account token.
+- `PROJECT_NUMBER`, `WORKLOAD_IDENTITY_POOL`, and `WORKLOAD_PROVIDER`: Your GCP environment details.
+- `SERVICE_ACCOUNT_EMAIL`: The GCP service account to impersonate.
 
-### Multi-Platform Container Support
+You can specify the target audience for each route using Envoy route metadata:
 
-Pre-built container images are available for both `linux/amd64` and `linux/arm64` architectures, published to GitHub Container Registry at `ghcr.io/unitvectory-labs/authzgcpk8stokeninjector`. The distroless base image minimizes the attack surface for production deployments.
+```yaml
+metadata:
+  filter_metadata:
+    com.unitvectory.authzgcpk8stokeninjector:
+      audience: "https://your-backend-service.com"
+```
 
-## Why It Matters
+For more details, please visit the [GitHub repository](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector).
 
-Authenticating from Kubernetes to GCP services has traditionally required either running on GKE with Workload Identity, managing and rotating service account keys, or implementing custom OAuth flows. `authzgcpk8stokeninjector` solves this problem by leveraging GCP's Workload Identity Federation to enable passwordless authentication from any Kubernetes cluster.
+***
 
-The sidecar pattern—running alongside Envoy Proxy—provides a clean separation of concerns. Your application code doesn't need to handle token management; the injector service handles it transparently at the infrastructure level. This aligns with zero-trust security principles while keeping application logic simple.
-
-For teams already using Envoy as their service mesh or ingress proxy, adding this ExtAuthz service integrates naturally into existing deployments. The per-audience design means different backend services can receive tokens scoped appropriately for their needs.
-
-## Getting Started
-
-To deploy `authzgcpk8stokeninjector` v0.1.0:
-
-1. **Configure GCP Workload Identity Federation:** Create a workload identity pool and provider in GCP IAM, mapping them to your target service account.
-
-2. **Pull the container image:**
-   ```bash
-   docker pull ghcr.io/unitvectory-labs/authzgcpk8stokeninjector:v0.1.0
-   ```
-
-3. **Set environment variables** for your deployment, including the Kubernetes token path, GCP project number, workload identity pool and provider details, and service account email.
-
-4. **Configure Envoy Proxy** with the ExtAuthz filter pointing to the injector service on its gRPC port (default 50051).
-
-The [README](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector) includes complete configuration examples for Envoy setup and per-route audience configuration.
-
-This initial release is licensed under MIT, making it suitable for both internal and commercial use. We welcome contributions and feedback from the community as we continue to develop the project.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Research based on the [authzgcpk8stokeninjector](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector) v0.1.0 release published on November 13, 2024. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Generated on April 9, 2026, based on the v0.1.0 release of [authzgcpk8stokeninjector](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

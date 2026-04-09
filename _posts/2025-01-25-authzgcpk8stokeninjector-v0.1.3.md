@@ -1,58 +1,26 @@
 ---
 layout: post
-title: "authzgcpk8stokeninjector v0.1.3 Released"
-date: 2025-01-25 13:19:25 -0500
-tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "authzgcpk8stokeninjector v0.1.3: Maintenance and Stability Update"
+date: 2025-01-25 09:00:00 -0500
+tags: ["authzgcpk8stokeninjector", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on January 25, 2025, authzgcpk8stokeninjector v0.1.3 is a maintenance release dedicated to ensuring the long-term security and stability of the token injector. While it doesn't introduce new features, it provides critical updates to the underlying libraries that power the application.
 
-We're pleased to announce the availability of authzgcpk8stokeninjector v0.1.3, released on January 25, 2025. This maintenance release focuses on keeping your deployment secure and up-to-date with the latest dependency improvements.
+## What's new
 
-authzgcpk8stokeninjector is a gRPC-based ExtAuthz service for Envoy Proxy that injects Google Cloud Platform identity tokens into requests in Kubernetes environments. By running as a sidecar to Envoy Proxy, it handles JWT token requests from GCP using Workload Identity Federation and provides in-memory token caching to reduce overhead.
+This release focuses on updating core Go dependencies to their latest stable versions:
+- Updated `google.golang.org/grpc` to v1.70.0.
+- Updated `golang.org/x/net` to v0.33.0.
 
-## What's New
+## Why it matters
 
-Version 0.1.3 is a dependency maintenance release that incorporates important updates to core libraries:
+Staying current with networking and RPC libraries is essential for any cloud-native tool. By updating gRPC and the Go network package, v0.1.3 ensures that the token injector leverages the latest security patches, bug fixes, and performance optimizations. This reduces potential vulnerabilities and improves the reliability of token injection within your Kubernetes clusters.
 
-- **gRPC library updated** to v1.70.0, bringing bug fixes and performance improvements
-- **Network package updated** to golang.org/x/net v0.33.0 with security patches and parser improvements
-- Related system and text package updates for enhanced stability
+## Upgrade and Installation
 
-### Key Benefits from the Updates
-
-The gRPC library update delivers tangible improvements:
-
-- **Fixed deadlock scenarios** when using xDS management servers with the xds:/// scheme
-- **Better performance** for unary requests with improved memory handling
-- **Enhanced resilience** with automatic fallback to secondary management servers when the primary is unavailable
-
-## Why It Matters
-
-While this release doesn't introduce new features, it ensures your deployment benefits from:
-
-1. **Security patches** through updated network and system packages
-2. **Stability improvements** by incorporating bug fixes from the gRPC library
-3. **Better resource utilization** with performance optimizations in the transport layer
-
-This update is fully backward compatible for typical deployments. No configuration changes or migration steps are required.
-
-## Upgrade Instructions
-
-Upgrading to v0.1.3 is straightforward:
-
-```bash
-# Pull the new Docker image
-docker pull ghcr.io/unitvectory-labs/authzgcpk8stokeninjector:v0.1.3
-
-# Or use the latest tag if configured
-docker pull ghcr.io/unitvectory-labs/authzgcpk8stokeninjector:latest
-```
-
-For Kubernetes deployments, update your pod spec to reference the new image tag and redeploy your sidecar containers.
-
-That's it—no configuration changes needed. The updated dependencies take effect automatically on restart.
+To upgrade to v0.1.3, simply update the image tag in your deployment configuration to `v0.1.3` and restart your pods.
 
 ---
 
-*This post was AI-generated using unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M. For more details, visit the [GitHub repository](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector) or see the [v0.1.3 release notes](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector/releases/tag/v0.1.3). Generated on March 17, 2026 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on 2026-04-09 based on the [authzgcpk8stokeninjector](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector) repository and [release v0.1.3](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector/releases/tag/v0.1.3). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

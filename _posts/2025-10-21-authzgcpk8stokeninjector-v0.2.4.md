@@ -1,41 +1,31 @@
 ---
 layout: post
-title: "authzgcpk8stokeninjector v0.2.4 Released"
+title: "authzgcpk8stokeninjector v0.2.4: Maintenance and Stability Update"
 date: 2025-10-21 09:00:00 -0500
-tags: ["authzgcpk8stokeninjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["authzgcpk8stokeninjector", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the release of authzgcpk8stokeninjector v0.2.4, published on October 21, 2025. This maintenance release focuses on keeping your authorization service secure and up-to-date with the latest dependencies.
+On October 21, 2025, we released authzgcpk8stokeninjector v0.2.4. This version is a maintenance release focused on ensuring the long-term stability and security of the service by updating core dependencies and the underlying development toolchain.
 
-## What's New
+### What's new
 
-Version 0.2.4 is a focused maintenance update that strengthens the foundation of your ExtAuthz service without changing how it works. Key updates include:
+This release focuses on the "under-the-hood" health of the project. Key updates include:
 
-- **Go runtime upgrade**: Updated from Go 1.24.3 to Go 1.25.3, bringing performance improvements and the latest language features
-- **gRPC library updates**: Upgraded from version 1.72.0 to 1.76.0 for enhanced stability and security
-- **Envoy control plane update**: Bumped from 1.32.4 to 1.35.0, keeping your integration with Envoy Proxy current
-- **CI/CD infrastructure upgrades**: All GitHub Actions workflows updated to their latest major versions for improved build reliability
+*   **Core Library Upgrades**: We have updated the gRPC library to v1.76.0 and the Envoy control plane package to v1.35.0, ensuring better compatibility and performance.
+*   **Toolchain Updates**: The project has been updated to Go v1.25.3, leveraging the latest improvements in the Go language.
+*   **CI/CD Enhancements**: Our build and release pipelines have been modernized with the latest GitHub Actions for checkout, Go setup, build provenance, and security scanning.
+*   **Improved Transparency**: We've added a Go Report Card badge to the README to provide better visibility into the project's code quality.
 
-## Why It Matters
+### Why it matters
 
-This release prioritizes security and stability for existing deployments. By keeping core dependencies current, you benefit from upstream security patches and performance improvements without any disruption to your service.
+While this release doesn't introduce new features, these updates are critical for maintaining a secure and robust production environment. By keeping gRPC and Envoy libraries current, we minimize security risks and ensure the service continues to operate reliably as a sidecar in your Kubernetes clusters. The toolchain and CI/CD updates streamline our development process, allowing for faster and more reliable future releases.
 
-The updates to GitHub Actions—including code scanning (CodeQL v4), artifact attestation (v3), and dependency management—ensure that the build process itself remains secure and trustworthy.
+### Getting started
 
-## Upgrade Instructions
+This release is fully backward compatible with v0.2.3, and no configuration changes are required. To upgrade, simply pull the latest Docker image from the GitHub Container Registry:
 
-Upgrading to v0.2.4 is straightforward with no migration required:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/authzgcpk8stokeninjector:v0.2.4
-```
-
-Simply update your deployment manifests to reference the new version tag and restart the service. Your existing environment variable configuration remains fully compatible, and no changes to your Envoy ExtAuthz filter configuration are needed.
-
-## Get Started
-
-The container image is available at `ghcr.io/unitvectory-labs/authzgcpk8stokeninjector:v0.2.4`. For detailed configuration instructions, visit the [repository](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector).
+`ghcr.io/unitvectory-labs/authzgcpk8stokeninjector`
 
 ---
 
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Source: [authzgcpk8stokeninjector](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector) v0.2.4, released October 21, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the v0.2.4 release of the [authzgcpk8stokeninjector](https://github.com/UnitVectorY-Labs/authzgcpk8stokeninjector) repository released on 2025-10-21. Generated on 2026-04-09 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
