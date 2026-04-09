@@ -1,109 +1,50 @@
 ---
 layout: post
-title: Introducing JSONassertify v0.0.1 - A Modernized JSON Testing Library
+title: "Introducing JSONassertify: A Modernized, Maintained Fork of JSONassert"
 date: 2024-06-27 09:00:00 -0500
-tags: ["jsonassertify", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["jsonassertify", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introducing JSONassertify
+On June 27, 2024, we are excited to announce the launch of JSONassertify. JSONassertify is a modernization fork of the widely used JSONassert library, designed to provide developers with a secure, actively maintained alternative for JSON unit testing that remains compatible with Java 8.
 
-We're excited to announce the first official release of **JSONassertify v0.0.1**, launched on June 27, 2024. This marks the public debut of a modernized fork of the popular JSONassert library, rebuilt to address critical maintenance concerns while preserving the developer-friendly experience that made the original so beloved.
+## Why JSONassertify Matters
 
-JSONassertify simplifies JSON comparison in unit tests, making it easier than ever to validate REST API responses and JSON data structures with intuitive, string-based assertions.
+Many Java projects rely on JSONassert to simplify the testing of REST interfaces by comparing JSON structures logically rather than as literal strings. This prevents tests from becoming brittle when insignificant changes, such as element order, occur in the output.
 
----
+However, as the original library evolved, some updates introduced requirements for significantly newer Java versions, leaving developers on Java 8 without a maintained path forward. JSONassertify fills this critical gap. By targeting Java 8, it ensures that a vast ecosystem of applications can continue to use powerful JSON assertion tools without being forced into a premature or risky runtime upgrade. Beyond compatibility, JSONassertify prioritizes security by updating dependencies to address known vulnerabilities, providing peace of mind for production environments.
 
-## What's New
+## Key Features of JSONassertify
 
-As an initial release, JSONassertify brings several important modernization improvements while maintaining full API compatibility with JSONassert 1.5.1:
+JSONassertify provides the robust logical comparison capabilities that developers love about the original library, while introducing modern engineering standards:
 
-### Modernized Dependencies
-- **JSON Library Migration**: Transitioned from the unmaintained `android-json` library to the actively maintained `org.json:json` (version 20240303)
-- **JUnit 5 Upgrade**: Built on JUnit Jupiter API 5.10.2, replacing the legacy JUnit 4 framework
-- **Java 8 Support**: Minimum requirement raised from Java 6 to Java 8, ensuring compatibility with modern JVM environments
-
-### New Package Identity
-- **New groupId**: `com.unitvectory`
-- **New artifact**: `jsonassertify`
-- **New package**: `com.unitvectory.jsonassertify` (moved from `org.skyscreamer.jsonassert`)
-
-### Infrastructure Improvements
-- **GitHub Actions CI/CD**: Automated build, code scanning, and release workflows
-- **Security Updates**: All Maven plugins updated to modern versions with security fixes
-- **Dependency Management**: Configured Dependabot for ongoing automatic updates
-
-### Code Quality Enhancements
-- Added comprehensive JavaDoc documentation throughout the codebase
-- Improved code formatting and consistency
-- License header cleanup and proper attribution
-
----
-
-## Why It Matters
-
-JSONassertify was created in direct response to growing concerns about the original JSONassert project's maintenance status, particularly following JSONassert 1.5.2's unexpected requirement for Java 21. Our goal is simple: **modernize while maintaining backward compatibility**.
-
-For developers who rely on JSON assertion in their test suites, JSONassertify offers:
-
-- **Peace of Mind**: Active maintenance and modern dependency management
-- **Smoother Upgrades**: No need to rewrite existing tests—just update imports and dependencies
-- **Modern Tooling**: Built with current best practices and CI/CD automation
-- **Open Commitment**: Same Apache 2.0 license, same community spirit
-
-The core functionality remains unchanged: you still write beautiful, readable JSON test expectations like this:
-
-```java
-JSONObject data = getRESTData("/friends/367.json");
-String expected = "{friends:[{id:123,name:\"Corby Page\"},{id:456,name:\"Carter Page\"}]}";
-JSONAssert.assertEquals(expected, data, false);
-```
-
----
+- **Logical JSON Comparison:** Compare JSON structures based on content rather than string equality, allowing for flexible tests that ignore order or extra data in non-strict mode.
+- **Java 8 Compatibility:** Full support for Java 8, ensuring accessibility for a wide range of enterprise environments.
+- **Modernized Tooling:** The project is built with JUnit 5 for internal testing and integrated with GitHub Actions for a reliable, automated CI/CD pipeline.
+- **Secure Foundations:** Integrated Dependabot ensures that dependencies are kept up-to-date and security patches are applied promptly.
 
 ## Getting Started
 
-### Maven Dependency
+Since JSONassertify is a fork of JSONassert 1.5.1, it is designed to be a near drop-in replacement. To integrate JSONassertify into your project, follow these steps:
 
-Add this to your `pom.xml`:
+1. **Update Your Dependency:** Add the following to your `pom.xml`:
+   ```xml
+   <dependency>
+       <groupId>com.unitvectory</groupId>
+       <artifactId>jsonassertify</artifactId>
+       <version>0.0.1</version>
+       <scope>test</scope>
+   </dependency>
+   ```
+2. **Update Imports:** Replace all occurrences of `org.skyscreamer.jsonassert.*` with `com.unitvectory.jsonassertify.*`.
+3. **Review JSON Data:** Because JSONassertify uses the standard `org.json` library, please check your test data for duplicate keys. Unlike some previous implementations, `org.json` may throw an error when encountering duplicate keys, which encourages cleaner and more predictable data structures.
 
-```xml
-<dependency>
-    <groupId>com.unitvectory</groupId>
-    <artifactId>jsonassertify</artifactId>
-    <version>0.0.1</version>
-    <scope>test</scope>
-</dependency>
-```
+We invite you to adopt JSONassertify to make your JSON testing more resilient and your codebase more secure.
 
-### Migration from JSONassert
+***
 
-If you're migrating from the original JSONassert library, the process is straightforward:
-
-1. **Update your dependency**: Replace `org.skyscreamer:jsonassert` with `com.unitvectory:jsonassertify`
-2. **Update imports**: Change `import org.skyscreamer.jsonassert.JSONAssert;` to `import com.unitvectory.jsonassertify.JSONAssert;`
-
-That's it! Your existing test code should work without modification.
-
-### A Note on Breaking Changes
-
-One important difference to be aware of: the switch to `org.json` means that JSON with duplicate keys will now throw a parsing error (the original library would accept duplicates, using the most recent value). This edge case is uncommon in practice but worth noting if you encounter it.
-
----
-
-## What's Next
-
-JSONassertify v0.0.1 preserves all four comparison modes from the original library:
-- **STRICT**: Not extensible, strict array ordering
-- **LENIENT**: Extensible, non-strict array ordering (recommended default)
-- **NON_EXTENSIBLE**: Not extensible, non-strict array ordering
-- **STRICT_ORDER**: Extensible, strict array ordering
-
-We're aware of some limitations in non-strict array comparisons (mixed types and nested arrays) and plan to address these in future releases.
-
----
-
-## Transparency Note
-
-This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. The content is based on information from the JSONassertify v0.0.1 release published on June 27, 2024. For more details, visit the [JSONassertify repository](https://github.com/UnitVectorY-Labs/JSONassertify) or the [v0.0.1 release page](https://github.com/UnitVectorY-Labs/JSONassertify/releases/tag/v0.0.1).
-
-*Authored by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+This post was AI-generated.
+Model: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+Repository: [UnitVectorY-Labs/JSONassertify](https://github.com/UnitVectorY-Labs/JSONassertify)
+Release: v0.0.1
+Date of generation: 2026-04-09
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

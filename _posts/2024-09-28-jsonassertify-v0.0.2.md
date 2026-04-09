@@ -1,42 +1,30 @@
 ---
 layout: post
-title: "JSONassertify v0.0.2 Released: Documentation, Infrastructure, and Confidence"
+title: "Enhancing the Developer Experience: JSONassertify v0.0.2"
 date: 2024-09-28 09:00:00 -0500
-tags: ["jsonassertify", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["jsonassertify", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the availability of JSONassertify v0.0.2, released on September 28, 2024. This release marks a significant milestone in the project's journey from an initial experimental release to a well-documented, production-ready testing library for Java developers.
+Released on September 28, 2024, JSONassertify v0.0.2 focuses on empowering developers with comprehensive guidance and a more stable foundation. This maintenance release significantly improves the onboarding experience and ensures the library remains secure and up-to-date.
 
-## What's New
+## What's new
 
-While v0.0.2 doesn't introduce new API features or functionality changes to the core library, it delivers substantial improvements that make JSONassertify easier to adopt, use, and trust:
+The centerpiece of this release is a complete overhaul of the project documentation. We have transitioned from a single index page to a structured documentation suite designed to help you get the most out of the library:
 
-**Comprehensive Documentation**  
-For the first time, JSONassertify ships with complete documentation including a [cookbook](https://github.com/UnitVectorY-Labs/JSONassertify/tree/main/docs/cookbook.md) with practical assertion patterns and detailed [examples](https://github.com/UnitVectorY-Labs/JSONassertify/tree/main/docs/examples.md) showing how to replace verbose test code with concise JSON strings. The new "Just the Docs" static site provides a clean, navigable documentation experience.
+*   **The JSONassertify Cookbook**: A new, comprehensive guide that dives deep into the nuances of JSON comparison. It provides clear explanations of **Strict Mode** (where array order and extra fields are enforced) versus **Loose Mode** (which allows for reordering and ignores unexpected fields), and details the rules for handling complex, nested JSON structures.
+*   **Dedicated Examples**: A new examples page that showcases the library in action and explains how to interpret its intuitive error messages to debug failing tests faster.
+*   **Modernized Dependencies**: We've updated core dependencies to keep the project stable and secure, including bumps to `junit-jupiter-api` (v5.11.1) and `hamcrest` (v3.0), along with several Maven plugin updates.
+*   **Formal Identity**: The project name has been formally updated to "JSONassertify" within the project metadata to better reflect its identity as a modernized fork of the original JSONassert.
 
-**Official Project Status**  
-The "work in progress" disclaimer has been removed. JSONassertify is now officially active and production-ready, signaling confidence in the library's stability and API for testing REST interfaces and JSON output in unit tests.
+## Why it matters
 
-**Modernized Dependencies**  
-This release updates key dependencies to their latest versions:
-- JUnit 5 (5.10.2 → 5.11.1) for improved test support
-- Hamcrest (2.2 → 3.0) for enhanced assertion matchers
-- Maven plugins for better build performance and reliability
+For developers testing REST interfaces, the clarity of JSON assertions is critical. By providing a dedicated Cookbook and expanded examples, we've lowered the barrier to entry, making it easier for teams to implement robust tests without guessing how "loose" or "strict" comparisons will behave. 
 
-**Reliable Release Pipeline**  
-A new GitHub Actions workflow automates publishing to Maven Central with build provenance attestations, ensuring every release is reproducible and its origins verifiable for supply chain security.
+Additionally, the dependency updates ensure that your testing stack remains compatible with the latest versions of JUnit 5 and Hamcrest, reducing technical debt and improving the overall reliability of your build pipeline.
 
-## Why It Matters
+## Getting Started and Upgrading
 
-For teams adopting JSONassertify to simplify their JSON testing workflows, v0.0.2 removes the friction of onboarding. The new documentation means developers can quickly learn how to write cleaner tests without searching through sparse README files or inferring usage from scattered examples.
-
-The removal of the work-in-progress status is more than cosmetic—it signals that the library's core API has stabilized and teams can depend on JSONassertify for long-term maintenance without fear of breaking changes.
-
-The dependency updates ensure your test suite benefits from the latest security patches and improvements in JUnit 5 and Hamcrest, while the automated release pipeline means future versions will arrive more reliably and consistently.
-
-## Upgrade Instructions
-
-Upgrading to v0.0.2 is straightforward for existing v0.0.1 users—no code changes are required since the library API remains unchanged. Simply update your Maven dependency:
+If you are already using JSONassertify, upgrading to v0.0.2 is seamless as there are no breaking changes to the public API. Simply update the version in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -47,14 +35,8 @@ Upgrading to v0.0.2 is straightforward for existing v0.0.1 users—no code chang
 </dependency>
 ```
 
-**Note:** If your project has direct dependencies on Hamcrest, review the [Hamcrest 3.0 migration guide](https://github.com/hamcrest/JavaHamcrest/releases) as this release upgrades from version 2.2. Most users will not experience issues since JSONassertify's API is unchanged.
+We invite you to explore the new documentation to discover more efficient ways to assert your JSON responses.
 
-For teams migrating from the original JSONassert (skyscreamer), the upgrade path remains the same—swap the groupId and artifactId and update your imports from `org.skyscreamer.jsonassert.JSONAssert` to `com.unitvectory.jsonassertify.JSONAssert`.
+***
 
-## Get Started
-
-Explore the new documentation at the [JSONassertify docs](https://github.com/UnitVectorY-Labs/JSONassertify/tree/main/docs) to see how you can cut your JSON test code in half while improving readability. Download v0.0.2 from [Maven Central](https://central.sonatype.com/artifact/com.unitvectory/jsonassertify/0.0.2) or check out the source on [GitHub](https://github.com/UnitVectorY-Labs/JSONassertify).
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. The original release v0.0.2 was published on September 28, 2024. This post was generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Based on the release of JSONassertify v0.0.2 on 2024-09-28.*

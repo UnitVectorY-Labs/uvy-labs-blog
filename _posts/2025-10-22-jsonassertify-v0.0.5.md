@@ -1,66 +1,39 @@
 ---
 layout: post
-title: JSONassertify v0.0.5 Released
-date: 2025-10-21 20:51:10 -0400
-tags: ["jsonassertify", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "JSONassertify v0.0.5: Maintenance and Stability Update"
+date: 2025-10-22 09:00:00 -0500
+tags: ["jsonassertify", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on October 22, 2025, JSONassertify v0.0.5 is a maintenance update focused on enhancing the project's stability, security, and build infrastructure. While this release doesn't introduce new API features, it ensures that the library remains robust and compatible with the latest development tooling.
 
-We're pleased to announce the availability of JSONassertify v0.0.5, released on October 21, 2025. This maintenance release continues our commitment to keeping the JSONassertify library well-maintained with up-to-date build infrastructure and dependencies.
+## What's new
 
-JSONassertify simplifies JSON unit testing in Java applications by providing intuitive assertion syntax for comparing JSON structures. Whether you're testing REST API responses or validating configuration files, JSONassertify helps you write cleaner, more maintainable tests.
+This release primarily consists of essential updates to the project's dependencies and automation pipeline:
 
-## What's New
+- **Updated Test Framework**: JUnit Jupiter API has been bumped to version 5.13.4, ensuring a modern and stable testing environment.
+- **Build Tooling Enhancements**: Several core Maven plugins—including the compiler, surefire, javadoc, and GPG plugins—have been updated to their latest versions to improve build reliability.
+- **CI/CD Pipeline Upgrades**: The GitHub Actions workflows have been modernized, with updates to checkout, setup-java, and security scanning actions like CodeQL and Codecov.
 
-v0.0.5 is a maintenance-focused release that bundles automated dependency updates to keep your build infrastructure current. While there are no new features or API changes in this release, it ensures your development environment stays secure and compatible with the latest tooling.
+## Why it matters
 
-### Build Infrastructure Updates
+Regular maintenance of development dependencies is critical for any open-source project. By keeping our build tools and test frameworks up to date, we reduce the risk of security vulnerabilities in the build process and ensure that JSONassertify continues to integrate seamlessly into modern Java development workflows. These "under-the-hood" improvements provide a more stable foundation for future feature development.
 
-This release includes updates to several Maven plugins and GitHub Actions:
+## Upgrading to v0.0.5
 
-- **Maven Plugins**: Updated compiler, surefire, javadoc, GPG, and central publishing plugins to their latest versions
-- **JUnit Jupiter API**: Bumped from 5.12.2 to 5.13.4 for improved test framework support
-- **GitHub Actions**: Upgraded to actions/checkout v5, actions/setup-java v5, and CodeQL v4 for enhanced CI/CD reliability
+Upgrading to this version is straightforward. Update the version in your `pom.xml` as follows:
 
-All changes were processed through our automated Dependabot workflow, ensuring thorough testing before release.
-
-## Why It Matters
-
-Keeping your dependencies current is essential for maintaining a secure and efficient development workflow. While these updates primarily affect the build process rather than runtime behavior, they provide several benefits:
-
-- **Security**: Latest versions include patches for known vulnerabilities in build tools
-- **Compatibility**: Ensures compatibility with the latest Java versions and Maven features  
-- **Reliability**: Updated GitHub Actions provide improved CI/CD pipeline performance
-- **Support**: Active maintenance of dependencies ensures continued bug fixes and improvements
-
-For users of JSONassertify, v0.0.5 is a straightforward upgrade with no breaking changes. The library's API and behavior remain identical to v0.0.4.
-
-## Upgrade Instructions
-
-Upgrading to v0.0.5 is simple. Update your dependency configuration:
-
-**Maven:**
 ```xml
 <dependency>
-    <groupId>com.unitvectory</groupId>
-    <artifactId>jsonassertify</artifactId>
-    <version>0.0.5</version>
-    <scope>test</scope>
+  <groupId>com.unitvectory</groupId>
+  <artifactId>jsonassertify</artifactId>
+  <version>0.0.5</version>
+  <scope>test</scope>
 </dependency>
 ```
 
-**Gradle:**
-```groovy
-testImplementation 'com.unitvectory:jsonassertify:0.0.5'
-```
+As this is a maintenance release, there are no breaking changes, and v0.0.5 is a drop-in replacement for previous versions.
 
-No code changes are required. The release is fully backward compatible with v0.0.4 and earlier versions.
+***
 
-## Get Started
-
-If you're new to JSONassertify, check out our [README](https://github.com/UnitVectorY-Labs/JSONassertify) for quick start guides and examples. The library provides powerful JSON comparison capabilities with minimal boilerplate code.
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For more information, see the [JSONassertify v0.0.5 release](https://github.com/UnitVectorY-Labs/JSONassertify/releases/tag/v0.0.5) on GitHub. Written by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the [JSONassertify](https://github.com/UnitVectorY-Labs/JSONassertify) repository, release v0.0.5, and was generated on April 09, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
