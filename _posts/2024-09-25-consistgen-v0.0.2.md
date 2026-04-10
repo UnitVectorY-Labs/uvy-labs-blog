@@ -1,53 +1,28 @@
 ---
 layout: post
-title: "ConsistGen v0.0.2 Now Available"
-date: 2024-09-25 10:49:46 -0500
-tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Enhancing Test Predictability: Introducing Settable Providers in consistgen v0.0.2"
+date: 2024-09-25 09:00:00 -0500
+tags: ["consistgen", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the release of ConsistGen v0.0.2, published on September 25, 2024. This update brings enhanced testing flexibility to Java developers who rely on predictable data generation for their test cases.
+Released on September 25, 2024, consistgen v0.0.2 brings significant improvements to how developers handle unpredictable system outputs during testing. This update introduces "settable" implementations for time and UUID generation, providing the flexibility needed to simulate dynamic scenarios within a single test case.
 
-As a dependency injection library that wraps time, UUID, and random string generation, ConsistGen continues to simplify test automation by replacing unpredictable system calls with injectable interfaces. Version 0.0.2 marks the project's promotion to "Active" status, signaling its readiness for production use.
+## What's new
 
-## What's New
+This release introduces two key components to the library:
 
-### Settable Implementations for Time and UUID Generation
+- **Settable Epoch Time Provider**: The new `SettableEpochTimeProvider` allows you to define the epoch time in milliseconds at runtime. It also includes a convenient method to set time using seconds, making it easier to align with various API requirements.
+- **Settable UUID Generator**: With the `SettableUuidGenerator`, you can now specify exactly which UUID string should be returned whenever a new identifier is requested.
 
-The headline feature in v0.0.2 is the introduction of **SettableEpochTimeProvider** and **SettableUuidGenerator**. While previous versions offered static implementations with fixed values, these new classes let you change the returned values dynamically during test execution.
+## Why it matters
 
-This is particularly useful when your tests need to verify behavior across multiple time points or UUIDs without creating separate test fixtures for each scenario. You can now set an initial value, run part of your test, update the value mid-test, and continue verifying different behaviors—all with a single provider instance.
+While static providers are useful for returning a constant value, many complex test scenarios require the ability to change state. Whether you are simulating the passage of time to test a timeout or needing to rotate through different UUIDs to verify uniqueness handling, the ability to update these values at runtime is critical. 
 
-### Enhanced Documentation
+By using these settable implementations, you can move beyond simple fixed-value mocks and create more realistic, stateful test simulations without the overhead of constantly re-initializing your dependency injection container.
 
-We've significantly improved the documentation experience:
+## Getting Started
 
-- **Maven Central installation instructions** are now prominently featured in the README
-- A new **Implementations section** clearly lists all available implementations for each interface
-- **javadoc.io integration** provides quick access to generated API documentation
-- Project status badge updated from "Work In Progress" to "Active" with full green badges
-
-### Existing Implementations
-
-To recap the full set of available implementations in v0.0.2:
-
-| Interface | Available Implementations |
-|-----------|--------------------------|
-| `EpochTimeProvider` | `SystemEpochTimeProvider`, `StaticEpochTimeProvider`, `SettableEpochTimeProvider` |
-| `UuidGenerator` | `RandomUuidGenerator`, `StaticUuidGenerator`, `SettableUuidGenerator` |
-
-## Why It Matters
-
-Testing time-dependent or UUID-generating code has always been challenging. The traditional approaches—either accepting flaky tests or creating complex test doubles—both have drawbacks. ConsistGen solves this by wrapping these unpredictable operations behind simple interfaces that support dependency injection.
-
-With v0.0.2's settable implementations, you now have even more control. Consider a test scenario where you're validating an event-sourcing system: you might need to verify behavior at t=0, t=10 seconds, and t=60 seconds without mocking every single call. SettableEpochTimeProvider lets you advance time exactly when your test needs it to advance.
-
-The library's small footprint (just two new classes in this release) means there's minimal complexity added while the value gained is substantial. You maintain predictable test outcomes while reducing boilerplate setup code.
-
-## Get Started Upgrading
-
-### Maven Installation
-
-To add ConsistGen v0.0.2 to your project, update your `pom.xml`:
+Upgrading to v0.0.2 is straightforward. Update your `pom.xml` to use the latest version:
 
 ```xml
 <dependency>
@@ -57,29 +32,8 @@ To add ConsistGen v0.0.2 to your project, update your `pom.xml`:
 </dependency>
 ```
 
-### Upgrade Path
+We encourage all users of `consistgen` to adopt these settable providers to bring more precision and control to their test suites.
 
-If you're currently on v0.0.1, upgrading to v0.0.2 is straightforward—there are **no breaking changes**. All existing code will continue to work as before. You can adopt the new settable implementations at your own pace or ignore them entirely if static values suit your needs.
+***
 
-### Using the New Settable Providers
-
-Here's a quick example of how to use the new settable implementations:
-
-```java
-// Time provider that you can advance during tests
-SettableEpochTimeProvider timeProvider = new SettableEpochTimeProvider();
-timeProvider.setEpochTimeMilliseconds(1234567890L);
-
-// Later in your test, update the time
-timeProvider.setEpohTimeSeconds(10); // Now returns 10000 milliseconds
-```
-
-## Join the Project
-
-ConsistGen is open source under the Apache 2.0 license and lives on [GitHub](https://github.com/UnitVectorY-Labs/consistgen). Whether you're contributing code, reporting issues, or just trying it out, we'd love to hear from you.
-
-For full API documentation, check out the [javadoc.io pages](https://javadoc.io/doc/com.unitvectory/consistgen) for v0.0.2.
-
----
-
-*This release announcement was AI-generated using unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M. The original release v0.0.2 of the consistgen repository (UnitVectorY-Labs/consistgen) was published on September 25, 2024. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. It was generated on 2026-04-10 based on the [UnitVectorY-Labs/consistgen](https://github.com/UnitVectorY-Labs/consistgen) repository and the [v0.0.2 release](https://github.com/UnitVectorY-Labs/consistgen/releases/tag/v0.0.2). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

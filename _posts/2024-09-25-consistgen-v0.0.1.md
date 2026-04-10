@@ -1,59 +1,29 @@
 ---
 layout: post
-title: "Announcing ConsistGen v0.0.1: Testable Code Made Simple"
+title: "Introducing consistgen: Predictable Time and UUIDs for Java Testing"
 date: 2024-09-25 09:00:00 -0500
-tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["consistgen", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the launch of ConsistGen, a lightweight Java library that makes testing timestamp and UUID-dependent code significantly easier. Version 0.0.1 was released on September 25, 2024, marking the introduction of this new tool to the Java development community.
+Launched on September 25, 2024, consistgen is a lightweight Java library designed to bring determinism to your unit tests. By simplifying how applications handle timestamps and UUIDs, consistgen eliminates the flakiness often associated with unpredictable system values, allowing developers to write cleaner, more reliable assertions.
 
-## What's New
+## Core Capabilities
 
-ConsistGen v0.0.1 introduces the foundational capabilities of the library:
+consistgen provides a structured approach to handling unpredictable data through simple dependency injection:
 
-### Injectable Time and UUID Abstractions
+- **Predictable Epoch Time**: Through the `EpochTimeProvider` interface, you can use the `SystemEpochTimeProvider` for production and a `StaticEpochTimeProvider` for tests, allowing you to lock the system clock to a specific timestamp.
+- **Deterministic UUIDs**: The `UuidGenerator` interface allows you to swap the standard `RandomUuidGenerator` with a `StaticUuidGenerator` during testing, ensuring that the same UUID is generated every time.
+- **Minimalist Design**: Built for Java 17, the library is designed to be intentionally lightweight, providing a focused alternative to heavy mocking frameworks for these specific use cases.
 
-The release provides two simple interfaces that wrap common JDK calls:
+## Why it Matters
 
-- **`EpochTimeProvider`** - An interface for obtaining epoch time, replacing direct calls to `System.currentTimeMillis()`
-- **`UuidGenerator`** - An interface for generating UUID strings, replacing direct calls to `UUID.randomUUID()`
+Testing code that relies on `System.currentTimeMillis()` or `UUID.randomUUID()` is notoriously difficult. Developers often have to resort to complex mocking setups or "fuzzy" assertions that check if a value is "close enough" to the current time, which can lead to flaky tests and fragile build pipelines.
 
-### Production and Test Implementations
-
-For each interface, ConsistGen supplies ready-to-use implementations:
-
-| Interface | Production Use | Test Use |
-|-----------|----------------|----------|
-| EpochTimeProvider | `SystemEpochTimeProvider` (singleton) | `StaticEpochTimeProvider` (builder-pattern) |
-| UuidGenerator | `RandomUuidGenerator` (singleton) | `StaticUuidGenerator` (builder-pattern) |
-
-In production, you use the singleton implementations that delegate to the real JDK methods. In tests, you configure static providers with predictable values using a clean builder API:
-
-```java
-// Test setup with known values
-EpochTimeProvider timeProvider = StaticEpochTimeProvider.builder()
-    .epochTimeMilliseconds(1234567890L)
-    .build();
-UuidGenerator uuidGen = StaticUuidGenerator.builder()
-    .uuid("12345678-1234-5678-1234-567812345678")
-    .build();
-```
-
-### Dependency Injection Support
-
-ConsistGen is designed to work naturally with dependency injection. By injecting these providers into your classes, you eliminate the testing headaches that come from calling unpredictable system methods directly. Your code remains clean, and your tests become deterministic and reliable.
-
-## Why It Matters
-
-Testing code that depends on `System.currentTimeMillis()` or `UUID.randomUUID()` has long been a nuisance for Java developers. These calls return different values every time, making assertions brittle and tests flaky. While mocking frameworks can help, they're often overkill for such simple dependencies.
-
-ConsistGen solves this problem elegantly by providing minimal abstractions that follow the dependency injection pattern. The library has **no runtime dependencies**—Lombok is provided-scope only, and JUnit is test-scope only. This keeps your classpath clean while giving you a tested, reliable solution.
-
-The result? Tests that always pass with consistent expected values, production code that behaves normally, and no heavyweight mocking infrastructure required.
+By decoupling business logic from the system's clock and random number generator, consistgen makes your tests completely deterministic. When the inputs are predictable, your assertions become exact, your tests run faster, and your debugging process becomes significantly simpler.
 
 ## Getting Started
 
-ConsistGen v0.0.1 requires **Java 17 or higher** and is built with Maven. To add it to your project:
+To integrate consistgen into your project, ensure you are using **Java 17**. You can add the library to your Maven `pom.xml` with the following dependency:
 
 ```xml
 <dependency>
@@ -63,10 +33,8 @@ ConsistGen v0.0.1 requires **Java 17 or higher** and is built with Maven. To add
 </dependency>
 ```
 
-Once added, inject the providers into your classes and use them in place of direct JDK calls. The library is released under the **Apache License 2.0**, so you can use it freely in both open-source and commercial projects.
+Whether you are tired of fighting with timestamps in your test suite or want to ensure your UUID-based logic is rock solid, consistgen provides the simplest path to deterministic Java testing.
 
-For complete code examples and usage patterns, check out the full documentation on the [ConsistGen GitHub repository](https://github.com/UnitVectorY-Labs/consistgen).
+***
 
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It was created on behalf of [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) to document the v0.0.1 release of consistgen (published September 25, 2024).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Generated on April 10, 2026, based on the [UnitVectorY-Labs/consistgen](https://github.com/UnitVectorY-Labs/consistgen) repository and the [v0.0.1](https://github.com/UnitVectorY-Labs/consistgen/releases/tag/v0.0.1) release. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

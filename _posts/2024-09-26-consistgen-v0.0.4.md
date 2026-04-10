@@ -1,62 +1,27 @@
 ---
 layout: post
-title: "ConsistGen v0.0.4 Release Announcement"
-date: 2024-09-26 23:32:19 -0500
-tags: ["consistgen", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Consistgen v0.0.4: Refining API Consistency with the Builder Pattern"
+date: 2024-09-26 09:00:00 -0500
+tags: ["consistgen", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the release of ConsistGen v0.0.4, published on September 26, 2024. This release brings important consistency improvements to the library's API design while maintaining its core mission of providing predictable test data through dependency injection.
+Released on September 26, 2024, consistgen v0.0.4 is a maintenance update focused on enhancing the developer experience by bringing the library's API into closer alignment. This release streamlines how you handle predictable data in your tests, ensuring that the tools you use to eliminate randomness are themselves consistent and intuitive.
 
-## What's New
+## What's new
 
-### Builder Pattern for SettableUuidGenerator
+The centerpiece of this release is the modernization of the `SettableUuidGenerator`. To match the design patterns used across the rest of the library, we have transitioned from standard constructors to a robust builder pattern. 
 
-The headline change in v0.0.4 is the refactoring of `SettableUuidGenerator` to use the builder pattern. This brings it in line with other generators in the library, creating a more consistent and predictable developer experience across all ConsistGen components.
+In addition to the new instantiation method, the `SettableUuidGenerator` now features a sensible default. If a generator is initialized without a specific UUID, or if a null value is provided, it now automatically defaults to a zero-filled UUID (`00000000-0000-0000-0000-000000000000`), preventing unexpected null pointer exceptions in your test suites.
 
-**Before (v0.0.3):**
-```java
-SettableUuidGenerator generator = new SettableUuidGenerator();
-SettableUuidGenerator generator = new SettableUuidGenerator(customUuid);
-```
+## Why it matters
 
-**After (v0.0.4):**
-```java
-SettableUuidGenerator generator = SettableUuidGenerator.builder().build();
-SettableUuidGenerator generator = SettableUuidGenerator.builder().uuid(customUuid).build();
-```
+Consistency isn't just what `consistgen` provides for your data—it's how the library feels to use. By implementing the builder pattern for `SettableUuidGenerator`, we've reduced the cognitive load for developers. You no longer need to remember which constructor to use; the builder provides a clear, fluent API for configuration.
 
-### Improved Null Safety
+The introduction of a default UUID further strengthens the reliability of your tests, ensuring that your environment remains stable even when specific identifiers aren't explicitly provided.
 
-The new builder implementation includes enhanced null handling. If `null` is passed to the builder or setter, it now safely defaults to `"00000000-0000-0000-0000-000000000000"` rather than potentially causing unexpected behavior.
+## Upgrade and Installation
 
-### Community Growth
-
-This release marks the first contribution from @JaredHatfield to the repository, welcoming a new voice to the ConsistGen project.
-
-## Why It Matters
-
-Consistency in API design reduces cognitive load for developers working with multiple components. By aligning `SettableUuidGenerator` with the builder pattern already used by `StaticUuidGenerator`, `StaticEpochTimeProvider`, and other generators, v0.0.4 creates a more unified experience across the library.
-
-For teams writing tests that rely on ConsistGen's injectable test data providers, this change means one less pattern to remember and a more predictable interface when configuring test fixtures.
-
-## Upgrading to v0.0.4
-
-### Breaking Changes
-
-⚠️ **API Change Alert**: If your code directly instantiates `SettableUuidGenerator`, you'll need to update your construction pattern.
-
-**Migration steps:**
-
-1. Search your codebase for `new SettableUuidGenerator(`
-2. Replace with the builder pattern: `SettableUuidGenerator.builder()`
-3. Add `.build()` at the end of the construction chain
-4. If passing a UUID parameter, add `.uuid(yourUuid)` before `.build()`
-
-The `setUuid(String uuid)` method continues to work as before, now with improved null handling that resets to the default UUID when null is passed.
-
-### Installing v0.0.4
-
-Update your Maven dependency:
+To upgrade to v0.0.4, update your Maven dependency:
 
 ```xml
 <dependency>
@@ -66,10 +31,14 @@ Update your Maven dependency:
 </dependency>
 ```
 
-All other ConsistGen components (`RandomUuidGenerator`, `StaticUuidGenerator`, `EpochTimeProvider` implementations, and `StringProvider` implementations) remain unchanged and fully compatible with existing code.
+**Note on Breaking Changes:**
+Because we have replaced the constructors in `SettableUuidGenerator` with a builder, direct instantiation via `new SettableUuidGenerator()` will no longer work. Please migrate your code to use the builder:
 
----
+- **Old:** `new SettableUuidGenerator(uuid)`
+- **New:** `SettableUuidGenerator.builder().uuid(uuid).build()`
 
-As a pre-1.0 release, v0.0.4 reflects the library's ongoing maturation. While API changes may occur in future versions as ConsistGen evolves, this release focuses on improving the developer experience through consistent design patterns.
+For a default generator, use `SettableUuidGenerator.builder().build()`.
 
-**Transparency Note:** This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It references the ConsistGen repository (https://github.com/UnitVectorY-Labs/consistgen), release v0.0.4 (published September 26, 2024), and was authored by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+***
+
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Based on the [consistgen](https://github.com/UnitVectorY-Labs/consistgen) repository and [release v0.0.4](https://github.com/UnitVectorY-Labs/consistgen/releases/tag/v0.0.4) on 2026-04-10. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
