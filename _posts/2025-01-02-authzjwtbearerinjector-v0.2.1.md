@@ -1,51 +1,37 @@
 ---
 layout: post
-title: "authzjwtbearerinjector v0.2.1 Released: Security Enhancements and Dependency Updates"
-date: 2025-01-02 22:57:42 -0500
-tags: ["authzjwtbearerinjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "authzjwtbearerinjector v0.2.1: Maintenance and Stability"
+date: 2025-01-02 09:00:00 -0500
+tags: ["authzjwtbearerinjector", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+On January 2, 2025, we released authzjwtbearerinjector v0.2.1. This maintenance release focuses on keeping the project up-to-date with the latest Go runtime and core dependencies, ensuring long-term stability and security for your Envoy Proxy sidecar.
 
-On January 2, 2025, UnitVectorY-Labs released v0.2.1 of authzjwtbearerinjector. This maintenance release focuses on strengthening security posture through comprehensive dependency updates and enhanced supply chain protections, ensuring users benefit from the latest improvements in gRPC and related libraries.
+## What's new
 
-## What's New
+This release is primarily about technical hygiene and clarity:
 
-Release v0.2.1 brings important infrastructure updates without changing the core functionality users rely on:
+- **Go 1.23 Runtime**: The project has been updated to Go 1.23, bringing the latest performance improvements and language features to the service.
+- **Core Dependency Updates**: We have bumped critical dependencies, including `google.golang.org/grpc` to v1.69.2 and `go-control-plane` to v0.13.2.
+- **Clearer Configuration**: We've updated our documentation to explicitly mention that the service listens on port `50051` by default, making it easier for users to configure their Envoy `grpc_service` targets.
 
-**Security-Enhanced Dependencies**
-- Updated Go runtime from 1.23.2 to 1.23.4
-- Upgraded gRPC library through multiple versions (1.67.1 → 1.69.2) for improved stability and security
-- Enhanced protocol buffers support (v1.34.2 → v1.35.2)
-- Updated Envoy go-control-plane from v0.13.1 to v0.13.2
+## Why it matters
 
-**Supply Chain Security Improvements**
-- Added zizmor security scanning for GitHub Actions workflows, automatically checking for vulnerabilities in CI/CD configurations
-- Upgraded build provenance attestations to v2 for stronger artifact verification
-- Implemented `persist-credentials: false` across all workflows to prevent credential leakage
+While this is a maintenance release, these changes are vital for production environments. Updating the Go runtime and gRPC libraries ensures that the service remains secure and compatible with the broader ecosystem. Additionally, the documentation update reduces friction during setup, ensuring that developers can get their JWT bearer flow running quickly and correctly.
 
-**Documentation Refinements**
-- Corrected "GRPC" to proper "gRPC" capitalization throughout documentation
-- Explicitly documented the default gRPC port (50051) for easier configuration
+## Getting started
 
-## Why It Matters
+Upgrading to v0.2.1 is seamless as there are no breaking changes. You can simply pull the latest Docker image from GHCR:
 
-This release demonstrates a commitment to proactive security maintenance. While no new features were introduced, the updated dependencies include important security patches from the broader Go and gRPC ecosystems. For production deployments relying on authzjwtbearerinjector to handle JWT authentication flows with Envoy Proxy, staying current with these updates ensures your authorization layer benefits from the latest security improvements.
+`ghcr.io/unitvectory-labs/authzjwtbearerinjector`
 
-The addition of zizmor scanning means the project's own CI/CD infrastructure undergoes regular automated security review—a practice that indirectly benefits users by reducing supply chain risks.
+No configuration changes are required to benefit from these updates.
 
-## Upgrade Instructions
+***
 
-Upgrading to v0.2.1 is straightforward with no breaking changes or configuration modifications required:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/authzjwtbearerinjector:v0.2.1
-```
-
-Simply update your deployment to reference the new tag and restart the service. All existing YAML configurations, environment variables, and Envoy route metadata remain fully compatible.
-
-For new deployments, v0.2.1 is the recommended starting point. The service continues to run as a sidecar alongside Envoy Proxy on the default gRPC port 50051, providing JWT-bearer flow authentication for your backend services.
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For the complete release details, visit the [repository](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector) or the [v0.2.1 release page](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector/releases/tag/v0.2.1). Generated on March 17, 2026 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+This post was AI-generated.
+Model used: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+Repository: UnitVectorY-Labs/authzjwtbearerinjector
+Release: v0.2.1
+Date of generation: 2026-04-10
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

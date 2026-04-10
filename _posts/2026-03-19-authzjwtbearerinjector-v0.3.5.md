@@ -1,68 +1,35 @@
 ---
 layout: post
-title: "authzjwtbearerinjector v0.3.5 Released"
+title: "Hardening and Maintenance: authzjwtbearerinjector v0.3.5"
 date: 2026-03-19 09:00:00 -0500
-tags: ["authzjwtbearerinjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["authzjwtbearerinjector", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on March 19, 2026, authzjwtbearerinjector v0.3.5 is a maintenance release focused on strengthening the security posture and operational stability of the service. While this update doesn't introduce new functional features, it provides critical under-the-hood improvements that ensure the injector remains secure and performant when deployed as a sidecar to Envoy Proxy.
 
-Today, March 19, 2026, we're pleased to announce the release of **authzjwtbearerinjector v0.3.5**. This maintenance release builds on the strong foundation established in previous versions, delivering important infrastructure improvements and enhanced operational visibility for teams running this gRPC-based ExtAuthz service with Envoy Proxy.
+## What's new
 
-Five months after v0.3.4, this update focuses on keeping your deployment secure and up-to-date while introducing helpful new features that make day-to-day operations smoother.
+### Enhanced Container Security
+We have implemented several security hardening measures to reduce the attack surface of the service. The container now runs as a non-root user (UID 65532), following industry best practices for containerized workloads. Additionally, the runtime base image has been upgraded to Debian 13, ensuring that the environment benefits from the latest system-level security patches.
 
-## What's New
+### Better Operational Visibility
+To simplify deployment verification and troubleshooting, v0.3.5 introduces explicit version logging at startup. Operators can now immediately confirm the running version of the service through the logs, reducing ambiguity during rollouts and upgrades.
 
-### Version Visibility at Startup
+### Core Dependency Updates
+The service has been updated to leverage the latest stable versions of its core stack:
+- **Go Toolchain:** Upgraded to Go 1.26.1 for improved performance and stability.
+- **gRPC & Envoy:** Updated `google.golang.org/grpc` and the Envoy control plane libraries to their latest versions to ensure continued compatibility and reliability.
 
-You can now see exactly which version of authzjwtbearerinjector is running directly in the application logs. On startup, the service will log:
+## Why it matters
 
-```
-Starting authzjwtbearerinjector version <version>
-```
+For users of `authzjwtbearerinjector`, these changes translate to a more resilient and secure identity injection layer. By moving to a non-root execution model and updating the base OS, we significantly mitigate potential container escape risks and vulnerability windows. The dependency updates ensure that the service continues to operate efficiently within the evolving gRPC and Envoy ecosystems, while improved logging provides the transparency needed for production-grade observability.
 
-The version is injected at build time, making it easy to verify deployments and troubleshoot issues without needing to dig through container metadata or registry tags.
+## Getting started with v0.3.5
 
-### Enhanced Multi-Architecture Docker Support
+Upgrading to v0.3.5 is seamless, as there are no breaking changes to the API or configuration. To update your deployment, simply pull the latest image:
 
-Docker images now include proper support for multiple architectures. Whether you're running on standard x86_64 servers or ARM-based infrastructure like Apple Silicon or AWS Graviton processors, you'll get optimized builds that have been properly tested for your platform.
+`ghcr.io/unitvectory-labs/authzjwtbearerinjector:v0.3.5`
 
-### Security Hardening
+***
 
-This release includes important security improvements:
-
-- **Non-root container execution**: The Docker image now runs as a non-root user (UID 65532), following security best practices for containerized workloads
-- **Debian 13 base image**: Migration from Debian 12 to Debian 13 brings the latest security patches and updated system packages
-- **Updated dependencies**: Critical libraries including Envoy control plane, gRPC, and Google protobuf libraries have been updated to their latest versions
-
-## Why It Matters
-
-While v0.3.5 doesn't introduce new functional features, maintenance releases like this are essential for keeping your infrastructure secure and reliable. The dependency updates alone may include critical security patches that protect against newly discovered vulnerabilities.
-
-The version logging feature addresses a common operational need: quickly identifying which version is running across multiple environments. This becomes invaluable during incident response or when coordinating rollouts across staging and production systems.
-
-For teams deploying to heterogeneous infrastructure, the improved multi-architecture Docker builds ensure consistent performance and behavior regardless of your underlying hardware platform.
-
-## Upgrade and Installation
-
-Upgrading to v0.3.5 is straightforward and requires no configuration changes:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/authzjwtbearerinjector:v0.3.5
-```
-
-The new version maintains full backward compatibility with v0.3.4. Your existing configuration files, environment variables, and Envoy route metadata settings will continue to work exactly as before.
-
-### Deployment Verification
-
-After deploying v0.3.5, check your application logs for the startup message confirming the version:
-
-```
-Starting authzjwtbearerinjector version v0.3.5
-```
-
-This confirms you're running the correct release and helps validate that your deployment succeeded.
-
----
-
-**About This Release**: This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. The information in this announcement reflects the official v0.3.5 release published on March 19, 2026 from the [UnitVectorY-Labs/authzjwtbearerinjector](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector) repository. Written by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the [authzjwtbearerinjector](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector) repository and the [v0.3.5 release](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector/releases/tag/v0.3.5) published on March 19, 2026. Generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*

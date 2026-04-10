@@ -1,68 +1,26 @@
 ---
 layout: post
-title: "authzjwtbearerinjector v0.3.0: Module Path Standardization"
-date: 2025-01-26 13:37:57 -0500
-tags: ["authzjwtbearerinjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Aligning with the Community: authzjwtbearerinjector v0.3.0"
+date: 2025-01-26 09:00:00 -0500
+tags: ["authzjwtbearerinjector", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on January 26, 2025, authzjwtbearerinjector v0.3.0 is a focused maintenance release. While it doesn't introduce new functional features, it brings the project into better alignment with modern Go standards and its home on GitHub.
 
-On January 26, 2025, UnitVectorY-Labs released v0.3.0 of authzjwtbearerinjector, a gRPC-based ExtAuthz service for Envoy Proxy that implements the JWT-bearer flow for injecting authentication credentials to backend services. This release represents a structural improvement to how the project is consumed as a Go module, aligning with community best practices for public Go repositories.
+## What's new
 
-## What's New
+The primary update in this release is the official renaming of the Go module path. The module has been moved from `authzjwtbearerinjector` to `github.com/UnitVectorY-Labs/authzjwtbearerinjector`. This change propagates through all internal import paths across the project.
 
-The v0.3.0 release introduces a single but important change: the Go module path has been updated from `authzjwtbearerinjector` to `github.com/UnitVectorY-Labs/authzjwtbearerinjector`. This update brings the project in line with standard Go module conventions for GitHub-hosted repositories.
+## Why it matters
 
-### Key Changes
-- **Updated module path**: The Go module now uses the full GitHub organization path (`github.com/UnitVectorY-Labs/authzjwtbearerinjector`)
-- **No functional changes**: This release contains no changes to the service's behavior, API, or configuration options
-- **Transparent for most users**: Users consuming authzjwtbearerinjector via Docker container or binary experience no impact
-
-## Why It Matters
-
-Standardizing the module path on the GitHub organization URL improves the developer experience in several ways:
-
-1. **Better discoverability**: The full GitHub path makes it immediately clear where the project is hosted
-2. **Go proxy compatibility**: Follows established conventions that Go tooling expects for public modules
-3. **Clear provenance**: Import paths now directly reference the source repository location
-
-This change follows [Go community best practices](https://go.dev/doc/modules/version-numbers) for organizing and publishing open-source Go packages.
-
-### Breaking Change Notice
-
-**For Go developers directly importing this package as a library**, import paths must be updated:
-
-```go
-// Before v0.3.0
-import authz_cache "authzjwtbearerinjector/internal/cache"
-
-// v0.3.0 and later
-import authz_cache "github.com/UnitVectorY-Labs/authzjwtbearerinjector/internal/cache"
-```
-
-**Note**: If you're running authzjwtbearerinjector as a sidecar service via Docker or binary (the primary intended usage pattern), **no changes are required**. The gRPC interface and configuration remain completely unchanged.
+For a growing open-source project, alignment between the source code's module definition and its hosting location is critical. By adopting the full GitHub repository path as the module name, we ensure that the project follows standard Go ecosystem conventions. This makes the project easier to discover, import, and maintain as it continues to evolve within the UnitVectorY-Labs organization.
 
 ## Upgrade and Installation
 
-### For Container/Binary Users (No Action Required)
-If you're using the pre-compiled Docker image or binary, you can continue using v0.3.0 without any modifications:
+For the vast majority of our users who deploy authzjwtbearerinjector as a Docker container sidecar to Envoy Proxy, this release is transparent and requires no changes to your operational configuration.
 
-```bash
-docker pull ghcr.io/unitvectory-labs/authzjwtbearerinjector:v0.3.0
-```
-
-### For Go Library Users
-To upgrade to v0.3.0 or later:
-
-```bash
-go get github.com/UnitVectorY-Labs/authzjwtbearerinjector@v0.3.0
-```
-
-Then update all import statements throughout your codebase from `authzjwtbearerinjector/...` to `github.com/UnitVectorY-Labs/authzjwtbearerinjector/...`.
-
-### Recommendation
-Since v0.3.0 was released on the same day as v0.2.3 and subsequent releases contain additional improvements (including statically linked binaries in v0.3.1), consider upgrading directly to **v0.3.1 or later** for the most stable experience.
+However, if you are utilizing authzjwtbearerinjector as a Go library in your own projects, please be aware that this is a breaking change. You will need to update your import statements to reference the new path: `github.com/UnitVectorY-Labs/authzjwtbearerinjector`.
 
 ---
 
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For more details about this release, visit the [authzjwtbearerinjector GitHub repository](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector) and the [v0.3.0 release page](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector/releases/tag/v0.3.0). Article generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the v0.3.0 release of the [authzjwtbearerinjector](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector) repository on 2025-04-10. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

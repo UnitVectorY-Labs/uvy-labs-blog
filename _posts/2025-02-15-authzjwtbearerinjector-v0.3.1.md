@@ -1,60 +1,35 @@
 ---
 layout: post
-title: "AuthZ JWT Bearer Injector v0.3.1 Released: Infrastructure Improvements for More Reliable Deployments"
-date: 2025-02-15 16:39:00 -0500
-tags: ["authzjwtbearerinjector", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "authzjwtbearerinjector v0.3.1: Enhancing Portability and Stability"
+date: 2025-02-15 09:00:00 -0500
+tags: ["authzjwtbearerinjector", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## A Solid Foundation Update
+Released on February 15, 2025, v0.3.1 of authzjwtbearerinjector is a focused maintenance release. While it doesn't introduce new features, it strengthens the foundation of the service by improving its build process and updating core components, ensuring a more robust experience for users deploying in modern cloud-native environments.
 
-We're pleased to announce the release of **authzjwtbearerinjector v0.3.1**, available now on [GitHub](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector/releases/tag/v0.3.1). Released on February 15, 2025, this maintenance release focuses on strengthening the deployment foundation with improved binary portability and updated dependencies.
+## What's new
 
-While v0.3.1 doesn't introduce new features, it delivers important infrastructure improvements that make your deployments more reliable and portable across environments.
+- **Statically Linked Binaries**: The build process now explicitly forces static linking. By removing dependencies on external C libraries (like glibc), the resulting binary is completely self-contained.
+- **Modernized Toolchain**: The project has been upgraded to Go 1.24.0, integrating the latest performance improvements and security fixes from the Go team.
+- **Dependency Updates**: The `go-control-plane/envoy` dependency has been bumped to version 1.32.4 to maintain compatibility and stability within the Envoy ecosystem.
 
-## What's New
+## Why it matters
 
-### Static Linking for Portability
+For users running authzjwtbearerinjector as a sidecar in Kubernetes or other containerized environments, static linking is a significant improvement. It allows the service to run in ultra-minimal base images, such as `scratch` or `distroless`, which reduces the container's attack surface and minimizes image size.
 
-The most significant change in this release is the addition of static linking to the build process. By compiling with `CGO_ENABLED=0`, the resulting binary is now fully self-contained without dependencies on external C libraries. This means:
+Together with the Go 1.24 upgrade, these changes ensure that the injector remains performant, secure, and highly portable, eliminating "missing library" errors during deployment and improving overall runtime reliability.
 
-- **Better compatibility** across diverse deployment environments
-- **Fewer runtime surprises** when moving between container registries or host systems
-- **Simpler troubleshooting** with a single, predictable binary
+## Upgrade and Installation
 
-### Updated Dependencies
+Upgrading to v0.3.1 is seamless, as this release contains no breaking changes and is fully compatible with all existing configurations. To update, simply pull the latest Docker image from:
 
-This release brings the project up to date with the latest versions of critical dependencies:
+`ghcr.io/unitvectory-labs/authzjwtbearerinjector`
 
-- **Go runtime**: Upgraded from 1.23.5 to 1.24.0, bringing the latest language features and security patches
-- **Envoy control plane**: Bumped from v1.32.3 to v1.32.4 for improved compatibility with Envoy Proxy
-- **Supporting libraries**: Multiple transitive dependency updates including `google.golang.org/protobuf`, `golang.org/x/net`, and `golang.org/x/sys`
+***
 
-These updates ensure your deployment benefits from the latest security fixes and performance improvements throughout the Go ecosystem.
-
-## Why It Matters
-
-Infrastructure releases like v0.3.1 are the unsung heroes of software maintenance. While they don't add flashy new features, they keep your authentication sidecar running smoothly and securely.
-
-The static linking improvement is particularly valuable for teams deploying to heterogeneous environments—whether you're running on bare metal, Kubernetes, or cloud platforms like Google Cloud Run. The binary's independence from system libraries reduces the surface area for deployment issues and makes container images more predictable.
-
-Keeping dependencies current isn't just about catching new features; it's about staying ahead of security vulnerabilities and ensuring compatibility with evolving infrastructure components like Envoy Proxy. This release demonstrates our commitment to maintaining a secure, production-ready authentication solution.
-
-## Getting the Update
-
-Upgrading to v0.3.1 is straightforward:
-
-```bash
-# Pull the latest container image
-docker pull ghcr.io/unitvectory-labs/authzjwtbearerinjector:v0.3.1
-
-# Or with podman
-podman pull ghcr.io/unitvectory-labs/authzjwtbearerinjector:v0.3.1
-```
-
-**No configuration changes required.** All existing configuration options remain compatible, and no modifications to your Envoy Proxy setup are necessary. Simply replace the container image in your deployment and restart—your authentication flow will continue working exactly as before, with the added benefits of a more portable binary and updated dependencies.
-
-For complete details about this release, including the full list of changes, visit the [v0.3.1 GitHub Release](https://github.com/UnitVectorY-Labs/authzjwtbearerinjector/releases/tag/v0.3.1).
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. The original information was retrieved from the UnitVectorY-Labs/authzjwtbearerinjector repository, release v0.3.1 (February 15, 2025). Written by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+This post was AI-generated.
+Model: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+Repository: UnitVectorY-Labs/authzjwtbearerinjector
+Release: v0.3.1
+Date of generation: 2026-04-10
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
