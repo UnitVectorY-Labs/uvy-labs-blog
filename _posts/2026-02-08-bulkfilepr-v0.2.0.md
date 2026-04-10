@@ -1,98 +1,40 @@
 ---
 layout: post
-title: "bulkfilepr v0.2.0: Multi-Hash Matching for Flexible Standard Updates"
-date: 2026-02-08 22:34:19 -0500
-tags: ["bulkfilepr", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "bulkfilepr v0.2.0: Flexible Multi-Version File Matching"
+date: 2026-02-08 09:00:00 -0500
+tags: ["bulkfilepr", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-On February 8, 2026, bulkfilepr released version 0.2.0, introducing a powerful enhancement to the `--expect-sha256` option that makes it significantly easier to update standardized files across repositories running different baseline versions.
+Released on February 8, 2026, bulkfilepr v0.2.0 introduces a powerful enhancement to how you maintain standardized files across your organization's repositories. This release focuses on increasing the flexibility of the tool's matching capabilities, making it significantly easier to roll out updates to repositories that may be at different stages of their version history.
 
-## What's New
+## What's new
 
-The headline feature in v0.2.0 is **multi-hash support** for the `--mode match` operation. Previously, you could only specify a single SHA-256 hash when using `--expect-sha256`. Now, you can provide multiple comma-separated hashes to match against:
+The headline feature of v0.2.0 is the introduction of **multi-version matching** in the `match` update mode. 
 
-```bash
-bulkfilepr apply \
-  --mode match \
-  --repo-path .github/workflows/ci.yml \
-  --new-file ~/standards/ci-v3.yml \
-  --expect-sha256 "$V1_HASH,$V2_HASH"
-```
+Previously, when using the `--mode match` flag, you had to provide a single expected SHA-256 hash. If a file didn't match that exact hash, the update was skipped. Now, the `--expect-sha256` parameter supports a comma-separated list of hashes. 
 
-This change enables a common real-world scenario: you have repositories scattered across your organization at different versions of a standard file. With v0.2.0, you can update all of them in a single pass, regardless of which baseline version they're currently on.
+If the target file in a repository matches *any* of the hashes provided in your list, bulkfilepr will proceed with the update. To help you debug mismatches, the tool now provides a detailed error message listing all the expected hashes it was looking for, alongside the actual hash found in the repository.
 
-### Practical Example
+Along with this feature, we've updated the documentation in `docs/USAGE.md` and `docs/EXAMPLES.md` to provide clear patterns and examples for utilizing this new multi-hash support.
 
-Imagine managing CI workflows across 50 repositories, where some are on version 1 of `ci.yml` and others on version 2. Previously, you'd need to run bulkfilepr twice—once for each hash. Now one command handles both:
+## Why it matters
 
-```bash
-CI_V1_HASH="a1b2c3d4..."
-CI_V2_HASH="e5f6g7h8..."
+Maintaining consistency across dozens or hundreds of repositories is rarely a linear process. In a real-world environment, different teams might have adopted different versions of a standard workflow or config file, or some repositories might have lagged behind previous updates.
 
-bulkfilepr apply \
-  --mode match \
-  --repo-path .github/workflows/ci.yml \
-  --new-file ~/standards/ci-v3.yml \
-  --expect-sha256 "$CI_V1_HASH,$CI_V2_HASH"
-```
+By supporting multiple expected hashes, bulkfilepr removes the need to run multiple separate update passes for every possible historical version of a file. You can now target all "legacy" versions in a single command, ensuring that your entire fleet moves toward the current standard more efficiently and with less manual overhead.
 
-### Documentation Improvements
+## Getting started with v0.2.0
 
-Alongside the feature enhancement, v0.2.0 includes a comprehensive rewrite of the documentation:
-- **EXAMPLES.md** has been streamlined with clearer, copy-paste-ready examples
-- **USAGE.md** now accurately reflects multi-hash syntax and behavior
-- Overall verbosity reduced by ~35% while improving clarity
+This is a non-breaking release, meaning your existing workflows and single-hash commands will continue to work exactly as they did before.
 
-## Why It Matters
+To upgrade to v0.2.0, simply update the binary via your preferred installation method. Once updated, you can start using the new multi-matching capability by passing multiple hashes:
 
-Standardization at scale requires flexibility. As organizations roll out file updates incrementally—whether due to staggered adoption, testing phases, or simply the reality of managing many repositories—the inability to match multiple baseline versions created a friction point. 
+`bulkfilepr --mode match --expect-sha256 "hash1,hash2,hash3" ...`
 
-Multi-hash support removes that friction. It acknowledges that your fleet isn't always homogeneous and gives you the tools to work with that reality instead of fighting against it.
+Whether you are managing GitHub Actions workflows, `CODEOWNERS` files, or linting configurations, v0.2.0 makes the process of staying synchronized across your codebase smoother and more resilient.
 
-This release is also **fully backward compatible**. If you're currently using single hashes with `--expect-sha256`, nothing changes. Your existing commands continue to work exactly as before:
+***
 
-```bash
-# Still works perfectly
-bulkfilepr apply --mode match --expect-sha256 "abc123..." ...
-```
-
-## Getting Started
-
-### Installation
-
-Upgrade to v0.2.0 using your preferred method:
-
-```bash
-# Using go install
-go install github.com/UnitVectorY-Labs/bulkfilepr@v0.2.0
-
-# Download binary from releases
-curl -LO https://github.com/UnitVectorY-Labs/bulkfilepr/releases/download/v0.2.0/bulkfilepr-v0.2.0-linux-amd64.tar.gz
-```
-
-Binary assets are available for macOS (Intel and Apple Silicon), Linux (386, AMD64, ARM64), and Windows (386, AMD64). All releases include `.md5` and `.sha256` checksums for verification.
-
-### Calculating Hashes
-
-To use the multi-hash feature, first calculate SHA-256 hashes of your baseline files:
-
-```bash
-# Linux
-sha256sum .github/workflows/ci.yml
-
-# macOS
-shasum -a 256 .github/workflows/ci.yml
-```
-
-Then combine them with commas. Whitespace is automatically trimmed, so all these are valid:
-- `--expect-sha256 "hash1,hash2"`
-- `--expect-sha256 "hash1 , hash2"`
-- `--expect-sha256 "hash1, hash2 "`
-
-### Learn More
-
-Check out the updated [EXAMPLES.md](https://github.com/UnitVectorY-Labs/bulkfilepr/blob/main/docs/EXAMPLES.md) for more copy-paste-ready patterns and workflows.
-
----
-
-**Transparency Note:** This release announcement was AI-generated using the `unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M` model. It references the bulkfilepr v0.2.0 release published on February 8, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. 
+Reference: [UnitVectorY-Labs/bulkfilepr](https://github.com/UnitVectorY-Labs/bulkfilepr), [v0.2.0](https://github.com/UnitVectorY-Labs/bulkfilepr/releases/tag/v0.2.0), generated on 2026-04-10.
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
