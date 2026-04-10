@@ -1,60 +1,30 @@
 ---
 layout: post
-title: CrossFireSync v0.0.4 Released - API Accessibility Fix
-date: 2024-08-01 10:25:14 -0500
-tags: ["crossfiresync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "crossfiresync v0.0.4: Refining the Foundation for Better Integration"
+date: 2024-08-01 09:00:00 -0500
+tags: ["crossfiresync", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-CrossFireSync version 0.0.4 was released on August 1, 2024. This release addresses an important API visibility issue that was preventing developers from fully utilizing the cross-region processing capabilities introduced in v0.0.3.
+Released on August 1, 2024, crossfiresync v0.0.4 is a focused maintenance update designed to streamline the library's internal architecture and improve the developer experience. While primarily a refactoring release, it lays the groundwork for more flexible integrations and cleaner code organization.
 
-## What's New
+## What's new
 
-The v0.0.4 release makes two key model classes publicly accessible:
+The headline change in this release is the increased visibility of the `PubSubMessage` class, which is now public. Alongside this, we have reorganized our internal structure by moving `PubSubMessage` and `PubSubPublish` into a dedicated model package: `com.unitvectory.crossfiresync.pubsub.model`.
 
-- **`PubSubMessage`** - Now a public class for representing Firestore change messages
-- **`PubSubPublish`** - Now a public class for constructing publish messages
+## Why it matters
 
-These classes have also been reorganized into a dedicated `pubsub.model` subpackage for better code organization and discoverability.
+By making `PubSubMessage` public, we are empowering developers who need a deeper level of control over their synchronization logic. Whether you are implementing custom Pub/Sub consumers or integrating crossfiresync into a larger, complex system, you now have direct access to the message models required to build robust data pipelines.
 
-## Why It Matters
+The package reorganization ensures that as the library grows, the separation between core logic and data models remains clear, making the codebase easier to navigate and maintain.
 
-Version 0.0.3 introduced a new architecture designed to decouple processing logic from CloudEvent-specific code, enabling developers to deploy their synchronization logic on either Cloud Functions or Cloud Run. However, an oversight left the core message classes package-private, effectively blocking external developers from using the intended Cloud Run deployment pattern.
+## Upgrading to v0.0.4
 
-This release corrects that issue. External developers can now:
-- Instantiate `PubSubMessage` objects directly in their own code
-- Use the cross-region processing patterns with Cloud Run deployments
-- Leverage the full flexibility of the v0.0.3 architecture
+To upgrade, simply update the `crossfiresync` version to `0.0.4` in your `pom.xml`. 
 
-### Breaking Change Notice
+**Important Note on Breaking Changes:** Because we have moved our model classes to a new package, you will need to update your import statements. If your code references `PubSubMessage` or `PubSubPublish`, please update the imports to:
 
-If your code references `PubSubMessage` or `PubSubPublish` classes directly, you'll need to update your import statements:
-
-**Old (v0.0.3):**
-```java
-import com.unitvectory.crossfiresync.PubSubMessage;
-import com.unitvectory.crossfiresync.PubSubPublish;
-```
-
-**New (v0.0.4):**
-```java
-import com.unitvectory.crossfiresync.pubsub.model.PubSubMessage;
-import com.unitvectory.crossfiresync.pubsub.model.PubSubPublish;
-```
-
-## Upgrade Instructions
-
-To upgrade to v0.0.4, update your Maven dependency:
-
-```xml
-<dependency>
-    <groupId>com.unitvectory</groupId>
-    <artifactId>crossfiresync</artifactId>
-    <version>0.0.4</version>
-</dependency>
-```
-
-The library still requires Java 17 and maintains full compatibility with all other v0.0.3 functionality beyond the import changes noted above.
+`com.unitvectory.crossfiresync.pubsub.model`
 
 ---
 
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Source: [UnitVectorY-Labs/crossfiresync](https://github.com/UnitVectorY-Labs/crossfiresync), release v0.0.4, published August 1, 2024. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: [UnitVectorY-Labs/crossfiresync](https://github.com/UnitVectorY-Labs/crossfiresync), release [v0.0.4](https://github.com/UnitVectorY-Labs/crossfiresync/releases/tag/v0.0.4), generated on 2026-04-10. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

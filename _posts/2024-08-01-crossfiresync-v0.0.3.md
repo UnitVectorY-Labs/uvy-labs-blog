@@ -1,41 +1,23 @@
 ---
 layout: post
-title: "CrossfireSync v0.0.3: Cloud Run Deployment Support"
-date: 2024-08-01 09:58:38 -0500
-tags: ["crossfiresync", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Expanding Deployment Flexibility with crossfiresync v0.0.3"
+date: 2024-08-01 09:00:00 -0500
+tags: ["crossfiresync", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the release of CrossfireSync v0.0.3, published on August 1, 2024. This update brings a significant deployment enhancement that gives users more flexibility in how they run their Firestore cross-region synchronization.
+We are excited to announce the release of crossfiresync v0.0.3 on August 1, 2024. This update marks a significant step forward in how the library can be integrated into your Google Cloud Platform architecture, offering greater flexibility in deployment options.
 
-## What's New
+## What's new
 
-The headline feature in v0.0.3 is **Cloud Run deployment support**. While CrossfireSync has long been designed for Cloud Functions, this release introduces architectural changes that now allow you to deploy your synchronization service to Cloud Run as well.
+The headline change in v0.0.3 is a strategic architectural refactor. We have decoupled the core processing logic from the `CloudEvent` wrapper in both the `FirestoreChangePublisher` and `PubSubChangeConsumer`. By extracting the synchronization logic into dedicated `process()` methods, we've separated the "what" of the synchronization from the "how" of the event trigger.
 
-### Key Changes
+## Why it matters
 
-- **New Deployment Option**: Deploy CrossfireSync to Cloud Run for more control over resources and scaling
-- **Backward Compatible**: Existing Cloud Functions deployments continue to work without any modifications
-- **Routine Maintenance**: Updated dependencies including Google Cloud libraries BOM, Maven Surefire plugin, and Maven Javadoc plugin
-
-### Under the Hood
-
-The Cloud Run capability was enabled by refactoring the core processing logic in both `FirestoreChangePublisher` and `PubSubChangeConsumer` classes. The processing logic has been extracted into dedicated public methods (`process()`), decoupling it from the CloudEvent-specific handlers. This means your synchronization code can now run directly in environments beyond Cloud Functions.
-
-## Why It Matters
-
-For teams building multi-region Firestore architectures, this release expands your deployment options. Cloud Run provides:
-
-- **Greater control** over resource allocation and scaling parameters
-- **Flexible runtime environments** for custom deployment needs  
-- **Alternative architecture patterns** beyond serverless functions
-
-If you're already using CrossfireSync with Cloud Functions, no action is required—your existing setup remains fully supported. But if you've been considering Cloud Run for your sync infrastructure, v0.0.3 makes that possible.
+Until now, `crossfiresync` was primarily designed for use within GCP Cloud Functions. While powerful, some use cases require the more robust scaling or environment controls found in other services. With this decoupling, you can now easily deploy your synchronization logic in services like Cloud Run. This gives developers more freedom to choose the compute environment that best fits their performance and operational requirements without sacrificing the real-time synchronization capabilities of the library.
 
 ## Getting Started
 
-### Upgrading
-
-If you're using CrossfireSync as a Maven dependency, update your `pom.xml`:
+Upgrading to v0.0.3 is straightforward. Simply update the version in your Maven `pom.xml` file:
 
 ```xml
 <dependency>
@@ -45,17 +27,8 @@ If you're using CrossfireSync as a Maven dependency, update your `pom.xml`:
 </dependency>
 ```
 
-### Requirements
+This update is backward compatible and continues to require Java 17.
 
-- Java 17 or higher
-- GCP project with Firestore and Pub/Sub enabled
+***
 
-### Documentation
-
-For deployment examples, see the related repositories:
-- [crossfiresync-firestore](https://github.com/UnitVectorY-Labs/crossfiresync-firestore) - Example deployment for Firestore trigger
-- [crossfiresync-pubsub](https://github.com/UnitVectorY-Labs/crossfiresync-pubsub) - Example deployment for Pub/Sub trigger
-
----
-
-*Transparency note: This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Research conducted on the [UnitVectorY-Labs/crossfiresync](https://github.com/UnitVectorY-Labs/crossfiresync) repository, release v0.0.3 (August 1, 2024). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. It is based on the `UnitVectorY-Labs/crossfiresync` repository and the `v0.0.3` release, generated on 2026-04-10. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
