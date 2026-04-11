@@ -1,60 +1,28 @@
 ---
 layout: post
-title: "ghrelgrab v0.1.1 Released"
-date: 2025-12-06 19:53:32 -0500
-tags: ["ghrelgrab", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "ghrelgrab v0.1.1: Maintenance and Infrastructure Update"
+date: 2025-12-06 09:00:00 -0500
+tags: ["ghrelgrab", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## What's New
+Released on December 6, 2025, ghrelgrab v0.1.1 is a maintenance release focused on strengthening the project's foundation. While this update doesn't introduce new functional features, it ensures that the tool remains secure, stable, and reliable by updating its core build environment.
 
-We're pleased to announce the release of **ghrelgrab v0.1.1**, published on December 6, 2025. This maintenance release focuses on infrastructure updates and dependency management to ensure continued reliability and security for all users.
+## What's new
 
-This version spans approximately 3.5 months of active maintenance since v0.1.0 (August 15, 2025), delivering critical updates to our CI/CD pipeline while maintaining full backward compatibility with your existing workflows.
+This release primarily targets the infrastructure and development pipeline:
 
-## Why It Matters
+- **Runtime Upgrade**: The project has been updated to use Go 1.25.5, ensuring the latest stability and security improvements from the Go team.
+- **CI/CD Enhancements**: We've bumped several key GitHub Actions—including `checkout`, `setup-go`, and `codeql-action`—to their latest versions to improve build reliability and security scanning.
+- **Improved Visibility**: The README now features project status, license, and release badges, making it easier for users to track the health and versioning of the project at a glance.
 
-### Security and Reliability Updates
+## Why it matters
 
-All GitHub Actions in our build pipeline have been upgraded to their latest major versions, ensuring you benefit from the most secure and performant infrastructure when downloading release assets:
+Maintenance releases are critical for the long-term health of a tool. By updating the Go runtime and our CI/CD pipelines, we reduce technical debt and ensure that the binaries delivered to users are compiled with the most up-to-date toolchains. These changes provide a more robust and secure experience without altering the behavior of the tool you already rely on.
 
-- **actions/checkout** v5 → v6
-- **actions/setup-go** v5 → v6  
-- **actions/attest-build-provenance** v2 → v3
-- **github/codeql-action** v3 → v4
-- **astral-sh/setup-uv** v6 → v7
+## Getting the update
 
-These updates maintain the integrity of our binary distribution process, ensuring the artifacts you download remain trustworthy and verifiable.
-
-### Runtime Compatibility
-
-The project has been updated to use the latest Go runtime (1.25.5), keeping ghrelgrab compatible with modern development environments and ensuring optimal performance across all supported platforms.
-
-### Documentation Enhancements
-
-We've improved the project's visibility with updated README badges showing release status, license information, and code quality metrics at a glance.
-
-## Upgrade Instructions
-
-This release requires **no action** from existing users if you're already on v0.1.0—the CLI interface remains unchanged and fully compatible.
-
-### For New Users
-
-Download the appropriate binary for your platform from our [GitHub Releases page](https://github.com/UnitVectorY-Labs/ghrelgrab/releases/tag/v0.1.1):
-
-- **Windows**: `.zip` packages (amd64 or 386)
-- **Linux**: `.tar.gz` packages (amd64, arm64, or 386)
-- **macOS**: `.tar.gz` packages (amd64 or arm64)
-
-All binaries include checksum files (`.md5` and `.sha256`) for verification.
-
-### For Docker Users
-
-```bash
-docker pull ghcr.io/unitvectory-labs/ghrelgrab:latest
-```
-
-The Docker image is updated with the latest runtime and provides the same convenient multi-stage build integration for your containerized CI/CD pipelines.
+Upgrading to v0.1.1 is straightforward and involves no breaking changes. You can download the latest binaries directly from the GitHub releases page or update your Docker image reference to the latest version.
 
 ---
 
-**About this post**: This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on December 6, 2025. The source repository is [UnitVectorY-Labs/ghrelgrab](https://github.com/UnitVectorY-Labs/ghrelgrab), and this article corresponds to release v0.1.1. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. It was created based on the [ghrelgrab](https://github.com/UnitVectorY-Labs/ghrelgrab) repository, release [v0.1.1](https://github.com/UnitVectorY-Labs/ghrelgrab/releases/tag/v0.1.1), and generated on April 11, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
