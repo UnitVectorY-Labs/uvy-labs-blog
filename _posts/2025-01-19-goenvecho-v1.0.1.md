@@ -1,56 +1,29 @@
 ---
 layout: post
-title: "goenvecho v1.0.1 Released"
-date: 2025-01-19 15:10:00 -0500
-tags: ["goenvecho", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "goenvecho v1.0.1: Polishing the Debugging Experience"
+date: 2025-01-19 09:00:00 -0500
+tags: ["goenvecho", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Intro
+Released on January 19, 2025, goenvecho v1.0.1 is a maintenance and stability update. While this release doesn't introduce new functional features, it focuses on improving the developer experience, refining documentation, and ensuring a more robust build pipeline.
 
-We're pleased to announce the release of goenvecho v1.0.1, published on January 19, 2025. This update focuses on infrastructure improvements and documentation enhancements that make the tool easier to use and more secure behind the scenes.
+## What's new
 
-For those unfamiliar, goenvecho is a simple debugging tool that responds to HTTP requests with a JSON payload listing all environment variables in your container. It's designed for development and testing environments to help you quickly inspect and debug your containerized deployments.
+This update brings several quality-of-life improvements to the project:
 
-## What's New
+- **Clearer Configuration Documentation**: We've added a dedicated Configuration section to the README. It now explicitly documents the `PORT` environment variable, making it easier for users to customize the port the application listens on.
+- **Optimized Docker Builds**: The Dockerfile has been refined to leverage better layer caching. By separating dependency downloads from source code copying, build times are reduced and deployments are more efficient.
+- **Updated Toolchain**: The project now utilizes Go 1.23.5, ensuring that the utility benefits from the latest stability and security improvements of the Go language.
+- **Enhanced CI/CD**: We've updated our GitHub Action workflows to improve security and maintainability, ensuring a more reliable release process.
 
-### Enhanced Configuration Documentation
+## Why it matters
 
-The most visible change in v1.0.1 is improved documentation around configuration options. We've added a dedicated Configuration section to the README that clearly explains how to customize the container's listening port using the `PORT` environment variable (default: 8080). This should make deployment scenarios where you need non-standard ports much clearer.
+For a specialized debugging tool like goenvecho, reliability and ease of use are paramount. By documenting the configuration options clearly, we remove guesswork for the user. Simultaneously, the technical optimizations under the hood—from the Go version bump to the Docker caching—ensure that the tool remains lightweight, secure, and fast to deploy in any containerized environment.
 
-### Under-the-Hood Improvements
+## Getting started with v1.0.1
 
-While this release doesn't introduce new features, there are several important improvements working behind the scenes:
+Upgrading to the latest version is seamless. Users can simply pull the latest container image from GitHub Packages to benefit from these improvements.
 
-- **Updated Go Runtime**: The base Go version has been updated to 1.23.5, bringing the latest bug fixes and security patches
-- **Optimized Docker Builds**: Improved layer caching in our Docker builds means faster CI/CD pipelines and more reliable deployments
-- **Security Hardening**: We've implemented additional security best practices in our build workflows, including credential handling improvements and new static analysis scanning with zizmor
+***
 
-## Why It Matters
-
-This release represents our commitment to maintaining goenvecho as a reliable, secure tool for your development workflow. While there are no new features, the infrastructure improvements ensure that:
-
-- Your deployments benefit from the latest Go security patches
-- The build pipeline is more efficient and follows current security best practices
-- Documentation gaps have been addressed based on real-world usage patterns
-
-For existing users, this is a straightforward drop-in upgrade with no breaking changes. Your existing configurations will continue to work exactly as before.
-
-## Upgrade Instructions
-
-Upgrading to v1.0.1 is simple:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/goenvecho:v1.0.1
-```
-
-No configuration changes are required. If you're using the `PORT` environment variable, it will continue to work as expected.
-
-As always, goenvecho is available on GitHub Packages: [goenvecho Container Registry](https://github.com/UnitVectorY-Labs/goenvecho/pkgs/container/goenvecho)
-
-## A Note on Production Use
-
-Remember that goenvecho is designed for development and testing purposes only. Since it exposes all environment variables in its responses, it should never be run in production environments where sensitive credentials could be exposed.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It references the goenvecho v1.0.1 release published on January 19, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was created on 2026-04-11 based on the [goenvecho](https://github.com/UnitVectorY-Labs/goenvecho) repository and the [v1.0.1 release](https://github.com/UnitVectorY-Labs/goenvecho/releases/tag/v1.0.1). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
