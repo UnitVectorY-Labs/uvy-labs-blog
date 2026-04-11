@@ -1,95 +1,47 @@
 ---
 layout: post
-title: "Announcing ghook2pubsub v0.1.0: GitHub Webhooks to GCP Pub/Sub"
-date: 2026-03-01 00:07:15 -0500
-tags: ["ghook2pubsub", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Introducing ghook2pubsub: A Secure Bridge from GitHub Webhooks to GCP Pub/Sub"
+date: 2026-03-01 09:00:00 -0500
+tags: ["ghook2pubsub", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the first public release of **ghook2pubsub** – a lightweight service that bridges GitHub webhooks to Google Cloud Pub/Sub for event-driven architectures.
+We are excited to announce the launch of **ghook2pubsub**, a lightweight, stateless ingestion service designed to bridge the gap between GitHub webhooks and Google Cloud Platform (GCP) Pub/Sub. Released on March 1, 2026, ghook2pubsub provides a secure and efficient way to stream GitHub event data into your GCP ecosystem, enabling powerful downstream processing and automation.
 
-Released on March 1, 2026, v0.1.0 introduces the complete core functionality of this single-purpose ingestion service, ready for production use.
+### What it does
 
-## What's New
+ghook2pubsub acts as a specialized gateway for GitHub webhooks. Instead of building custom ingestion logic in every downstream service, ghook2pubsub handles the "front door" of your event pipeline. It receives incoming HTTP POST requests from GitHub, verifies their authenticity, and immediately publishes the payload to a designated GCP Pub/Sub topic.
 
-As the initial release, v0.1.0 brings all the project's documented features to life:
+Key capabilities include:
 
-### Webhook Ingestion
-- Accepts GitHub webhook HTTP POST requests at `/webhook`
-- Health check endpoint at `/healthz` for deployment monitoring
-- Returns `204 No Content` on successful processing
+- **Robust Security**: Ensures that only legitimate GitHub requests are processed using `X-Hub-Signature-256` (HMAC-SHA256) verification and User-Agent validation.
+- **Zero-Downtime Secret Rotation**: Supports multiple concurrent secrets, allowing you to rotate your webhook secrets without missing a single event.
+- **Intelligent Metadata Enrichment**: The service doesn't just pass the payload; it extracts critical information from GitHub headers and the JSON body (such as the event type, repository, sender, and action) and attaches them as Pub/Sub attributes.
+- **Reliable Delivery**: Implements at-least-once delivery semantics, ensuring that GitHub receives a success response only after the message is safely committed to Pub/Sub.
+- **Operational Readiness**: Built for the cloud with structured JSON logging, a dedicated health check endpoint (`/healthz`), and a ready-to-use Docker container.
 
-### Security First
-- Validates GitHub User-Agent headers (`GitHub-Hookshot/`)
-- Verifies HMAC-SHA256 signatures to authenticate webhook origin
-- Supports multiple secrets for zero-downtime secret rotation via `WEBHOOK_SECRETS`
+### Why it matters
 
-### Rich Message Attributes
-Every published message includes 14+ attributes extracted from webhook headers and payloads:
-- `gh_delivery` – Unique delivery GUID for tracing and deduplication
-- `gh_event` – GitHub event type (push, pull_request, workflow_run, etc.)
-- `gh_hook_id`, `gh_target_type`, `gh_target_id` – Webhook configuration details
-- `action`, `organization`, `repository`, `sender` – Event context
-- `ref`, `ref_type`, `base_ref`, `head_ref` – Git reference information
-- `state`, `status`, `conclusion` – Event outcome data
+For teams building event-driven architectures on GCP, the "last mile" of webhook ingestion is often a source of repetitive boilerplate and security risk. ghook2pubsub solves this by providing a standardized, secure bridge.
 
-### Production Ready
-- Structured JSON logging with delivery IDs and event details
-- Graceful shutdown handling (SIGTERM/SIGINT) with 15-second drain time
-- Docker-based deployment with Go 1.26.0 and distroless base image
-- Prometheus metrics support for observability
+The most significant advantage is the **metadata enrichment**. By promoting key fields (like `gh_event` or `repository`) to Pub/Sub attributes, downstream subscribers can use Pub/Sub's native filtering capabilities. This means your workers only wake up for the specific events they care about, drastically reducing unnecessary compute costs and simplifying your architectural logic.
 
-## Why It Matters
+### Getting Started
 
-Building event-driven architectures that react to GitHub activity just got simpler. ghook2pubsub eliminates the need to write custom webhook handlers when you want to pipe GitHub events into GCP Pub/Sub for downstream processing.
+ghook2pubsub is designed for simplicity. It is configured entirely via environment variables and can be deployed as a container in seconds.
 
-With ghook2pubsub, your subscribers can:
-- Build reactive workflows triggered by pushes, pull requests, workflow runs, and more
-- Filter and route messages based on rich event attributes
-- Trace deliveries end-to-end using the `gh_delivery` GUID
-- Handle at-least-once delivery semantics with built-in deduplication support
-
-The service is stateless and purpose-built – it accepts valid webhooks and publishes them to Pub/Sub. Filtering, routing, and processing happen where you need them: in your subscribers.
-
-## Getting Started
-
-### Prerequisites
-- A GCP project with the Pub/Sub API enabled
-- GCP credentials configured (via application default credentials or service account)
-- Docker for containerized deployment
-
-### Run with Docker
+To get started, you'll need a GCP project with a Pub/Sub topic and a GitHub webhook configured with a secret. You can run the service using Docker:
 
 ```bash
 docker run \
   -e PUBSUB_PROJECT_ID=your-gcp-project \
-  -e PUBSUB_TOPIC_ID=github-webhooks \
+  -e PUBSUB_TOPIC_ID=your-topic-id \
   -e WEBHOOK_SECRETS=your-webhook-secret \
   -p 8080:8080 \
   ghook2pubsub
 ```
 
-### Configure GitHub Webhook
+We invite you to explore the repository and integrate ghook2pubsub into your event pipelines to experience a more secure and scalable way to handle GitHub webhooks.
 
-Point your GitHub repository or organization webhook to:
-```
-POST https://your-ghook2pubsub-instance:8080/webhook
-```
+***
 
-Configure the secret token in your webhook settings to match the `WEBHOOK_SECRETS` environment variable.
-
-### See More Details
-
-Full documentation is available in the repository:
-- [Configuration Guide](https://github.com/UnitVectorY-Labs/ghook2pubsub/blob/main/docs/configuration.md)
-- [Message Attributes Reference](https://github.com/UnitVectorY-Labs/ghook2pubsub/blob/main/docs/attributes.md)
-- [Architecture Overview](https://github.com/UnitVectorY-Labs/ghook2pubsub/blob/main/docs/architecture.md)
-
-## Join the Project
-
-ghook2pubsub is released under the MIT License. We welcome contributions and feedback from the community.
-
-Check out the project on GitHub: https://github.com/UnitVectorY-Labs/ghook2pubsub
-
----
-
-*This post was AI-generated using unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M. Based on the v0.1.0 release of [ghook2pubsub](https://github.com/UnitVectorY-Labs/ghook2pubsub/releases/tag/v0.1.0) published March 1, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL` on April 11, 2026, based on the v0.1.0 release of [ghook2pubsub](https://github.com/UnitVectorY-Labs/ghook2pubsub).*
