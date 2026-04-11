@@ -1,66 +1,32 @@
 ---
 layout: post
-title: "gologhttpbinary v0.2.0 Released"
+title: "gologhttpbinary v0.2.0: Improving Go Module Compatibility"
 date: 2025-01-26 09:00:00 -0500
-tags: ["gologhttpbinary", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["gologhttpbinary", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## A Quiet Step Forward
+On January 26, 2025, we released gologhttpbinary v0.2.0. This maintenance update focuses on improving the project's integration with the Go ecosystem by correcting the module path, ensuring a smoother experience for developers incorporating the tool into their Go projects.
 
-Today we're releasing v0.2.0 of gologhttpbinary. While this release doesn't introduce new features, it marks an important milestone in the project's foundation—standardizing the Go module path to align with industry best practices and setting the stage for future growth.
+## What's new
 
-Released on January 26, 2025, this update strengthens the project's infrastructure while maintaining the reliable debugging capabilities users depend on.
+- **Corrected Go Module Path**: The module name has been updated to `github.com/UnitVectorY-Labs/gologhttpbinary`.
+- **Updated Documentation**: The README now references more recent Docker image versions in the usage examples to ensure users are utilizing stable releases.
 
-## What's New
+## Why it matters
 
-This release focuses on **module path standardization**. The Go module has been updated from `gologhttpbinary` to `github.com/UnitVectorY-Labs/gologhttpbinary`, following Go's recommended practices for published modules.
+For most users running gologhttpbinary as a standalone Docker container, this release is a "behind-the-scenes" improvement. However, for Go developers using the project as a library, the module path correction is critical. By aligning the project with Go's standard module resolution, the package is now correctly discoverable and importable via the standard toolchain.
 
-For the majority of users running gologhttpbinary as a Docker container, this change is entirely transparent. The application continues to function exactly as before: capturing HTTP requests and logging them with base64-encoded bodies for easy inspection of binary payloads like protobufs.
+## Getting Started and Upgrading
 
-This release also welcomes **@JaredHatfield**, who made their first contribution to the project by authoring the module path rename.
+If you are using gologhttpbinary as a Go library, this is a breaking change. You will need to update your import statements to use the new path: `github.com/UnitVectorY-Labs/gologhttpbinary`. 
 
-## Why It Matters
+For those deploying via Docker, no action is required, although we encourage you to review the updated README for the most current image tags.
 
-While this may seem like a behind-the-scenes change, it's an important one for the project's long-term health:
+***
 
-- **Proper Namespacing**: The full GitHub repository path ensures clarity and prevents potential import conflicts for Go developers who may use this as a dependency
-- **Future-Proof Foundation**: This update positions the project correctly for future contributions and growth within the Go ecosystem
-- **No Disruption**: Docker container users experience zero downtime or behavioral changes—this is truly a "set it and forget it" upgrade
-
-The core value of gologhttpbinary remains unchanged: it continues to be a lightweight, purpose-built tool for debugging HTTP traffic during development and testing. When you need to inspect binary payloads that would otherwise be opaque, gologhttpbinary logs them in base64 so you can see exactly what's being sent to your server.
-
-## Getting Started
-
-### Docker (Recommended)
-
-Run the latest version with:
-
-```bash
-docker run -p 8080:8080 ghcr.io/unitvectory-labs/gologhttpbinary:v0.2.0
-```
-
-The container listens on port 8080 by default. You can customize this with the `PORT` environment variable.
-
-### For Go Developers
-
-If you're importing gologhttpbinary as a module, update your import path:
-
-```go
-// Before
-import "gologhttpbinary"
-
-// After  
-import "github.com/UnitVectorY-Labs/gologhttpbinary"
-```
-
-### Important Reminder
-
-⚠️ **Not for Production**: gologhttpbinary is designed for development and debugging only. Running it in production could expose sensitive data from request bodies and headers.
-
-## Looking Ahead
-
-This foundational update clears the way for future features and contributions. We're grateful for the community's support and look forward to what comes next.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It references the gologhttpbinary v0.2.0 release published on January 26, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+This post was AI-generated.
+- Model: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+- Repository: [UnitVectorY-Labs/gologhttpbinary](https://github.com/UnitVectorY-Labs/gologhttpbinary)
+- Release: [v0.2.0](https://github.com/UnitVectorY-Labs/gologhttpbinary/releases/tag/v0.2.0)
+- Date of generation: 2026-04-11
+- Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
