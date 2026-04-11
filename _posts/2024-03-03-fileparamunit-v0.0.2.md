@@ -1,35 +1,29 @@
 ---
 layout: post
-title: "fileparamunit v0.0.2 Release - Quality First Approach"
-date: 2024-03-03 16:21:58 -0500
-tags: ["fileparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "fileparamunit v0.0.2: Enhancing Robustness and Reliability"
+date: 2024-03-03 09:00:00 -0500
+tags: ["fileparamunit", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introducing v0.0.2
+Released on March 3, 2024, fileparamunit v0.0.2 is a maintenance and quality update focused on improving the developer experience and the overall stability of the library. This release ensures that the tools you use for parameterized testing are more reliable and provide clearer feedback when things go wrong.
 
-On March 3, 2024, we released fileparamunit v0.0.2, a quality-focused release that achieves a significant milestone: **100% test coverage with automated enforcement**. This iteration demonstrates our commitment to building a reliable foundation before expanding features.
+## What's new
 
-### What's New
+The primary focus of this release is "under-the-hood" improvements that make the library more robust:
 
-While v0.0.2 doesn't introduce new features, it delivers important improvements that affect all users:
+*   **Clearer Error Messages:** We've improved how the library handles missing resource directories. Instead of encountering a generic `NullPointerException`, you will now receive a descriptive `JUnitException` explicitly stating that the resource could not be found.
+*   **Strict Quality Standards:** To ensure maximum reliability, we have implemented a strict 100% code test coverage requirement (both instructions and branches). This means every single path in the library is verified, significantly reducing the likelihood of regressions.
+*   **Build Tooling Updates:** We've integrated the `maven-surefire-plugin` to ensure more consistent and reliable test execution during the build process.
 
-- **Maven Central Publication**: For the first time, fileparamunit is officially available on Maven Central, making installation straightforward for all Java developers
-- **100% Test Coverage**: Every line of code is now covered by tests, with automated enforcement built into the build process to maintain this standard
-- **Improved Reliability**: Code refactoring enhanced the internal structure, making the library more maintainable and robust
+## Why it matters
 
-### Why It Matters
+For developers, the most immediate benefit is easier debugging. When a resource path is mistyped or a file is missing, the library now tells you exactly what happened, allowing you to fix the issue in seconds rather than digging through a stack trace. 
 
-This release signals our quality-first approach to development. By achieving full test coverage and enforcing it going forward, we ensure that:
+Furthermore, the commitment to 100% test coverage provides peace of mind. When you integrate `fileparamunit` into your test suite, you can trust that the library itself is thoroughly vetted and stable.
 
-- Future changes can be made with confidence
-- Bugs are caught early in the development cycle
-- The library remains stable as it grows
+## Getting started with v0.0.2
 
-For users, this means a more reliable testing tool you can depend on for your parameterized tests.
-
-### Upgrading to v0.0.2
-
-Upgrading is simple - there are no breaking changes. Update your `pom.xml` dependency:
+Upgrading to the latest version is straightforward. Simply update the version in your Maven `pom.xml` or Gradle build file:
 
 ```xml
 <dependency>
@@ -40,10 +34,10 @@ Upgrading is simple - there are no breaking changes. Update your `pom.xml` depen
 </dependency>
 ```
 
-Note that the dependency scope is correctly set to `test`, ensuring it doesn't bloat your production artifacts.
+We are committed to making your parameterized testing experience as seamless as possible, and these quality-of-life improvements are a step in that direction.
 
-Existing tests will continue to work without modification. The public API and annotation behavior remain unchanged.
+***
 
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Release v0.0.2 published March 3, 2024. Repository: [UnitVectorY-Labs/fileparamunit](https://github.com/UnitVectorY-Labs/fileparamunit). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+**Transparency Note:** This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. 
+**Reference:** [UnitVectorY-Labs/fileparamunit](https://github.com/UnitVectorY-Labs/fileparamunit), [Release v0.0.2](https://github.com/UnitVectorY-Labs/fileparamunit/releases/tag/v0.0.2), generated on 2026-04-10.
+**Author:** [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

@@ -1,39 +1,31 @@
 ---
 layout: post
-title: "fileparamunit v0.1.2 Released: Maintenance Update"
-date: 2025-10-24 21:58:15 -0500
-tags: ["fileparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "fileparamunit v0.1.2: Maintenance and Stability Update"
+date: 2025-10-24 09:00:00 -0500
+tags: ["fileparamunit", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on October 24, 2025, fileparamunit v0.1.2 is a focused maintenance release. This update ensures that the library remains stable and compatible with the latest development tools and testing frameworks, providing a solid foundation for your data-driven JUnit 5 tests.
 
-We're pleased to announce the release of fileparamunit v0.1.2, published on October 24, 2025. This maintenance release focuses on keeping the project's dependencies and build infrastructure current, ensuring continued security and compatibility with the broader Java testing ecosystem.
+## What's new
 
-## What's New
+This release is dedicated to updating the project's underlying dependencies and CI/CD workflows to maintain modern standards and reliability:
 
-Version 0.1.2 is a maintenance release with no changes to the library's public API or functionality. The core `@ListFileSource` annotation and its parameterized testing capabilities remain exactly as you know them.
+- **Core Testing Frameworks**: Updated JUnit 5 (jupiter-params) and Mockito to their latest versions to ensure full compatibility with recent Java environments.
+- **Build Tooling**: Upgraded several critical Maven plugins, including the compiler, surefire, and javadoc plugins, to improve build performance and documentation generation.
+- **Workflow Enhancements**: Updated GitHub Actions for checkout, Java setup, and build provenance, along with improved Codecov and CodeQL integration for better quality assurance.
 
-The update includes:
+## Why it matters
 
-- **Updated test dependencies**: JUnit 5 bumped from 5.13.1 to 5.13.4, and Mockito updated from 5.18.0 to 5.20.0
-- **Modernized GitHub Actions**: All CI workflows now use the latest major versions of actions (checkout v5, setup-java v5, codeql-action v4)
-- **Build tool updates**: Maven plugins for compilation, testing, documentation, and publishing have been updated to their latest patch versions
+While v0.1.2 does not introduce new API features, these updates are vital for the long-term health of the project. By staying current with the JUnit 5 ecosystem and build tooling, users benefit from:
 
-These behind-the-scenes updates help maintain the project's security posture and ensure compatibility with the evolving Java development toolchain.
+- **Improved Stability**: Leveraging bug fixes and performance improvements in the latest versions of JUnit and Mockito.
+- **Enhanced Security**: Keeping build-time dependencies and CI/CD actions up to date reduces the risk of utilizing outdated or vulnerable tooling.
+- **Consistent Builds**: Modernized Maven plugins ensure that the library is compiled and packaged using the most reliable industry standards.
 
-## Why It Matters
+## Getting started
 
-While this release doesn't introduce new features, it represents an important aspect of responsible open source maintenance:
-
-- **Security**: Keeping dependencies current helps protect against known vulnerabilities in transitive dependencies
-- **Compatibility**: Updated GitHub Actions ensure CI/CD pipelines remain reliable and efficient
-- **Stability**: Regular maintenance releases mean fewer accumulated changes when functional updates do arrive
-
-For users, this means you can upgrade to v0.1.2 with complete confidence. There are no breaking changes, no API modifications, and no code changes required in your projects.
-
-## Upgrading
-
-Upgrading to v0.1.2 is straightforward. Update your `pom.xml` dependency version:
+Upgrading to v0.1.2 is straightforward. Simply update the version in your `pom.xml` file:
 
 ```xml
 <dependency>
@@ -44,16 +36,8 @@ Upgrading to v0.1.2 is straightforward. Update your `pom.xml` dependency version
 </dependency>
 ```
 
-That's it—no other changes needed. Your existing `@ListFileSource` annotated tests will continue to work exactly as before.
+This release is fully compatible with Java 17 and JUnit 5, requiring no changes to your existing test code.
 
-## Get Started
+***
 
-If you're new to fileparamunit, it's a lightweight Java library that extends JUnit 5's parameterized testing by allowing you to drive test cases from files in your resources directory. Perfect for data-driven testing with JSON, CSV, TXT, or any file format you need.
-
-- **GitHub Repository**: https://github.com/UnitVectorY-Labs/fileparamunit
-- **Maven Central**: com.unitvectory:fileparamunit:0.1.2
-- **Release Notes**: https://github.com/UnitVectorY-Labs/fileparamunit/releases/tag/v0.1.2
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It was generated on behalf of [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) based on the official v0.1.2 release from October 24, 2025.*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on April 11, 2026, based on the [UnitVectorY-Labs/fileparamunit](https://github.com/UnitVectorY-Labs/fileparamunit) repository and the [v0.1.2](https://github.com/UnitVectorY-Labs/fileparamunit/releases/tag/v0.1.2) release. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
