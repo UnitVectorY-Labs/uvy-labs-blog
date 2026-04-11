@@ -1,101 +1,40 @@
 ---
 layout: post
-title: "firestoreproto2json v0.0.2 - Usability and Documentation Release"
-date: 2024-03-08 02:27:29 -0500
-tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Enhancing Clarity and Reliability: firestoreproto2json v0.0.2"
+date: 2024-03-08 09:00:00 -0500
+tags: ["firestoreproto2json", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the release of firestoreproto2json v0.0.2, published on March 8, 2024. This release focuses on dramatically improving the developer experience with comprehensive documentation, practical examples, and expanded test coverage—making it easier than ever to convert Firestore Protocol Buffer documents to JSON in your Cloud Functions.
+Released on March 8, 2024, firestoreproto2json v0.0.2 is a focused update designed to streamline the developer experience. While the core functionality remains stable, this release significantly lowers the barrier to entry for new users and provides greater flexibility for those handling complex Firestore data types.
 
-## What's New
+## What's new
 
-### Comprehensive Documentation Overhaul
+The centerpiece of this release is a comprehensive overhaul of the project documentation. The updated README now features a dedicated "Getting Started" guide and a practical example showing exactly how to integrate the library within a Google Cloud Function. To remove the guesswork from data conversion, we've added a detailed mapping table that clarifies how various Firestore data types are transformed into JSON.
 
-The most significant change in v0.0.2 is a complete transformation of the project documentation. The README has more than tripled in size, evolving from basic snippets into a full integration guide with copy-paste ready examples.
+For developers with specialized requirements, we've introduced detailed guides on customizing conversion behaviors. You can now easily override how the library handles binary data (Bytes), geographic coordinates (GeoPoints), and timestamps, allowing you to specify your own date formats and timezones.
 
-**Cloud Function Integration Example**: A complete, working Cloud Function example shows exactly how to:
-- Set up a Maven project with proper dependencies
-- Parse `DocumentEventData` from Firestore triggers
-- Convert both new and old document values to JSON
-- Output results as either Strings or GSON JsonObject instances
+Additionally, we've improved the internal robustness of the library by integrating CodeQL for security analysis and Codecov for coverage reporting, ensuring that the tool remains reliable as it grows.
 
-### Customization Patterns Revealed
+## Why it matters
 
-While the core library behavior remains unchanged, v0.0.2 surfaces powerful customization capabilities that were previously undocumented:
+Working with Firestore Protocol Buffers can often feel like a "black box," especially when dealing with arbitrary documents in a generic implementation. By providing clear examples and explicit conversion tables, v0.0.2 transforms the library from a functional tool into a well-documented resource, reducing the time developers spend in trial-and-error.
 
-**Custom Timestamp Formatting**: Easily control how timestamps appear in your JSON output:
-```java
-FirestoreProto2Json converter = FirestoreProto2Json.builder()
-    .valueMapperTimestamp(
-        new ValueMapperTimestampDefault("yyyy-MM-dd'T'HH:mm:ss'Z'", ZoneOffset.UTC))
-    .build();
-```
-
-**Custom Bytes Encoding**: Choose how binary data is represented—base64, hex, or your own format:
-```java
-FirestoreProto2Json converter = FirestoreProto2Json.builder()
-    .valueMapperBytes(new ValueMapperBytes() {
-        @Override
-        public void convert(JsonObject jsonObject, String key, byte[] bytes) {
-            jsonObject.addProperty(key, HexFormat.of().formatHex(bytes));
-        }
-        // ...
-    })
-    .build();
-```
-
-### Enhanced Test Coverage
-
-New test cases ensure the library handles edge cases correctly:
-- Binary data stored within array fields (previously uncovered)
-- Custom timestamp formatting variations including date-only and year-only formats
-
-## Why It Matters
-
-Firestore triggers in Cloud Functions deliver data in Protocol Buffer format—the binary encoding Firestore uses internally. While efficient for transmission, this format isn't practical for application logic. firestoreproto2json bridges this gap by converting Protocol Buffers into standard JSON objects your code can work with directly.
-
-Version 0.0.2 makes the library truly production-ready by removing friction points:
-- **Reduced Integration Time**: Full Maven project templates and working examples mean you spend less time figuring out setup and more time building features
-- **Clear Customization Paths**: See exactly how to adapt the library's output format to your needs without modifying source code
-- **Confidence Through Testing**: Expanded test coverage demonstrates the library handles edge cases correctly
-- **Zero Risk Upgrade**: Fully backward compatible with v0.0.1—no breaking changes, no API modifications
-
-This release prioritizes developer experience over new features, recognizing that great documentation is just as valuable as new functionality.
+The new customization guides are particularly valuable for enterprise applications where date formatting and binary encoding must adhere to strict organizational standards. These changes ensure that the library adapts to your data needs, rather than forcing your data to adapt to the library.
 
 ## Getting Started
 
-### Installation
-
-Add the dependency to your Maven project:
+Upgrading to v0.0.2 is seamless as there are no breaking changes to the public API. Simply update your Maven dependency version:
 
 ```xml
 <dependency>
-    <groupId>io.github.UnitVectorY-Labs</groupId>
+    <groupId>com.unitvectory</groupId>
     <artifactId>firestoreproto2json</artifactId>
     <version>0.0.2</version>
 </dependency>
 ```
 
-### Upgrade from v0.0.1
+We encourage all users to check out the updated documentation to explore the new customization options and implementation examples.
 
-If you're already using firestoreproto2json, upgrading is simple:
+***
 
-```xml
-<!-- Change this version number -->
-<version>0.0.1</version>
-<!-- To -->
-<version>0.0.2</version>
-```
-
-No code changes required—this release is fully backward compatible. The improved documentation and Javadoc will immediately enhance your IDE experience with better autocomplete and inline help.
-
-### Learn More
-
-- [Full Documentation on GitHub](https://github.com/UnitVectorY-Labs/firestoreproto2json)
-- [Release Details](https://github.com/UnitVectorY-Labs/firestoreproto2json/releases/tag/v0.0.2)
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on March 18, 2026. For more information about this release, see the [firestoreproto2json repository](https://github.com/UnitVectorY-Labs/firestoreproto2json) and [v0.0.2 release page](https://github.com/UnitVectorY-Labs/firestoreproto2json/releases/tag/v0.0.2).*
-
-*This post was authored by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: [UnitVectorY-Labs/firestoreproto2json](https://github.com/UnitVectorY-Labs/firestoreproto2json), release v0.0.2, generated on 2026-04-11. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

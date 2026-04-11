@@ -1,71 +1,30 @@
 ---
 layout: post
-title: "Introducing firestoreproto2json v0.0.1 - Convert Firestore Protocol Buffers to JSON"
-date: 2024-02-29 02:07:30 -0500
-tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Introducing firestoreproto2json: Simplifying Firestore Protobuf to JSON Conversion"
+date: 2024-02-29 09:00:00 -0500
+tags: ["firestoreproto2json", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Announcing firestoreproto2json v0.0.1
+We are excited to announce the launch of firestoreproto2json on February 29, 2024. This Java library is designed to bridge the gap between Firestore's efficient internal storage and the developer-friendly world of JSON.
 
-Today marks an exciting milestone for Java developers working with Firebase Cloud Functions. We're thrilled to announce the first release of **firestoreproto2json** (v0.0.1), a utility library that bridges a critical gap in the Firestore ecosystem.
+### Core Capabilities
 
-Published on February 29, 2024, this initial release provides a clean solution for converting Firestore's internal Protocol Buffer document representations into JSON objects that your applications can easily consume.
+firestoreproto2json provides a robust mechanism to transform Firestore Protocol Buffer representations of documents into standard JSON objects. Key features include:
 
-## What's New
+- **Seamless Event Handling**: Full support for `DocumentEventData` objects, making it an ideal companion for developers building Google Cloud Functions.
+- **Comprehensive Type Mapping**: Automated conversion of all primary Firestore data types—including Arrays, Maps, Geopoints, and Timestamps—into their JSON equivalents.
+- **Flexible Input Options**: Built-in helpers to handle both binary and base64 encoded protobuf inputs.
+- **Granular Control**: The ability to convert current and previous document values independently.
 
-As the inaugural release of this project, v0.0.1 introduces core functionality built from the ground up:
+### Why it Matters
 
-### Complete Firestore Type Support
+While Firestore's use of protocol buffers is excellent for performance and storage, these binary formats can be cumbersome to work with directly in application code. Developers often find themselves wrestling with complex protobuf structures when processing events in the cloud, which can slow down development and introduce bugs.
 
-The library handles all 11 Firestore data types out of the box:
+By providing a predictable and easy-to-use conversion to JSON, firestoreproto2json removes this friction. It allows developers to treat Firestore data as simple JSON objects, enabling them to focus on their core business logic rather than the intricacies of protobuf parsing.
 
-- **Simple types**: Integers, floating-point numbers, booleans, and strings convert cleanly to JSON
-- **Complex structures**: Arrays and nested maps maintain their hierarchy
-- **Specialized types**: Timestamps become ISO 8601 strings, GeoPoints become latitude/longitude objects, and binary data gets Base64-encoded
-- **Document references**: Stored as full document path strings for easy access
+### Getting Started
 
-### Pluggable Architecture
-
-One of the standout features is the extensible design. Need to customize how timestamps format or how binary data encodes? The library provides mapper interfaces for:
-
-- Timestamp conversion (`ValueMapperTimestamp`)
-- GeoPoint handling (`ValueMapperGeoPoint`)  
-- Binary data encoding (`ValueMapperBytes`)
-
-Just implement the interface and plug in your custom logic—the rest of the conversion happens automatically.
-
-### Multiple API Entry Points
-
-Work with the library in the way that suits your needs:
-
-```java
-// Get JSON objects for direct manipulation
-JsonObject value = FirestoreProto2Json.DEFAULT.valueToJsonObject(documentEventData);
-
-// Get ready-to-use JSON strings
-String json = FirestoreProto2Json.DEFAULT.valueToJsonString(documentEventData);
-
-// Convert raw protobuf bytes directly (including Base64 input)
-```
-
-## Why It Matters
-
-Here's the problem this solves: When you attach a Cloud Function to Firestore document changes, you receive `DocumentEventData` objects containing binary Protocol Buffer data—not the JSON you might expect. Google doesn't provide built-in conversion because there's no single "correct" way to translate these complex types for every application use case.
-
-firestoreproto2json makes thoughtful decisions about those conversions while giving you the flexibility to override them when needed. The result is a library that works immediately for most use cases but won't force your hand if you need something different.
-
-### Production-Ready Foundation
-
-Despite the pre-1.0 version number, this release ships with:
-
-- **Full test coverage** across all data types and edge cases
-- **Published to Maven Central** with proper artifact signing—no custom repositories needed
-- **Apache 2.0 license** for unrestricted use in commercial and open-source projects
-- **Clear documentation** covering installation, usage patterns, and limitations
-
-### Get Started Today
-
-Adding firestoreproto2json to your project is straightforward. If you're using Maven, just add this dependency:
+firestoreproto2json is available as a Maven dependency for projects using Java 17. To add it to your project, include the following in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -75,18 +34,13 @@ Adding firestoreproto2json to your project is straightforward. If you're using M
 </dependency>
 ```
 
-**Requirements**: Java 17 or higher
-
-The library is now available on Maven Central and ready for integration into your Cloud Functions or any other Firestore event-processing workflows.
-
-### Looking Ahead
-
-This initial release establishes the foundation for future development. While v0.0.1 provides stable core functionality, expect the API to evolve before reaching a 1.0 milestone. The pluggable converter architecture ensures you can adapt to changes without rewriting your integration layer.
-
-We invite you to try firestoreproto2json in your projects and provide feedback as we move toward a stable 1.0 release.
+As this is an early candidate release, we encourage you to explore the library and provide feedback to help us shape the journey toward a stable 1.0 version.
 
 ---
 
-## Transparency Note
-
-This release announcement was generated with AI assistance using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For full details about this release, visit the [GitHub repository](https://github.com/UnitVectorY-Labs/firestoreproto2json) or view the [v0.0.1 release page](https://github.com/UnitVectorY-Labs/firestoreproto2json/releases/tag/v0.0.1). This post was published on February 29, 2024 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated.*
+*Model: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL*
+*Repository: [UnitVectorY-Labs/firestoreproto2json](https://github.com/UnitVectorY-Labs/firestoreproto2json)*
+*Release: [v0.0.1](https://github.com/UnitVectorY-Labs/firestoreproto2json/releases/tag/v0.0.1)*
+*Date: 2026-04-11*
+*Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

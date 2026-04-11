@@ -1,43 +1,33 @@
 ---
 layout: post
-title: "FirestoreProto2JSON v0.0.8 Released"
-date: 2025-11-29 14:40:13 -0500
-tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Maintaining the Foundation: firestoreproto2json v0.0.8"
+date: 2025-11-29 09:00:00 -0500
+tags: ["firestoreproto2json", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-FirestoreProto2JSON version 0.0.8 was released on November 29, 2025. This maintenance release keeps your library dependencies current while maintaining full backward compatibility with previous versions.
+On November 29, 2025, we released v0.0.8 of firestoreproto2json. This maintenance release focuses on enhancing the stability, security, and build reliability of the library, ensuring it continues to provide a seamless experience for developers converting Firestore Protocol Buffer data to JSON.
 
-## What's New
+## What's new
 
-Version 0.0.8 is a focused maintenance update that brings important dependency and infrastructure improvements without changing any user-facing functionality:
+This release primarily delivers under-the-hood improvements to keep the project current with the Java ecosystem:
 
-- **Updated Dependencies**: Runtime dependencies including google-cloudevent-types (v0.16.0 → v0.17.1) and gson (v2.13.1 → v2.13.2) have been updated to their latest versions
-- **JUnit BOM Integration**: New dependency management section added with JUnit Bill of Materials (v5.13.4) for better version control in consumer projects
-- **Build Infrastructure**: All Maven plugins updated to current versions including maven-javadoc-plugin, central-publishing-maven-plugin, and jacoco-maven-plugin
-- **CI/CD Security**: GitHub Actions workflows upgraded to latest action versions, including CodeQL v4 for enhanced security scanning
+- **Dependency Updates**: We've updated key production dependencies, including `google-cloudevent-types`, `gson`, and `lombok`, to their latest versions.
+- **Build Tooling Modernization**: Several Maven plugins and GitHub Actions workflows have been updated to ensure a more robust and efficient CI/CD pipeline.
+- **Test Framework Enhancements**: The integration of the JUnit BOM (`junit-bom`) provides better consistency across our testing suite.
 
-## Why It Matters
+## Why it matters
 
-This release represents a "zero-risk" upgrade path for all FirestoreProto2JSON users. With no source code changes and full backward compatibility maintained, you can update your dependency version with confidence that your existing code will continue to work exactly as before.
+While v0.0.8 does not introduce new functional features, these updates are essential for the long-term health of the library. By keeping our dependencies up to date, we reduce the risk of security vulnerabilities and ensure compatibility with the evolving Google Cloud environment. The improvements to our build tooling mean that we can iterate faster and provide more reliable releases moving forward.
 
-The updated dependencies ensure you benefit from the latest security patches and bug fixes from upstream projects. The addition of JUnit BOM provides better dependency management for projects that include FirestoreProto2JSON in their test suites, helping maintain version consistency across your entire project.
+## Upgrade and Installation
 
-## Upgrading
+Upgrading to v0.0.8 is straightforward and involves no breaking changes. It is a drop-in replacement for v0.0.7. To upgrade, simply update the version of `firestoreproto2json` in your `pom.xml` to `0.0.8`.
 
-Upgrading to v0.0.8 is straightforward. Simply update the version number in your `pom.xml`:
+***
 
-```xml
-<dependency>
-    <groupId>com.unitvectory</groupId>
-    <artifactId>firestoreproto2json</artifactId>
-    <version>0.0.8</version>
-</dependency>
-```
-
-The library still requires Java 17+. No code changes are necessary—this is a drop-in replacement for v0.0.7.
-
-All release artifacts including the JAR, sources JAR, javadocs JAR, and POM file are available on Maven Central and in the [GitHub v0.0.8 release](https://github.com/UnitVectorY-Labs/firestoreproto2json/releases/tag/v0.0.8).
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Reference: [UnitVectorY-Labs/firestoreproto2json](https://github.com/UnitVectorY-Labs/firestoreproto2json), release v0.0.8, published November 29, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+This post was AI-generated.
+- **Model**: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+- **Repository**: [UnitVectorY-Labs/firestoreproto2json](https://github.com/UnitVectorY-Labs/firestoreproto2json)
+- **Release**: [v0.0.8](https://github.com/UnitVectorY-Labs/firestoreproto2json/releases/tag/v0.0.8)
+- **Generated on**: 2026-04-11
+- **Author**: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

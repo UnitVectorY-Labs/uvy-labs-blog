@@ -1,35 +1,27 @@
 ---
 layout: post
-title: "firestoreproto2json v0.0.5 Released"
+title: "Maintaining Stability: firestoreproto2json v0.0.5"
 date: 2024-09-28 09:00:00 -0500
-tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["firestoreproto2json", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Maintaining Excellence: firestoreproto2json v0.0.5 Now Available
+On September 28, 2024, we released version v0.0.5 of `firestoreproto2json`. This update is a dedicated maintenance release focused on ensuring the library remains secure, stable, and compatible with the latest cloud event standards.
 
-Released on September 28, 2024, the v0.0.5 update to firestoreproto2json continues our commitment to keeping this library modern, secure, and reliable. While this release focuses on maintenance and infrastructure improvements rather than new features, it represents an important step in ensuring the long-term health of the project.
+## What's new
 
-## What's New
+This release focuses on the foundation of the library rather than adding new features. The primary updates include:
 
-The v0.0.5 release brings targeted dependency updates that benefit all users:
+- **Dependency Updates**: We've updated core dependencies, including `google-cloudevent-types`, to keep the library aligned with the latest Google Cloud event specifications.
+- **Build Tooling Enhancements**: Several Maven plugins and test frameworks have been updated to improve build consistency and reliability.
+- **Internal Refinements**: Minor updates to the project's release workflow and documentation to ensure a smoother experience for contributors and users alike.
 
-- **Updated CloudEvent Types**: The `google-cloudevent-types` production dependency has been upgraded from 0.15.0 to 0.16.0, ensuring compatibility with the latest Google Cloud Event specifications
-- **Enhanced Build Reliability**: Added explicit Lombok annotation processor configuration for more consistent builds when using this library in conjunction with Lombok-based projects
-- **Improved Supply Chain Security**: The release now includes security provenance attestations, providing verification of the artifact's origin and build process
+## Why it matters
 
-The update also includes upgrades to testing infrastructure (JUnit 5.11.1) and Maven plugins, ensuring the project maintains high standards for code quality and documentation generation.
+While there are no changes to the public API, maintenance releases like v0.0.5 are critical for the long-term health of your project. By updating dependencies and build tooling, we reduce potential security vulnerabilities and ensure that `firestoreproto2json` continues to work seamlessly as the surrounding ecosystem evolves. For developers using this library in production Cloud Functions, this update provides peace of mind regarding stability and compatibility.
 
-## Why It Matters
+## Upgrade and Installation
 
-For developers working with Firestore documents in Cloud Functions or event-driven architectures, this release reinforces the stability you can rely on. The firestoreproto2json library handles the critical task of converting Protocol Buffer-encoded Firestore documents into usable JSON format—something your applications depend on daily.
-
-By keeping dependencies current, we reduce potential security vulnerabilities and ensure compatibility with the evolving Google Cloud ecosystem. The addition of provenance attestations adds a layer of trust, allowing teams with strict supply chain security requirements to verify artifact authenticity.
-
-This maintenance-focused approach reflects our philosophy: reliable libraries deserve continuous care, even between major feature releases. Users can upgrade with confidence—v0.0.5 is fully backward compatible with v0.0.4, requiring no code changes.
-
-## Getting Started
-
-The library requires Java 17+ and is available on Maven Central. To use v0.0.5 in your Maven project:
+Upgrading to v0.0.5 is straightforward as there are no breaking changes. Simply update the version number in your Maven `pom.xml`:
 
 ```xml
 <dependency>
@@ -39,12 +31,8 @@ The library requires Java 17+ and is available on Maven Central. To use v0.0.5 i
 </dependency>
 ```
 
-For full documentation and usage examples, visit the [repository](https://github.com/UnitVectorY-Labs/firestoreproto2json).
+We encourage all users to update to the latest version to benefit from these stability and security improvements.
 
----
+***
 
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on March 18, 2026. Reference: [UnitVectorY-Labs/firestoreproto2json](https://github.com/UnitVectorY-Labs/firestoreproto2json) release v0.0.5 (September 28, 2024). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
-
-</content>
-<parameter=filePath>
-/out/article.md
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was created based on the [firestoreproto2json](https://github.com/UnitVectorY-Labs/firestoreproto2json) repository and the [v0.0.5 release](https://github.com/UnitVectorY-Labs/firestoreproto2json/releases/tag/v0.0.5) on 2026-04-11. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

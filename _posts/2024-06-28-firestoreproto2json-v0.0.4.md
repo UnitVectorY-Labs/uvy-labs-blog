@@ -1,65 +1,29 @@
 ---
 layout: post
-title: "firestoreproto2json v0.0.4 Released"
-date: 2024-06-28 00:00:00 -0500
-tags: ["firestoreproto2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "firestoreproto2json v0.0.4: Stability and Dependency Updates"
+date: 2024-06-28 09:00:00 -0500
+tags: ["firestoreproto2json", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on June 28, 2024, firestoreproto2json v0.0.4 is a maintenance release dedicated to strengthening the foundation of the project. While this update doesn't introduce new user-facing features, it focuses on essential dependency updates and internal improvements to ensure continued stability and reliability for all users.
 
-We're pleased to announce the release of firestoreproto2json v0.0.4, published on June 28, 2024. This maintenance release continues our commitment to keeping the library's dependencies current and the build ecosystem healthy, while maintaining the stable API that users rely on.
+## What's new
 
-## What's New
+This release primarily focuses on keeping the project's core dependencies current:
 
-Version 0.0.4 is a dependency maintenance release that updates several key components:
+* **Core Library Updates**: We have updated key libraries, including `gson` to version 2.11.0 and `google-cloudevent-types` to 0.15.0.
+* **Enhanced Testing Infrastructure**: Under the hood, we've transitioned our testing assertion library to `jsonassertify`, providing a more robust framework for verifying conversion accuracy.
 
-**Core Runtime Updates:**
-- `google-cloudevent-types`: Updated from 0.14.0 to 0.15.0
-- `gson`: Updated from 2.10.1 to 2.11.0
-- `lombok`: Updated from 1.18.30 to 1.18.34
+## Why it matters
 
-**Build Tool Updates:**
-- `maven-surefire-plugin`: 3.2.5 → 3.3.0
-- `maven-javadoc-plugin`: 3.6.3 → 3.7.0
-- `jacoco-maven-plugin`: 0.8.11 → 0.8.12
-- Test framework migrated to `jsonassertify` for improved test capabilities
+Maintenance releases like v0.0.4 are critical for the long-term health of any open-source tool. By updating to the latest versions of `gson` and other core libraries, we ensure that `firestoreproto2json` benefits from the latest performance optimizations and security patches.
 
-**Documentation Improvements:**
-- Fixed version references in README examples
-- Corrected minor typographical errors
+Additionally, the shift in our testing approach allows for more precise validation of the proto-to-JSON conversion process. While these changes are invisible during daily use, they significantly reduce the risk of regressions and provide a more stable experience as the project evolves.
 
-The core library API remains unchanged, ensuring your existing code continues to work without modification.
+## Getting started
 
-## Why It Matters
+To upgrade to v0.0.4, simply update the version reference in your project's dependency management file (e.g., `pom.xml` or `build.gradle`) to the latest version.
 
-While this release doesn't introduce new features, maintaining up-to-date dependencies is crucial for:
+***
 
-- **Security**: Keeping transitive dependencies current helps protect against known vulnerabilities in the dependency chain
-- **Compatibility**: Ensuring continued compatibility with the broader Java and Google Cloud ecosystems
-- **Reliability**: Building on well-tested, recent versions of foundational libraries
-
-This release demonstrates our ongoing commitment to library maintenance and long-term stability. The firestoreproto2json core functionality that converts Firestore Protocol Buffer documents to JSON remains stable and reliable.
-
-## Getting Started
-
-Upgrading to v0.0.4 is straightforward. For Maven users, simply update your `pom.xml`:
-
-```xml
-<dependency>
-    <groupId>com.unitvectory</groupId>
-    <artifactId>firestoreproto2json</artifactId>
-    <version>0.0.4</version>
-</dependency>
-```
-
-The release is fully backward compatible with v0.0.3 and earlier versions. No code changes are required on your end.
-
-## Try It Out
-
-The library is available on Maven Central and can be integrated into your Java projects immediately. If you're working with Cloud Functions or other services that trigger on Firestore events, firestoreproto2json makes it easy to convert Protocol Buffer data into manageable JSON objects.
-
-For more information, check out the [README](https://github.com/UnitVectorY-Labs/firestoreproto2json) on GitHub.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It was generated on behalf of the firestoreproto2json project (https://github.com/UnitVectorY-Labs/firestoreproto2json) for release v0.0.4 (June 28, 2024). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It references the [UnitVectorY-Labs/firestoreproto2json](https://github.com/UnitVectorY-Labs/firestoreproto2json) repository, release v0.0.4, and was generated on Sat Apr 11 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
