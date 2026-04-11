@@ -1,81 +1,28 @@
 ---
 layout: post
-title: ghprmerge v0.1.1 Released - Smarter Repository Discovery
-date: 2026-02-25 02:26:00 -0500
-tags: ["ghprmerge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Refining the Flow: ghprmerge v0.1.1"
+date: 2026-02-25 09:00:00 -0500
+tags: ["ghprmerge", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the release of ghprmerge v0.1.1! This update brings improved efficiency and cleaner output when scanning your organization for pull requests ready to merge.
+Released on February 25, 2026, ghprmerge v0.1.1 is a refinement release focused on improving operational efficiency and modernizing the project's foundation. This update ensures that the tool remains lean and performant as organizations scale their repository management.
 
-Released on February 25, 2026, v0.1.1 focuses on a key enhancement: automatic filtering of archived repositories during discovery. For organizations with many inactive or legacy projects, this means faster scans and more focused results—no more attempts to process read-only repositories that can't be modified.
+## What's new
 
-## What's New
+The centerpiece of this release is the optimization of archived repository handling. Instead of processing these repositories and only discovering they are read-only during the merge phase, ghprmerge now filters them out at the very beginning of the listing stage. 
 
-### Archived Repository Filtering
+Alongside this logic improvement, the project has been upgraded to Go 1.26.0, ensuring compatibility with the latest language features and performance improvements. Additionally, we have completely overhauled our documentation infrastructure, transitioning to a Jekyll-based site to provide a more seamless and accessible experience for our users.
 
-The headline feature in v0.1.1 is automatic handling of archived repositories. Previously, ghprmerge would discover archived repos during its scan, only to encounter errors when attempting actions on these read-only projects. Now, archived repositories are filtered out at the discovery stage:
+## Why it matters
 
-- **Cleaner output** - Only actionable repositories appear in your results
-- **Faster scans** - Fewer API calls and less processing time
-- **Smarter workflow** - The tool focuses on repos that actually need attention
+For maintainers managing dozens or hundreds of repositories, every second counts. By skipping archived repositories immediately, ghprmerge reduces unnecessary API calls and processing overhead, leading to faster execution times.
 
-### Under-the-Hood Improvements
+The upgrade to Go 1.26.0 keeps the tool aligned with the modern Go ecosystem, while the new documentation structure means that installation guides and usage examples are now easier to navigate and maintain.
 
-While the archived repository handling is the main user-facing change, this release includes other important updates:
+## Getting started with v0.1.1
 
-- **Go 1.26.0 support** - Built with the latest Go version for improved performance and security
-- **Enhanced supply chain security** - CI/CD workflows now pin GitHub Actions to specific commit hashes
-- **Improved documentation** - Expanded guides covering archived repository handling and installation
-
-## Why It Matters
-
-ghprmerge was built to solve a real problem: when organizations have dozens or hundreds of repositories with automated pull requests (like Dependabot updates), manually reviewing and merging each one becomes impractical. This tool automates that workflow safely, evaluating PRs across your entire organization in one command.
-
-Version 0.1.1 makes that workflow even better. Organizations with many archived or legacy projects no longer waste time on repos that can't be modified. The scan focuses where it matters—on active repositories with actionable pull requests.
-
-This release maintains full backward compatibility. All existing flags, configurations, and workflows continue to work exactly as before. The archived repository filtering is an improvement that works silently in the background—you'll just notice cleaner, faster results.
-
-## Getting Started
-
-### Installation
-
-Download the latest binary for your platform from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/ghprmerge/releases/tag/v0.1.1):
-
-**Linux (amd64):**
-```bash
-curl -L https://github.com/UnitVectorY-Labs/ghprmerge/releases/latest/download/ghprmerge_linux_amd64 -o ghprmerge
-chmod +x ghprmerge
-sudo mv ghprmerge /usr/local/bin/
-```
-
-**macOS (amd64 or arm64):**
-```bash
-curl -L https://github.com/UnitVectorY-Labs/ghprmerge/releases/latest/download/ghprmerge_darwin_amd64 -o ghprmerge
-chmod +x ghprmerge
-sudo mv ghprmerge /usr/local/bin/
-```
-
-**Windows:** Download `ghprmerge_windows_amd64.exe` from the releases page and add to your PATH.
-
-### Quick Start
-
-Set your GitHub token and start scanning:
-
-```bash
-export GITHUB_TOKEN=ghp_xxxxxxxxxxxx
-
-# See what would be merged (safe, read-only mode)
-ghprmerge --org myorg --source-branch dependabot/
-
-# Rebase outdated PRs
-ghprmerge --org myorg --source-branch dependabot/ --rebase
-
-# Merge ready PRs
-ghprmerge --org myorg --source-branch dependabot/ --merge
-```
-
-For complete documentation, visit the [usage guide](https://github.com/UnitVectorY-Labs/ghprmerge/blob/main/docs/USAGE.md).
+Updating to the latest version is straightforward. You can download the pre-compiled binaries for Windows, macOS, or Linux directly from our [GitHub releases page](https://github.com/UnitVectorY-Labs/ghprmerge/releases/tag/v0.1.1). If you prefer to build from source, please ensure you are using Go 1.26.0.
 
 ---
 
-**Transparency Note:** This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For details about this release, visit the [ghprmerge v0.1.1 release page](https://github.com/UnitVectorY-Labs/ghprmerge/releases/tag/v0.1.1). Generated on February 25, 2026 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on April 11, 2026, based on the [ghprmerge](https://github.com/UnitVectorY-Labs/ghprmerge) repository and the [v0.1.1 release](https://github.com/UnitVectorY-Labs/ghprmerge/releases/tag/v0.1.1). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*

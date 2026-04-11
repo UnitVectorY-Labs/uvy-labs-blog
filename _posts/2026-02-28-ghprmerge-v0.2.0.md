@@ -1,58 +1,38 @@
 ---
 layout: post
-title: "ghprmerge v0.2.0: A Visual Transformation"
-date: 2026-03-17 09:00:00 -0500
-tags: ["ghprmerge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "ghprmerge v0.2.0: A Fresh Look at Automated PR Management"
+date: 2026-02-28 09:00:00 -0500
+tags: ["ghprmerge", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the release of ghprmerge v0.2.0, launched on February 28, 2026. This update brings a completely redesigned terminal experience that makes managing pull requests across your organization faster to scan and easier to understand at a glance.
+Released on February 28, 2026, ghprmerge v0.2.0 introduces a significant overhaul of the terminal user interface. This release is all about clarity and efficiency, transforming how you track the automated merging and rebasing of pull requests across your organization.
 
-## What's New
+## What's new
 
-v0.2.0 focuses entirely on improving how you interact with ghprmerge in the terminal. The core functionality remains unchanged — you still scan for matching PRs, rebase when needed, and merge with safety checks intact. But now the output looks and feels like a modern CLI tool.
+The centerpiece of this release is a complete redesign of the command-line experience to make it more modern and scannable.
 
-### Colored Output and Unicode Symbols
+- **Visual Progress Tracking**: No more guessing if the tool is still working. A new progress bar now provides real-time feedback during the repository scanning phase.
+- **Intuitive Status Symbols**: We've replaced verbose text with color-coded Unicode symbols for instant recognition:
+    - ✓ (Green) for successful merges.
+    - ↻ (Yellow) for successful rebases.
+    - ✗ (Red) for failures.
+- **Condensed Execution Summary**: Instead of hunting through logs, you now get a concise, single-line summary at the end of every run, detailing exactly how many repositories were scanned and how many PRs were merged, rebased, or skipped.
+- **Enhanced Control**: Two new global flags give you more power over your output:
+    - `--verbose`: For those who want to see every repository being scanned in real-time.
+    - `--no-color`: Perfect for CI/CD pipelines or when piping output to other tools.
 
-Actions are now color-coded for instant recognition: green for merged PRs, yellow for rebased ones, and red for failures. Text-based indicators have been replaced with clean Unicode symbols (✓, ↻, ✗, ⊘) that make the output scannable even when reviewing long lists of repositories.
+## Why it matters
 
-### Progress Visualization
+For teams managing dozens or hundreds of repositories, visibility is key. When automating dependency updates—like those from Dependabot—the ability to quickly distinguish a successful merge from a failure at a glance saves valuable time and reduces cognitive load.
 
-A live progress bar appears during repository scans, showing you exactly how far along the tool is. When execution completes, a condensed summary line displays the key statistics: total repos scanned, PRs found, and a breakdown of merged, rebased, and skipped actions.
+By reducing redundant information and introducing high-contrast visual cues, v0.2.0 turns a wall of text into a streamlined dashboard. Whether you are running the tool locally to clean up your org or integrating it into a GitHub Action, the experience is now faster, cleaner, and more professional.
 
-### New Control Flags
+## Getting started with v0.2.0
 
-Two new flags give you more control over output behavior:
+Upgrading to the latest version is simple. You can download the pre-compiled binary for your platform directly from the [GitHub releases page](https://github.com/UnitVectorY-Labs/ghprmerge/releases/tag/v0.2.0). 
 
-- `--verbose` streams results from every repository during scanning, including those without matching PRs
-- `--no-color` disables colored output for CI environments or when piping to files
+There are no breaking changes to existing commands or flags, so your current workflows will continue to work seamlessly while benefiting from the improved interface.
 
-**Note:** The `--quiet` flag from v0.1.1 has been replaced with `--verbose`. The default behavior is now the quiet mode — you only see repositories with matching PRs unless you explicitly request verbose output.
+***
 
-## Why It Matters
-
-This release represents a shift in focus from building features to refining the user experience. After establishing core functionality in earlier versions, ghprmerge v0.2.0 addresses a practical need: when you're managing dozens or hundreds of Dependabot PRs across repositories, every second counts.
-
-The new output design reduces cognitive load. You can quickly identify which repositories had issues (red failures), see successful merges at a glance (green checkmarks), and get the big picture from a single summary line without scanning through pages of text.
-
-For teams running ghprmerge in CI/CD pipelines or scripting workflows, the `--no-color` flag ensures compatibility with environments that don't handle ANSI escape codes well. Meanwhile, the default quiet behavior keeps output clean by showing only what matters — repositories with actual PR activity.
-
-## Getting Started
-
-Upgrading from v0.1.x is straightforward. Download the appropriate binary for your platform from the [v0.2.0 release page](https://github.com/UnitVectorY-Labs/ghprmerge/releases/tag/v0.2.0), or build from source using Go.
-
-**Important:** If you were using `--quiet` in your scripts, replace it with just removing any verbosity flag (quiet is now the default) or switch to `--verbose` if you need full repository visibility.
-
-Basic usage remains the same:
-```bash
-# Dry run - see what would happen
-ghprmerge --org myorg --source-branch dependabot/
-
-# Actually merge the PRs
-ghprmerge --org myorg --source-branch dependabot/ --merge
-```
-
-All safety features remain intact. ghprmerge still defaults to analysis-only mode and requires explicit action flags for any mutations. The tool never operates on local repositories — it uses the GitHub API directly, eliminating risks from local state issues.
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It was produced based on analysis of the ghprmerge v0.2.0 release (February 28, 2026) from [UnitVectorY-Labs/ghprmerge](https://github.com/UnitVectorY-Labs/ghprmerge/releases/tag/v0.2.0). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It refers to the UnitVectorY-Labs/ghprmerge repository, release v0.2.0, and was generated on April 11, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
