@@ -1,59 +1,23 @@
 ---
 layout: post
-title: "Firestore Batch Incrementer v0.1.3 Released"
-date: 2025-11-22 16:11:27 -0500
-tags: ["firestore-batch-incrementer", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Maintenance Update: firestore-batch-incrementer v0.1.3"
+date: 2025-11-22 09:00:00 -0500
+tags: ["firestore-batch-incrementer", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+On November 22, 2025, we released version v0.1.3 of the firestore-batch-incrementer. This is a maintenance release focused on stability and keeping our environment current to ensure the best performance and security for your Firestore batch operations.
 
-On November 22, 2025, we released v0.1.3 of firestore-batch-incrementer—a maintenance update that keeps your batch processing tool running smoothly with the latest security patches and dependency updates. This release focuses on stability and compatibility, ensuring your Firestore bulk-update operations continue uninterrupted.
+## What's new
+This release focuses on the foundational health of the project:
+- **Runtime Upgrade**: We've updated the project to Go version 1.25.4.
+- **Dependency Bumps**: Key libraries, including `cloud.google.com/go/firestore` and `google.golang.org/grpc`, have been updated to their latest stable versions.
+- **CI/CD Improvements**: Updated GitHub Actions workflows to improve build reliability.
 
-## What's New
+## Why it matters
+While this release doesn't introduce new features, these updates are critical for maintaining a secure and efficient tool. By upgrading the Go runtime and core Google Cloud libraries, we ensure that the utility benefits from the latest performance optimizations and security patches provided by the upstream maintainers.
 
-Version 0.1.3 doesn't introduce new features, but it delivers important under-the-hood improvements:
-
-**Updated Dependencies**
-- Cloud Firestore SDK updated to v1.20.0 for improved reliability
-- Google APIs libraries refreshed across the board (v0.252.0 → v0.256.0)
-- gRPC library upgraded to v1.77.0
-- Security updates applied through golang.org/x/crypto (v0.43.0 → v0.45.0)
-
-**Infrastructure Enhancements**
-- Build system updated to GitHub Actions checkout v6 for faster, more secure CI/CD pipelines
-- Go toolchain synchronized to version 1.25.4 across all build environments
-
-All existing functionality remains intact. Your batch processing workflows, rate limiting configurations, and atomic update modes continue to work exactly as before.
-
-## Why It Matters
-
-This maintenance release reflects our commitment to keeping firestore-batch-incrementer secure and compatible with the evolving Google Cloud platform. Regular dependency updates ensure:
-
-- **Security:** Latest patches applied to all libraries
-- **Compatibility:** Continued support for current Google Cloud APIs
-- **Reliability:** Bug fixes from upstream dependencies flow through to your deployments
-
-The updated CI/CD infrastructure means faster builds and more reliable container images for your Cloud Run Job deployments.
-
-## Getting Started
-
-Upgrading is straightforward. If you're using Docker:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/firestore-batch-incrementer:v0.1.3
-```
-
-For source builds:
-
-```bash
-git clone https://github.com/UnitVectorY-Labs/firestore-batch-incrementer.git
-cd firestore-batch-incrementer
-git checkout v0.1.3
-go build -o firestore-batch-incrementer .
-```
-
-No configuration changes or migration steps are required. Simply pull the new version and deploy—it's fully backward compatible with v0.1.2.
+## Upgrade and Installation
+Upgrading to v0.1.3 is seamless as this release is fully backward compatible. To get the latest updates, simply pull the latest Docker image with the `v0.1.3` tag.
 
 ---
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. The original release information can be found at [github.com/UnitVectorY-Labs/firestore-batch-incrementer/releases/tag/v0.1.3](https://github.com/UnitVectorY-Labs/firestore-batch-incrementer/releases/tag/v0.1.3). Article generated on March 18, 2026 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL on 2026-04-11, based on the [firestore-batch-incrementer](https://github.com/UnitVectorY-Labs/firestore-batch-incrementer) repository and the [v0.1.3 release](https://github.com/UnitVectorY-Labs/firestore-batch-incrementer/releases/tag/v0.1.3). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
