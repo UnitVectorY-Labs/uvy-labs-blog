@@ -1,33 +1,27 @@
 ---
 layout: post
-title: "firestoreproto2map v0.0.3 Released"
-date: 2024-09-28 00:00:00 -0500
-tags: ["firestoreproto2map", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "firestoreproto2map v0.0.3: Keeping Things Current"
+date: 2024-09-28 09:00:00 -0500
+tags: ["firestoreproto2map", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-# What's in firestoreproto2map v0.0.3
+On September 28, 2024, we released v0.0.3 of firestoreproto2map. This maintenance update focuses on keeping the library aligned with the latest Google Cloud ecosystems and improving our build infrastructure to ensure long-term stability.
 
-On September 28, 2024, we released version 0.0.3 of firestoreproto2map – a maintenance update that keeps your Firebase Cloud Functions integrations running smoothly with the latest Google Cloud Firestore SDK improvements.
+## What's new
 
-## What's New
+This release is centered around dependency management and project health:
 
-Version 0.0.3 is a focused dependency update release. The library's core functionality remains unchanged, but you now benefit from an updated Google Cloud Firestore SDK (from 3.21.6 to 3.26.4), which spans several minor versions of upstream improvements.
+- **Core SDK Updates**: We have updated the `google-cloud-firestore` SDK to version 3.26.4 and refreshed `google-cloudevent-types` to 0.16.0.
+- **Tooling Improvements**: Our testing and build pipeline received several updates, including newer versions of JUnit, Mockito, and essential Maven plugins.
+- **Documentation**: We've added a project status badge to the README to provide clearer visibility into the project's active state.
 
-**Key updates include:**
-- **google-cloud-firestore**: Updated to version 3.26.4
-- **google-cloudevent-types**: Updated to version 0.16.0
-- **JUnit Jupiter**: Updated to version 5.11.1 for enhanced testing capabilities
-- Various build and plugin improvements
+## Why it matters
 
-## Why It Matters
+For developers using `firestoreproto2map` to handle Firestore events in Java, staying current with the Google Cloud SDKs is critical for maintaining compatibility and stability. These updates ensure that the library continues to work seamlessly as the underlying Firestore protocol and cloud event types evolve. By refining our build and test tools, we ensure a more robust delivery process, providing a reliable foundation for your production workloads.
 
-For developers using firestoreproto2map in their Firebase Cloud Functions, this release ensures you're automatically receiving bug fixes, security patches, and performance improvements from the Google Cloud Firestore SDK without any additional configuration required.
+## Upgrading
 
-The `provided` scope of the Firestore SDK dependency means your application will seamlessly benefit from these upstream updates while maintaining full compatibility with your existing code. No API changes, no breaking modifications – just a smoother, more secure foundation for your Firestore document processing.
-
-## Upgrade Instructions
-
-Updating to v0.0.3 is straightforward. Simply change the version number in your `pom.xml`:
+Upgrading to v0.0.3 is straightforward. Simply update the version in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -37,10 +31,8 @@ Updating to v0.0.3 is straightforward. Simply change the version number in your 
 </dependency>
 ```
 
-That's it – no code changes required. Your existing integrations will continue to work exactly as before, now with the benefits of the updated Firestore SDK underneath.
+As a reminder, the library requires **Java 17**.
 
-For new users, firestoreproto2map remains available on the Maven Central Repository and requires Java 17 or higher.
+***
 
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Release details based on the official [firestoreproto2map v0.0.3 release](https://github.com/UnitVectorY-Labs/firestoreproto2map/releases/tag/v0.0.3) published on September 28, 2024. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It refers to the [firestoreproto2map](https://github.com/UnitVectorY-Labs/firestoreproto2map) repository, release [v0.0.3](https://github.com/UnitVectorY-Labs/firestoreproto2map/releases/tag/v0.0.3), and was generated on April 11, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
