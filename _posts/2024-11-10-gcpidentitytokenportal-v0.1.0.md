@@ -1,87 +1,42 @@
 ---
 layout: post
-title: "Announcing gcpidentitytokenportal v0.1.0"
-date: 2024-11-10 14:32:00 -0000
-tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Introducing gcpidentitytokenportal: Simplified GCP Identity Token Vending"
+date: 2024-11-10 09:00:00 -0500
+tags: ["gcpidentitytokenportal", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the launch of **gcpidentitytokenportal**, now available in its initial release (v0.1.0)!
+We are excited to announce the launch of **gcpidentitytokenportal**, released on November 10, 2024. This new utility provides a straightforward, web-based interface for vending Google Cloud Platform (GCP) identity tokens, removing the friction from testing and debugging services that rely on GCP identity-based authentication.
 
-This web portal simplifies obtaining Google Cloud Platform (GCP) identity tokens for developers and administrators who need to test or debug GCP integrations. Released on November 10, 2024, this tool provides a clean, user-friendly interface for vending tokens with flexible audience configuration options.
+### What it does
 
-## What's New
+The `gcpidentitytokenportal` is designed to be a lightweight tool that allows developers to quickly generate identity tokens for specific target audiences. Whether you are testing a Cloud Run service or debugging an internal API, the portal simplifies the process of obtaining a valid token without needing to manually execute complex CLI commands.
 
-As the first release of gcpidentitytokenportal, v0.1.0 introduces the complete core functionality that makes GCP token generation accessible through a web browser:
+Key capabilities include:
 
-### Web-Based Token Generation
-- **Clean, responsive UI** built with HTMX for a smooth user experience without page reloads
-- **Single-click token generation** - simply select your audience and click "Generate Token"
-- **Copy-to-clipboard functionality** for quick access to generated tokens
-- **Service account display** shows which identity is being used to generate tokens
+- **Effortless Token Generation**: A clean web interface to request tokens for any specified audience.
+- **Flexible Audience Management**: Users can enter a custom audience manually or choose from a predefined list via an optional configuration file, which transforms the input into a convenient dropdown menu.
+- **Identity Transparency**: The portal clearly displays the email of the service account being used, ensuring you know exactly which identity is vending the token.
+- **Modern, Responsive UI**: Built with HTMX for a seamless single-page experience, including a one-click copy button to move your token instantly to the clipboard.
+- **Hybrid Environment Support**: The tool works natively on GCP using the metadata service and supports external environments via service account JSON keys.
 
-### Flexible Audience Configuration
-- Optional `config.yaml` support to restrict allowed audiences for production use cases
-- When configured, provides a dropdown of pre-approved audience options
-- Without configuration, accepts any arbitrary audience value for development flexibility
+### Why it matters
 
-### Dual Environment Deployment
-- **GCP-native**: Runs on GCE, Cloud Run, or any GCP environment with automatic credential detection via the metadata service
-- **Local development**: Works with mounted service account credentials using the `GOOGLE_APPLICATION_CREDENTIALS` environment variable
+For developers working within the GCP ecosystem, generating identity tokens for specific audiences can often be a tedious process involving `gcloud` commands or custom scripts. `gcpidentitytokenportal` turns this into a self-service experience. By providing a visual portal, teams can reduce the overhead of authentication setup during the development and QA phases, allowing for faster iteration and more reliable testing of service-to-service communication.
 
-### HTTP API Access
-For programmatic access, the portal exposes REST endpoints:
-- `/` - Main web interface
-- `/token` - POST endpoint for token generation
-- `/service-account` - Returns the current service account email
+### Getting Started
 
-## Why It Matters
+`gcpidentitytokenportal` is distributed as a minimal, secure Docker image. You can get it up and running in seconds:
 
-GCP identity tokens are essential for authenticating to Google Cloud services, but obtaining them often requires command-line tools or complex programmatic setups. gcpidentitytokenportal fills a practical gap by providing:
-
-- **Rapid debugging**: Generate tokens on-demand without leaving your browser
-- **Educational value**: See exactly which service account is being used and understand token generation mechanics
-- **Simplified testing**: Share access to the portal for team-based debugging sessions
-- **Production-ready security**: Built with a distroless Debian base image to minimize attack surface
-
-The application leverages modern Go 1.23, runs in a secure distroless container, and supports multi-platform Docker builds (linux/amd64 and linux/arm64). A complete CI/CD pipeline ensures reliable automated builds and releases to the GitHub Container Registry (GHCR).
-
-## Getting Started
-
-### Prerequisites
-- Docker installed and running
-- Access to GitHub Container Registry (`ghcr.io`)
-- GCP service account with appropriate permissions for token generation
-
-### Quick Start with Docker
-
-**Running outside GCP:**
 ```bash
 docker run --name gcpidentitytokenportal -d -p 8080:8080 \
-  -v /path/to/service-account-key.json:/creds.json \
+  -v /path/to/your-service-account-key.json:/creds.json \
+  -v /path/to/your-config.yaml:/config.yaml \
   -e GOOGLE_APPLICATION_CREDENTIALS=/creds.json \
   ghcr.io/unitvectory-labs/gcpidentitytokenportal:v0.1.0
 ```
 
-**Running on GCP:**
-When deployed to GCP (Cloud Run recommended), credentials are detected automatically via the metadata service—no additional configuration needed!
+We look forward to seeing how this tool helps streamline your GCP development workflow!
 
-### Optional Audience Restriction
+***
 
-For production use, create a `config.yaml` to restrict which audiences can be requested:
-
-```yaml
-audiences:
-  - https://api.example.com
-  - https://service.example.com
-```
-
-Mount this file at `/config.yaml` inside the container to enforce the restrictions.
-
-### Project Links
-- **Repository**: [UnitVectorY-Labs/gcpidentitytokenportal](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal)
-- **Release**: [v0.1.0 on GitHub](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal/releases/tag/v0.1.0)
-- **License**: MIT
-
----
-
-**Transparency Note**: This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. The release information is based on GitHub Release v0.1.0 of the UnitVectorY-Labs/gcpidentitytokenportal repository, published on November 10, 2024. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL` on 2026-04-11, based on the [gcpidentitytokenportal](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal) repository and the [v0.1.0](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal/releases/tag/v0.1.0) release. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

@@ -1,47 +1,28 @@
 ---
 layout: post
-title: GCP Identity Token Portal v0.3.1 Released
-date: 2025-01-19 10:24:00 -0500
-tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Maintenance Update: gcpidentitytokenportal v0.3.1"
+date: 2025-01-19 09:00:00 -0500
+tags: ["gcpidentitytokenportal", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## A Maintenance Update for Enhanced Reliability
+On January 19, 2025, we released v0.3.1 of gcpidentitytokenportal. This is a maintenance release focused on keeping the project current and ensuring the documentation is accurate for our users.
 
-On January 19, 2025, we released version 0.3.1 of the GCP Identity Token Portal—a routine maintenance update focused on keeping your deployment secure and up-to-date.
+## What's new
 
-This patch release builds upon the significant Kubernetes support introduced in v0.3.0, delivering important dependency updates and documentation improvements to ensure a smooth experience for all users.
+This release focuses on underlying stability and documentation clarity:
 
-## What's New
+- **Updated Go Runtime**: The project has been updated to use Go 1.23.5, ensuring we benefit from the latest performance enhancements and security patches.
+- **Dependency Refresh**: We've updated the `google.golang.org/api` library to version 0.217.0 to maintain compatibility with the latest Google Cloud APIs.
+- **Documentation Polish**: We've corrected outdated version references in the deployment examples within the README to provide a smoother onboarding experience.
 
-Version 0.3.1 is a maintenance release that prioritizes reliability and security:
+## Why it matters
 
-- **Updated Go Runtime**: Upgraded to Go 1.23.5, incorporating the latest bug fixes and security patches from the Go team
-- **Enhanced Google API Dependencies**: Updated `google.golang.org/api` and related libraries to their latest versions, ensuring compatibility with the newest GCP features and security improvements
-- **Documentation Accuracy Fixed**: Corrected outdated version references in README examples, so users deploying via Docker or Kubernetes will now see the correct v0.3.0+ image tags instead of deprecated v0.1.0 references
+While v0.3.1 doesn't introduce new functional features, these updates are essential for the long-term reliability of the portal. By keeping our toolchain and core dependencies up to date, we ensure the application remains secure, stable, and fully compatible with the evolving GCP ecosystem.
 
-## Why It Matters
+## Upgrade and Installation
 
-While this release doesn't introduce new features, it represents our commitment to maintaining a secure and well-supported platform:
+To upgrade to the latest version, simply pull the v0.3.1 release from our GitHub repository. For detailed installation and deployment instructions, please refer to the [README](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal/blob/main/README.md).
 
-- **Security First**: The dependency updates include security patches from multiple Google API libraries, keeping your token portal protected against known vulnerabilities
-- **Production Confidence**: By staying current with the Go runtime and GCP client libraries, you benefit from upstream stability improvements and continued support
-- **Better Documentation**: If you were following the README instructions and found yourself pointed to an outdated version, this fix ensures you'll now deploy the right image
+***
 
-The quick turnaround from v0.3.0 to v0.3.1 demonstrates active project maintenance and responsiveness to user feedback—particularly the documentation correction that could have caused confusion during deployment.
-
-## Upgrading to v0.3.1
-
-Upgrading is straightforward with no breaking changes or configuration modifications required:
-
-**Docker:**
-```bash
-docker pull ghcr.io/unitvectory-labs/gcpidentitytokenportal:v0.3.1
-```
-
-**Kubernetes:** Update your Deployment image tag from `v0.3.0` to `v0.3.1`.
-
-If you're still on v0.1.0 or earlier, we strongly recommend upgrading—v0.3.0 introduced full Kubernetes support with Workload Identity Federation, and v0.3.1 ensures you have the latest security patches.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Release information sourced from [UnitVectorY-Labs/gcpidentitytokenportal](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal), release v0.3.1, published January 19, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: [UnitVectorY-Labs/gcpidentitytokenportal](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal), release [v0.3.1](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal/releases/tag/v0.3.1), generated on 2026-04-11. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

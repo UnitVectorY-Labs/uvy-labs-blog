@@ -1,55 +1,35 @@
 ---
 layout: post
-title: "gcpidentitytokenportal v0.4.1 Released: Keeping Your Token Portal Secure and Stable"
+title: "Maintaining the Pipeline: gcpidentitytokenportal v0.4.1"
 date: 2025-05-07 09:00:00 -0500
-tags: ["gcpidentitytokenportal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["gcpidentitytokenportal", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the release of **gcpidentitytokenportal v0.4.1**, published on May 7, 2025. This maintenance release continues our commitment to keeping your GCP identity token portal secure, stable, and up-to-date with the latest improvements from the Go and Google Cloud ecosystems.
+On May 7, 2025, we released v0.4.1 of `gcpidentitytokenportal`. This maintenance release focuses on strengthening the foundation of the portal by updating core dependencies and the Go runtime, ensuring continued stability and security for your GCP identity token vending needs.
 
-## What's New
+## What's new
 
-While v0.4.1 doesn't introduce new features, it delivers important behind-the-scenes updates that benefit all users:
+This release is primarily focused on under-the-hood improvements:
 
-### Dependency Security Updates
-- **Google Cloud SDK libraries**: Updated `google.golang.org/api` from v0.218.0 to v0.231.0, incorporating the latest bug fixes and security patches from Google's official Go client libraries
-- **OAuth2 improvements**: Bumped `golang.org/x/oauth2` from v0.25.0 to v0.29.0, ensuring your token vending flows leverage the most recent OAuth2 protocol improvements
-- **Security packages**: Updated critical security dependencies including `golang.org/x/crypto` and related networking libraries
+- **Go Runtime Upgrade**: We have updated the project to Go 1.24.3, bringing the latest performance and stability improvements from the Go team.
+- **Dependency Refresh**: Critical libraries, including the Google API Client and OAuth2 libraries, have been updated to their latest versions to maintain compatibility and security.
+- **Enhanced CI/CD**: Internal workflows have been optimized to ensure a more robust build and release process.
+- **Documentation Updates**: We've added helpful status badges to the README for better visibility into the project's health.
 
-### Runtime Modernization
-- **Go 1.24.3**: The application now runs on Go 1.24.3, advancing from Go 1.23.5. This upgrade brings performance improvements, bug fixes, and the latest security patches from the Go team
+## Why it matters
 
-### Documentation Polish
-- **New badges**: The README now features GitHub release and license badges for quicker access to project information
-- **Updated examples**: Docker and Kubernetes deployment examples now reflect current version references
+While this release doesn't introduce new features, these maintenance updates are vital for the long-term reliability of the tool. By keeping the runtime and dependencies current, we reduce the risk of security vulnerabilities and ensure that the portal continues to work seamlessly with the evolving Google Cloud ecosystem. For users relying on `gcpidentitytokenportal` for testing and debugging, this means a more stable and secure environment.
 
-## Why It Matters
+## Getting started with v0.4.1
 
-Maintenance releases like v0.4.1 are essential for production deployments. By staying current with dependency updates, you benefit from:
+Upgrading to v0.4.1 is seamless, as there are no breaking changes. If you are using Docker, simply update your image tag:
 
-- **Security hardening**: Each updated dependency may contain important security patches that protect your token generation workflows
-- **Proven stability**: The included Google Cloud and OAuth2 libraries have been battle-tested across thousands of applications
-- **No breaking changes**: This is a drop-in upgrade. Your existing configurations, environment variables, and deployment patterns work exactly as before
-
-For teams running gcpidentitytokenportal in production—whether on GCP with built-in service accounts, using service account key files, or leveraging Kubernetes Workload Identity Federation—this release ensures your token portal continues to operate with the latest underlying library improvements.
-
-## Upgrade Instructions
-
-Upgrading to v0.4.1 is straightforward:
-
-**Docker:**
 ```bash
 docker pull ghcr.io/unitvectory-labs/gcpidentitytokenportal:v0.4.1
 ```
 
-**Kubernetes:**
-```bash
-kubectl set image deployment/gcpidentitytokenportal \
-  gcpidentitytokenportal=ghcr.io/unitvectory-labs/gcpidentitytokenportal:v0.4.1
-```
+Alternatively, you can use the `latest` tag to always stay up to date.
 
-No configuration changes are required. All existing environment variables (`GOOGLE_APPLICATION_CREDENTIALS`, `PORT`) and YAML configuration options remain unchanged.
+***
 
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Release v0.4.1 was published on May 7, 2025. Source: [UnitVectorY-Labs/gcpidentitytokenportal](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal/releases/tag/v0.4.1). Generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the [gcpidentitytokenportal](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal) repository and the [v0.4.1 release](https://github.com/UnitVectorY-Labs/gcpidentitytokenportal/releases/tag/v0.4.1) published on 2025-05-07. Generated on 2026-04-11 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
