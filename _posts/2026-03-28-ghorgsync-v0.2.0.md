@@ -1,103 +1,43 @@
 ---
 layout: post
-title: "ghorgsync v0.2.0 - Introducing Read-Only Status Mode"
-date: 2026-03-28 13:43:00 -0500
-tags: [ghorgsync, unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M]
+title: "ghorgsync v0.2.0: Introducing Status Mode for Safe Repository Audits"
+date: 2026-03-28 09:00:00 -0500
+tags: ["ghorgsync", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-# ghorgsync v0.2.0 - Introducing Read-Only Status Mode
+Released on March 28, 2026, ghorgsync v0.2.0 introduces a powerful new way to manage your local organization mirror: Status Mode. This update transforms ghorgsync from a synchronization tool into a read-only auditor, giving you complete visibility into your local environment without the risk of modifying your code.
 
-Released on March 28, 2026, ghorgsync v0.2.0 brings a powerful new inspection capability to teams managing multiple repositories across GitHub organizations. This update introduces the `--status` flag, enabling users to audit their local repository state without making any modifications.
+## What's new
 
-## What's New
+The headline feature of this release is the introduction of the `--status` flag. When enabled, ghorgsync shifts into a specialized reporting mode that scans your local directory for repositories belonging to your target GitHub organization and identifies those that require attention.
 
-### Status Mode (`--status` flag)
+Instead of automatically pulling updates or cloning missing projects, Status Mode specifically looks for:
+- **Dirty Repositories**: Any repository with staged or unstaged changes.
+- **Branch Drift**: Repositories that are currently checked out on a branch other than the default.
 
-The headline feature in v0.2.0 is **Status Mode**, a read-only inspection mode that quickly identifies repositories needing attention. Simply run:
+To make these findings actionable, ghorgsync now integrates colorized `git status --short` output directly into the report, allowing you to see exactly what has changed across dozens of repositories at a glance.
 
-```bash
-ghorgsync --status
-```
+## Why it matters
 
-This command surveys all synchronized repositories and reports:
+For developers managing a large number of organization repositories, the "sync-and-pray" approach can be stressful. Status Mode provides three key advantages:
 
-- **Dirty working trees**: Repositories with uncommitted changes (staged or unstaged)
-- **Branch drift**: Repositories not on their default branch
+1. **Absolute Safety**: Because it performs no modifying git operations—no `fetch`, `checkout`, or `pull`—you can run it at any time without worrying about altering your local state.
+2. **Instant Visibility**: By surfacing the short-form git status with native color coding, you no longer have to manually `cd` into every directory to find where you left off.
+3. **Operational Efficiency**: Status Mode skips network-heavy operations. You get a comprehensive audit of your local disk state instantly, without waiting for GitHub API calls or remote fetches.
 
-Status mode produces clean, focused output showing only the repositories that need your attention:
+## Getting started
 
-```
-$ ghorgsync --status
-  repo  web-frontend  [dirty] on feature-branch (default: main)
-        M src/index.ts
-       ?? new-file.txt
-  repo  docs-site  [branch-drift] on feature-docs (default: main)
-
-Summary:
-  total: 10 | dirty: 1 | branch-drift: 1
-```
-
-Key characteristics of Status Mode:
-
-- **Read-only**: Performs no modifying git operations—no fetch, no checkout, no pull
-- **Non-destructive**: Missing repositories are not cloned; safe to run anytime
-- **Colorized output**: Leverages git's native status coloring for familiar visual distinction
-- **Focused summaries**: Clean repos on their default branch produce no output
-
-### Practical Use Cases
-
-Status Mode is ideal for:
-
-- **Pre-commit audits**: Quickly survey which repositories need attention before making changes
-- **CI/CD integration**: Read-only status checks in automated pipelines
-- **Team oversight**: Scan your organization's repository state without affecting working directories
-
-## Why It Matters
-
-Managing dozens or hundreds of repositories across a GitHub organization presents a unique challenge: how do you know which repos need attention without manually checking each one?
-
-Before v0.2.0, users could sync their repositories with `ghorgsync` (which fetches and pulls updates) or clone missing ones with `--clone`. But there was no quick way to inspect the state of existing repositories without triggering git operations that might modify your working tree.
-
-Status Mode fills this gap. It respects ghorgsync's core principle of non-destructiveness while giving you visibility into:
-
-1. **Uncommitted changes**: Spot dirty working trees before pushing or sharing code
-2. **Branch drift awareness**: Identify repositories that have drifted from their default branch
-3. **At-a-glance summaries**: Know exactly how many repos need attention with a single command
-
-The mutually exclusive design of `--clone` and `--status` flags ensures you're always clear about which mode you're running—no surprises.
-
-## Installation & Upgrade
-
-Upgrading to v0.2.0 is straightforward and fully backward compatible:
+Upgrading to v0.2.0 is simple. You can update your installation using the standard Go command:
 
 ```bash
-# Upgrade using Go
 go install github.com/UnitVectorY-Labs/ghorgsync@latest
-
-# Or download the latest binary from GitHub Releases
 ```
 
-All existing workflows continue to work exactly as before:
-- Default sync mode: `ghorgsync`
-- Clone-only mode: `ghorgsync --clone`
-- All existing flags: `--verbose`, `--no-color`, `--help`, `--version`
-
-### Getting Started with Status Mode
-
+Once updated, you can run a safe audit of your organization mirror with:
 ```bash
-# Quick status check across all synced repositories
-ghorgsync --status
-
-# Combine with verbose output for detailed information
-ghorgsync --status --verbose
+ghorgsync --org <your-org> --status
 ```
-
-For complete documentation, see the [Usage Guide](https://github.com/UnitVectorY-Labs/ghorgsync/blob/v0.2.0/docs/USAGE.md) and [Examples](https://github.com/UnitVectorY-Labs/ghorgsync/blob/v0.2.0/docs/EXAMPLES.md).
 
 ---
 
-### Transparency Note
-
-This release announcement was AI-generated using the `unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M` model. The post was generated on March 30, 2026, based on information from the [ghorgsync v0.2.0 release](https://github.com/UnitVectorY-Labs/ghorgsync/releases/tag/v0.2.0).
-
-**Author:** [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. It was created based on the [UnitVectorY-Labs/ghorgsync](https://github.com/UnitVectorY-Labs/ghorgsync) repository, release [v0.2.0](https://github.com/UnitVectorY-Labs/ghorgsync/releases/tag/v0.2.0), on April 11, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
