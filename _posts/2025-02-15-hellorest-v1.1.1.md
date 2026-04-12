@@ -1,50 +1,31 @@
 ---
 layout: post
-title: "hellorest v1.1.1 Released: Improved Portability and Go 1.24 Updates"
-date: 2025-02-15 16:24:09 -0500
-tags: ["hellorest", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "hellorest v1.1.1: Enhanced Stability and Modernized Runtime"
+date: 2025-02-15 09:00:00 -0500
+tags: ["hellorest", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the availability of hellorest v1.1.1, released on February 15, 2025. This maintenance release delivers important infrastructure improvements that enhance portability and keep the project current with the latest Go version.
+Released on February 15, 2025, hellorest v1.1.1 is a maintenance update focused on strengthening the underlying infrastructure of our minimal REST API. While the API's behavior remains predictably simple, this release ensures that the service is more stable, portable, and up-to-date.
 
-## What's New
+## What's new
 
-### Statically Linked Binaries
+This release brings key improvements to the build and runtime environment:
 
-The most significant change in v1.1.1 is the addition of static binary linking through `CGO_ENABLED=0`. This ensures that hellorest produces self-contained executables that can run on any compatible system without requiring additional shared libraries.
+- **Go 1.24.0 Upgrade**: We have modernized the codebase by upgrading to the latest Go 1.24.0 runtime, ensuring the project benefits from the most recent performance and security improvements.
+- **Static Binary Linking**: By enabling `CGO_ENABLED=0` during the Docker build process, we now produce a fully statically linked binary. This removes external C library dependencies, making the container more lightweight and robust.
 
-For users deploying hellorest in containerized environments, this means:
-- More reliable deployments across different platforms
-- Simplified container images with fewer runtime dependencies
-- Potential reductions in container size and improved startup performance
+## Why it matters
 
-### Go 1.24.0 Integration
+For users who rely on hellorest to validate their networking and deployment pipelines, these changes provide peace of mind. Static linking is particularly critical when using minimal runtime images like `distroless`, as it eliminates "missing library" errors and ensures the container starts reliably across different environments. By keeping the runtime current, we ensure that hellorest remains a dependable tool for infrastructure testing.
 
-This release upgrades the project to Go 1.24.0 across all build configurations—from CI workflows to the Dockerfile and local development setup. Users benefit from:
-- Performance improvements and bug fixes from the Go 1.24 series
-- Latest security updates
-- Full compatibility with the Go 1.24 ecosystem
+## Getting started
 
-### Development Experience
-
-A comprehensive `.gitignore` file was added to streamline the development workflow, automatically filtering out IDE files, system artifacts, and build outputs across macOS, Windows, Linux, and popular development environments like VSCode, IntelliJ, and Eclipse.
-
-## Why It Matters
-
-While v1.1.1 doesn't introduce new API features, these infrastructure improvements make hellorest more robust and portable for its core use case: testing deployments, validating networking configurations, and serving as a predictable HTTP endpoint in microservice environments.
-
-The statically linked binary approach aligns with modern container best practices, ensuring that hellorest containers are more self-contained and reliable across diverse deployment scenarios. Developers can deploy with confidence knowing the binary has no external library dependencies.
-
-## Getting Started
-
-If you're already using hellorest, no action is required—the API behavior remains unchanged with `{"hello": "world"}` responses on GET `/` requests. Simply pull the latest container image to benefit from the improved build configuration:
+Upgrading to v1.1.1 is seamless. Simply pull the latest Docker image:
 
 ```bash
-docker pull unitvectorylabs/hellorest:latest
+docker pull ghcr.io/unitvectory-labs/hellorest:v1.1.1
 ```
-
-For developers building from source, ensure you have Go 1.24.0 or later installed. The project continues to be available under the MIT License at [UnitVectorY-Labs/hellorest](https://github.com/UnitVectorY-Labs/hellorest).
 
 ---
 
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on March 18, 2026. Source repository: [UnitVectorY-Labs/hellorest](https://github.com/UnitVectorY-Labs/hellorest), Release: v1.1.1. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Based on the [UnitVectorY-Labs/hellorest](https://github.com/UnitVectorY-Labs/hellorest) repository and [release v1.1.1](https://github.com/UnitVectorY-Labs/hellorest/releases/tag/v1.1.1) generated on April 12, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

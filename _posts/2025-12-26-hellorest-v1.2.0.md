@@ -1,37 +1,34 @@
 ---
 layout: post
-title: hellorest v1.2.0 Released
-date: 2025-12-26 20:00:20 -0500
-tags: ["hellorest", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "hellorest v1.2.0: Enhancing Security and Stability"
+date: 2025-12-26 09:00:00 -0500
+tags: ["hellorest", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the release of hellorest v1.2.0, published on December 26, 2025. This update brings important security improvements and runtime enhancements to the minimal Go REST API container that developers rely on for testing deployments and configurations.
+Released on December 26, 2025, hellorest v1.2.0 is a focused maintenance and security update. This release strengthens the security posture of our minimal REST API, ensuring that it remains a safe and predictable tool for testing your API responses and networking configurations.
 
-## What's New
+## What's new
 
-### Security Hardening
-The most significant change in v1.2.0 is enhanced container security. The application now runs as a non-root user (UID 65532), following container security best practices. This change reduces potential attack surface without requiring any configuration changes from users.
+The headline update in v1.2.0 is the transition to non-root execution. The Docker container now runs the server as a non-root user, aligning with industry security best practices.
 
-### Updated Go Runtime
-The release upgrades the underlying Go runtime to version 1.25.5, incorporating the latest performance improvements and fixes from the Go ecosystem.
+In addition to the security hardening, we've updated the underlying Go runtime to version 1.25.5 and refreshed our CI/CD workflows with the latest GitHub Actions versions to ensure a stable and efficient build process. We've also tidied up some documentation, including a fix for the license badge.
 
-## Why It Matters
+## Why it matters
 
-This update demonstrates hellorest's commitment to maintaining a secure, well-maintained foundation for your testing workflows. Running containers as non-root is a fundamental security practice that helps protect your infrastructure, especially in production environments where containerized services interact with shared resources.
+Running containers as root is a common security risk. By shifting to a non-root user, we significantly reduce the potential impact of any vulnerability, making `hellorest` safer to deploy in production-like testing environments.
 
-The seamless Go runtime updates ensure you're benefitting from the latest improvements while keeping hellorest's predictable behavior intact. Since this release maintains full backward compatibility, you can upgrade with confidence knowing your existing deployments will continue to work exactly as before.
+The Go runtime update brings the latest stability and security improvements, ensuring that your placeholder API remains reliable across different environments.
 
 ## Getting Started
 
-Upgrading to v1.2.0 is straightforward:
+Upgrading to v1.2.0 is seamless. Since `hellorest` is delivered as a Docker image, you can update your environment by pulling the latest tag:
 
 ```bash
-# Pull the latest version
 docker pull ghcr.io/unitvectory-labs/hellorest:v1.2.0
 ```
 
-The container continues to listen on port 8080 by default, and all existing configuration options remain unchanged. The API still responds with `{"hello": "world"}` on `GET /` requests—nothing has broken, everything works the same, but now with better security under the hood.
+Please note that because the process now runs as a non-root user, any custom volume mounts that previously relied on root privileges may need to be adjusted to ensure the container has the necessary permissions to access your files.
 
----
+***
 
-**About this post**: This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For more information, see the [hellorest repository](https://github.com/UnitVectorY-Labs/hellorest) and the [v1.2.0 release](https://github.com/UnitVectorY-Labs/hellorest/releases/tag/v1.2.0) published on December 26, 2025. Authored by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was created on 2026-04-12 for the UnitVectorY-Labs/hellorest v1.2.0 release. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
