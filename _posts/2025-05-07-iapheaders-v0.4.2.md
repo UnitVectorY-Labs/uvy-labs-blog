@@ -1,66 +1,30 @@
 ---
 layout: post
-title: "iapheaders v0.4.2: Security Maintenance Release"
-date: 2025-05-07 22:58:31 -0500
-tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "iapheaders v0.4.2: Security and Stability Maintenance"
+date: 2025-05-07 09:00:00 -0500
+tags: ["iapheaders", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+On May 7, 2025, we released iapheaders v0.4.2. This maintenance release focuses on bolstering the security foundation of the tool and refining the user experience to ensure that developers can inspect GCP Identity-Aware Proxy (IAP) headers with confidence and clarity.
 
-On May 7, 2025, we released iapheaders v0.4.2, a maintenance release focused on security updates and dependency hygiene. While this version doesn't introduce new features, it ensures users benefit from the latest security patches in critical dependencies and keeps the Go runtime current.
+## What's new
 
-## What's New
+This update brings several key improvements to the stability and usability of iapheaders:
 
-### Security and Dependency Updates
+- **UI & Documentation Polish**: We've refined the interface for better clarity, including a new page title ("GCP Identity-Aware Proxy Headers") and more descriptive status messages. When your headers are correct, you'll now see the explicit confirmation: "All IAP headers are present and the JWT is verified." Additionally, the documentation for the `HIDE_SIGNATURE` configuration has been improved to help you manage your view more effectively.
+- **Critical Security Updates**: Security is paramount when dealing with JWT verification. This release updates the `jwx` library for JWT handling and the `x/crypto` package, ensuring the application uses the latest cryptographic standards and security fixes.
+- **Toolchain Upgrade**: We have upgraded the underlying Go runtime to version 1.24.3, providing the latest performance and stability improvements from the Go ecosystem.
 
-The primary focus of v0.4.2 is maintaining the health and security of the codebase through regular dependency updates:
+## Why it matters
 
-- **JWT Library Updates**: The `lestrrat-go/jwx/v2` dependency was updated through three incremental versions (2.1.3 → 2.1.6), incorporating upstream security patches and bug fixes
-- **Cryptography Library**: `golang.org/x/crypto` was upgraded from 0.32.0 to 0.35.0, bringing important security improvements
-- **Go Runtime**: The application now builds with Go 1.24.3, the latest patch release in the Go 1.24 series
+While this release doesn't introduce new functional features, it addresses the "invisible" but essential aspects of software health. By updating core cryptographic libraries, we ensure that the validation of IAP assertions remains robust against emerging threats. The UI refinements remove ambiguity, allowing security engineers and developers to verify their IAP configurations at a glance without guessing what a status message implies.
 
-### Documentation Improvements
+## Getting Started
 
-- Updated screenshots in the README to better illustrate the interface for users testing IAP headers
-- Minor text corrections for clarity
+There are no breaking changes in this release, and no manual migration is required. To upgrade to v0.4.2, simply pull the latest Docker image from GitHub Packages:
 
-## Why It Matters
+`ghcr.io/unitvectory-labs/iapheaders`
 
-### For Users
+***
 
-This maintenance release ensures your iapheaders deployment benefits from security fixes in upstream dependencies without requiring any action on your part. The application behaves identically to v0.4.1, but with improved security posture from updated libraries.
-
-### Security Maintenance
-
-Regular dependency updates are a cornerstone of secure software maintenance. By keeping libraries current, iapheaders incorporates critical security patches from the broader Go ecosystem, protecting users from potential vulnerabilities discovered in JWT parsing and cryptographic operations.
-
-## Upgrading
-
-Upgrading to v0.4.2 is straightforward with no configuration changes required:
-
-### Docker Users
-```bash
-docker pull ghcr.io/unitvectory-labs/iapheaders:latest
-```
-
-Or specify the version explicitly:
-```bash
-docker pull ghcr.io/unitvectory-labs/iapheaders:v0.4.2
-```
-
-### Build from Source
-
-If building from source, ensure you have Go 1.24.3 installed:
-```bash
-go build -o iapheaders .
-```
-
-No new environment variables were introduced in this release. The existing `HIDE_SIGNATURE` and `PORT` settings continue to work as before.
-
-## About iapheaders
-
-iapheaders is a web application for inspecting Google Cloud Platform's Identity-Aware Proxy (IAP) headers and JWT tokens. It's an essential tool for developers testing IAP integration, providing real-time visibility into authenticated user headers and JWT validation status.
-
----
-
-**Transparency Note**: This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on May 7, 2025. For details about this release, visit the [UnitVectorY-Labs/iapheaders repository](https://github.com/UnitVectorY-Labs/iapheaders) and the [v0.4.2 release page](https://github.com/UnitVectorY-Labs/iapheaders/releases/tag/v0.4.2). Generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the release v0.4.2 of the [iapheaders](https://github.com/UnitVectorY-Labs/iapheaders) repository, generated on April 12, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

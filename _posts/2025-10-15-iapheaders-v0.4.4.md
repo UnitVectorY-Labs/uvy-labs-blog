@@ -1,65 +1,38 @@
 ---
 layout: post
-title: "iapheaders v0.4.4: Infrastructure Updates and Continued Maintenance"
-date: 2025-10-15 00:11:57 -0500
-tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "iapheaders v0.4.4: Strengthening the Foundation"
+date: 2025-10-15 09:00:00 -0500
+tags: ["iapheaders", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Maintaining a Strong Foundation
+Released on October 15, 2025, iapheaders v0.4.4 is a maintenance release dedicated to the long-term stability and security of the project. While this version doesn't introduce new functional features, it ensures that the tool remains modern, secure, and efficient by updating its core runtime and build infrastructure.
 
-Released on October 15, 2025, iapheaders v0.4.4 is a maintenance release that keeps the project's infrastructure fresh and secure. While this update doesn't introduce new features, it demonstrates our commitment to maintaining a reliable, up-to-date tool for developers working with Google Cloud's Identity-Aware Proxy.
+## What's new
 
-## What's New
+This release focuses on the "under the hood" improvements that keep the application running smoothly:
 
-v0.4.4 focuses on three key areas:
+- **Latest Go Runtime**: We have updated the project to Go 1.25.2, ensuring we benefit from the latest performance improvements and security patches provided by the Go team.
+- **Modernized Build Pipeline**: Our GitHub Actions workflows have been upgraded to their latest versions (including checkout, setup-go, and codeql). This results in faster, more secure, and more reliable builds.
+- **Improved Visibility**: We've added a Go Report Card badge to the README, giving users and contributors a transparent look at the project's code quality and static analysis health.
 
-**Go Runtime Upgrades**
-The release upgrades the Go toolchain from 1.24.3 to 1.25.2, ensuring compatibility with the latest language features and performance improvements. This sequential update across six pull requests keeps the build environment current without disrupting existing functionality.
+## Why it matters
 
-**Updated GitHub Actions**
-All CI/CD workflow actions have been bumped to their latest major versions:
-- `actions/checkout` v5
-- `actions/setup-go` v6  
-- `actions/attest-build-provenance` v3
-- `github/codeql-action` v4
-- `astral-sh/setup-uv` v7
+For most users, iapheaders just works—decoding GCP IAP headers and verifying JWTs effortlessly. However, maintaining a modern toolchain is critical for security. By staying current with Go versions and CI/CD standards, we reduce the risk of vulnerabilities and ensure that the tool remains compatible with modern deployment environments. The addition of the Go Report Card is part of our commitment to maintaining high engineering standards for the community.
 
-These updates bring security patches and improved runner compatibility to our build pipeline.
+## Getting started
 
-**Enhanced Documentation**
-A Go Report Card badge has been added to the README, giving users quick visibility into code quality metrics.
+Since v0.4.4 contains no breaking changes, upgrading is seamless. 
 
-## Why It Matters
+If you are using Docker, simply pull the latest image to get the updated version:
+`docker pull ghcr.io/unitvectory-labs/iapheaders`
 
-Maintenance releases like v0.4.4 might not grab headlines, but they're essential for the health of any open-source project. By staying current with build tooling and runtime dependencies, we ensure that:
+We appreciate your continued use of iapheaders for your GCP identity testing and inspection needs.
 
-- **Security stays sharp**: Updated actions include upstream security fixes
-- **Builds stay reliable**: Compatibility with GitHub's evolving infrastructure prevents pipeline breakages
-- **Users get consistency**: The same trusted behavior you expect from iapheaders continues uninterrupted
+***
 
-The application itself works exactly as before—no configuration changes, no breaking updates, just solid infrastructure under the hood.
-
-## Upgrade and Installation
-
-Upgrading to v0.4.4 requires no action on your part beyond pulling the updated image:
-
-**Using Docker (Recommended)**
-```bash
-docker pull ghcr.io/unitvectory-labs/iapheaders:v0.4.4
-docker run -p 8080:8080 ghcr.io/unitvectory-labs/iapheaders:v0.4.4
-```
-
-**Building from Source**
-If you build from source, you'll need Go 1.25.x installed. The pre-built Docker images are self-contained and don't require Go on your host system.
-
-All environment variables remain unchanged:
-- `PORT` (default: 8080)
-- `HIDE_SIGNATURE` (default: false)
-
-## Keep Testing Your IAP Headers
-
-iapheaders continues to be your go-to tool for inspecting GCP IAP headers, decoding JWT tokens, and validating signatures. This maintenance release ensures the project stays healthy while you focus on what matters—building secure applications with Identity-Aware Proxy.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For more details, see the [v0.4.4 release](https://github.com/UnitVectorY-Labs/iapheaders/releases/tag/v0.4.4) on GitHub (released October 15, 2025). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+This post was AI-generated.
+Model used: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+Repository: UnitVectorY-Labs/iapheaders
+Release: v0.4.4
+Generated on: 2026-04-12
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

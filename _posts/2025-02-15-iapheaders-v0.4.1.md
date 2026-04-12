@@ -1,45 +1,30 @@
 ---
 layout: post
-title: "iapheaders v0.4.1 Released: Go Runtime Update"
+title: "iapheaders v0.4.1: Keeping the Toolchain Modern"
 date: 2025-02-15 09:00:00 -0500
-tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["iapheaders", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-On February 15, 2025, we released iapheaders v0.4.1, a maintenance update that keeps the project running on the latest Go runtime.
+Released on February 15, 2025, iapheaders v0.4.1 is a maintenance update focused on modernizing the project's foundation. While this release doesn't introduce new functional features, it ensures the application remains compatible with the latest industry standards by updating its core build environment.
 
-## What's New
+## What's new
 
-This release focuses on infrastructure and build hygiene rather than new features. The primary change is upgrading the Go version from 1.23.5 to 1.24.0 across all build artifacts:
+The primary update in v0.4.1 is the transition to the **Go 1.24.0** toolchain. This upgrade has been integrated across the entire build pipeline, including the `go.mod` configuration, the Docker build environment, and the GitHub Actions workflows.
 
-- **Updated Go runtime** in `go.mod`, `Dockerfile`, and CI workflows
-- **Refined `.dockerignore`** to exclude the `.github/` directory from Docker builds
+Additionally, the build process has been refined by optimizing the `.dockerignore` file, ensuring that unnecessary internal configuration files are excluded from the Docker build context.
 
-These changes ensure the application benefits from the latest Go language improvements, performance enhancements, and security patches included in the 1.24.x series.
+## Why it matters
 
-## Why It Matters
+Keeping the toolchain current is critical for any security-focused utility. By moving to Go 1.24.0, `iapheaders` benefits from the latest performance improvements and security patches provided by the Go team. 
 
-While this release doesn't introduce visible feature changes, staying current with runtime updates is essential for maintaining a secure and performant application. The Go 1.24.0 upgrade brings:
+For the developers and security engineers using `iapheaders` to verify GCP Identity-Aware Proxy (IAP) headers, these changes mean a more robust and efficient build process, ensuring the tool remains reliable as the underlying ecosystem evolves.
 
-- **Security improvements** from cumulative Go security patches
-- **Performance optimizations** in the Go runtime itself
-- **CI/CD reliability** by using actively maintained toolchain versions
+## Upgrade and Installation
 
-For users deploying iapheaders as a container image (`ghcr.io/unitvectory-labs/iapheaders`), no action is required. The upgrade is transparent and fully backward compatible with v0.4.0.
+If you use the official container image from the GitHub Container Registry (`ghcr.io/unitvectory-labs/iapheaders`), you can simply pull the latest image to get the updates.
 
-## Getting Started
+For those building from source, please ensure you have **Go 1.24.0** or later installed on your system before compiling the project.
 
-If you're already using iapheaders, simply pull the latest container image to get v0.4.1:
+***
 
-```bash
-docker pull ghcr.io/unitvectory-labs/iapheaders:v0.4.1
-```
-
-All environment variables and configuration options remain unchanged:
-- `PORT`: Server listening port (default: 8080)
-- `HIDE_SIGNATURE`: Toggle JWT signature display (default: false)
-
-For new users, iapheaders helps developers inspect and debug Google Cloud Platform Identity-Aware Proxy headers by displaying authenticated user information and validating JWT tokens. See the [repository](https://github.com/UnitVectorY-Labs/iapheaders) for setup instructions.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Reference: UnitVectorY-Labs/iapheaders v0.4.1, released February 15, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on April 12, 2026, based on the [iapheaders](https://github.com/UnitVectorY-Labs/iapheaders) repository and the [v0.4.1 release](https://github.com/UnitVectorY-Labs/iapheaders/releases/tag/v0.4.1). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

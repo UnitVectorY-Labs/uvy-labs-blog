@@ -1,63 +1,34 @@
 ---
 layout: post
-title: "iapheaders v0.4.0 Released"
-date: 2025-01-26 14:10:21 -0500
-tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "iapheaders v0.4.0: Streamlining Portability and Project Structure"
+date: 2025-01-26 09:00:00 -0500
+tags: ["iapheaders", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on January 26, 2025, iapheaders v0.4.0 is a focused maintenance release aimed at improving the project's underlying structure and deployment efficiency. While it doesn't introduce new visual features, it ensures a more robust and portable experience for those deploying and integrating the tool.
 
-On January 26, 2025, we released iapheaders v0.4.0, an update focused on improving the reliability and maintainability of our GCP Identity-Aware Proxy header inspection tool. While this release doesn't introduce new features, it delivers important infrastructure improvements that make deployments more robust and the project more compliant with Go best practices.
+## What's new
 
-## What's New
+This release focuses on the "plumbing" of the project to ensure it is easier to distribute and maintain:
 
-### Improved Build Reliability
-The Docker image for v0.4.0 is now built as a statically linked binary. By compiling with `CGO_ENABLED=0`, we've eliminated C library dependencies from the container, resulting in:
-- Reduced attack surface with fewer runtime dependencies
-- Improved portability across different Linux distributions
-- Elimination of glibc-related compatibility issues in containerized environments
+- **Optimized Static Builds**: The build process now utilizes statically linked binaries. By disabling CGO, we've removed dependencies on dynamic C libraries.
+- **Corrected Module Identity**: The Go module has been renamed to `github.com/UnitVectorY-Labs/iapheaders` to align perfectly with its home on GitHub.
 
-### Proper Go Module Compliance
-The project's module path has been updated to use its full repository URL (`github.com/UnitVectorY-Labs/iapheaders`). This change aligns the project with Go module best practices and ensures proper resolution through GitHub's module proxy.
+## Why it matters
 
-## Why It Matters
+These changes might seem internal, but they provide tangible benefits for users and operators:
 
-These infrastructure-focused changes may seem behind-the-scenes, but they directly impact your experience:
+- **Enhanced Portability**: Static binaries mean the application is more "plug-and-play" across various Linux environments, reducing the friction often caused by library version mismatches.
+- **Better Docker Performance**: This optimization paves the way for smaller, more secure container images, which reduces the overall attack surface and improves deployment speed.
+- **Developer Consistency**: Aligning the module name with the repository path simplifies dependency management and avoids confusion for those using iapheaders as a library in their own Go projects.
 
-**More Reliable Deployments**: The statically linked binary means fewer things can go wrong when running the container across different environments. You get consistent behavior whether you're deploying to production, staging, or local development.
+## Upgrade and Installation
 
-**Better Go Ecosystem Integration**: With proper module path naming, developers using iapheaders as a library dependency will experience smoother integration with standard Go tooling.
+Updating to v0.4.0 is straightforward:
 
-**Continued Stability**: Despite these backend improvements, all existing configurations, environment variables, and deployment patterns continue to work exactly as before.
+- **Docker Users**: Simply pull the latest image from `ghcr.io/unitvectory-labs/iapheaders`. No configuration changes are necessary.
+- **Go Developers**: If you are using iapheaders as a dependency, you will need to update your `go.mod` and source code to use the new import path: `github.com/UnitVectorY-Labs/iapheaders`.
 
-## Getting Started
+***
 
-### Upgrade Instructions
-For Docker deployments, upgrading is straightforward:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/iapheaders:v0.4.0
-docker run -p 8080:8080 ghcr.io/unitvectory-labs/iapheaders
-```
-
-### For Go Library Users
-If you're importing iapheaders as a Go library dependency, update your import paths from:
-- `import "iapheaders/..."` 
-
-To:
-- `import "github.com/UnitVectorY-Labs/iapheaders/..."`
-
-### Configuration
-All existing environment variable configurations remain unchanged:
-- `PORT` (default: 8080): Server listening port
-- `HIDE_SIGNATURE` (default: false): Control JWT signature display
-
-## Conclusion
-
-The v0.4.0 release demonstrates our commitment to maintaining a healthy, well-engineered project. While these changes operate behind the scenes, they lay important groundwork for future development and ensure your deployments run as smoothly as possible.
-
-As always, iapheaders continues to provide a simple way to inspect GCP Identity-Aware Proxy headers and validate JWT tokens during development and testing. We appreciate your continued interest in the project.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. The release announcement is based on the v0.4.0 release of [UnitVectorY-Labs/iapheaders](https://github.com/UnitVectorY-Labs/iapheaders/releases/tag/v0.4.0) published on January 26, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Generated on 2026-04-12 for the repository UnitVectorY-Labs/iapheaders, release v0.4.0. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

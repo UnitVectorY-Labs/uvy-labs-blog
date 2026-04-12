@@ -1,59 +1,35 @@
 ---
 layout: post
-title: iapheaders v0.3.1 Release - Infrastructure Improvements
-date: 2025-01-19 10:09:00 -0500
-tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "iapheaders v0.3.1: Strengthening the Foundation"
+date: 2025-01-19 09:00:00 -0500
+tags: ["iapheaders", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on January 19, 2025, iapheaders v0.3.1 is a maintenance update dedicated to enhancing the project's stability and security. While this release doesn't introduce new user-facing features, it focuses on the critical "under-the-hood" improvements that ensure the tool remains reliable and secure for developers inspecting GCP Identity-Aware Proxy headers.
 
-On January 19, 2025, we released **iapheaders v0.3.1**, a maintenance-focused update that strengthens the project's build infrastructure and ensures the application runs on the latest patched version of Go. While this release doesn't introduce new features, it represents our ongoing commitment to project health, testing coverage, and security best practices.
+## What's new
 
-## What's New
+This release primarily upgrades the project's build and security infrastructure:
 
-### Enhanced CI/CD Pipeline
+- **Modernized Toolchain:** The application has been updated to use Go 1.23.5, ensuring compatibility with the latest language improvements and security patches.
+- **Enhanced Security Scanning:** We've integrated `zizmor`, a specialized security linter for Go, into our CI/CD pipeline to proactively detect and prevent potential vulnerabilities.
+- **Hardened CI/CD Pipelines:** Our GitHub Action workflows have been refactored for better clarity and hardened by disabling credential persistence, reducing the attack surface of our build process.
+- **Improved Build Provenance:** Updated build provenance attestations to version 2, providing better transparency and verification for the artifacts we produce.
 
-The highlight of v0.3.1 is the addition of a comprehensive Go build and test workflow. This new automated pipeline:
+## Why it matters
 
-- Builds and tests the application on every push and pull request
-- Runs tests with race detection enabled to catch concurrency issues early
-- Generates code coverage reports uploaded to Codecov for visibility into test quality
-- Includes dependency caching for faster build times
+For most users, these changes are invisible, but they are vital for the long-term health of the project. By keeping the Go toolchain current and introducing rigorous security linting, we reduce the risk of regressions and vulnerabilities. The hardening of our CI/CD pipelines ensures that the images you pull from our registry are built using industry-best security practices.
 
-This infrastructure improvement means higher confidence in code quality and earlier detection of potential issues.
+## Getting Started
 
-### Go Runtime Update
-
-The application now runs on **Go 1.23.5**, updated from 1.23.4. This patch version includes important security patches and bug fixes from the Go team, ensuring your deployment benefits from the latest runtime improvements.
-
-### GitHub Actions Update
-
-We've updated the `setup-uv` GitHub Action to v5 in our security scanning workflow, keeping our development toolchain current.
-
-## Why It Matters
-
-Infrastructure releases might not make headlines, but they're essential for maintaining a healthy, reliable project:
-
-**Reliability**: The new test workflow with race detection helps catch subtle bugs before they reach users, reducing the likelihood of runtime issues in production.
-
-**Security**: Running on Go 1.23.5 means you benefit from upstream security fixes without any action required on your part.
-
-**Transparency**: Code coverage reporting provides visibility into test quality, helping us maintain high standards as the project evolves.
-
-## Upgrade Information
-
-Upgrading to v0.3.1 is straightforward—no configuration changes are required:
+Updating to v0.3.1 is seamless. Since iapheaders is distributed as a Docker image, you can simply pull the latest version from GitHub Packages:
 
 ```bash
-docker pull ghcr.io/unitvectory-labs/iapheaders:v0.3.1
+docker pull ghcr.io/unitvectory-labs/iapheaders:latest
 ```
 
-All existing environment variables remain compatible:
-- `HIDE_SIGNATURE` — Controls signature display
-- `PORT` — Defaults to 8080 if not specified
+This release is fully backward compatible, so your existing configurations and environment variables will continue to work without any modifications.
 
-The application functions identically to v0.3.0; these changes are under the hood.
+***
 
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Source repository: [UnitVectorY-Labs/iapheaders](https://github.com/UnitVectorY-Labs/iapheaders). Release date: January 19, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the release v0.3.1 of the [iapheaders](https://github.com/UnitVectorY-Labs/iapheaders) repository, generated on April 12, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

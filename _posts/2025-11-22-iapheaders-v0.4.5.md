@@ -1,56 +1,32 @@
 ---
 layout: post
-title: "iapheaders v0.4.5 - Security Hardening Update"
-date: 2025-11-22 16:00:36 -0500
-tags: ["iapheaders", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Maintenance Update: iapheaders v0.4.5"
+date: 2025-11-22 09:00:00 -0500
+tags: ["iapheaders", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on November 22, 2025, iapheaders v0.4.5 is a maintenance release focused on ensuring the stability, security, and longevity of the tool. While this version doesn't introduce new features, it provides critical updates to the underlying engine that powers your IAP header inspections.
 
-On November 22, 2025, we released iapheaders v0.4.5, a focused security and maintenance update that strengthens the underlying dependencies powering our GCP Identity-Aware Proxy header inspection tool. While this release doesn't introduce new features, it delivers important security hardening that all users should consider upgrading to.
+## What's new
 
-## What's New
+This release brings the following technical updates:
 
-This maintenance release focuses on three key areas:
+- **Go Toolchain Upgrade**: The application has been updated to Go version 1.25.4, ensuring it leverages the latest runtime optimizations and bug fixes.
+- **Security Library Update**: The `golang.org/x/crypto` dependency has been upgraded to version 0.45.0.
+- **CI/CD Improvements**: Updated GitHub Actions workflows to improve the reliability of the build and release pipeline.
 
-### Security Dependencies Updated
-The `golang.org/x/crypto` library has been upgraded from version 0.35.0 to 0.45.0, bringing several important security improvements:
-- Mitigation of SSH GSSAPI denial-of-service risks
-- Prevention of panics when handling malformed SSH agent constraints
-- Improved ACME/autocert support for short-lifetime certificate renewal
+## Why it matters
 
-### Runtime Modernization
-The Go runtime has been updated from 1.25.2 to 1.25.4, ensuring your deployment benefits from the latest language improvements and security patches.
+For a tool designed to decode and verify sensitive security headers like the `x-goog-iap-jwt-assertion`, the integrity of the cryptographic libraries is paramount. By updating the Go toolchain and the `crypto` package, we ensure that iapheaders remains secure against known vulnerabilities and performs efficiently. These updates provide a more robust foundation for developers who rely on the tool to debug and verify their GCP Identity-Aware Proxy configurations.
 
-### CI/CD Pipeline Updates
-GitHub Actions workflows have been modernized with `actions/checkout` upgraded from v5 to v6 across all build pipelines.
+## Getting Started
 
-## Why It Matters
+To upgrade to v0.4.5, simply pull the latest Docker image from the GitHub Container Registry:
 
-Security is foundational to any application handling authentication tokens. This update strengthens the cryptographic foundations of iapheaders without changing any user-facing behavior. The underlying crypto library improvements protect against potential denial-of-service scenarios and edge cases that could affect SSH agent handling.
+`ghcr.io/unitvectory-labs/iapheaders`
 
-For teams running iapheaders in production, this release offers peace of mind. The upgrade is completely backward compatible—your existing configuration, environment variables, and deployment approach remain unchanged.
+As this is a maintenance release, it is fully backward compatible and requires no configuration changes.
 
-## Upgrading
+***
 
-Upgrading to v0.4.5 is straightforward:
-
-```bash
-# Pull the latest Docker image
-docker pull ghcr.io/unitvectory-labs/iapheaders:v0.4.5
-
-# Or use the latest tag
-docker pull ghcr.io/unitvectory-labs/iapheaders:latest
-```
-
-No configuration changes are required. Simply restart your container with the updated image, and you're running with the enhanced security posture.
-
-Full details about this release are available on the [GitHub release page](https://github.com/UnitVectorY-Labs/iapheaders/releases/tag/v0.4.5).
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Release research and article generated on March 18, 2026 from the [UnitVectorY-Labs/iapheaders](https://github.com/UnitVectorY-Labs/iapheaders) repository. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
-
-</content>
-<parameter=filePath>
-/out/article.md
+*This post was AI-generated. The model used was unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Generated on April 12, 2026, based on the [iapheaders](https://github.com/UnitVectorY-Labs/iapheaders) v0.4.5 release. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
