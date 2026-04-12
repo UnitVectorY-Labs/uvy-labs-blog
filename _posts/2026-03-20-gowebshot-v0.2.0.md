@@ -1,82 +1,40 @@
 ---
 layout: post
-title: "gowebshot v0.2.0: Precision Crop Control for Web Screenshots"
-date: 2026-03-20 19:32:00 -0400
-tags: ["gowebshot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Precision Captures: Introducing Cropping and Shifting in gowebshot v0.2.0"
+date: 2026-03-20 09:00:00 -0500
+tags: ["gowebshot", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-gowebshot v0.2.0 is now available, bringing powerful new screenshot manipulation capabilities that give you precise control over what gets captured—and what gets left out. Released on March 20, 2026, this update addresses a common pain point for developers, testers, and content creators who regularly capture webpages: removing unwanted elements while maintaining consistent output dimensions.
+Released on March 20, 2026, gowebshot v0.2.0 brings a new level of precision to webpage screenshots. This update focuses on giving users surgical control over their output images, ensuring that only the content you want makes it into the final shot, without sacrificing your desired dimensions.
 
-## What's New
+## What's new
 
-### Edge Cropping
+The headline features of v0.2.0 are all about control and convenience:
 
-The headline feature in v0.2.0 is comprehensive edge cropping. You can now remove pixels from any edge of your screenshots—top, bottom, left, or right—using the new `--crop` flag:
+**Pixel-Perfect Cropping**
+You can now trim unwanted edges from your screenshots using the new `--crop` flag. Whether it's a sticky header, a footer, or sidebars, you can specify exactly how many pixels to remove from the top, bottom, left, and right edges.
 
-```bash
-gowebshot --url https://example.com --width 1200 --height 800 --crop 100,0,0,0
-```
+**Smart Shifting**
+To solve the problem of cropping shrinking your final image, we've introduced "shifting." When enabled via `--shift`, gowebshot automatically expands the initial capture area to account for the crop. This ensures that if you requested a 1920x1080 image, you get exactly that, even after trimming the edges.
 
-The crop argument follows a simple `top,bottom,left,right` format (values in pixels). This makes it easy to strip away sticky headers, footers, sidebars, or any unwanted page chrome that clutters your screenshots.
+**A Brand New TUI**
+For those who prefer an interactive experience, the Terminal User Interface (TUI) has been completely reimagined. We've moved to a tabbed layout, making it intuitive to jump between URL input, output settings, and the advanced capture configurations like zoom, scroll, and the new cropping tools.
 
-### Shift Mode
+**Improved Documentation**
+To help you get the most out of these features, we've added a comprehensive `USAGE.md` guide and updated the TUI documentation.
 
-Introducing **shift mode** (`--shift`), a companion feature that solves a natural follow-up question: *"If I crop pixels, won't my output be smaller?"*
+## Why it matters
 
-Normally, cropping reduces the final image size. With shift mode enabled, gowebshot captures a larger viewport initially, then applies the crop so your final PNG matches exactly the dimensions you requested. This is perfect when you need consistent output sizes—like when batch-processing screenshots for a documentation site or creating uniform assets for a presentation.
+Capturing the perfect screenshot often requires more than just a viewport size. Real-world websites have dynamic elements—headers that follow you, banners that clutter the view—that can ruin a clean capture. 
 
-```bash
-# Capture with 100px header removed, but keep 1200×800 output
-gowebshot --url https://example.com --width 1200 --height 800 --crop 100,0,0,0 --shift
-```
+By combining cropping and shifting, gowebshot now allows you to define a precise "window" of content. You no longer have to choose between a clean image and the correct resolution; you can have both. The overhauled TUI further lowers the barrier to entry, allowing users to experiment with these powerful settings without memorizing complex CLI flags.
 
-### TUI Support
+## Getting started
 
-Both features are fully integrated into gowebshot's interactive Terminal User Interface (TUI). The Settings tab now includes four editable crop fields and a shift toggle, letting you fine-tune your capture without memorizing command-line flags.
+Upgrading to v0.2.0 is simple. You can download the latest binaries for your platform directly from the [GitHub releases page](https://github.com/UnitVectorY-Labs/gowebshot/releases/tag/v0.2.0). 
 
-## Why It Matters
+Since these features are additive, your existing workflows will remain intact, but you now have a powerful new toolkit for high-precision captures.
 
-Screenshot tools often force you to choose between capturing what's on-screen or getting the exact dimensions you need. v0.2.0 removes that compromise.
+***
 
-**For developers and QA teams**: Remove navigation bars, cookie banners, or dynamic headers that vary across pages but always occupy the same space.
-
-**For content creators**: Produce clean, focused screenshots without manual post-processing in image editors.
-
-**For automation workflows**: Maintain consistent output dimensions across a batch of captures, even when different pages have different amounts of unwanted chrome.
-
-The best part? These features are entirely optional. If you don't specify `--crop` or `--shift`, gowebshot behaves exactly as it did before—no breaking changes, no disruption to existing workflows.
-
-## Getting Started
-
-### Installation
-
-If you're upgrading from v0.1.0, simply install the new binary:
-
-```bash
-# Download from GitHub Releases
-https://github.com/UnitVectorY-Labs/gowebshot/releases/tag/v0.2.0
-
-# Or build from source
-git clone https://github.com/UnitVectorY-Labs/gowebshot.git
-cd gowebshot
-go install
-```
-
-### Try the New Features
-
-Here are some common scenarios to get you started:
-
-| Use Case | Command |
-|----------|---------|
-| Remove a 120px sticky header | `gowebshot --url https://example.com --crop 120,0,0,0` |
-| Keep output size after cropping | `gowebshot --url https://example.com --width 1920 --height 1080 --crop 100,0,0,0 --shift` |
-| Trim all edges (remove borders) | `gowebshot --url https://example.com --crop 10,10,5,5` |
-| Remove header and footer | `gowebshot --url https://example.com --crop 80,20,0,0` |
-
-For more examples and detailed documentation, check out [docs/USAGE.md](https://github.com/UnitVectorY-Labs/gowebshot/blob/main/docs/USAGE.md) in the repository.
-
----
-
-### About This Post
-
-This release announcement was AI-generated using the `unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M` model. It was created on March 21, 2026 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) based on the gowebshot v0.2.0 release published on March 20, 2026. See the [original release](https://github.com/UnitVectorY-Labs/gowebshot/releases/tag/v0.2.0) for full details.
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on April 12, 2026, based on the [gowebshot](https://github.com/UnitVectorY-Labs/gowebshot) repository and the [v0.2.0 release](https://github.com/UnitVectorY-Labs/gowebshot/releases/tag/v0.2.0). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
