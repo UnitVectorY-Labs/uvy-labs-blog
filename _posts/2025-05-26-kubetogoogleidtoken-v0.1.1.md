@@ -1,60 +1,32 @@
 ---
 layout: post
-title: "kubetogoogleidtoken v0.1.1: Security Enhancements and Dependency Updates"
+title: "kubetogoogleidtoken v0.1.1: Strengthening the Foundation"
 date: 2025-05-26 09:00:00 -0500
-tags: ["kubetogoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["kubetogoogleidtoken", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-Released on May 26, 2025, kubetogoogleidtoken v0.1.1 is a focused maintenance release that strengthens the security posture and reliability of this Java library for obtaining Google ID tokens through Kubernetes Service Accounts with GCP Workload Identity Federation.
+On May 26, 2025, we released kubetogoogleidtoken v0.1.1. This maintenance release focuses on refining the developer experience, updating core dependencies, and hardening our CI/CD pipelines to ensure the library remains stable and secure for production environments.
 
-While the core API remains unchanged, this update delivers important improvements to the project's security infrastructure, documentation, and build processes—ensuring users can continue to rely on kubetogoogleidtoken for secure, production-ready token acquisition.
+## What's new
 
-## What's New
+While v0.1.1 doesn't introduce new functional features, it brings several quality-of-life improvements:
 
-### Security Enhancements
+*   **Enhanced Onboarding:** We've added a comprehensive "Getting Started" section to our documentation. This guide clarifies the Java 17 requirement and provides the exact Maven dependency configuration needed to get up and running quickly.
+*   **Dependency Modernization:** We've performed a thorough update of our dependency tree, including an upgrade of `com.google.code.gson:gson` to version 2.13.1, along with updated testing frameworks like JUnit and Mockito.
+*   **CI/CD Hardening:** Our build pipelines have been restructured for better clarity and security. This includes renaming workflows to explicitly reflect Java 17 support and integrating new static analysis tools to improve code quality.
+*   **Better Visibility:** New project badges for GitHub releases, Maven Central, and Javadoc have been added to the README, making it easier to track the project's status at a glance.
 
-The most significant addition in v0.1.1 is a new **zizmor security workflow** that automatically scans GitHub Actions configurations for security vulnerabilities. This proactive scanning helps catch supply chain risks before they reach users.
+## Why it matters
 
-Additionally, the release upgrades build provenance attestations to version 2, strengthening the supply chain security guarantees for all released artifacts. Every JAR file published to Maven Central now includes verified build provenance that can be audited for authenticity.
+These changes might seem internal, but they provide significant value to users:
 
-### Improved Documentation
+*   **Reduced Friction:** The new documentation ensures that developers can integrate the library into their Kubernetes projects without guesswork.
+*   **Increased Reliability:** By keeping dependencies like Gson current, we ensure that the library benefits from the latest performance improvements and security patches.
+*   **Future-Proofing:** The improvements to our GitHub Actions and the move toward more explicit versioning in our pipelines mean a more stable release process and higher confidence in every version we ship.
 
-The README has been significantly enhanced with a comprehensive **Getting Started** section that includes:
-- Direct Maven Central dependency configuration
-- Clear installation instructions for Java 17+ projects
-- Updated version badges showing the latest release status
+## Getting started with v0.1.1
 
-These improvements make it easier than ever to integrate kubetogoogleidtoken into new projects.
-
-### Dependency Updates
-
-All build and test dependencies have been updated to their latest compatible versions, incorporating upstream bug fixes and security patches:
-
-- **Gson**: Updated to 2.13.1
-- **Mockito**: Updated to 5.18.0
-- **JUnit Jupiter**: Updated to 5.12.2
-- **Lombok**: Updated to 1.18.38
-- Maven plugins and CI/CD actions also updated
-
-These updates ensure the project benefits from the latest improvements in the Java ecosystem while maintaining full compatibility with existing code.
-
-## Why It Matters
-
-### Zero Breaking Changes
-
-This release is a **drop-in upgrade** from v0.1.0. The public API—including `KubeToGoogleIdTokenClient`, `KubeToGoogleIdTokenRequest`, and `KubeToGoogleIdTokenResponse`—remains completely unchanged. Users can upgrade immediately without any code modifications.
-
-### Production-Ready Security
-
-For teams running kubetogoogleidtoken in production environments, the new security scanning and provenance attestations provide additional assurance that your dependencies are secure and authentic. The zizmor workflow adds an important layer of protection against supply chain attacks targeting GitHub Actions configurations.
-
-### Reliable Maintenance
-
-This release demonstrates a commitment to responsible open-source maintenance. By keeping dependencies up-to-date and investing in security tooling, the project ensures long-term viability and trustworthiness for its users.
-
-## Getting Started
-
-To use v0.1.1 in your Java project, update your Maven dependency:
+Upgrading to v0.1.1 is seamless. Since there are no breaking changes, you only need to update the version number in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -64,21 +36,8 @@ To use v0.1.1 in your Java project, update your Maven dependency:
 </dependency>
 ```
 
-The library requires Java 17 or later and is available on Maven Central. For detailed usage instructions, see the [Getting Started guide](https://github.com/UnitVectorY-Labs/kubetogoogleidtoken#getting-started) in the repository README.
+We encourage all users to upgrade to benefit from the latest dependency updates and improved stability.
 
-## Upgrade Considerations
+***
 
-Upgrading to v0.1.1 from v0.1.0 requires no migration effort:
-- API surface is unchanged
-- No configuration changes needed
-- Safe to deploy immediately
-
-Known limitations from previous versions remain unchanged:
-- Token caching is not implemented (new tokens are requested for each invocation)
-- Custom audiences for Workload Identity Federation use the default pattern
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on March 18, 2026. For more information about this release, see the [GitHub release page](https://github.com/UnitVectorY-Labs/kubetogoogleidtoken/releases/tag/v0.1.1).*
-
-*Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Generated on April 12, 2026, based on the [kubetogoogleidtoken](https://github.com/UnitVectorY-Labs/kubetogoogleidtoken) repository and [v0.1.1 release](https://github.com/UnitVectorY-Labs/kubetogoogleidtoken/releases/tag/v0.1.1). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
