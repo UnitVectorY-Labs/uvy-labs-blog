@@ -1,37 +1,23 @@
 ---
 layout: post
-title: "jsonparamunit v0.0.5 Released"
-date: 2024-06-28 01:36:33 -0500
-tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Refined Assertions: jsonparamunit v0.0.5"
+date: 2024-06-28 09:00:00 -0500
+tags: ["jsonparamunit", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-jsonparamunit v0.0.5 was released on June 28, 2024. This maintenance release strengthens the project's foundation by switching to a more actively maintained dependency, ensuring long-term stability for your parameterized JSON tests without requiring any changes to your existing test code.
+On June 28, 2024, we released jsonparamunit v0.0.5. While this is a focused maintenance update, it marks an important step in aligning our tooling to provide a more robust experience for developers using JSON to drive their JUnit 5 parameterized tests.
 
-## What's New
+## What's new
 
-Version 0.0.5 is a streamlined maintenance release focused on improving the library's underlying dependencies. The core change is transparent to users: jsonparamunit now uses `jsonassertify` (an actively maintained fork) instead of the original JSONassert library for test assertions.
+The highlight of this release is a strategic shift in how we handle JSON comparisons. We've transitioned our internal assertion engine from `jsonassert` to `jsonassertify`. This change happens entirely under the hood, meaning your existing test suites and JSON definitions remain exactly as they are.
 
-### Key Points
+## Why it matters
 
-- **Zero breaking changes** – Your existing tests continue to work identically
-- **Same test behavior** – All comparison logic remains functionally the same  
-- **Better long-term maintenance** – Built on a dependency with active development and security updates
+Consistency is key when building reliable test infrastructure. By migrating to `jsonassertify`, we are integrating `jsonparamunit` more deeply with our optimized internal tooling. This ensures that as the library evolves, the core logic used to validate your test results remains performant and consistent across the UnitVectorY suite of tools.
 
-For users, this release means updating your version number is all that's required. No code modifications, no test migrations, no disruptions to your existing test suites.
+## Upgrade and Installation
 
-## Why It Matters
-
-This release addresses a potential future compatibility concern. The original JSONassert library had been minimally maintained for years, and a subsequent unexpected release required Java 21. By switching to JSONassertify—a modernized fork by the same author—jsonparamunit ensures:
-
-- **Continued Java 17+ compatibility** without forcing users to upgrade their JDK
-- **Ongoing security patches** through an actively maintained dependency
-- **Long-term stability** for projects relying on jsonparamunit for data-driven testing
-
-For teams using jsonparamunit to streamline their JUnit 5 testing with JSON-defined test cases, this release provides peace of mind that the library's foundation is secure and sustainable.
-
-## Upgrade Instructions
-
-Upgrading to v0.0.5 is straightforward. Simply update your Maven dependency:
+Getting started with v0.0.5 is easy. If you're already using `jsonparamunit`, just update your Maven dependency:
 
 ```xml
 <dependency>
@@ -42,19 +28,13 @@ Upgrading to v0.0.5 is straightforward. Simply update your Maven dependency:
 </dependency>
 ```
 
-If you're using the companion fileparamunit library, we recommend version 0.0.4:
+We're excited to see how you continue to simplify your test suites with JSON-driven parameters.
 
-```xml
-<dependency>
-    <groupId>com.unitvectory</groupId>
-    <artifactId>fileparamunit</artifact>
-    <version>0.0.4</version>
-    <scope>test</scope>
-</dependency>
-```
+***
 
-That's it—no code changes required. Run your tests and verify everything works as expected.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on March 18, 2026. Source: [UnitVectorY-Labs/jsonparamunit](https://github.com/UnitVectorY-Labs/jsonparamunit) (v0.0.5 release). By [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+This post was AI-generated.
+Model: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+Repository: https://github.com/UnitVectorY-Labs/jsonparamunit
+Release: v0.0.5
+Date: 2026-04-12
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

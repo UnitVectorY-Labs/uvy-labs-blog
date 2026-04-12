@@ -1,59 +1,27 @@
 ---
 layout: post
-title: "jsonparamunit v0.0.2 Release: Quality Refinements and Context Support"
-date: 2024-03-08 02:07:49 -0500
-tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "jsonparamunit v0.0.2: Now on Maven Central with Enhanced Stability"
+date: 2024-03-08 09:00:00 -0500
+tags: ["jsonparamunit", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the availability of jsonparamunit v0.0.2, released on March 8, 2024. Just four days after our initial release, this iteration represents our commitment to rapid improvement and code quality from day one.
+On March 8, 2024, we released jsonparamunit v0.0.2. This update marks a significant milestone for the library as it becomes more accessible to the Java community and more robust for production use.
 
-This update focuses on strengthening the foundation of jsonparamunit with internal refinements that directly benefit developers building data-driven tests. The highlight of v0.0.2 is the introduction of context support—a new capability that lets you include optional contextual information in your test cases without affecting input/output data.
+## What's new
 
-## What's New
+The headline for this release is the official publication of jsonparamunit to Maven Central. You can now integrate the library into your projects using standard dependency management without needing to host the artifacts yourself. Along with this, we've added Javadoc support, providing a clearer guide to the API and helping you get up and running faster.
 
-### Context Support for Test Cases
+Under the hood, we've performed a series of refactors to improve the library's maintainability. We introduced a centralized `JsonConverter` to handle conversions between JSON nodes and strings, ensuring more consistent behavior and better error reporting. We also strengthened our test suite, achieving a full 100% code coverage to ensure that your tests remain reliable.
 
-The standout feature in v0.0.2 is context support. Your JSON test files can now include an optional `context` field that provides additional processing information to your tests. This context is passed to the `process()` method but remains separate from your input/output data, keeping test cases clean and focused.
+## Why it matters
 
-For example, you can now structure a test file like this:
+For developers, the move to Maven Central means less friction during setup and easier dependency resolution. The addition of Javadoc removes the guesswork from the API, allowing for a more intuitive development experience.
 
-```json
-{
-  "input": "...",
-  "output": "...",
-  "context": "a"
-}
-```
-
-This is particularly useful when your test logic needs supplementary information—like configuration flags, environmental parameters, or metadata—that shouldn't be confused with the actual test data.
-
-### Enhanced Extensibility
-
-For developers extending jsonparamunit's base classes, we've exposed a new protected method `assertJsonEquals()` in `JsonNodeParamUnit`. This method allows you to customize JSON assertion behavior when needed, giving advanced users more control over how their tests validate output.
-
-### Code Quality Foundations
-
-Behind the scenes, v0.0.2 establishes rigorous quality standards for the project:
-
-- **100% code coverage enforcement** via JaCoCo ensures every line and branch is tested
-- **Mockito integration** enables sophisticated mocking in test scenarios
-- **Centralized JSON conversion** through a new `JsonConverter` utility reduces duplication and simplifies maintenance
-
-These improvements mean more reliable releases and a solid base for future features.
-
-## Why It Matters
-
-jsonparamunit was built to help developers shift test case creation from Java code to JSON files—making tests simpler to write, maintain, and extend. With v0.0.2, we're doubling down on that vision while establishing quality practices that will scale with the project.
-
-The context feature directly addresses a common testing pattern: needing additional metadata during test execution without polluting your input/output data model. It's a small addition that unlocks significant flexibility for complex test scenarios.
-
-More importantly, the 100% coverage mandate means every future feature and fix comes with comprehensive testing baked in. When you depend on jsonparamunit, you're depending on code that's been thoroughly vetted.
+The internal improvements, while less visible, are crucial for long-term stability. By centralizing conversion logic and enforcing strict test coverage, we've reduced the likelihood of regressions and created a more stable foundation for future features.
 
 ## Getting Started
 
-### Installation
-
-If you're upgrading from v0.0.1, update your Maven dependency:
+Upgrading to v0.0.2 is straightforward as there are no breaking changes to the public API. To get started or update your project, simply add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
@@ -64,26 +32,12 @@ If you're upgrading from v0.0.1, update your Maven dependency:
 </dependency>
 ```
 
-No breaking changes were introduced in v0.0.2—all tests written for v0.0.1 continue to work without modification.
+We encourage you to check out the updated README and the new Javadoc for more details on how to leverage JSON-driven testing in your JUnit 5 suites.
 
-### Try Context Support
+***
 
-To experiment with the new context feature, add a `context` field to any of your existing test JSON files:
-
-```json
-{
-  "input": {"value": 42},
-  "output": {"result": 84},
-  "context": "doubling-mode"
-}
-```
-
-Your overridden `process()` method receives this context value and can use it to adjust test behavior accordingly.
-
-### Documentation
-
-The README has been updated with Maven Central badges and improved getting started instructions. Full API documentation is available via javadoc.io.
-
----
-
-**Transparency Note:** This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Release source: [UnitVectorY-Labs/jsonparamunit](https://github.com/UnitVectorY-Labs/jsonparamunit), release [v0.0.2](https://github.com/UnitVectorY-Labs/jsonparamunit/releases/tag/v0.0.2). Published March 8, 2024. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL.
+Repository: https://github.com/UnitVectorY-Labs/jsonparamunit
+Release: v0.0.2
+Date of generation: 2026-04-12
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

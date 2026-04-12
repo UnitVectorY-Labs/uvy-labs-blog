@@ -1,45 +1,25 @@
 ---
 layout: post
-title: "jsonparamunit v0.0.3 Released"
+title: "jsonparamunit v0.0.3: Maintenance and Dependency Updates"
 date: 2024-03-19 09:00:00 -0500
-tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["jsonparamunit", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the release of jsonparamunit v0.0.3, a maintenance update that keeps your testing library dependencies current and secure. Released on March 19, 2024, this version upgrades the underlying Jackson library to 2.17.0, bringing users the latest improvements in JSON processing performance and security.
+Released on March 19, 2024, jsonparamunit v0.0.3 is a maintenance update designed to keep the library's core infrastructure current and secure. While this release doesn't introduce new functional features, it focuses on the stability and reliability of the underlying JSON processing engine.
 
-## What's New
+## What's new
 
-The v0.0.3 release focuses on dependency maintenance with a single important update:
+This release primarily updates the project's core dependencies:
+- **jackson-databind** has been upgraded to version 2.17.0.
 
-- **Jackson Databind 2.17.0**: The core Jackson library has been updated from 2.16.1 to 2.17.0, delivering bug fixes, security patches, and performance improvements from the Jackson project team.
+## Why it matters
 
-That's it! This is a focused maintenance release that ensures jsonparamunit stays aligned with the latest stable Jackson releases.
+The `jackson-databind` library is the engine that powers JSON processing within `jsonparamunit`. By upgrading to the latest stable version, we ensure that users benefit from the most recent performance optimizations, improved compatibility with modern JSON specifications, and essential security patches. Maintaining up-to-date dependencies is critical for the long-term health and security of any project.
 
-## Why It Matters
+## Upgrade and Installation
 
-Keeping dependencies current is critical for any production library. By upgrading to Jackson 2.17.0, jsonparamunit v0.0.3 provides:
-
-- **Security**: Users benefit from security patches included in the Jackson update
-- **Performance**: Improved JSON serialization and deserialization speeds
-- **Stability**: Bug fixes that improve reliability across modern Java applications
-
-For teams using jsonparamunit to power their parameterized JUnit 5 tests, this update means continued stability with no disruptions to your existing test suites.
-
-## Seamless Upgrade
-
-Upgrading to v0.0.3 is straightforward:
-
-```xml
-<dependency>
-    <groupId>com.unitvectory</groupId>
-    <artifactId>jsonparamunit</artifactId>
-    <version>0.0.3</version>
-    <scope>test</scope>
-</dependency>
-```
-
-This release is fully backward-compatible with v0.0.2. No code changes are required—simply update the version number and run your tests.
+To upgrade to v0.0.3, simply update the version number in your project's dependency management file (e.g., `pom.xml` for Maven).
 
 ---
 
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Source: [UnitVectorY-Labs/jsonparamunit](https://github.com/UnitVectorY-Labs/jsonparamunit), Release v0.0.3, Generated on 2026-03-18. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Generated on 2026-04-12 for the [UnitVectorY-Labs/jsonparamunit](https://github.com/UnitVectorY-Labs/jsonparamunit) repository, release v0.0.3. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*

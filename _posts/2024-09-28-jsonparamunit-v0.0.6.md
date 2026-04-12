@@ -1,42 +1,37 @@
 ---
 layout: post
-title: "jsonparamunit v0.0.6: Dependency Maintenance Release"
-date: 2024-09-28 00:00:00 -0500
-tags: ["jsonparamunit", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Maintaining the Foundation: jsonparamunit v0.0.6"
+date: 2024-09-28 09:00:00 -0500
+tags: ["jsonparamunit", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-jsonparamunit v0.0.6 was released on September 28, 2024. This release focuses on keeping your testing framework current with updated dependencies and improved build reliability.
+On September 28, 2024, we released jsonparamunit v0.0.6. While this version doesn't introduce sweeping new features, it serves as a critical maintenance update designed to keep the library stable, secure, and fully compatible with the evolving Java ecosystem.
 
-## What's New
+### What's new
 
-This maintenance release brings several important dependency updates that enhance jsonparamunit's compatibility and performance:
+This release focuses on the essential "under-the-hood" work that keeps your testing pipeline running smoothly.
 
-### Updated Test Framework Dependencies
-- **JUnit Jupiter Params** upgraded from 5.10.2 to 5.11.1, bringing the latest parameterized testing capabilities
-- **Mockito** updated from 5.12.0 to 5.14.0 for improved mocking features
-- **Jackson Databind** bumped from 2.17.1 to 2.18.0 with bug fixes and improvements
+**Updated Core Dependencies**
+We've bumped several key libraries to their latest stable versions, including:
+- **JUnit 5 (5.11.1):** Ensuring the best possible integration with the latest JUnit parameterized tests.
+- **Jackson (2.18.0):** Improving JSON parsing performance and reliability.
+- **Lombok (1.18.34) & Mockito (5.14.0):** Keeping our development and testing toolchain modern.
 
-### Build Process Improvements
-The Maven compiler plugin now includes explicit Lombok annotation processor configuration, ensuring more reliable builds across different development environments.
+**Enhanced Build Transparency**
+We have integrated build provenance into our CI/CD pipeline. By adding build attestations, we provide greater transparency and security, allowing users to verify the origin and integrity of the artifacts they download.
 
-### Supply Chain Security
-Release artifacts now include provenance attestations generated through GitHub's attestation framework, giving you cryptographic verification of artifact origins.
+**Improved Documentation**
+To help new users get started faster, we've updated the README with an "Active" project status badge and direct links to the official project guide at guide.unitvectorylabs.com.
 
-### Companion Library Updates
-jsonparamunit v0.0.6 is now compatible with fileparamunit v0.0.5, the companion library for iterating through multiple JSON files in directories.
+### Why it matters
 
-## Why It Matters
+In the world of Java development, stability is everything. By proactively updating dependencies like Jackson and JUnit, we ensure that `jsonparamunit` remains compatible with the latest frameworks and avoids the security vulnerabilities often found in outdated libraries.
 
-While this release doesn't introduce new library features, it maintains jsonparamunit's health and longevity by:
+Furthermore, the move toward build provenance reflects our commitment to a secure software supply chain. As `jsonparamunit` continues to help developers simplify data-driven testing, providing a verifiable and transparent build process is a key step in building trust with the community.
 
-- **Keeping pace with JUnit 5**: The jump to JUnit Jupiter Params 5.11.x ensures continued compatibility with the broader JUnit ecosystem and access to latest parameterized testing features
-- **Security updates**: Upstream dependency updates include important security patches from Jackson and other libraries
-- **Build reliability**: Explicit annotation processor configuration reduces build inconsistencies across CI/CD pipelines and local environments
-- **Supply chain trust**: Artifact provenance attestations allow you to verify that the artifacts you download are genuinely from the jsonparamunit project
+### Getting Started
 
-## Upgrading to v0.0.6
-
-Upgrading is straightforward—no migration steps are required:
+Upgrading to v0.0.6 is seamless, as there are no breaking changes. Simply update the version in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -47,19 +42,8 @@ Upgrading is straightforward—no migration steps are required:
 </dependency>
 ```
 
-If you use fileparamunit alongside jsonparamunit, consider updating to v0.0.5 as well:
+We encourage all users to move to this version to benefit from the latest stability and security improvements.
 
-```xml
-<dependency>
-    <groupId>com.unitvectory</groupId>
-    <artifactId>fileparamunit</artifactId>
-    <version>0.0.5</version>
-    <scope>test</scope>
-</dependency>
-```
+***
 
-After updating, run `mvn clean test` to verify your existing tests pass. The core API remains unchanged, so no code modifications should be necessary.
-
----
-
-**Transparency Note**: This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For full details about this release, visit the [GitHub repository](https://github.com/UnitVectorY-Labs/jsonparamunit) and see the [v0.0.6 release](https://github.com/UnitVectorY-Labs/jsonparamunit/releases/tag/v0.0.6). Generated on 2025-01-15. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It refers to the release v0.0.6 of the [UnitVectorY-Labs/jsonparamunit](https://github.com/UnitVectorY-Labs/jsonparamunit) repository, generated on 2026-04-12. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
