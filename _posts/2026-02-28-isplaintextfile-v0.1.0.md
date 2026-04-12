@@ -1,50 +1,26 @@
 ---
 layout: post
-title: "isplaintextfile v0.1.0: Infrastructure Modernization Release"
-date: 2026-02-28 00:00:00 -0500
-tags: ["isplaintextfile", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "isplaintextfile v0.1.0: Toolchain and Infrastructure Update"
+date: 2026-02-28 09:00:00 -0500
+tags: ["isplaintextfile", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the release of **isplaintextfile v0.1.0**, available now on GitHub. Released on February 28, 2026, this update focuses on modernizing the project's build infrastructure while maintaining full compatibility with existing code.
+On February 28, 2026, we released isplaintextfile v0.1.0. This maintenance update focuses on modernizing our development toolchain and strengthening our CI/CD pipelines to ensure continued stability and performance.
 
-## What's New
+## What's new
 
-While this release doesn't introduce new API features, it brings important infrastructure improvements:
+- **Go Toolchain Upgrade**: We've updated the project to target Go 1.26.0, bringing the latest language improvements and performance enhancements.
+- **CI/CD Infrastructure Updates**: Our GitHub Actions workflows have been refreshed, including updates to `actions/checkout`, `actions/cache`, `actions/setup-go`, and `github/codeql-action`.
+- **Documentation Fixes**: Minor corrections to README badges for better accuracy.
 
-- **Go 1.26.0 Support:** The project now builds against Go 1.26.0, ensuring access to the latest language features and security patches
-- **GitHub Actions Modernization:** All CI/CD workflows have been upgraded to use current action versions with improved security through commit pinning:
-  - `actions/checkout` → v6
-  - `actions/cache` → v5
-  - `github/codeql-action` → v4
-  - `actions/setup-go` → v6.3.0
-- **Improved Supply Chain Security:** Key actions are now pinned to specific commit hashes, reducing reliance on mutable tags
+## Why it matters
 
-## Why It Matters
+While this release doesn't introduce new API features, these underlying improvements are critical. By staying current with the Go toolchain and utilizing the latest CI actions, we reduce technical debt and ensure that the library remains compatible with modern development environments. This results in a more robust build process and a more reliable experience for developers integrating `isplaintextfile` into their projects.
 
-For library users, this release means **zero disruption**. All existing code using isplaintextfile continues to work without modification. The API remains unchanged, and there are no breaking changes from previous versions (v0.0.1 through v0.0.4).
+## Upgrade and Installation
 
-This infrastructure modernization ensures that:
-- Automated testing and security scanning run on up-to-date, secure tooling
-- The project maintains alignment with current Go ecosystem best practices
-- Users benefit from improved CI reliability without any code changes on their end
-
-The core functionality of isplaintextfile remains exactly as you know it: a lightweight, zero-dependency Go library that determines whether files contain plaintext by analyzing their content. The five API functions (`Bytes`, `File`, `FilePreview`, `Reader`, and `ReaderPreview`) work identically to previous releases.
-
-## Getting Started
-
-**Installation:**
-```bash
-go get github.com/UnitVectorY-Labs/isplaintextfile@v0.1.0
-```
-
-**Upgrade from Previous Versions:**
-No code changes required. Simply update your dependency:
-```bash
-go get github.com/UnitVectorY-Labs/isplaintextfile@v0.1.0
-```
-
-The library requires Go 1.26.0 or later when building from source, but this does not affect users consuming the compiled module.
+Users can update to v0.1.0 by updating their Go module dependencies. We encourage all users to stay updated to benefit from the latest toolchain improvements.
 
 ---
 
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For more information, see the [isplaintextfile repository](https://github.com/UnitVectorY-Labs/isplaintextfile) and [v0.1.0 release](https://github.com/UnitVectorY-Labs/isplaintextfile/releases/tag/v0.1.0). Generated on March 19, 2026 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: [UnitVectorY-Labs/isplaintextfile](https://github.com/UnitVectorY-Labs/isplaintextfile) release v0.1.0, generated on 2026-04-12 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
