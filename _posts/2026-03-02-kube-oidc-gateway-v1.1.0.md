@@ -1,89 +1,40 @@
 ---
 layout: post
-title: "kube-oidc-gateway v1.1.0: Enhanced Cache Control and Improved Documentation"
-date: 2026-03-02 11:56:00 -0500
-tags: ["kube-oidc-gateway", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "kube-oidc-gateway v1.1.0: Better Control Over Client Caching"
+date: 2026-03-02 09:00:00 -0500
+tags: ["kube-oidc-gateway", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introducing kube-oidc-gateway v1.1.0
+Released on March 2, 2026, kube-oidc-gateway v1.1.0 brings improved flexibility to how your cluster exposes OIDC discovery and JWKS endpoints. This release focuses on giving operators more granular control over how external clients cache identity information, ensuring a better balance between performance and freshness.
 
-We're pleased to announce the release of kube-oidc-gateway v1.1.0, published on March 2, 2026. This minor release introduces configurable client-side cache control headers and delivers comprehensive documentation improvements that make deployment simpler than ever.
+## What's new
 
-kube-oidc-gateway is a lightweight reverse proxy that exposes Kubernetes OIDC discovery and JWKS endpoints with in-memory caching, enabling external systems to configure workload identity federation without requiring anonymous authentication on your Kubernetes API server.
+The headline feature of v1.1.0 is the introduction of **configurable client cache response headers**. Previously, the gateway's internal caching logic was tightly coupled with the headers sent to the client. Now, you can independently manage these two behaviors.
 
-## What's New
+By introducing the `CLIENT_CACHE_TTL_SECONDS` environment variable (defaulting to 3600 seconds), you can now explicitly tell external clients—such as cloud providers or Vault—how long they should trust the cached OIDC documents. The gateway now includes both a `public` directive in the `Cache-Control` header and a calculated `Expires` header, adhering to web standards and improving compatibility with various HTTP clients.
 
-### Configurable Client Cache Control
+Additionally, this release includes several under-the-hood maintenance updates, including an upgrade to the Go 1.26.0 toolchain and updated CI/CD workflows to ensure the project remains secure and performant.
 
-The most significant addition in v1.1.0 is the new `CLIENT_CACHE_TTL_SECONDS` environment variable. This feature gives operators precise control over how long external clients should cache OIDC responses, separate from the gateway's internal API server cache TTL.
+## Why it matters
 
-**Configuration:**
-- **Environment Variable**: `CLIENT_CACHE_TTL_SECONDS`
-- **Default**: 3600 seconds (1 hour)
-- **Effect**: Sets `Cache-Control` and `Expires` headers in responses
+For organizations utilizing workload identity federation, the reliability and availability of OIDC endpoints are critical. When the Kubernetes API server is hardened with `--anonymous-auth=false`, `kube-oidc-gateway` becomes the essential bridge for external systems to validate cluster tokens.
 
-This addition allows you to optimize client behavior independently from upstream request handling. For example, you might keep the internal `CACHE_TTL_SECONDS` at 60 seconds to maintain fresh data from the API server while allowing clients to cache for longer periods with `CLIENT_CACHE_TTL_SECONDS` set to 3600 or more.
+The ability to decouple internal caching from client-side caching is a significant win for stability. Operators can now maintain a long-lived internal cache to protect the API server from excessive requests while instructing clients to refresh their data more frequently, or vice versa. This flexibility reduces the risk of identity outages caused by stale cache entries on the client side.
 
-### Version Reporting at Startup
+## Getting started with v1.1.0
 
-The gateway now reports its version at startup when built with the updated Dockerfile. This makes it easier to verify which version is running in your cluster, improving operational visibility and debugging capabilities.
+Upgrading to v1.1.0 is straightforward. Simply update your deployment image tag to `v1.1.0` or `latest`.
 
-### Comprehensive Documentation Overhaul
-
-We've significantly enhanced the README with:
-- A complete, copy-pasteable deployment manifest including all necessary Kubernetes resources
-- Detailed explanations of when and why you need kube-oidc-gateway
-- Expanded project overview covering supported use cases (AWS IRSA, GCP Workload Identity, Azure Workload Identity, HashiCorp Vault, GitHub Actions, GitLab CI)
-- Updated configuration reference including the new `CLIENT_CACHE_TTL_SECONDS` option
-- Recommended resource limits and security context settings
-
-The deployment manifest now includes Namespace, ServiceAccount, ClusterRole, ClusterRoleBinding, Deployment, and Service resources—everything you need to get started in a single file.
-
-## Why It Matters
-
-### Better Cache Control Means Better Performance
-
-Separating client cache TTL from internal cache TTL addresses a common operational pattern. Your Kubernetes API server data changes frequently, so you want the gateway to fetch fresh information often. However, OIDC discovery documents and JWKS sets typically change infrequently. By allowing clients to cache these responses longer, you reduce unnecessary traffic while maintaining data freshness on the gateway side.
-
-### Lower Barrier to Entry
-
-The enhanced documentation removes friction for new users. Having a complete, tested deployment example directly in the README means you can deploy kube-oidc-gateway in minutes without hunting through separate files or examples directories. The detailed explanations also help operators understand not just how to deploy, but why certain configurations matter.
-
-### Active Maintenance Signal
-
-This release includes updates to Go 1.26.0 and numerous dependency updates via Dependabot. Regular maintenance updates like these keep the project secure and ensure compatibility with the broader Kubernetes ecosystem.
-
-## Upgrade Instructions
-
-Upgrading to v1.1.0 is straightforward—there are **no breaking changes**. Your existing deployments will continue to work without modification.
-
-### For Existing Deployments
-
-Simply update your container image tag to `v1.1.0`:
-
-```yaml
-spec:
-  containers:
-  - name: kube-oidc-gateway
-    image: ghcr.io/unitvectory-labs/kube-oidc-gateway:v1.1.0
-```
-
-### For New Users
-
-Deploy using the complete manifest in the README. The default configuration works well for most use cases, but you can customize cache behavior:
+If you want to customize the client cache duration, add the following environment variable to your deployment manifest:
 
 ```yaml
 env:
-- name: CACHE_TTL_SECONDS
-  value: "60"   # Internal API server cache (default)
-- name: CLIENT_CACHE_TTL_SECONDS
-  value: "3600" # Client-facing cache headers (default: 1 hour)
+  - name: CLIENT_CACHE_TTL_SECONDS
+    value: "3600" # Set your desired TTL in seconds
 ```
 
-### Rolling Update Considerations
+This release is fully backward compatible, so no other changes to your configuration are required.
 
-As with any stateful service update, we recommend using a rolling update strategy. The gateway's in-memory cache will be rebuilt on the new pods automatically after they start.
+***
 
----
-
-*This post was AI-generated using unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M. Generated on March 18, 2026 based on the v1.1.0 release from the [UnitVectorY-Labs/kube-oidc-gateway](https://github.com/UnitVectorY-Labs/kube-oidc-gateway) repository. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on April 12, 2026, based on the [kube-oidc-gateway](https://github.com/UnitVectorY-Labs/kube-oidc-gateway) [v1.1.0 release](https://github.com/UnitVectorY-Labs/kube-oidc-gateway/releases/tag/v1.1.0). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

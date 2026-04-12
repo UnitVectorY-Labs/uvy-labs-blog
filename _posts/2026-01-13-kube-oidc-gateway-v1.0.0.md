@@ -1,124 +1,39 @@
 ---
 layout: post
-title: "Announcing kube-oidc-gateway v1.0.0: OIDC Discovery Proxy for Secure Kubernetes Clusters"
-date: 2026-01-13 00:03:59 -0500
-tags: ["kube-oidc-gateway", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Introducing kube-oidc-gateway: Securely Exposing Kubernetes OIDC Endpoints"
+date: 2026-01-13 09:00:00 -0500
+tags: ["kube-oidc-gateway", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+On January 13, 2026, we are excited to announce the launch of **kube-oidc-gateway**, a lightweight reverse proxy designed to solve a critical challenge for operators of hardened Kubernetes clusters: exposing OIDC discovery and JWKS endpoints without compromising security.
 
-We're excited to announce the launch of **kube-oidc-gateway**, now available as v1.0.0. Released on January 13, 2026, this lightweight Go application solves a critical challenge for secure Kubernetes deployments: enabling external systems to access OIDC discovery and JWKS endpoints when your cluster is configured with `--anonymous-auth=false`.
+### What is kube-oidc-gateway?
 
-For teams running production Kubernetes clusters that have disabled anonymous authentication for enhanced security, kube-oidc-gateway provides the bridge needed for workload identity federation without compromising your security posture.
+`kube-oidc-gateway` is a production-ready tool that allows external systems to verify Kubernetes ServiceAccount tokens via OpenID Connect (OIDC). 
 
-## What's New
+In many secure environments, Kubernetes clusters are configured with `--anonymous-auth=false` to prevent unauthorized access to the API server. While this is a best practice for hardening, it creates a problem for Workload Identity Federation. External providers (like AWS, GCP, or Vault) need access to the cluster's OIDC discovery document and public keys (JWKS) to validate tokens, but these endpoints are blocked when anonymous access is disabled.
 
-As an initial release, v1.0.0 introduces the complete core functionality of kube-oidc-gateway:
+`kube-oidc-gateway` bridges this gap. It runs inside your cluster with its own ServiceAccount, authenticates to the API server on behalf of the requester, and serves the necessary OIDC metadata to the public.
 
-### Core Gateway Capabilities
-- **OIDC Discovery Proxy**: Serves the Kubernetes API server's OIDC discovery document at `/.well-known/openid-configuration`
-- **JWKS Proxy**: Provides access to the JSON Web Key Set at `/openid/v1/jwks`
-- **In-Cluster Authentication**: Uses ServiceAccount tokens automatically mounted in the pod to authenticate with your Kubernetes API server
-- **TLS Verification**: Validates all upstream connections using the cluster's CA certificate
+### Why it matters
 
-### Caching and Performance
-- **Configurable TTL Cache**: Built-in in-memory caching with a default 60-second time-to-live
-- **Stale-on-Error Fallback**: When upstream fetches fail, the gateway serves cached content instead of returning errors—improving availability during transient API server issues
-- **ETag Support**: SHA-256 ETags enable downstream caching optimization and reduce bandwidth
+For organizations implementing zero-trust architectures and Workload Identity Federation, `kube-oidc-gateway` provides a secure and reliable path to identity verification:
 
-### Production Hardening
-Despite being a v1.0.0 release, kube-oidc-gateway ships with production-grade features typically added later:
-- HTTP server timeouts to prevent resource exhaustion
-- Graceful shutdown with a 30-second drain window for clean Kubernetes rollouts
-- Context-aware upstream requests that cancel when clients disconnect
-- Response size limiting (10MB) to protect against memory exhaustion
+*   **Maintain Hardening:** You no longer have to choose between enabling anonymous authentication and supporting Workload Identity. Keep your API server locked down.
+*   **High Availability:** The gateway includes an in-memory cache with a "stale-on-error" mechanism. If the Kubernetes API server is momentarily unavailable, the gateway continues to serve the last known valid keys, ensuring that authentication for your workloads doesn't break.
+*   **Production-Grade Stability:** Built with stability in mind, the gateway features strict HTTP timeouts to prevent resource exhaustion, response limiting to protect memory, and graceful shutdown handling for seamless Kubernetes rollouts.
+*   **Observability:** Integrated health checks (`/healthz` and `/readyz`) and ETag support make it easy to monitor and integrate with standard Kubernetes probes and downstream caches.
 
-### Simple Configuration
-Everything is configurable through environment variables with sensible defaults for in-cluster operation:
+### Getting Started
 
-| Variable | Default | Purpose |
-|----------|---------|---------|
-| `LISTEN_PORT` | `8080` | HTTP listen port |
-| `CACHE_TTL_SECONDS` | `60` | Cache time-to-live |
-| `UPSTREAM_TIMEOUT_SECONDS` | `5` | Upstream request timeout |
-| `PRETTY_PRINT_JSON` | `true` | JSON formatting option |
+`kube-oidc-gateway` is designed for simplicity, configured entirely through environment variables such as `UPSTREAM_HOST`, `CACHE_TTL_SECONDS`, and `LISTEN_PORT`.
 
-## Why It Matters
+To deploy the gateway, you will need to provide it with a ServiceAccount associated with a `ClusterRole` that has `get` permissions for the following non-resource URLs:
+- `/.well-known/openid-configuration`
+- `/openid/v1/jwks`
 
-### Solves a Real Security Challenge
+By providing a secure, authenticated proxy for these public endpoints, `kube-oidc-gateway` simplifies the path to secure, federated identity in Kubernetes.
 
-Many security teams require `--anonymous-auth=false` on their Kubernetes API servers to prevent unauthenticated access. However, this creates a problem: external systems (like CI/CD pipelines, external identity providers, or federated workload systems) need access to the OIDC discovery and JWKS endpoints for token validation and workload identity federation.
+***
 
-kube-oidc-gateway solves this by running inside your cluster as an authenticated ServiceAccount, fetching these endpoints on behalf of external callers, and presenting them securely.
-
-### Built for High Availability
-
-The release includes thoughtful availability features:
-- **Graceful Shutdown**: When Kubernetes terminates a pod during a rollout, the gateway completes in-flight requests before shutting down—no dropped connections
-- **Stale Cache Fallback**: If your API server has a brief hiccup, external systems can still validate tokens using cached JWKS data
-- **Multiple Replicas**: Designed to run with 2+ replicas behind a Service for redundancy
-
-### Minimal Security Footprint
-
-Security was a core design principle:
-- **Minimal RBAC**: The ServiceAccount only has permission to read two non-resource URLs—nothing more
-- **Non-Root Container**: Runs as UID 65532 in distroless base images
-- **No External Dependencies**: Pure in-memory caching; no databases or external state stores required
-
-## Getting Started
-
-### Building Locally
-
-```bash
-go build -o kube-oidc-gateway .
-```
-
-### Docker Build
-
-```bash
-docker build -t kube-oidc-gateway:latest .
-```
-
-The Docker image uses `gcr.io/distroless/base-debian13` as its runtime base, providing a minimal attack surface.
-
-### Deployment Considerations
-
-To deploy kube-oidc-gateway in your cluster, you'll need to create a Kubernetes deployment with:
-
-1. **ServiceAccount** for API server authentication
-2. **ClusterRole and ClusterRoleBinding** granting read access to the OIDC endpoints:
-   ```yaml
-   apiVersion: rbac.authorization.k8s.io/v1
-   kind: ClusterRole
-   metadata:
-     name: kube-oidc-gateway
-   rules:
-   - nonResourceURLs:
-     - "/openid/v1/jwks"
-     - "/.well-known/openid-configuration"
-     verbs: ["get"]
-   ```
-3. **Deployment** with 2+ replicas for high availability
-4. **ClusterIP Service** for internal cluster exposure
-
-**Note**: Official deployment manifests will be provided in a future release. For now, you can create custom manifests following the pattern above.
-
-### Important Security Note
-
-kube-oidc-gateway does not implement its own authentication or authorization. Since it serves public OIDC discovery data, you should control access to the service using Kubernetes NetworkPolicies, Ingress controllers with authentication, or firewall rules as appropriate for your environment.
-
-## What's Next
-
-This v1.0.0 release establishes the foundation for kube-oidc-gateway. Future releases will include:
-- Official Kubernetes deployment manifests
-- Additional documentation (architecture and operations guides)
-- Prometheus metrics endpoint for observability
-- Container image publishing to GitHub Container Registry
-
-## Try It Out
-
-kube-oidc-gateway is now available on [GitHub](https://github.com/UnitVectorY-Labs/kube-oidc-gateway). Check out the repository for source code, build instructions, and the full feature documentation.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It was generated based on the v1.0.0 release of kube-oidc-gateway from https://github.com/UnitVectorY-Labs/kube-oidc-gateway/releases/tag/v1.0.0 (released January 13, 2026). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated. The model used was unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: [UnitVectorY-Labs/kube-oidc-gateway](https://github.com/UnitVectorY-Labs/kube-oidc-gateway), release v1.0.0, generated on 2026-04-12. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
