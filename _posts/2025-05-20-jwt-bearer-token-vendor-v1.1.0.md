@@ -1,45 +1,32 @@
 ---
 layout: post
-title: "jwt-bearer-token-vendor v1.1.0 Released"
+title: "jwt-bearer-token-vendor v1.1.0: Maintenance and Stability Update"
 date: 2025-05-20 09:00:00 -0500
-tags: ["jwt-bearer-token-vendor", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["jwt-bearer-token-vendor", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## A Stable Maintenance Release
+Released on May 20, 2025, jwt-bearer-token-vendor v1.1.0 is a maintenance update focused on enhancing the stability and security of the token exchange process. This release ensures that the action remains robust by updating core dependencies.
 
-On May 20, 2025, we released version 1.1.0 of jwt-bearer-token-vendor. This maintenance release focuses on keeping dependencies current and ensuring continued stability for all users.
+## What's new
 
-## What's New
+This release primarily focuses on under-the-hood improvements to the action's network capabilities:
 
-Version 1.1.0 doesn't introduce new features or change the action's interface. Instead, it includes important dependency updates that improve the reliability and security of the underlying HTTP client:
+- **Updated HTTP Client**: We have updated the `undici` library to version 5.29.0. This ensures the action benefits from the latest stability and security patches in the Node.js HTTP client used for communicating with OAuth 2.0 servers.
 
-- **Updated undici HTTP client** from v5.28.5 to v5.29.0, bringing improved connection pool error handling and better compatibility with Node.js 20
-- **CI infrastructure updates** to maintain our development and security scanning workflows
+## Why it matters
 
-These updates happen behind the scenes, meaning your existing workflows will continue to work without any modifications.
+While there are no changes to the user-facing API or configuration, keeping dependencies up to date is critical for a tool that handles sensitive authentication tokens. By updating `undici`, we ensure that the connection between your GitHub Action and your identity provider remains secure and performant.
 
-## Why It Matters
+## Upgrade and Installation
 
-Regular maintenance releases like v1.1.0 demonstrate our commitment to keeping jwt-bearer-token-vendor secure and up-to-date. By promptly updating dependencies, we ensure:
-
-- **Security**: Keeping the HTTP client library current with the latest security patches
-- **Reliability**: Improvements to connection handling mean more robust token exchanges with external OAuth 2.0 servers
-- **Compatibility**: Staying aligned with Node.js runtime updates
-
-## Upgrading
-
-Upgrading to v1.1.0 is simple and requires no configuration changes:
+If you are already using the major version tag in your workflow:
 
 ```yaml
-# Recommended: Use the major version tag for automatic updates
-uses: UnitVectorY-Labs/jwt-bearer-token-vendor@v1
-
-# Or pin to this exact version
-uses: UnitVectorY-Labs/jwt-bearer-token-vendor@v1.1.0
+- uses: UnitVectorY-Labs/jwt-bearer-token-vendor@v1
 ```
 
-All inputs and outputs work identically to v1.0.x. If you're already using the `@v1` tag, your workflows will automatically use v1.1.0 on their next run.
+You will automatically receive this update in your next workflow run. No changes to your YAML configuration are required.
 
----
+***
 
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Original release date: May 20, 2025. Repository: [UnitVectorY-Labs/jwt-bearer-token-vendor](https://github.com/UnitVectorY-Labs/jwt-bearer-token-vendor). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the [jwt-bearer-token-vendor](https://github.com/UnitVectorY-Labs/jwt-bearer-token-vendor) repository, release [v1.1.0](https://github.com/UnitVectorY-Labs/jwt-bearer-token-vendor/releases/tag/v1.1.0) released on 2025-05-20. Generated on 2026-04-12 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
