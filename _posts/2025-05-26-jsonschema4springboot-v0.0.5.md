@@ -1,48 +1,33 @@
 ---
 layout: post
-title: "jsonschema4springboot v0.0.5 Released"
+title: "jsonschema4springboot v0.0.5: Stability and Compatibility Update"
 date: 2025-05-26 09:00:00 -0500
-tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["jsonschema4springboot", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the release of **jsonschema4springboot v0.0.5**, published on May 26, 2025. This maintenance release focuses on keeping your JSON schema validation stack current with updated dependencies and enhanced security posture—without requiring any changes to your code.
+Released on May 26, 2025, jsonschema4springboot v0.0.5 is a maintenance update dedicated to ensuring the library remains performant, secure, and compatible with the evolving Java and Spring ecosystems. While this release doesn't introduce new functional features, it strengthens the foundation of the project through critical dependency upgrades and tooling improvements.
 
-## What's New
+## What's new
 
-### Updated Dependencies
+This release focuses on bringing the library's core dependencies up to date:
 
-The core of this release is a comprehensive dependency update that brings important improvements:
+- **Updated Validation Engine**: The `json-schema-validator` has been updated from version 1.5.2 to 1.5.7, ensuring that the underlying validation logic benefits from the latest bug fixes and performance optimizations.
+- **Spring Framework Compatibility**: We have updated `spring-web` from 6.1.13 to 6.2.7, aligning the library with the latest Spring 6.2.x capabilities.
+- **CI/CD and Tooling Enhancements**: We've overhauled our GitHub Actions workflows for better clarity and added new automated checks to maintain high code quality.
 
-- **json-schema-validator upgraded to 1.5.7** (from 1.5.2) - This upstream library powers all schema validation in your application. The five minor version upgrades include accumulated bug fixes and security patches from the networknt project.
+## Why it matters
 
-- **Spring Web updated to 6.2.7** (from 6.1.13) - This ensures continued compatibility with Spring Boot 3.3+ and newer Spring Framework versions, keeping your application aligned with the latest Spring ecosystem releases.
+For users of jsonschema4springboot, these updates provide several key benefits:
 
-- **Build tooling updates** - The Maven build plugins, testing frameworks (JUnit 5.12.2, Mockito 5.18.0), and development tools have been modernized to their latest stable versions.
+- **Increased Reliability**: By updating the primary validation engine, we reduce the risk of edge-case bugs in schema validation.
+- **Future-Proofing**: Compatibility with Spring 6.2.x ensures that your application can migrate to newer Spring Boot versions without encountering dependency conflicts.
+- **Better Maintenance**: The improvements to our build pipeline and development tooling mean faster and more reliable releases in the future.
 
-### Infrastructure Enhancements
+## Getting started
 
-While not directly visible in your code, significant behind-the-scenes improvements strengthen the reliability and security of all future releases:
+Upgrading to v0.0.5 is straightforward. Simply update the version number in your build configuration:
 
-- **Build attestations** - Every release now includes cryptographic provenance attestations, giving you confidence in the supply chain integrity of artifacts downloaded from Maven Central.
-
-- **Security scanning** - New automated security analysis using zizmor continuously monitors GitHub Actions workflows for potential vulnerabilities.
-
-## Why It Matters
-
-This release exemplifies proactive dependency management. By staying current with upstream dependencies, you benefit from:
-
-1. **Security patches** - Critical fixes from the json-schema-validator and Spring ecosystems are now included automatically when you upgrade.
-
-2. **Compatibility assurance** - The Spring Web 6.2.x update ensures your application remains compatible with evolving Spring Boot versions without unexpected breakage.
-
-3. **No migration effort required** - This is a drop-in upgrade. The `@ValidateJsonSchema` annotation works exactly as before—no code changes, no API modifications, no breaking changes.
-
-For teams using jsonschema4springboot to enforce API contract validation through JSON Schema, this release maintains the stability you rely on while ensuring the underlying technology stack remains secure and current.
-
-## Upgrade Instructions
-
-Upgrading to v0.0.5 is straightforward. Update your Maven dependency:
-
+**Maven:**
 ```xml
 <dependency>
     <groupId>com.unitvectory</groupId>
@@ -51,25 +36,13 @@ Upgrading to v0.0.5 is straightforward. Update your Maven dependency:
 </dependency>
 ```
 
-Or Gradle:
-
+**Gradle:**
 ```groovy
 implementation 'com.unitvectory:jsonschema4springboot:0.0.5'
 ```
 
-### Requirements
+There are no breaking changes in this release, so the upgrade should be seamless for all existing users.
 
-- Java 17 or higher
-- Spring Boot 3.x
+***
 
-The library continues to use the `@ValidateJsonSchema` annotation for request body validation, maintaining full backward compatibility with v0.0.4. If your application currently validates JSON payloads against schemas at deserialization time, it will continue to work without modification.
-
-## Get the Release
-
-Download v0.0.5 from [Maven Central](https://search.maven.org/artifact/com.unitvectory/jsonschema4springboot) or view the release artifacts on [GitHub](https://github.com/UnitVectorY-Labs/jsonschema4springboot/releases/tag/v0.0.5).
-
-As always, we welcome your feedback and contributions. Check out the repository to see how jsonschema4springboot can simplify JSON validation in your Spring Boot applications.
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Research and content based on the v0.0.5 release of [jsonschema4springboot](https://github.com/UnitVectorY-Labs/jsonschema4springboot/releases/tag/v0.0.5) published May 26, 2025. Generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: [UnitVectorY-Labs/jsonschema4springboot](https://github.com/UnitVectorY-Labs/jsonschema4springboot) release v0.0.5 on 2025-05-26. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

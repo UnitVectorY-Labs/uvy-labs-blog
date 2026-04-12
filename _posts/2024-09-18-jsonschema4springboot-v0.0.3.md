@@ -1,51 +1,29 @@
 ---
 layout: post
-title: "jsonschema4springboot v0.0.3: Better Error Handling for Malformed JSON"
-date: 2024-09-18 02:42:54 -0500
-tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Simplifying JSON Validation in Spring Boot: jsonschema4springboot v0.0.3"
+date: 2024-09-18 09:00:00 -0500
+tags: ["jsonschema4springboot", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on September 18, 2024, jsonschema4springboot v0.0.3 focuses on streamlining the developer experience by unifying how JSON input errors are handled. By bridging the gap between syntactically malformed JSON and schema-invalid payloads, this update makes building robust, predictable APIs in Spring Boot 3 even easier.
 
-On September 18, 2024, we released jsonschema4springboot v0.0.3, a focused update that strengthens error handling for one of the most common API pain points: malformed JSON submissions. This release ensures that syntactically invalid JSON payloads now produce consistent, developer-friendly error messages instead of raw exceptions.
+## What's new
 
-For teams building Spring Boot 3 REST APIs with JSON Schema validation, this update means more predictable error responses and smoother integration with Spring's exception handling mechanisms.
+The centerpiece of this release is the unification of error handling. Previously, a payload that was syntactically incorrect (like a missing bracket) would trigger a `JsonParseException` from Jackson, while a payload that was syntactically correct but failed your schema validation would trigger a `ValidateJsonSchemaException`. 
 
-## What's New
+In v0.0.3, the library now automatically wraps `JsonParseException` into a `ValidateJsonSchemaException`. 
 
-### Improved Malformed JSON Handling
+Additionally, this release brings several important dependency updates, including the core JSON schema validator and Spring Web, ensuring your application remains secure and compatible with the latest Spring Boot 3 ecosystem.
 
-The standout improvement in v0.0.3 is robust handling of malformed JSON payloads. Previously, when clients submitted syntactically invalid JSON (such as `{"foo"}` or `{"foo":"b}`), the library would propagate raw Jackson `JsonParseException` exceptions. These exceptions didn't integrate well with your application's error handling strategy.
+## Why it matters
 
-Now, malformed JSON is caught and converted to `ValidateJsonSchemaException`, the same exception type used for all validation failures. This delivers:
+For API developers, consistency is key. Having two different exception paths for "bad input" often led to fragmented `@ExceptionHandler` logic and inconsistent error responses for the end user.
 
-- **Consistent exception types** across all validation-related failures
-- **Cleaner error messages** extracted directly from the parse exception
-- **Better Spring integration** with global exception handlers
+By unifying these errors, you can now implement a single exception handler for `ValidateJsonSchemaException` to manage all input-related failures. Whether the client sends a typo in their JSON or a value that violates your business rules defined in the schema, your API will now respond with a consistent format, reducing boilerplate code and improving the client-side integration experience.
 
-This change means your API clients receive predictable error response formats, regardless of whether the issue is a schema validation failure or completely invalid JSON syntax.
+## Getting Started
 
-### Dependency Updates
-
-We've also updated several key dependencies to keep you aligned with the latest versions:
-
-- **json-schema-validator**: Updated from 1.4.3 to 1.5.1
-- **Spring Web**: Updated from 6.1.10 to 6.1.13
-- Various test and build tool updates for improved compatibility
-
-## Why It Matters
-
-Consistent error handling is critical when building production APIs. When every validation failure—whether it's a schema mismatch or broken JSON syntax—flows through the same exception type, you can:
-
-1. **Simplify your controller logic**: No need to catch multiple exception types for input validation failures
-2. **Centralize error responses**: Global exception handlers work uniformly across all validation scenarios
-3. **Improve API reliability**: Clients receive predictable, parseable error messages they can handle programmatically
-
-This release also demonstrates the project's commitment to maintenance and stability, with regular dependency updates ensuring continued compatibility with the Spring Boot 3 ecosystem.
-
-## Upgrade Guide
-
-Upgrading to v0.0.3 is straightforward and backward compatible:
+Ready to simplify your validation logic? Upgrading is as simple as updating the version in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -55,18 +33,8 @@ Upgrading to v0.0.3 is straightforward and backward compatible:
 </dependency>
 ```
 
-### What to Expect
+For more detailed guidance on implementing design-first validation in your projects, check out our official guide at [guide.unitvectorylabs.com](https://guide.unitvectorylabs.com/).
 
-- **No breaking changes**: The public API remains unchanged
-- **Improved error responses**: You may notice `ValidateJsonSchemaException` being thrown for malformed JSON where `JsonParseException` was thrown before
-- **Internal compatibility updates**: The underlying json-schema-validator library upgrade is handled transparently
+***
 
-If you have global exception handlers configured, they should automatically benefit from the improved exception consistency without any code changes.
-
-## Acknowledgments
-
-This release includes the first contribution from external contributor [@JaredHatfield](https://github.com/JaredHatfield), who implemented the malformed JSON handling improvements via PR #50. Welcome to the project!
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For more information, visit the [jsonschema4springboot repository](https://github.com/UnitVectorY-Labs/jsonschema4springboot) or the [v0.0.3 release page](https://github.com/UnitVectorY-Labs/jsonschema4springboot/releases/tag/v0.0.3). Generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the v0.0.3 release of the [jsonschema4springboot](https://github.com/UnitVectorY-Labs/jsonschema4springboot) repository on 2026-04-12. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

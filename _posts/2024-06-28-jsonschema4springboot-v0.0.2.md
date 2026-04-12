@@ -1,44 +1,27 @@
 ---
 layout: post
-title: "jsonschema4springboot v0.0.2 Released: Maintenance Updates and Infrastructure Improvements"
+title: "Updating the Foundations: jsonschema4springboot v0.0.2"
 date: 2024-06-28 09:00:00 -0500
-tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["jsonschema4springboot", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the availability of jsonschema4springboot v0.0.2, released on June 28, 2024. This maintenance release focuses on keeping your dependencies up-to-date while maintaining full backward compatibility with v0.0.1.
+On June 28, 2024, we released version v0.0.2 of `jsonschema4springboot`. This maintenance release focuses on strengthening the library's foundations by updating core dependencies and build tooling, ensuring a more stable and secure environment for your Spring Boot 3 applications.
 
-## What's New
+### What's new
 
-Version 0.0.2 is a carefully curated maintenance release that brings important dependency updates without changing the library's public API. Here's what you get:
+This release is primarily focused on dependency management to keep the project current with the evolving Java and Spring ecosystems. Key updates include:
 
-### Updated Dependencies
+- **Spring Framework & Jakarta EE**: Updated `spring-web` to 6.1.10 and `jakarta.servlet-api` to 6.1.0, ensuring better compatibility and stability within the Spring Boot 3 environment.
+- **Enhanced Validation**: The underlying `json-schema-validator` has been bumped to 1.4.3, bringing the latest improvements in JSON Schema processing.
+- **Tooling Refresh**: We've updated our build plugins and CI/CD pipeline, including Codecov and Maven plugins, to improve the reliability of our release process.
 
-The release includes critical updates to several key dependencies:
+### Why it matters
 
-- **json-schema-validator**: Upgraded from 1.4.0 to 1.4.3, bringing bug fixes and improvements to the underlying validation engine
-- **Spring Framework**: Spring Web updated from 6.1.5 to 6.1.10, incorporating five minor version updates with cumulative fixes
-- **Jakarta Servlet API**: Moved from 6.0.0 to 6.1.0 for continued compatibility with modern servlet containers
-- **Lombok**: Updated to 1.18.34 for the latest annotation processing improvements
+While v0.0.2 doesn't introduce new features, keeping dependencies up to date is critical for any production-ready library. By aligning with the latest stable versions of Spring and Jakarta EE, we reduce the risk of version conflicts in your projects and ensure you benefit from the latest security patches and performance optimizations provided by the upstream maintainers.
 
-### Enhanced Documentation
+### Upgrade and Installation
 
-The README has been refreshed with:
-- Maven Central availability badge, confirming easy access through standard Maven repositories
-- JavaDoc documentation badge for quick access to API reference
-- Removal of the "active development" disclaimer as the project matures
-
-### Improved Infrastructure
-
-Behind the scenes, v0.0.2 establishes sustainable maintenance practices:
-- Automated Dependabot integration with scheduled checks every Saturday
-- Enhanced GitHub Actions workflows with improved code coverage reporting
-- Dependency snapshot submission for better security scanning
-
-## Why It Matters
-
-This release demonstrates jsonschema4springboot's commitment to long-term sustainability. By implementing automated dependency management, the project ensures users stay protected with security patches and bug fixes without requiring manual intervention.
-
-For existing users, upgrading is straightforward:
+Upgrading to v0.0.2 is straightforward and low-risk, as there are no breaking changes. Simply update the version in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -48,16 +31,8 @@ For existing users, upgrading is straightforward:
 </dependency>
 ```
 
-No code changes are required—this is a drop-in replacement for v0.0.1. Your existing `@ValidateJsonSchema` annotations and configuration remain unchanged.
-
-The updated Spring Framework dependency (6.1.10) ensures compatibility with the latest Spring Boot 3 applications, while the json-schema-validator updates bring improvements to the core validation engine that powers your JSON schema checks.
-
-## Get Started
-
-jsonschema4springboot is now available on Maven Central. Add the dependency above to your `pom.xml` and register the `ValidateJsonSchemaArgumentResolver` in your Spring configuration to start validating incoming JSON requests against your schema definitions.
-
-For documentation, see the [README](https://github.com/UnitVectorY-Labs/jsonschema4springboot) or browse the [JavaDoc](https://javadoc.io/doc/com.unitvectory/jsonschema4springboot) for API details.
+We encourage all users to move to this version to ensure they are running on the most current and secure set of dependencies.
 
 ---
 
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on March 18, 2026. Original release: v0.0.2 of [jsonschema4springboot](https://github.com/UnitVectorY-Labs/jsonschema4springboot/releases/tag/v0.0.2) by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the [jsonschema4springboot](https://github.com/UnitVectorY-Labs/jsonschema4springboot) repository and the [v0.0.2 release](https://github.com/UnitVectorY-Labs/jsonschema4springboot/releases/tag/v0.0.2) published on 2024-06-28. Generated on 2026-04-12 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*

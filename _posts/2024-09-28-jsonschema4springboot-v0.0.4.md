@@ -1,53 +1,33 @@
 ---
 layout: post
-title: "jsonschema4springboot v0.0.4 Released"
-date: 2024-09-28 01:50:38 -0500
-tags: ["jsonschema4springboot", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "jsonschema4springboot v0.0.4: Refining Validation and Reducing Noise"
+date: 2024-09-28 09:00:00 -0500
+tags: ["jsonschema4springboot", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the release of **jsonschema4springboot v0.0.4**, published on September 28, 2024. This maintenance release delivers important updates to the underlying JSON schema validation engine, bringing bug fixes and security improvements to Spring Boot 3 developers who rely on declarative JSON validation in their APIs.
+Released on September 28, 2024, jsonschema4springboot v0.0.4 is a maintenance release focused on enhancing the stability and precision of JSON Schema validation in Spring Boot applications. This update ensures that your API-first validation is more reliable and your development logs are cleaner.
 
-## What's New
+## What's new
 
-Version 0.0.4 focuses on keeping your validation stack current and secure through targeted dependency updates:
+This release primarily upgrades the core validation engine to `com.networknt:json-schema-validator` v1.5.2. Key improvements include:
 
-### Updated json-schema-validator to v1.5.2
+- **Enhanced OpenAPI 3.0 Support**: Fixed validation issues with `exclusiveMinimum` and `exclusiveMaximum` keywords, ensuring better compatibility with OpenAPI 3.0 schemas.
+- **Cleaner Logging**: The `PatternValidator` now suppresses unnecessary log output during "fail-fast" validation, reducing noise in your console.
+- **Dependency Updates**: Bumps critical transitive dependencies, including `jackson-databind` (to 2.17.2) and `undertow-core` (to 2.2.35.Final), to maintain performance and security.
 
-The core validation library has been updated from 1.5.1 to 1.5.2, which includes several important fixes:
+## Why it matters
 
-- **OpenAPI 3.0 exclusiveMinimum/exclusiveMaximum support**: Validation now correctly handles these constraints, ensuring your API schemas are enforced as specified in OpenAPI 3.0 documents
-- **Security hardening**: The transitive jackson-databind dependency has been patched from 2.17.1 to 2.17.2, addressing known vulnerabilities
-- **Improved error logging**: PatternValidator now logs more accurately during fail-fast validation scenarios
+For developers leveraging an API-first design, precision is everything. The fix for `exclusiveMinimum` and `exclusiveMaximum` means that your boundary constraints are now enforced exactly as defined in your schemas, preventing edge-case bugs in data validation.
 
-### Enhanced Supply Chain Security
-
-The release process now includes build provenance attestation, generating verifiable proofs of origin for JAR artifacts published to Maven Central. When you download jsonschema4springboot, you can now verify the artifact's authentic source and build history.
-
-## Why It Matters
-
-For developers using `@ValidateJsonSchema` annotations in their Spring Boot 3 controllers, this release ensures your validation logic works correctly with modern OpenAPI specifications. If you've been using exclusive minimum or maximum constraints in your JSON schemas (common for numeric fields like "age must be greater than 0" or "price must be at least 10"), this update fixes edge cases where these constraints weren't being enforced properly.
-
-The jackson-databind security patch is particularly important for applications handling sensitive data, as it closes potential attack vectors in JSON parsing operations—exactly the kind of operation jsonschema4springboot performs on every validated request.
+Additionally, the reduction in log noise during fail-fast validation improves the developer experience. Instead of wading through internal validator chatter, you can now focus on the actual validation errors affecting your requests.
 
 ## Getting Started
 
-Upgrading to v0.0.4 is straightforward with no breaking changes:
+Upgrading to v0.0.4 is straightforward and non-breaking. Simply update the version of `jsonschema4springboot` in your build configuration:
 
-**Maven:**
-```xml
-<dependency>
-    <groupId>com.unitvectory</groupId>
-    <artifactId>jsonschema4springboot</artifactId>
-    <version>0.0.4</version>
-</dependency>
-```
-
-Simply update your `pom.xml`, run `mvn clean compile`, and you're ready to go. No code changes are required, and full backward compatibility with v0.0.3 is maintained.
-
-**Requirements:** Java 17+ and Spring Boot 3.x remain unchanged.
+- **Maven**: Update the version to `0.0.4` in your `pom.xml`.
+- **Gradle**: Update the version to `0.0.4` in your `build.gradle`.
 
 ---
 
-This release continues jsonschema4springboot's commitment to keeping your API validation stack secure and up-to-date while maintaining the simple annotation-based developer experience that makes JSON Schema validation effortless in Spring Boot applications.
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For details about this release, see the [repository](https://github.com/UnitVectorY-Labs/jsonschema4springboot) and the [v0.0.4 release page](https://github.com/UnitVectorY-Labs/jsonschema4springboot/releases/tag/v0.0.4). Generated on March 18, 2026 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated. The model used was unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Generated on 2026-04-12 based on the [jsonschema4springboot](https://github.com/UnitVectorY-Labs/jsonschema4springboot) repository release [v0.0.4](https://github.com/UnitVectorY-Labs/jsonschema4springboot/releases/tag/v0.0.4). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
