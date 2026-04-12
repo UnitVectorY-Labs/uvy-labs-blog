@@ -1,89 +1,54 @@
 ---
 layout: post
-title: Introducing kuberollouttrigger-action v0.1.0
-date: 2026-02-08 02:53:36 -0500
-tags: ["kuberollouttrigger-action", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Introducing kuberollouttrigger-action: Securely Trigger Container Rollouts with OIDC"
+date: 2026-02-08 09:00:00 -0500
+tags: ["kuberollouttrigger-action", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Launching kuberollouttrigger-action v0.1.0
+We are excited to announce the launch of `kuberollouttrigger-action` on February 8, 2026. This new GitHub Action simplifies the final step of your continuous delivery pipeline by providing a secure, automated way to trigger container rollouts in your environments.
 
-Today we're thrilled to announce the initial release of **kuberollouttrigger-action** (v0.1.0), a secure GitHub Action designed to streamline container deployment workflows by bridging CI/CD pipelines with rollout trigger systems.
+By integrating seamlessly with the `kuberollouttrigger` ecosystem, this action removes the friction of manually updating deployments or managing precarious long-lived secrets in your CI/CD workflows.
 
-Released on February 8, 2026, this action eliminates the need for long-lived credentials in your deployment automation while providing powerful features like semantic version expansion and configurable HTTP timeouts.
+## What it does
 
----
+`kuberollouttrigger-action` acts as a secure bridge between your GitHub Actions workflow and your rollout trigger endpoint. Here are the core capabilities introduced in this launch:
 
-## What's New
+- **Passwordless Authentication with OIDC**: The action leverages GitHub's OpenID Connect (OIDC) provider to fetch short-lived tokens. This means you no longer need to store static API keys or passwords as GitHub Secrets.
+- **Targeted Rollout Triggers**: It sends a precise POST request containing the specific container `image` and `tag` that should be deployed, ensuring your environment is updated with the exact build you just produced.
+- **Modern Runtime**: Built on Node.js 24, the action ensures high performance and utilizes modern JavaScript standards for reliability.
+- **Flexible Configuration**: With a configurable `timeout-seconds` input, you can tune the action to match the responsiveness of your specific infrastructure.
 
-As an inaugural release, v0.1.0 introduces the complete first version of kuberollouttrigger-action with these core capabilities:
+## Why it matters
 
-### Secure OIDC Authentication
-The action leverages GitHub's native OpenID Connect (OIDC) support to fetch short-lived authentication tokens. This means no more storing or managing API keys for your deployment triggers—the security is built in automatically.
+In many deployment pipelines, the "last mile"—telling the cluster to actually use the new image—is often the most fragile part. Traditional methods rely on long-lived credentials that pose a security risk if leaked, or complex scripts that are hard to maintain.
 
-### Flexible Tag Support
-Deploy with confidence using our flexible tag system:
-- **Single or multiple tags**: Specify comma-separated image tags for one-shot or multi-tag deployments
-- **Semantic version expansion**: Enable `expand-versions: true` to automatically expand versions like `v1.2.3` into `v1`, `v1.2`, and `v1.2.3`—perfect for deployment strategies that rely on tag hierarchies
-
-### Production-Ready Configuration
-- Configurable HTTP timeouts (default: 10 seconds)
-- Automatic retry logic (up to 2 retries on failure)
-- Minimal permission requirements (`id-token: write` and `contents: read`)
-
-### Security First Design
-Built from the ground up with security in mind:
-- Zizmor security scanning integrated into CI
-- CodeQL analysis for JavaScript/TypeScript code
-- Dependabot automation for dependency updates
-- No credential storage—OIDC tokens are ephemeral by design
-
----
-
-## Why It Matters
-
-Container deployment automation often requires complex authentication setups and careful handling of credentials. kuberollouttrigger-action solves this by providing a secure, reusable bridge between your GitHub Actions workflows and your deployment infrastructure.
-
-When you build and push container images to a registry, this action automatically notifies your rollout trigger system that new images are available—enabling fully automated deployments without manual intervention or security compromises.
-
-The inclusion of semantic version expansion addresses a common deployment pattern where teams use multiple tag references (major, minor, patch, and latest) simultaneously. Instead of manually specifying all tag variations, the action handles this for you automatically.
-
----
+`kuberollouttrigger-action` solves this by shifting to an identity-based security model. By using OIDC, your workflow proves its identity to your trigger service dynamically. This not only hardens your security posture but also streamlines your YAML configurations, making your deployment process more robust and easier to audit.
 
 ## Getting Started
 
-To use kuberollouttrigger-action in your workflow, reference v0.1.0:
+To integrate `kuberollouttrigger-action` into your workflow, add it as a step in your job. Ensure your job has the necessary permissions to request the OIDC token.
+
+### Example Workflow
 
 ```yaml
-- uses: unitvectory-labs/kuberollouttrigger-action@v0.1.0
-  with:
-    audience: ${{ vars.KRT_AUDIENCE }}
-    url: ${{ vars.KRT_URL }}
-    image: ghcr.io/myorg/myapp
-    tags: v1.0.0,v1.0,v1,latest
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: unitvectory-labs/kuberollouttrigger-action@v0.1.0
+        with:
+          audience: ${{ vars.KRT_AUDIENCE }}
+          url: ${{ vars.KRT_URL }}
+          image: my-app-image
+          tag: v1.0.0
 ```
 
-### Quick Example with Version Expansion
+We are thrilled to provide this tool to the community to help make Kubernetes rollouts safer and more automated.
 
-For semantic versioning workflows:
+***
 
-```yaml
-- uses: unitvectory-labs/kuberollouttrigger-action@v0.1.0
-  with:
-    audience: ${{ vars.KRT_AUDIENCE }}
-    url: ${{ vars.KRT_URL }}
-    image: ghcr.io/myorg/myapp
-    tags: v1.2.3,latest
-    expand-versions: true
-```
-
-### Prerequisites
-
-Before using this action, ensure your repository is configured for GitHub OIDC and that you have a rollout trigger endpoint ready to receive webhook notifications. The workflow must request `id-token: write` permission to fetch the authentication token.
-
-Full documentation with additional examples is available in the [README](https://github.com/UnitVectorY-Labs/kuberollouttrigger-action/blob/main/README.md).
-
----
-
-## Transparency Note
-
-This blog post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It was generated for release v0.1.0 of kuberollouttrigger-action (released February 8, 2026). For more information about automated content generation, see the [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) project.
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL` on 2026-04-12, based on the [kuberollouttrigger-action](https://github.com/UnitVectorY-Labs/kuberollouttrigger-action) repository and the [v0.1.0 release](https://github.com/UnitVectorY-Labs/kuberollouttrigger-action/releases/tag/v0.1.0). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
