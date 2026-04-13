@@ -1,81 +1,33 @@
 ---
 layout: post
-title: "LockboxKMS v0.2.1 Released: Security Hardening and Dependency Updates"
+title: "lockboxkms v0.2.1: Stability and Maintenance Update"
 date: 2025-01-19 09:00:00 -0500
-tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["lockboxkms", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-LockboxKMS v0.2.1 is now available! Released on January 19, 2025, this update brings important security improvements and keeps your encryption service running on the latest patched dependencies.
+Released on January 19, 2025, lockboxkms v0.2.1 is a maintenance release focused on enhancing the stability and reliability of the application. While this update primarily addresses internal dependencies and runtime updates, it ensures that the tool remains secure and performant for users managing their encryption needs via Google Cloud KMS.
 
-## What's New
+## What's new
 
-### Improved HTTP Error Handling
+This release introduces a refinement to how the application handles web requests. Specifically, we have implemented a routing fix that ensures any requests made to paths other than the root directory now correctly return a `404 Not Found` response.
 
-The application now properly returns 404 errors for undefined URL paths instead of showing the main page. This change enhances both usability and security:
+## Why it matters
 
-- **Better user experience:** Users who mistype URLs will see a clear "Not Found" response
-- **Reduced attack surface:** Security scanners probing for exposed paths receive accurate HTTP status codes
-- **Cleaner logs:** Distinguish between valid requests and undefined endpoints more easily
+While the routing change is subtle, it brings the application's behavior in line with standard web expectations, preventing unexpected page loads on invalid paths. 
 
-### Dependency Updates
+Under the hood, this release also brings significant technical updates:
+- **Runtime Upgrade:** We've bumped the Go version to 1.23.5, taking advantage of the latest language improvements and security patches.
+- **Dependency Refresh:** Critical Google Cloud libraries, including the KMS and API client libraries, have been updated to their latest versions to ensure compatibility and stability.
+- **CI/CD Improvements:** We've introduced a new build workflow to streamline our release process and improve the quality of our artifacts.
 
-This release updates several critical dependencies to their latest patched versions:
+## Getting the update
 
-- **Go runtime:** Updated to 1.23.5 with security patches
-- **Google Cloud KMS client:** v1.20.5 with improvements to the encryption API
-- **Cryptographic libraries:** `golang.org/x/crypto` updated to v0.32.0
-- **Network and OAuth2 libraries:** Security patches applied
+Upgrading to v0.2.1 is straightforward. Since lockboxkms is distributed via Docker, you can simply pull the latest image from GitHub Packages:
 
-These updates ensure your LockboxKMS deployment benefits from upstream security fixes and stability improvements.
+`ghcr.io/unitvectory-labs/lockboxkms`
 
-### Enhanced CI/CD Pipeline
+This release contains no breaking changes to configuration or API behavior, making the transition seamless.
 
-A new automated build and test workflow has been added, featuring:
+***
 
-- Automated verification on every push and pull request
-- Code coverage reporting via Codecov
-- Race detector enabled for thread-safety validation
-- Faster builds through Go module caching
-
-This infrastructure improvement helps maintain the reliability and quality of future releases.
-
-## Why It Matters
-
-Security is foundational to LockboxKMS's purpose. While this release doesn't introduce new features, it demonstrates our commitment to maintaining a secure, well-maintained encryption service:
-
-- **Proactive maintenance:** Regular dependency updates reduce exposure to known vulnerabilities
-- **Defense in depth:** Proper HTTP handling adds another layer of protection against reconnaissance
-- **Quality assurance:** Enhanced CI/CD catches issues before they reach production
-
-Remember, LockboxKMS is designed as a one-way encryption tool. It provides encryption through Google Cloud KMS but intentionally omits decryption capabilities—a security-first design that keeps sensitive data operations separate.
-
-## Upgrade Instructions
-
-### Docker Users
-
-Pull the latest image:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/lockboxkms:v0.2.1
-```
-
-### Configuration Compatibility
-
-No configuration changes are required. All environment variables remain the same:
-
-- `GCP_PROJECT` (required)
-- `KMS_LOCATION` (default: us)
-- `KMS_KEY_RING` (default: lockboxkms)
-- `GOOGLE_APPLICATION_CREDENTIALS` (optional)
-- `PORT` (default: 8080)
-
-### Service Account Permissions
-
-No changes to IAM permissions. Your service account still needs:
-
-- `roles/cloudkms.cryptoKeyEncrypter`
-- `roles/cloudkms.viewer`
-
----
-
-This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Reference: [UnitVectorY-Labs/lockboxkms](https://github.com/UnitVectorY-Labs/lockboxkms), Release v0.2.1, Published January 19, 2025. By [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on April 12, 2026, based on the [lockboxkms](https://github.com/UnitVectorY-Labs/lockboxkms) repository and the [v0.2.1 release](https://github.com/UnitVectorY-Labs/lockboxkms/releases/tag/v0.2.1). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

@@ -1,119 +1,39 @@
 ---
 layout: post
-title: "Announcing LockboxKMS v0.1.0: Secure Encryption Made Simple"
+title: "Introducing lockboxkms: Simple, Secure Encryption via Google Cloud KMS"
 date: 2024-10-20 09:00:00 -0500
-tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["lockboxkms", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're thrilled to announce the launch of **LockboxKMS v0.1.0**, the initial release of a simple yet powerful web application that brings Google Cloud KMS encryption within easy reach of any development team.
+We are excited to announce the launch of lockboxkms, released on October 20, 2024. lockboxkms is a lightweight, web-based utility designed to simplify how you encrypt sensitive data using the Google Cloud Key Management Service (KMS). By providing a streamlined interface for encryption, lockboxkms removes the friction of interacting with complex cloud consoles or command-line tools for everyday encryption tasks.
 
-Released on October 20, 2024, LockboxKMS fills a practical gap in cloud security workflows: a clean, accessible interface for encrypting data without the complexity of building custom KMS integrations. Whether you're protecting sensitive configuration values, securing user data before storage, or implementing encryption-at-rest patterns, LockboxKMS handles the heavy lifting so you can focus on your application's core functionality.
+### What it does
 
-## What's New
+lockboxkms serves as a dedicated "encryption portal" for your team. It is intentionally designed as a one-way utility: it allows users to encrypt data but does not provide a way to decrypt it. This architecture ensures that while encryption is accessible to authorized users, the decryption keys remain protected and usable only by your secure backend processes.
 
-### A Complete Web Interface for GCP KMS Encryption
+Key capabilities include:
+- **Seamless Key Selection:** Easily browse and select the appropriate symmetric encryption key from your configured GCP KMS key ring.
+- **Instant Encryption:** Encrypt plaintext (up to 64 KiB) with a few clicks.
+- **Ready-to-Use Output:** Receive your encrypted data as a base64-encoded string, perfectly formatted for storage in configuration files, environment variables, or databases.
+- **Responsive Experience:** Built with Go and HTMX, the interface is fast and responsive, ensuring a smooth workflow.
 
-LockboxKMS v0.1.0 launches with a fully-featured web interface that makes encryption straightforward:
+### Why it matters
 
-- **Key Selection Made Easy**: Automatically discovers and lists all available encryption keys from your configured GCP key ring, displayed by friendly short names for quick selection
-- **Simple Text Encryption**: Paste your plaintext into the provided text area (supports up to 64 KiB as per GCP KMS limits) and get base64-encoded encrypted output instantly
-- **Copy-Ready Output**: One-click copy-to-clipboard functionality so you can immediately use the encrypted data in your workflows
+Managing secrets often involves a trade-off between security and convenience. Manually using the GCP Console or CLI to encrypt values for deployment can be tedious and error-prone. lockboxkms bridges this gap by providing a user-friendly frontend that leverages the enterprise-grade security of Google Cloud KMS.
 
-### Production-Ready Deployment
+By decoupling the encryption interface from the decryption process, lockboxkms helps organizations maintain a strict security posture. Your developers or operators can securely encrypt secrets for the system without ever having the ability to decrypt them, adhering to the principle of least privilege.
 
-From day one, LockboxKMS is built for real-world deployment:
+### Getting Started
 
-- **Docker Support**: Multi-stage builds with a minimal distroless runtime image
-- **Container Registry Integration**: Automated publishing to GitHub Container Registry on release
-- **Flexible Configuration**: Environment-based configuration supports diverse deployment scenarios
+lockboxkms is distributed as a Docker image, making it easy to deploy within your existing infrastructure. 
 
-### Built with Modern Tools
+To get started, configure the application using the following environment variables:
+- `GCP_PROJECT`: Your Google Cloud project ID.
+- `KMS_LOCATION`: The location of your KMS resources (defaults to `us`).
+- `KMS_KEY_RING`: The name of your KMS key ring (defaults to `lockboxkms`).
 
-The application leverages a carefully chosen technology stack:
-
-- Go 1.23.2 for a fast, reliable backend
-- HTMX 2.0.3 for dynamic, responsive frontend interactions without heavy JavaScript frameworks
-- Official Google Cloud KMS client libraries for trusted encryption operations
-
-## Why It Matters
-
-### Security Without Compromise
-
-LockboxKMS embraces security best practices through deliberate design choices:
-
-**Encryption-Only Focus**: The application intentionally provides encryption without decryption capabilities. This separation of concerns ensures that encryption workflows remain distinct from decryption processes, reducing the attack surface and encouraging secure architectural patterns in your applications.
-
-**Minimal Permissions Required**: LockboxKMS operates with least-privilege access, requiring only two IAM roles at the key ring level:
-- `roles/cloudkms.cryptoKeyEncrypter` - for performing encryption
-- `roles/cloudkms.viewer` - for listing available keys
-
-**No Secrets in Code**: All configuration flows through environment variables. There are no hardcoded credentials or API keys in the application itself.
-
-### Developer Experience First
-
-We built LockboxKMS because we needed it ourselves. The barriers to using GCP KMS effectively are often not technical—they're about convenience and workflow integration. LockboxKMS removes those barriers:
-
-- **No Coding Required**: Teams can encrypt data immediately without writing Go, Python, or any other language to call the KMS API
-- **Configuration Scales From Simple to Complex**: A basic deployment needs just two environment variables (`GCP_PROJECT` and `KMS_KEY_RING`). Advanced users can customize location, credentials path, and port settings
-- **Clean Error Messaging**: Validation errors for invalid key names, oversized input, and missing configuration are presented clearly
-
-### Ready for Your Infrastructure
-
-The v0.1.0 release includes everything you need to deploy:
-
-- Official Docker images tagged with semantic versions
-- Comprehensive documentation covering setup, permissions, and troubleshooting
-- CodeQL security scanning in the CI pipeline
-- Automated dependency updates via Dependabot
-
-## Getting Started
-
-### Pull the Container
-
-```bash
-docker pull ghcr.io/unitvectory-labs/lockboxkms:v0.1.0
-```
-
-### Set Your Environment
-
-At minimum, you'll need:
-
-```bash
-export GCP_PROJECT=your-gcp-project-id
-export KMS_KEY_RING=your-keyring-name
-```
-
-Optional configuration includes `KMS_LOCATION` (defaults to `us`), `GOOGLE_APPLICATION_CREDENTIALS` for service account authentication, and `PORT` (defaults to `8080`).
-
-### Configure GCP Permissions
-
-Ensure your application's service account has these roles on the key ring:
-- Cloud KMS CryptoKey Encrypter
-- Cloud KMS Viewer
-
-If you haven't created a key ring yet, do that first in the GCP Console or via `gcloud kms keyrings create`.
-
-### Run It
-
-```bash
-docker run -p 8080:8080 \
-  -e GCP_PROJECT=your-project-id \
-  -e KMS_KEY_RING=your-keyring-name \
-  ghcr.io/unitvectory-labs/lockboxkms:v0.1.0
-```
-
-Then navigate to `http://localhost:8080` in your browser.
-
-## A Note on Deployment Security
-
-LockboxKMS does not implement built-in authentication by design—it's meant to sit behind your existing identity infrastructure. We recommend deploying it behind a reverse proxy with authentication, such as Google Cloud Identity-Aware Proxy (IAP) or your organization's preferred solution. This keeps the application focused on its single responsibility while leveraging your existing security posture.
-
-## Looking Ahead
-
-This is version 0.1.0—the first release of LockboxKMS. We're excited to see how teams use it to simplify their encryption workflows, and we're already thinking about what comes next based on real-world usage patterns.
-
-Check out the full project on GitHub at [github.com/UnitVectorY-Labs/lockboxkms](https://github.com/UnitVectorY-Labs/lockboxkms), where you'll find the complete README, source code, and release notes. If you run into issues or have ideas for improvements, open an issue and join the conversation.
+**Security Recommendation:** Since lockboxkms does not include built-in authentication, we strongly recommend deploying it behind a security layer such as **Google Cloud Identity-Aware Proxy (IAP)** or a similar reverse proxy to ensure only authorized personnel can access the encryption interface.
 
 ---
 
-*This release announcement was generated with AI assistance using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For transparency, this post documents the v0.1.0 release published on October 20, 2024. Learn more about the tool that created this announcement at [github.com/UnitVectorY-Labs/release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on April 12, 2026, based on the [lockboxkms](https://github.com/UnitVectorY-Labs/lockboxkms) repository and the [v0.1.0](https://github.com/UnitVectorY-Labs/lockboxkms/releases/tag/v0.1.0) release. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

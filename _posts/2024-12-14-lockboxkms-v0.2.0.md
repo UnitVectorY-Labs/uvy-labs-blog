@@ -1,64 +1,30 @@
 ---
 layout: post
-title: "LockboxKMS v0.2.0: Strengthening Our Foundation"
-date: 2024-12-14 14:31:00 -0500
-tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "LockboxKMS v0.2.0: Strengthening the Foundation"
+date: 2024-12-14 09:00:00 -0500
+tags: ["lockboxkms", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-LockboxKMS v0.2.0 was released on December 14, 2024. This release represents our ongoing commitment to security, reliability, and active maintenance of your encryption infrastructure. While it doesn't introduce new features, it strengthens the foundation that powers your encrypted data workflows.
+Released on December 14, 2024, LockboxKMS v0.2.0 is a stability and maintenance release. While it doesn't introduce new user-facing features, it significantly improves the underlying health and security of the application, ensuring a more robust experience for those using the tool to encrypt sensitive data via Google Cloud KMS.
 
-## What's New
+## What's new
 
-v0.2.0 is a carefully crafted maintenance release focused on keeping LockboxKMS secure and up-to-date:
+This release focuses on refinement and modernization. We have updated our core dependencies, including the Google Cloud KMS and Go cryptography libraries, to their latest versions. Additionally, the project has been updated to Go 1.23, incorporating the latest language improvements and performance optimizations.
 
-**Security Updates**
-- Updated `golang.org/x/crypto` from v0.29.0 to v0.31.0, incorporating critical security patches in this foundational cryptography library
-- Multiple Google Cloud library updates (including `cloud.google.com/go/kms` and `google.golang.org/api`) ensuring compatibility with the latest GCP KMS features and security improvements
-- GitHub Actions workflow hardening with `persist-credentials: false` to enhance build pipeline security
+Under the hood, we've refactored the codebase to improve maintainability and enhanced our automated security scanning and CI/CD pipelines. This includes the introduction of new static analysis tools to catch potential issues before they reach production.
 
-**Reliability Improvements**
-- Go runtime updated from 1.23.2 to 1.23.4, including bug fixes and performance improvements from the Go team
-- Code quality enhancements through refactoring that improve maintainability without affecting functionality
-- New contributor @JaredHatfield made their first contribution in this release, helping harden our security posture
+## Why it matters
 
-**Documentation**
-- Added project badges to README for quick visibility of release status, license (MIT), and active development state
+For the user, these changes translate to better security and long-term reliability. By keeping our cryptography libraries and language toolchain current, we ensure that LockboxKMS remains secure against emerging threats and benefits from the latest stability fixes. The internal refactoring ensures that the application remains agile and easy to maintain as we continue to support the community.
 
-## Why It Matters
+## Upgrade and Installation
 
-This release demonstrates that LockboxKMS is actively maintained with security as a top priority. Regular dependency updates ensure you're protected against known vulnerabilities while maintaining full compatibility with Google Cloud KMS services.
+Upgrading to v0.2.0 is straightforward. Since LockboxKMS is primarily distributed as a Docker image, you can upgrade by pulling the latest image from GitHub Packages:
 
-The infrastructure improvements—particularly in our build pipeline security—mean you can have greater confidence in the supply chain of the Docker images you deploy. Every commit and release undergoes hardened workflows designed to protect your encryption tooling.
+`ghcr.io/unitvectory-labs/lockboxkms`
 
-For users, this means:
-- **Zero risk**: The upgrade is completely backward compatible with v0.1.0
-- **No configuration changes**: Your existing environment variables and deployment setup work unchanged
-- **Security assurance**: You're running code built with the latest security patches
+As there are no breaking changes in this release, no configuration updates are required; your existing deployment will work seamlessly with the new version.
 
-## Upgrade Instructions
+***
 
-Upgrading to v0.2.0 is straightforward:
-
-```bash
-# Pull the new Docker image
-docker pull ghcr.io/unitvectory-labs/lockboxkms:v0.2.0
-
-# Stop your existing container and restart with the new image
-# Your configuration remains unchanged
-```
-
-All environment variables remain the same:
-- `GCP_PROJECT`: Your Google Cloud project ID
-- `KMS_LOCATION`: Location of KMS resources (default: `us`)
-- `KMS_KEY_RING`: Name of KMS key ring (default: `lockboxkms`)
-- `PORT`: Server port (default: `8080`)
-
-## Looking Forward
-
-This foundation-strengthening release prepares LockboxKMS for future enhancements while ensuring you have a secure, reliable encryption tool today. We remain dedicated to providing a simple, focused solution for server-side encryption using Google Cloud KMS.
-
-Thank you to our community members who contributed to making this release possible. Your engagement helps keep LockboxKMS secure and robust.
-
----
-
-*This post was AI-generated by [unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M](https://github.com/UnitVectorY-Labs/lockboxkms). For more information about this release, see the [v0.2.0 GitHub Release](https://github.com/UnitVectorY-Labs/lockboxkms/releases/tag/v0.2.0) (December 14, 2024). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It refers to the UnitVectorY-Labs/lockboxkms repository, release v0.2.0, and was generated on 2026-04-12. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

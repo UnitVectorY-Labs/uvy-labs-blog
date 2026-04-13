@@ -1,73 +1,28 @@
 ---
 layout: post
-title: LockboxKMS v0.3.0 Release
-date: 2025-01-26 13:44:42 -0500
-tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "lockboxkms v0.3.0: Strengthening the Foundation"
+date: 2025-01-26 09:00:00 -0500
+tags: ["lockboxkms", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-LockboxKMS v0.3.0 was released on January 26, 2025. This maintenance release focuses on code hygiene and module path standardization, preparing the project for future improvements while maintaining full compatibility for Docker-deployed users.
+On January 26, 2025, we released lockboxkms v0.3.0. This maintenance update focuses on project alignment and dependency modernization to ensure the long-term stability and compatibility of our one-way encryption utility.
 
-## What's New
+## What's new
 
-Version 0.3.0 is a maintenance release that introduces two key changes under the hood:
+v0.3.0 is primarily a structural release. We have updated the project's Go module path to `github.com/UnitVectorY-Labs/lockboxkms`, bringing it into alignment with our GitHub repository structure. Additionally, we've bumped the Google API client library to version 0.218.0, incorporating the latest improvements and security patches from the Google Cloud ecosystem.
 
-### Module Path Standardization
+## Why it matters
 
-The Go module path has been updated to follow industry best practices, now using the full repository path `github.com/UnitVectorY-Labs/lockboxkms`. This change aligns LockboxKMS with standard Go module conventions.
+While this release doesn't introduce new UI features, these "under-the-hood" changes are critical. Aligning the module path ensures that lockboxkms is correctly integrated into the Go ecosystem, making it easier for developers to contribute and for the project to be maintained. Updating core dependencies keeps our interface with Google Cloud KMS secure and performant, reducing the risk of regressions as cloud APIs evolve.
 
-For the vast majority of users deploying via Docker, this change has **no impact** on functionality or usage.
+## Upgrade and Installation
 
-### Dependency Updates
+Users deploying lockboxkms via the official Docker image (`ghcr.io/unitvectory-labs/lockboxkms`) can upgrade simply by pulling the latest image; no configuration changes are required. For developers integrating lockboxkms into other Go projects, please note that the module path change is a breaking change—you will need to update your imports to use the new GitHub-based prefix.
 
-The release includes an update to `google.golang.org/api` (0.217.0 → 0.218.0), along with accompanying indirect dependency updates. These routine maintenance updates ensure the project stays current with Google Cloud libraries, benefiting from security patches and bug fixes in the underlying infrastructure.
+***
 
-## Why It Matters
-
-While v0.3.0 doesn't introduce new user-facing features, it represents important foundation work:
-
-- **Better Go Module Support**: The corrected module path makes LockboxKMS easier to integrate as a library for developers who need programmatic access
-- **Security Hygiene**: Keeping dependencies current is a critical practice for maintaining the security posture of any application that handles encryption
-- **Preparation Ahead**: This release clears the way for future feature development on a solid, standards-compliant base
-
-### For Docker Users
-
-If you're deploying LockboxKMS via Docker (the recommended method), your experience remains unchanged. The web interface, configuration options, and encryption capabilities work exactly as they did in v0.2.1.
-
-### For Library Users
-
-If you import LockboxKMS as a Go library in your own code, you'll need to update your import statements:
-
-```go
-// Update from:
-import "lockboxkms/internal/..."
-
-// To:
-import "github.com/UnitVectorY-Labs/lockboxkms/internal/..."
-```
-
-Then run `go mod tidy` to complete the migration.
-
-## Upgrade Instructions
-
-### Docker Deployment (Recommended)
-
-Pull the latest image:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/lockboxkms:v0.3.0
-```
-
-All environment variables remain unchanged:
-- `GOOGLE_CLOUD_PROJECT` (required)
-- `KMS_LOCATION` (default: us)
-- `KMS_KEY_RING` (default: lockboxkms)
-- `GOOGLE_APPLICATION_CREDENTIALS` (optional)
-- `PORT` (default: 8080)
-
-### Quick Start
-
-LockboxKMS provides a simple web interface for encrypting data using Google Cloud KMS. Once deployed, visit your instance to select an encryption key and protect your sensitive information. Remember: LockboxKMS is designed for one-way encryption only—decryption must be handled separately by a process with appropriate decrypter permissions.
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. The original release information is available at [github.com/UnitVectorY-Labs/lockboxkms/releases/tag/v0.3.0](https://github.com/UnitVectorY-Labs/lockboxkms/releases/tag/v0.3.0). Published on January 26, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL.
+Repository: UnitVectorY-Labs/lockboxkms
+Release: v0.3.0
+Date: 2026-04-12
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
