@@ -1,88 +1,40 @@
 ---
 layout: post
-title: "mcp-acronym-lookup v0.2.0: Streamlined HTTP Transport and Enhanced Tool Annotations"
-date: 2025-08-12 02:15:18 -0500
-tags: ["mcp-acronym-lookup", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Streamlining Connectivity: mcp-acronym-lookup v0.2.0"
+date: 2025-08-12 09:00:00 -0500
+tags: ["mcp-acronym-lookup", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the release of mcp-acronym-lookup v0.2.0, published on August 12, 2025. This release represents a significant evolution in how your AI agents connect to the acronym lookup service, bringing improved protocol support and better integration with Model Context Protocol clients.
+Released on August 12, 2025, v0.2.0 brings a significant modernization to how `mcp-acronym-lookup` connects to the world. This release focuses on simplifying network transport and enhancing the metadata provided to AI agents, ensuring a smoother and more reliable experience.
 
-The primary focus of v0.2.0 is a major transport upgrade—migrating from SSE (Server-Sent Events) to Streamable HTTP transport. This change aligns the server with current MCP specification recommendations while maintaining the same core functionality you rely on: turning your CSV files of acronyms into powerful lookup tools for AI agents.
-
-## What's New
+## What's new
 
 ### Streamable HTTP Transport
+The most impactful change in this release is the transition from Server-Sent Events (SSE) to **Streamable HTTP transport**. This modernization simplifies the server's network footprint by consolidating connectivity into a single endpoint: `/mcp`. 
 
-The headline change in v0.2.0 is the migration to Streamable HTTP transport. This modernizes the server's communication protocol and brings it in line with evolving MCP best practices. The new transport mode offers simplified endpoint management and improved compatibility with a broader range of MCP clients.
+To accommodate this change, the command-line interface has been updated. Users should now use the `--http` flag instead of the previous `--sse` flag when starting the server in network mode.
 
-**Important:** If you're upgrading from v0.1.0, note that SSE support has been removed. Configuration changes are required—see the upgrade section below for details.
+### Smarter Agent Integration
+We've enhanced the `lookupAcronym` tool with additional annotations to provide better context for AI agents. The tool now includes a descriptive title ("Lookup Acronym") and a read-only hint. These additions explicitly signal to the agent that the tool is designed for information retrieval and does not modify any underlying state.
 
-### Enhanced Tool Annotations
+## Why it matters
 
-The `lookupAcronym` tool now includes metadata that makes it more discoverable and usable by AI agents:
+### Simplified Setup
+By moving to a single `/mcp` endpoint and a streamlined HTTP transport, the complexity of configuring remote access is significantly reduced. This makes it easier to deploy the server in containerized or cloud environments where simplified routing is a priority.
 
-- **Title annotation**: The tool is now labeled "Lookup Acronym" for clearer display in agent interfaces
-- **Read-only hint**: Agents can now recognize that this tool performs lookups without modifying any state, enabling safer integration patterns
+### Better AI Reliability
+Clearer metadata is the key to better agent performance. By providing explicit titles and read-only hints, AI agents can more accurately identify the correct tool for the task and call it with higher confidence, reducing hallucinations and improving the overall precision of acronym lookups.
 
-These annotations improve the user experience when integrating mcp-acronym-lookup into AI assistant workflows.
+## Getting Started with v0.2.0
 
-### Dynamic Version Reporting
+Upgrading to v0.2.0 is straightforward. You can download the latest pre-compiled binaries from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/mcp-acronym-lookup/releases/tag/v0.2.0) or install directly using Go:
 
-Gone are the days of hardcoded version strings. v0.2.0 now reports the actual release version at runtime, so you can verify which version you're running and ensure compatibility with your MCP clients.
-
-### Under-the-Hood Updates
-
-This release includes updates to the underlying mcp-go library (from v0.26.0 to v0.37.0) and Go runtime upgrades through 1.24.6, bringing performance improvements and security patches from the broader ecosystem.
-
-## Why It Matters
-
-Transport protocol modernization is more than just keeping up with standards—it's about ensuring your AI infrastructure remains compatible with the tools and clients that are shaping the future of Model Context Protocol development. Streamable HTTP transport offers a more streamlined connection model, reducing complexity in deployment configurations while maintaining reliable communication between your acronym database and AI agents.
-
-The enhanced tool annotations address a practical need: AI assistants work better when they understand not just what tools are available, but how those tools behave. By marking `lookupAcronym` as read-only, the server helps agents make informed decisions about when and how to use it.
-
-For teams maintaining acronym databases across different domains—whether technical documentation, business terminology, or domain-specific jargon—this release ensures their lookup infrastructure stays current with MCP protocol evolution while continuing to deliver the same reliable translations their workflows depend on.
-
-## Upgrade and Installation
-
-### Breaking Change: Transport Protocol Migration
-
-If you're upgrading from v0.1.0, there's one critical change to be aware of:
-
-**Command-line flag update:**
 ```bash
-# Old (v0.1.0)
---sse <addr>
-
-# New (v0.2.0)
---http <addr>
+go install github.com/UnitVectorY-Labs/mcp-acronym-lookup@latest
 ```
 
-**Endpoint URL changes:**
-```
-# Old endpoints (no longer available)
-/mcp/sse
-/mcp/message
+**Important Note for Existing Users:** If your current workflow relies on the `--sse` flag, please update your startup commands to use `--http` and point your clients to the new `/mcp` endpoint to maintain connectivity.
 
-# New endpoint
-/mcp
-```
+***
 
-Update your MCP client configurations and deployment scripts to use the new `--http` flag and `/mcp` endpoint.
-
-### Installation Options
-
-**Download pre-built binaries:**
-Choose from archives for macOS (Intel and Apple Silicon), Linux (amd64, 386, ARM64), and Windows. All releases include checksums for verification.
-
-**Install via Go:**
-```bash
-go install github.com/UnitVectorY-Labs/mcp-acronym-lookup@v0.2.0
-```
-
-### Configuration Unchanged
-
-Your CSV configuration file format remains the same—three columns (acronym, full form, description) specified via the `ACRONYM_FILE` environment variable. If your setup worked with v0.1.0, it will work with v0.2.0 once you've updated the transport settings.
-
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For more information, see the [mcp-acronym-lookup v0.2.0 release](https://github.com/UnitVectorY-Labs/mcp-acronym-lookup/releases/tag/v0.2.0) published on August 12, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: [UnitVectorY-Labs/mcp-acronym-lookup](https://github.com/UnitVectorY-Labs/mcp-acronym-lookup), Release v0.2.0, Generated on April 13, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

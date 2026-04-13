@@ -1,49 +1,30 @@
 ---
 layout: post
-title: "mcp-acronym-lookup v0.2.1 Released"
-date: 2025-11-29 18:36:00 -0500
-tags: ["mcp-acronym-lookup", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Keeping it Sharp: mcp-acronym-lookup v0.2.1 Maintenance Update"
+date: 2025-11-29 09:00:00 -0500
+tags: ["mcp-acronym-lookup", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+On November 29, 2025, we released v0.2.1 of `mcp-acronym-lookup`. This maintenance update focuses on keeping our foundation current by updating the Go toolchain and the MCP Go SDK, ensuring the server remains stable, secure, and fully compatible with the evolving Model Context Protocol.
 
-We're pleased to announce the release of **mcp-acronym-lookup v0.2.1**, published on November 29, 2025. This maintenance release delivers important underlying updates that keep your acronym lookup server running smoothly with the latest security patches and performance improvements from the Go runtime and MCP framework.
+## What's new
 
-## What's New
+- **Go Toolchain Upgrade**: Updated to Go 1.25.4 for better performance and language improvements.
+- **SDK Modernization**: Upgraded `mcp-go` to v0.43.1, bringing the latest stability and protocol compatibility updates from the SDK.
+- **CI/CD Enhancements**: Refreshed GitHub Action workflows to improve the reliability and security of our build pipeline.
 
-While v0.2.1 doesn't introduce new features, it brings valuable behind-the-scenes enhancements:
+## Why it matters
 
-- **Updated Go Runtime**: Upgraded to Go 1.25.4 for improved performance and security
-- **MCP Framework Updates**: Bumped the underlying mcp-go library from v0.37.0 to v0.43.1, incorporating upstream improvements and bug fixes
-- **Enhanced Build Provenance**: Updated GitHub Actions workflows with improved artifact attestation for better supply chain security
+While this release doesn't introduce new features, it's critical for the long-term health of the project. By staying current with the Go language and the MCP SDK, we ensure that `mcp-acronym-lookup` continues to provide reliable acronym lookups for LLMs with minimal overhead and maximum compatibility with the latest MCP standards.
 
-## Why It Matters
+## Getting the update
 
-This release demonstrates our commitment to active maintenance and security. By keeping dependencies current, we ensure:
-
-- **Security**: Regular updates to the Go runtime and framework protect against known vulnerabilities
-- **Compatibility**: Staying current with the MCP specification ensures continued interoperability with AI agents and tools
-- **Reliability**: Updated CI/CD infrastructure means more consistent builds and releases
-
-Most importantly, this release is **fully backward compatible**. If you're currently running v0.2.0, your existing deployment will work identically—no configuration changes or breaking updates to worry about.
-
-## Upgrade Instructions
-
-Upgrading is simple. Choose the method that works best for you:
-
-**Using Go Install (recommended for automatic updates):**
-```bash
-go install github.com/UnitVectorY-Labs/mcp-acronym-lookup@v0.2.1
-```
-
-**Pre-built Binaries:**
-Download the appropriate binary for your platform from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/mcp-acronym-lookup/releases/tag/v0.2.1). Assets are available for:
-- macOS (AMD64, ARM64)
-- Linux (AMD64, ARM64, 386)
-- Windows (AMD64, 386)
-
-Each release includes checksum files for verification.
+Upgrading to v0.2.1 is straightforward—simply pull the latest version of the server or rebuild it using the updated toolchain. We appreciate your continued use of `mcp-acronym-lookup` to help LLMs navigate complex terminology.
 
 ---
 
-**Transparency Note:** This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It was generated on March 17, 2026. The original release information can be found at [github.com/UnitVectorY-Labs/mcp-acronym-lookup](https://github.com/UnitVectorY-Labs/mcp-acronym-lookup) (Release v0.2.1, published November 29, 2025). Authored by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`.*
+- Repository: UnitVectorY-Labs/mcp-acronym-lookup
+- Release: v0.2.1
+- Date of generation: 2026-04-13
+- Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
