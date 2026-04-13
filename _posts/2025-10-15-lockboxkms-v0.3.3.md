@@ -1,40 +1,32 @@
 ---
 layout: post
-title: "LockboxKMS v0.3.3 Released: Maintenance Update with Security Enhancements"
+title: "Maintenance and Stability Updates for lockboxkms v0.3.3"
 date: 2025-10-15 09:00:00 -0500
-tags: ["lockboxkms", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["lockboxkms", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-LockboxKMS v0.3.3 was released on October 15, 2025, bringing important security updates and dependency maintenance to this simple web interface for encrypting data with Google Cloud KMS.
+On October 15, 2025, we released lockboxkms v0.3.3. This is a maintenance update focused on ensuring the long-term stability and security of the application by updating core dependencies and the Go runtime.
 
-## What's New
+## What's new
 
-This release focuses on keeping your LockboxKMS deployment secure and up-to-date:
+This release focuses on the underlying foundation of the project:
 
-- **Runtime Update:** Upgraded from Go 1.24.3 to Go 1.25.2, incorporating the latest performance improvements and security patches
-- **Google Cloud Libraries:** Updated key dependencies including `google.golang.org/api` (v0.231.0 → v0.252.0) and `cloud.google.com/go/kms` (v1.21.2 → v1.23.1)
-- **CI/CD Modernization:** GitHub Actions workflows upgraded to latest versions for improved build security
+- **Updated Google Cloud Libraries**: We have bumped the versions of `google.golang.org/api` and `cloud.google.com/go/kms` to ensure the best compatibility with Google Cloud's current infrastructure.
+- **Go Runtime Upgrade**: The application has been upgraded to Go 1.25.2, bringing in the latest language improvements and performance optimizations.
+- **CI/CD Modernization**: We've updated our GitHub Actions workflows, including checkout and setup-go, to maintain a modern and efficient build pipeline.
+- **Code Quality Visibility**: A Go Report Card badge has been added to the project README, providing transparency into the health and quality of the codebase.
 
-## Why It Matters
+## Why it matters
 
-While v0.3.3 doesn't introduce new features, it delivers important value:
+Maintaining a secure and stable application requires staying current with the tools and libraries it relies on. By updating the Google Cloud SDKs and the Go runtime, we reduce potential security vulnerabilities and ensure that lockboxkms continues to operate reliably within the Google Cloud ecosystem. These updates provide a more robust foundation for users who rely on lockboxkms for secure, one-way data encryption.
 
-**Security First:** This maintenance release incorporates security patches and updates from Google's Cloud libraries, ensuring your encryption operations benefit from the latest protections.
+## Getting Started
 
-**Zero-Downtime Upgrade:** There are no breaking changes, deprecations, or configuration requirements. You can upgrade immediately without modifying environment variables or deployment settings.
+Upgrading to v0.3.3 is straightforward:
 
-**Proven Stability:** With over five months of continuous dependency maintenance between v0.3.2 and v0.3.3, LockboxKMS demonstrates a commitment to staying current with upstream dependencies while maintaining rock-solid stability for production deployments.
-
-## Upgrade Instructions
-
-LockboxKMS is distributed as a Docker container image. To upgrade to v0.3.3:
-
-```bash
-docker pull ghcr.io/unitvectory-labs/lockboxkms:v0.3.3
-```
-
-No configuration changes are required. Your existing environment variables and KMS permissions continue to work exactly as before.
+- **Docker Users**: Simply pull the latest image from `ghcr.io/unitvectory-labs/lockboxkms` to receive these updates automatically.
+- **Source Build Users**: Please update your local environment to Go 1.25.2 before building the application from source.
 
 ---
 
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Source: [UnitVectorY-Labs/lockboxkms](https://github.com/UnitVectorY-Labs/lockboxkms), Release v0.3.3 (October 15, 2025). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: lockboxkms v0.3.3, released 2025-10-15. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
