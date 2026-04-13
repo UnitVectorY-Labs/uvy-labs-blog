@@ -1,74 +1,40 @@
 ---
 layout: post
-title: "mcp-tf-provider-docs v0.2.0 Released: Enhanced MCP Integration and Active Project Status"
-date: 2025-06-25 01:41:23 -0500
-tags: ["mcp-tf-provider-docs", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "mcp-tf-provider-docs v0.2.0: Enhancing Tool Metadata and Project Maturity"
+date: 2025-06-25 09:00:00 -0500
+tags: ["mcp-tf-provider-docs", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the release of **mcp-tf-provider-docs v0.2.0**, published on June 25, 2025. This minor release delivers an important protocol-level enhancement that improves how MCP clients interact with our Terraform documentation server, while also marking a milestone in the project's maturity.
+Released on June 25, 2025, mcp-tf-provider-docs v0.2.0 marks a significant step forward in the project's evolution. This update transitions the project from a "Work In Progress" state to an "Active" status, introducing refinements that improve how the server interacts with MCP clients and making it more accessible for developers to get started.
 
-## What's New
+## What's new
 
-### Read-Only Hint Annotation
+This release focuses on metadata clarity and developer experience:
 
-The headline improvement in v0.2.0 is the addition of a read-only hint annotation to the MCP tool definition. This seemingly small change signals to MCP clients that the documentation lookup tool performs purely read operations with no side effects.
+- **Read-Only Tool Hints**: The MCP tool now includes a read-only hint annotation. This provides critical metadata to MCP clients, explicitly signaling that the tool is designed for information retrieval and does not perform state-changing operations.
+- **Simplified Source Installation**: We've added official instructions for installing the server directly from source. Developers can now quickly deploy the latest version using the Go toolchain.
+- **Project Maturity**: The project status has been officially updated to "Active," reflecting the stability of the core functionality and a commitment to ongoing development.
 
-What does this mean for you? MCP clients can now:
-- Display appropriate UI indicators showing the tool is safe to run
-- Enable optimizations or caching strategies for read-only operations
-- Provide users with greater confidence when working with the tool
+## Why it matters
 
-This improvement aligns mcp-tf-provider-docs with best practices in MCP development and sets the stage for better client integration as the ecosystem evolves.
+These changes may seem subtle, but they provide tangible benefits to both users and contributors:
 
-### Project Status: Now Active
+- **Better Client Integration**: By providing an explicit read-only hint, MCP clients can make more informed decisions about how to utilize the tool, reducing ambiguity and improving the reliability of agent-driven documentation retrieval.
+- **Lower Friction for Developers**: The addition of `go install` support removes a barrier for users who prefer to build from source, allowing for faster updates and easier local customization.
+- **Increased Confidence**: Moving to an "Active" status signals to the community that the project is ready for wider adoption and is being actively maintained to keep up with the fast-paced changes in Terraform and OpenTofu providers.
 
-You may notice a visual change in our repository badges. We've updated the project status from "Work In Progress" to **Active**, reflecting the stability and ongoing development commitment of the maintainers. New badges now include:
-- Latest release version (v0.2.0)
-- Go Report Card metrics
-- GitHub Release information
+## Getting started and upgrading
 
-### Easier Installation for Go Developers
+Upgrading to v0.2.0 is straightforward as there are no breaking changes in this release.
 
-We've expanded our installation documentation to include `go install` instructions. If you prefer working directly from source, you can now install the latest version with a single command:
+- **Binary Installation**: Download the latest pre-compiled executables for your platform (macOS, Linux, or Windows) from the [GitHub Releases](https://github.com/UnitVectorY-Labs/mcp-tf-provider-docs/releases/tag/v0.2.0) page.
+- **Source Installation**: If you prefer using Go, you can install or upgrade the server with a single command:
+  ```bash
+  go install github.com/UnitVectorY-Labs/mcp-tf-provider-docs@latest
+  ```
 
-```bash
-go install github.com/UnitVectorY-Labs/mcp-tf-provider-docs@latest
-```
+We are excited to see how this improved documentation server helps you build more accurate and context-aware infrastructure-as-code automations.
 
-## Why It Matters
+***
 
-mcp-tf-provider-docs bridges the gap between AI agents and Terraform provider documentation. By indexing provider docs from local Git repositories, it enables AI models to access up-to-date, context-aware information for accurate infrastructure-as-code generation.
-
-This release demonstrates our commitment to:
-
-1. **Protocol Excellence**: Adding the read-only annotation shows we're keeping pace with MCP protocol improvements and ensuring our server integrates smoothly with the broader ecosystem.
-
-2. **User Trust**: Making it explicit that documentation lookups are safe, non-destructive operations builds user confidence in the tool.
-
-3. **Project Maturity**: The transition to "Active" status signals that mcp-tf-provider-docs is production-ready and actively maintained.
-
-4. **Accessibility**: Improved installation options make the tool more accessible to different user workflows.
-
-## Upgrade Instructions
-
-Upgrading to v0.2.0 is straightforward with **no breaking changes** and **no configuration modifications required**. Choose the method that works best for you:
-
-### Option 1: Pre-compiled Binaries
-
-Download the binary for your platform from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/mcp-tf-provider-docs/releases/tag/v0.2.0):
-
-- **macOS**: `darwin-amd64` or `darwin-arm64`
-- **Linux**: `linux-amd64`, `linux-arm64`, or `linux-386`
-- **Windows**: `windows-amd64` or `windows-386`
-
-### Option 2: Go Installation
-
-```bash
-go install github.com/UnitVectorY-Labs/mcp-tf-provider-docs@v0.2.0
-```
-
-All release assets include MD5 and SHA256 checksums for verification.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For details about this release, visit the [GitHub repository](https://github.com/UnitVectorY-Labs/mcp-tf-provider-docs) or the [v0.2.0 release page](https://github.com/UnitVectorY-Labs/mcp-tf-provider-docs/releases/tag/v0.2.0). Generated on March 17, 2026 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated. The model used was unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: [UnitVectorY-Labs/mcp-tf-provider-docs](https://github.com/UnitVectorY-Labs/mcp-tf-provider-docs), release v0.2.0, generated on April 13, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
