@@ -1,54 +1,27 @@
 ---
 layout: post
-title: "Introducing mcp-graphql-forge: Turn Any GraphQL Endpoint into an MCP Server"
-date: 2025-04-23 02:48:09 -0500
-tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Introducing mcp-graphql-forge: Seamlessly Connect LLMs to GraphQL APIs"
+date: 2025-04-23 09:00:00 -0500
+tags: ["mcp-graphql-forge", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the initial release of **mcp-graphql-forge** (v0.1.0), a lightweight, configuration-driven MCP server that transforms any GraphQL endpoint into an MCP server with zero custom code required.
+On April 23, 2025, we are excited to announce the launch of `mcp-graphql-forge`, a lightweight, configuration-driven Model Context Protocol (MCP) server. `mcp-graphql-forge` empowers developers to expose curated GraphQL queries as modular MCP tools without writing a single line of custom tool code, creating a secure and efficient bridge between LLM agents and GraphQL APIs.
 
-Released on April 23, 2025, mcp-graphql-forge fills an important gap for teams working with AI agents and GraphQL APIs. Instead of writing custom integration code for every API you want your agents to access, you can now define tools in simple YAML files and let mcp-graphql-forge handle the rest.
+## Key Capabilities
 
-## What's New
+- **Configuration-Driven Tooling**: Define your MCP tools entirely in YAML. No more hard-coding tool logic; simply describe the tool's name, description, and the GraphQL query it should execute.
+- **Dynamic Tool Discovery**: The server automatically scans your configuration directory at startup, allowing you to add or remove tools simply by managing YAML files.
+- **Flexible Authentication**: Support for dynamic token retrieval via a configurable shell command, making it easy to integrate with systems like the GitHub CLI for secure, runtime authentication.
+- **Direct Data Access**: Tools return raw JSON responses from the GraphQL API, ensuring that the LLM agent receives the full richness of the data.
 
-As the inaugural release, v0.1.0 introduces the complete core functionality of mcp-graphql-forge:
+## Why it Matters
 
-**YAML-Driven Tool Configuration**  
-Define your GraphQL queries as tools using clean, human-readable YAML files. Each tool specification includes the query itself, input parameters with type validation, and descriptions that help AI agents understand when and how to use each tool.
-
-**Dynamic Tool Discovery**  
-The server automatically discovers and registers all YAML tool definitions in your configuration directory. Add a new tool by dropping in a new YAML file—no code changes or restarts needed.
-
-**Flexible GraphQL Integration**  
-Connect to any GraphQL endpoint with configurable authentication via Bearer tokens. The included example demonstrates integration with GitHub's GraphQL API, but the tool works with any standard GraphQL server.
-
-**Multi-Platform Support**  
-Ready-to-use binaries are available for Linux (amd64, arm64, 386), Windows (amd64, 386), and macOS (amd64, arm64). Each release includes checksums for verification and GitHub attestation for provenance.
-
-**MCP Protocol Compliance**  
-Serves over the standard stdio protocol, making it compatible with any MCP client implementation including popular AI development environments.
-
-## Why It Matters
-
-AI agents are becoming increasingly capable of automating complex workflows, but connecting them to your existing APIs has traditionally required custom integration work. mcp-graphql-forge changes that equation.
-
-For teams already investing in GraphQL APIs, this release means your AI agents can now interact with those APIs through pre-defined, intentional queries without exposing your entire schema. You maintain full control over what data and operations are accessible while eliminating the boilerplate of custom MCP server implementations.
-
-The configuration-driven approach also lowers the barrier to entry. Teams can iterate on tool definitions rapidly without touching code, making it practical to experiment with different agent capabilities and refine them based on real usage patterns.
+Integrating LLMs with complex data sources often requires extensive boilerplate code for every new API endpoint. `mcp-graphql-forge` removes this friction by shifting the complexity from code to configuration. This modular approach allows teams to iterate rapidly on the capabilities they expose to their AI agents, ensuring that the LLM has precise, read-only access to exactly the data it needs.
 
 ## Getting Started
 
-To get started with mcp-graphql-forge:
+To get started with `mcp-graphql-forge`, you can download the pre-built binaries for Darwin, Linux, or Windows from the v0.1.0 release assets, or build it from source using Go. Once installed, simply create a configuration directory with a `forge.yaml` for global settings and individual YAML files for your tools, then point the `FORGE_CONFIG` environment variable to that directory.
 
-1. **Download** the pre-built binary for your platform from the [GitHub releases page](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.1.0)
-2. **Configure** your GraphQL endpoint and tools using YAML files (see the `example/` directory for a complete GitHub API example)
-3. **Set** the `FORGE_CONFIG` environment variable to point to your configuration directory
-4. **Run** the binary to start your MCP server
+***
 
-For developers who prefer building from source, the project requires Go 1.24.2 and can be built with standard Go tooling.
-
-The [full documentation](https://github.com/UnitVectorY-Labs/mcp-graphql-forge) includes detailed configuration examples, parameter type specifications, and integration guidance for common MCP clients.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For full details on this release, see the [v0.1.0 release](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.1.0) published on April 23, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Reference: UnitVectorY-Labs/mcp-graphql-forge, release v0.1.0, generated on 2026-04-13. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

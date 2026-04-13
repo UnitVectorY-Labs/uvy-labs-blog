@@ -1,82 +1,40 @@
 ---
 layout: post
-title: "mcp-graphql-forge v0.5.0: Environment Variable Support for Token Commands"
-date: 2025-06-03 02:07:38 -0500
-tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Flexible Authentication: Introducing Environment Variable Support in mcp-graphql-forge v0.5.0"
+date: 2025-06-03 09:00:00 -0500
+tags: ["mcp-graphql-forge", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Announcing mcp-graphql-forge v0.5.0
+Released on June 3, 2025, mcp-graphql-forge v0.5.0 brings significant improvements to how the server handles authentication tokens, providing users with far greater control over their environment configurations. This release ensures that your MCP tools remain secure and flexible, regardless of how you manage your secrets.
 
-We're excited to release **v0.5.0** of mcp-graphql-forge, a significant enhancement that brings greater flexibility to authentication workflows. Released on June 3, 2025, this version introduces environment variable support for token commands, enabling users to configure complex authentication scenarios with ease.
+## What's new
 
-## What's New
+The headline feature of this release is the introduction of **Environment Variable Support for Token Commands**. When using a `token_command` to fetch a Bearer token, you can now explicitly define the environment context in your `forge.yaml` configuration:
 
-### Environment Variable Support for Token Commands
+- **`env`**: Define a specific map of environment variables that will be passed directly to your token command.
+- **`env_passthrough`**: A simple boolean flag. When set to `true`, all environment variables currently available to the `mcp-graphql-forge` process are passed through to the token command.
 
-The headline feature in v0.5.0 is comprehensive environment variable support for your `token_command`. This update addresses a common pain point: authentication scripts that require specific environment variables to function properly.
+If both are used, the values defined in the `env` map take precedence, allowing you to override specific variables while still passing through the rest of your environment.
 
-You can now configure token commands in two ways:
+Additionally, we have updated the underlying `mcp-go` library to version `0.31.0`, ensuring compatibility with the latest Model Context Protocol specifications and benefiting from the latest performance and stability improvements.
 
-**Pass all current environment variables:**
-```yaml
-token_command: "gh auth token"
-env_passthrough: true
+## Why it matters
+
+Authentication is often the most complex part of integrating GraphQL APIs with AI agents. Many token-fetching scripts rely on specific environment variables—such as API keys, profile paths, or custom configuration flags—to operate correctly.
+
+Previously, managing this environment required external wrappers or system-level configuration. With the new `env` and `env_passthrough` options, you can now manage these dependencies directly within your `forge.yaml`. This makes your MCP server configuration more portable, easier to document, and more secure by allowing you to pass only the necessary secrets to your authentication scripts.
+
+## Getting started with v0.5.0
+
+This is a non-breaking release; your existing configurations will continue to work exactly as they did before. To take advantage of the new features, simply update your `forge.yaml` with the new environment settings.
+
+You can upgrade to v0.5.0 by downloading the latest pre-compiled binary from our [GitHub Releases](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.5.0) page or by running the following command:
+
+```bash
+go install github.com/UnitVectorY-Labs/mcp-graphql-forge@latest
 ```
 
-**Or pass specific environment variables:**
-```yaml
-token_command: "./auth-script.sh"
-env:
-  AWS_PROFILE: "production"
-  CUSTOM_CONFIG_PATH: "/etc/myapp/auth.conf"
-```
+***
 
-Both options can be combined, with explicit `env` values taking precedence over passthrough variables. This flexibility supports a wide range of use cases, from containerized deployments requiring specific environment context to custom authentication scripts that depend on external configuration.
-
-### Improved SSE Server Reliability
-
-For users running mcp-graphql-forge in HTTP/SSE mode, we've upgraded the server configuration to use static base path handling. This change makes SSE connections more predictable and reliable when serving MCP clients over HTTP/SSE endpoints.
-
-## Why It Matters
-
-Authentication complexity has long been a friction point for developers integrating external tools with AI assistants. Token commands that work perfectly in interactive shells often fail when invoked from automated contexts due to missing environment variables.
-
-With v0.5.0, your authentication scripts can rely on the same environment context they expect, whether you're:
-
-- Running in containerized environments with specific requirements
-- Using authentication tools like GitHub CLI (`gh auth token`) that depend on environment setup
-- Debugging token generation with detailed logging and environment inspection
-- Integrating with enterprise identity providers requiring custom configuration
-
-The upgrade process is seamless. This release maintains **full backward compatibility** – existing configurations continue to work without modification. The new `env` and `env_passthrough` options are entirely optional, so you can adopt them incrementally as your needs evolve.
-
-## Installation and Upgrade
-
-### Binary Downloads
-
-Pre-built binaries are available for download from the [GitHub release page](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.5.0) with checksums for verification:
-
-- **Darwin (macOS):** `darwin-amd64.tar.gz`, `darwin-arm64.tar.gz`
-- **Linux:** `linux-amd64.tar.gz`, `linux-arm64.tar.gz`, `linux-386.tar.gz`
-- **Windows:** `windows-amd64.zip`, `windows-386.zip`
-
-Each release includes SHA256 and MD5 checksum files for integrity verification.
-
-### Upgrade Process
-
-1. Download the appropriate binary for your platform
-2. Verify the checksum matches the provided hash file
-3. Extract and replace the existing binary
-4. (Optional) Update your `forge.yaml` to use the new `env` or `env_passthrough` options
-
-No configuration migration is required – all existing configurations remain valid.
-
-### Building from Source
-
-If you prefer to build from source, v0.5.0 requires Go 1.24.3 and includes the updated mcp-go library (v0.31.0).
-
----
-
-## Transparency Note
-
-This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on March 17, 2026. The announcement is based on the official v0.5.0 release of [mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.5.0). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
+**Transparency Note:** This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. It was generated on April 13, 2026, based on the [UnitVectorY-Labs/mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge) repository and the [v0.5.0 release](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.5.0).
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

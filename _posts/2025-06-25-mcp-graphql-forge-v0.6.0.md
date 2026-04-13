@@ -1,84 +1,43 @@
 ---
 layout: post
-title: "mcp-graphql-forge v0.6.0: Introducing MCP Annotations Support"
-date: 2025-06-25 02:28:56 -0500
-tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Enhancing Tool Clarity with mcp-graphql-forge v0.6.0"
+date: 2025-06-25 09:00:00 -0500
+tags: ["mcp-graphql-forge", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introducing v0.6.0 with Enhanced Tool Annotations
+Released on June 25, 2025, mcp-graphql-forge v0.6.0 brings significant improvements to how your GraphQL tools are described and handled by Model Context Protocol (MCP) clients. This release focuses on enhancing tool metadata, providing better safety hints, and streamlining the configuration process.
 
-We're excited to announce the release of **mcp-graphql-forge v0.6.0**, published on June 25, 2025. This release brings a significant enhancement to how your tools are presented in MCP clients through the addition of full annotations support, alongside important underlying improvements that keep your server running smoothly.
+## What's new
 
-## What's New
+The highlight of this release is the introduction of **Tool Annotations**. You can now enrich your tool definitions in YAML with an `annotations` section to provide critical context to the AI:
 
-### Annotations Support for Better Tool Presentation
+- **Custom Titles**: Use the `title` field to give your tools human-readable names, making them more intuitive for users and AI agents.
+- **Behavioral Hints**: 
+    - `readOnlyHint`: Mark tools that only fetch data, signaling to the client that no state changes will occur.
+    - `destructiveHint`: Explicitly flag tools that perform deletions or critical updates, allowing clients to implement extra safety checks.
+    - `idempotentHint`: Indicate tools that can be safely called multiple times without changing the result.
+    - `openWorldHint`: Signal when a tool interacts with external entities beyond the immediate system.
 
-The headline feature of v0.6.0 is comprehensive [MCP annotations](https://modelcontextprotocol.io/docs/concepts/tools#annotations) support for tool configurations. You can now add rich metadata to your tools that helps MCP clients understand and display them more effectively.
+Additionally, we've updated the core engine to Go 1.24.4 and bumped `mcp-go` to v0.32.0 for better performance and stability. We have also added a dedicated **Releases** section to our documentation, making it easier than ever to get the server up and running.
 
-With annotations, you can specify:
+## Why it matters
 
-- **`title`**: A human-readable title that appears in tool selectors and UI elements
-- **`readOnlyHint`**: Indicates whether the tool only reads data without modifying anything
-- **`destructiveHint`**: Warns users if a tool may perform destructive updates
-- **`idempotentHint`**: Signals that repeating the same call has no additional effect
-- **`openWorldHint`**: Indicates whether the tool interacts with external entities
+For those building complex AI agents, the difference between a "safe" and a "destructive" tool is paramount. By providing these hints via annotations, you empower the MCP client to make smarter decisions about when to execute a tool and when to ask for human confirmation. This reduces the risk of accidental data loss and improves the overall reliability of the agent's interactions with your GraphQL API.
 
-Here's what a tool configuration looks like with annotations:
-
-```yaml
-tools:
-  - name: getUser
-    query: "query GetUser($id: ID!) { user(id: $id) { id name email } }"
-    annotations:
-      title: "Get User Information"
-      readOnlyHint: true
-      destructiveHint: false
-      idempotentHint: true
-      openWorldHint: false
-```
-
-These hints empower MCP clients to categorize tools appropriately, warn users before potentially destructive actions, and present a more intuitive interface for AI-assisted workflows.
-
-### Dependency Updates
-
-Under the hood, v0.6.0 includes important updates that improve stability and capabilities:
-
-- **Upgraded to Go 1.24.4** – Brings performance improvements, security patches, and the latest language features
-- **mcp-go library upgraded to 0.32.0** – This upstream update introduces OAuth support for SSE clients, fixes a memory leak in session tool management, improves SSE parsing, and adds better stateless mode handling
-
-## Why It Matters
-
-Annotations represent a step toward more intentional and safer AI-assisted workflows. By explicitly declaring tool characteristics like `readOnlyHint` or `destructiveHint`, you give MCP clients the information they need to surface important context to users before actions are taken.
-
-This is particularly valuable when deploying mcp-graphql-forge in environments where multiple tools are available, and users need clear visual cues about which operations are safe exploratory queries versus those that might modify data or interact with external systems.
-
-The dependency upgrades ensure you're running on the most stable and secure foundations possible, with upstream improvements that enhance everything from error handling to session management.
+Furthermore, the removal of the `version` field from `forge.yaml` simplifies your configuration. By moving versioning to the build process, we've removed a redundant step from your setup, allowing you to focus entirely on defining your tools.
 
 ## Getting Started
 
-### Installation
+Upgrading to v0.6.0 is straightforward. You can download the pre-compiled binaries for macOS, Linux, or Windows directly from the [GitHub Releases](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases) page. 
 
-Download pre-compiled binaries for your platform from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.6.0), or install directly with Go:
+Alternatively, if you prefer using Go, you can install the latest version with a single command:
 
 ```bash
-go install github.com/UnitVectorY-Labs/mcp-graphql-forge@v0.6.0
+go install github.com/UnitVectorY-Labs/mcp-graphql-forge@latest
 ```
 
-### Upgrade Considerations
+If you have existing `forge.yaml` files, they will continue to work perfectly; any `version` fields will simply be ignored.
 
-This release includes a minor breaking change: the `version` field has been removed from configuration files. Version handling is now done at build time through ldflags. If your existing `forge.yaml` contains a `version` field, simply remove it—the rest of your configuration remains fully compatible.
+***
 
-Annotations are entirely optional. Existing tool configurations without annotations will continue to work exactly as before, so you can adopt this feature at your own pace.
-
-### Platform Support
-
-Pre-built binaries are available for:
-- **macOS**: `darwin-amd64`, `darwin-arm64`
-- **Linux**: `linux-386`, `linux-amd64`, `linux-arm64`
-- **Windows**: `windows-386`, `windows-amd64`
-
----
-
-## Transparency Note
-
-This release announcement was generated with AI assistance. The model used was [unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M](https://github.com/UnitVectorY-Labs/release-storyteller). This post was auto-generated on June 25, 2025 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) based on the official v0.6.0 release from the [mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.6.0) repository.
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It is based on the v0.6.0 release of the [mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge) repository, generated on April 13, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

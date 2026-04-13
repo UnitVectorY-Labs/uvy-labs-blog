@@ -1,68 +1,36 @@
 ---
 layout: post
-title: "mcp-graphql-forge v0.8.1 Release"
-date: 2025-11-29 18:36:00 -0500
-tags: ["mcp-graphql-forge", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "mcp-graphql-forge v0.8.1: Keeping the Forge Current"
+date: 2025-11-29 09:00:00 -0500
+tags: ["mcp-graphql-forge", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## A Commitment to Maintenance and Security
+On November 29, 2025, we released mcp-graphql-forge v0.8.1. This is a focused maintenance release designed to ensure the stability, security, and longevity of the forge by updating core dependencies and the underlying runtime.
 
-Released on November 29, 2025, mcp-graphql-forge v0.8.1 is a maintenance release that reflects our commitment to keeping the project secure, up-to-date, and reliable. While this version doesn't introduce new features, it represents important behind-the-scenes work to ensure the stability and security of your MCP server infrastructure.
+## What's new
 
-## What's New
+This release primarily focuses on "under-the-hood" improvements to keep the project aligned with the latest ecosystem updates:
 
-This release focuses entirely on dependency updates and CI/CD improvements:
+- **Updated MCP Go Library**: We've bumped `mcp-go` to v0.43.1, ensuring we leverage the latest improvements in the Model Context Protocol Go implementation.
+- **Go Runtime Update**: The project now targets Go 1.25.4, bringing the latest performance and security patches from the Go team.
+- **CI/CD Enhancements**: We've updated our GitHub Actions workflows to the latest versions (including checkout, setup-go, and attest-build-provenance) for more reliable and secure builds.
 
-### Dependency Updates
-- **mcp-go library**: Updated from v0.38.0 to v0.43.1, bringing six incremental versions of the core MCP protocol library under the hood
-- **Go toolchain**: Upgraded from 1.25.0 to 1.25.4 for improved language support and runtime improvements
+## Why it matters
 
-### Security & Build Infrastructure
-- Updated GitHub Actions to their latest major versions:
-  - `actions/checkout`: v5 → v6
-  - `actions/setup-go`: v5 → v6
-  - `actions/attest-build-provenance`: v2 → v3
-  - `github/codeql-action`: v3 → v4
-  - `astral-sh/setup-uv`: v6 → v7
+While there are no new feature additions in this version, maintenance releases like v0.8.1 are critical for the health of any open-source project. By updating the Go runtime and the MCP library, we reduce technical debt and ensure that `mcp-graphql-forge` remains compatible with the evolving MCP standard. This results in a more stable and secure execution environment for your AI agents' GraphQL tools.
 
-These updates ensure that build provenance attestations, code scanning, and workflow security are aligned with GitHub's latest standards.
+## Upgrading
 
-## Why It Matters
+Upgrading to v0.8.1 is straightforward and involves no breaking changes:
 
-You might wonder why a release with no new features matters. Here's why:
+- **Binary Users**: Simply download the latest pre-compiled executable for your platform from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.8.1).
+- **Go Users**: Update your installation using the following command:
+  ```bash
+  go install github.com/UnitVectorY-Labs/mcp-graphql-forge@latest
+  ```
 
-**Security First**: Security tooling updates, particularly the CodeQL action upgrade to v4, keep your builds protected against emerging vulnerabilities and ensure our supply chain remains secure.
+Keep forging your GraphQL tools with confidence!
 
-**Stability Through Maintenance**: By regularly updating dependencies like mcp-go through six minor versions, we prevent technical debt from accumulating and ensure compatibility with the evolving MCP ecosystem.
+***
 
-**Zero Disruption**: This release is designed to be completely transparent to users. Your existing YAML configurations, tool definitions, and server setups continue to work exactly as before—no migration or reconfiguration needed.
-
-## Getting Started
-
-Upgrading to v0.8.1 is straightforward:
-
-### Pre-compiled Binaries
-Download the latest binaries from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.8.1):
-
-- **macOS**: Choose `darwin-amd64` (Intel) or `darwin-arm64` (Apple Silicon)
-- **Linux**: Available for `amd64`, `arm64`, and `386` architectures
-- **Windows**: Available for `amd64` and `386`
-
-Each release asset includes SHA256 and MD5 checksums for verification.
-
-### From Source
-If you prefer building from source or installing via Go modules:
-
-```bash
-go install github.com/UnitVectorY-Labs/mcp-graphql-forge@latest
-```
-
-This will pull the latest v0.8.1 release and compile it with Go 1.25.4.
-
-## Looking Ahead
-
-Maintenance releases like v0.8.1 are the foundation of sustainable open source. They ensure that when new features arrive in future releases, they're built on a secure, up-to-date base. We appreciate your continued use of mcp-graphql-forge and invite you to explore its capabilities for turning GraphQL endpoints into modular MCP servers through simple YAML configuration.
-
----
-
-**Transparency Note**: This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on November 29, 2025. The content is based on the official v0.8.1 release of mcp-graphql-forge from the [UnitVectorY-Labs/mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge) repository. Generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Generated on April 13, 2026, based on the [mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge) v0.8.1 release. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
