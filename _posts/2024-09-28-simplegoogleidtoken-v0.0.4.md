@@ -1,44 +1,27 @@
 ---
 layout: post
-title: "simplegoogleidtoken v0.0.4 Release"
-date: 2024-09-28 16:13:43 -0500
-tags: ["simplegoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "simplegoogleidtoken v0.0.4: Maintenance and Dependency Updates"
+date: 2025-09-28 09:00:00 -0500
+tags: ["simplegoogleidtoken", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on September 28, 2025, version v0.0.4 of `simplegoogleidtoken` is a focused maintenance release. This update ensures the library remains secure and stable by bringing its core dependencies up to date and refining the internal build configuration.
 
-On September 28, 2024, we released version 0.0.4 of simplegoogleidtoken. This maintenance release focuses on keeping dependencies up to date and improving build process security, ensuring the library continues to work reliably with its upstream Google authentication components.
+## What's new
 
-simplegoogleidtoken is a lightweight Java library that simplifies exchanging Google Cloud Service Account credentials for Google ID tokens—tokens designed for authenticating with external services that accept Google-issued JWTs.
+This release primarily consists of dependency updates and build optimizations:
 
-## What's New
+- **Updated Core Dependencies**: The `google-auth-library-oauth2-http` has been updated to version 1.27.0, and `junit-jupiter-engine` has been bumped to 5.11.1.
+- **Plugin Enhancements**: Several Maven plugins, including the `maven-gpg-plugin` and `central-publishing-maven-plugin`, have been updated to their latest versions to improve the publishing workflow.
+- **Build Process Refinement**: Lombok has been explicitly added to the Maven compiler's annotation processor paths, ensuring more reliable and consistent builds across different environments.
 
-Version 0.0.4 is a straightforward dependency maintenance release. There are no new features, API changes, or breaking changes in this version. The updates included are:
+## Why it matters
 
-**Dependency Updates:**
-- `google-auth-library-oauth2-http` upgraded from 1.25.0 to 1.27.0 (for GCP users)
-- Build tooling updates to Maven plugins for publishing and GPG signing
-- Test framework updated to JUnit 5.11.1
-
-**Build Improvements:**
-- Added GitHub Actions build provenance attestations for enhanced supply chain security
-- Improved Lombok annotation processor configuration for better javadoc generation
-
-For users running on Google Cloud Platform, the update to `google-auth-library-oauth2-http` brings the latest improvements and security patches from Google's upstream authentication library. Users authenticating with service account JSON files outside of GCP are unaffected by this change, as they only require the GSON dependency.
-
-## Why It Matters
-
-While this release doesn't introduce new functionality, maintaining up-to-date dependencies is crucial for:
-
-- **Security**: Ensuring compatibility with security patches in upstream Google authentication libraries
-- **Reliability**: Keeping build tooling current to avoid future compatibility issues
-- **Supply Chain Security**: Build provenance attestations provide verification that binaries originate from trusted source code builds
-
-This release maintains full backward compatibility with v0.0.3. No changes are required to your existing code—simply update the dependency version in your project configuration.
+While v0.0.4 doesn't introduce new functional features, maintenance releases are critical for the health of any project. By updating the Google authentication libraries, we ensure that users benefit from the latest security patches and performance improvements provided by the upstream maintainers. Additionally, the build refinements reduce the likelihood of environment-specific build failures, making the project more robust for contributors and users alike.
 
 ## Upgrade Instructions
 
-To upgrade to v0.0.4, update your Maven dependency:
+To update to the latest version, simply modify the version number in your `pom.xml` file:
 
 ```xml
 <dependency>
@@ -48,18 +31,6 @@ To upgrade to v0.0.4, update your Maven dependency:
 </dependency>
 ```
 
-If you're running on GCP and use the optional `google-auth-library-oauth2-http` dependency, ensure it's at version 1.27.0 or later:
-
-```xml
-<dependency>
-    <groupId>com.google.auth</groupId>
-    <artifactId>google-auth-library-oauth2-http</artifactId>
-    <version>1.27.0</version>
-</dependency>
-```
-
-As always, simplegoogleidtoken requires Java 17 or higher and is available on Maven Central for easy integration into your projects.
-
 ---
 
-**Transparency Note:** This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. For details about this release, see the [UnitVectorY-Labs/simplegoogleidtoken repository](https://github.com/UnitVectorY-Labs/simplegoogleidtoken) and the [v0.0.4 GitHub Release](https://github.com/UnitVectorY-Labs/simplegoogleidtoken/releases/tag/v0.0.4). Generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller). The model used was `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. Generated on 2026-04-13 for the [UnitVectorY-Labs/simplegoogleidtoken](https://github.com/UnitVectorY-Labs/simplegoogleidtoken) release [v0.0.4](https://github.com/UnitVectorY-Labs/simplegoogleidtoken/releases/tag/v0.0.4).*

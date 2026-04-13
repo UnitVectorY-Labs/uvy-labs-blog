@@ -1,47 +1,30 @@
 ---
 layout: post
-title: "simplegoogleidtoken v0.0.5 Released: Improved Reliability and Better Error Handling"
-date: 2024-11-18 21:17:00 -0500
-tags: ["simplegoogleidtoken", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Enhancing Stability and Reliability: simplegoogleidtoken v0.0.5"
+date: 2024-11-19 09:00:00 -0500
+tags: ["simplegoogleidtoken", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the release of **simplegoogleidtoken v0.0.5**, now available on GitHub! This maintenance release, published on November 18, 2024, brings important improvements to error handling and reliability when exchanging Google Cloud Service Account credentials for Google ID tokens.
+Released on November 19, 2024, simplegoogleidtoken v0.0.5 is a stability and polish update designed to make the library more resilient and production-ready. This release focuses on hardening the core communication layer, ensuring that your applications can reliably exchange Google Cloud Service Account credentials for ID tokens with minimal friction.
 
-## What's New
+## What's new
 
-### Enhanced HTTP Connection Handling
+The primary focus of v0.0.5 is the overhaul of the HTTP communication mechanism. While the library's API remains the same, the internal handling of requests has been significantly improved:
 
-The standout feature in v0.0.5 is improved HTTP connection handling when communicating with Google's OAuth token endpoint. The library now:
+- **Robust Connection Management**: We've implemented stricter resource management, including the use of try-with-resources for output streams and guaranteed disconnection of HTTP connections. This prevents resource leaks that could otherwise impact long-running applications.
+- **Explicit Response Validation**: The library no longer assumes a successful response. It now explicitly validates HTTP response codes, throwing a detailed `SimpleExchangeException` when things go wrong.
+- **Granular Error Reporting**: Debugging authentication issues is now much faster. The library now distinguishes between network-level IO errors, JSON parsing failures, and logic-level exchange errors, providing clear and actionable feedback.
+- **Security & Performance Updates**: We've updated key dependencies, including the `google-auth-library-oauth2-http` and Lombok, to ensure the library benefits from the latest security patches and performance improvements.
 
-- **Validates response codes** before attempting to read responses, ensuring only successful (HTTP 200) responses are processed from the input stream
-- **Provides more specific error messages** that help diagnose token exchange failures more quickly
-- **Improves resource cleanup** with proper connection disconnection and automatic resource management for streams
+## Why it matters
 
-These changes mean users will receive clearer, more actionable error messages when connectivity or authentication issues occur with Google's OAuth endpoint.
+For developers, these changes mean less time spent guessing why a token request failed and more confidence in the library's stability. By moving beyond a "happy path" implementation, v0.0.5 ensures that network instability or configuration errors are surfaced immediately and accurately.
 
-### Documentation Corrections
+The prevention of connection leaks is particularly critical for enterprise applications where stability over days or weeks is mandatory. Coupled with updated dependencies, your application remains secure and efficient.
 
-We've corrected an important documentation error in our README: the JWT signing algorithm has been updated from HS256 to **RS256**. This reflects the actual RSA-based signing that Google ID tokens use, ensuring users have accurate information when working with token validation.
+## Getting Started
 
-### Dependency Updates
-
-This release includes routine updates to several dependencies, including:
-- `google-auth-library-oauth2-http` updated to version 1.30.0
-- Latest versions of testing and build tooling
-
-## Why It Matters
-
-Version 0.0.5 focuses on making your integration with Google ID tokens more reliable and easier to debug. The improved error handling means:
-
-- **Faster troubleshooting** when token requests fail
-- **More informative exceptions** that pinpoint whether issues are network-related, parsing-related, or unexpected
-- **Better resource management** that prevents connection leaks
-
-For teams running this library in production, these reliability improvements help ensure smooth operation when authenticating against APIs that use Google ID tokens.
-
-## Upgrade Instructions
-
-Upgrading to v0.0.5 is straightforward. Update your Maven dependency:
+Upgrading to v0.0.5 is seamless as there are no breaking changes. Simply update the version in your `pom.xml`:
 
 ```xml
 <dependency>
@@ -51,16 +34,9 @@ Upgrading to v0.0.5 is straightforward. Update your Maven dependency:
 </dependency>
 ```
 
-This release contains **no breaking changes** and is fully backward compatible with v0.0.4. Existing code will continue to work without modifications. The enhanced error handling works transparently with your current implementation.
+simplegoogleidtoken continues to provide a lightweight alternative to the full Google Cloud SDK for those who only need ID tokens, and v0.0.5 brings us one step closer to a perfectly polished developer experience.
 
-If you're using the optional `google-auth-library-oauth2-http` dependency, consider updating to version 1.30.0 or later for consistency with this release.
+***
 
-## Get Started
-
-simplegoogleidtoken is a lightweight Java library that simplifies obtaining Google ID tokens from Google Cloud Service Account credentials. Whether you're running on GCP with metadata service or outside GCP with a credentials JSON file, this library handles the OAuth 2.0 JWT Bearer grant type for you.
-
-Check out the [GitHub repository](https://github.com/UnitVectorY-Labs/simplegoogleidtoken) for documentation and the latest release notes.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Research and article generated on March 18, 2026, based on the v0.0.5 release from November 18, 2024. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+**Transparency Note:** This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. It was generated on April 13, 2026, based on the [UnitVectorY-Labs/simplegoogleidtoken](https://github.com/UnitVectorY-Labs/simplegoogleidtoken) repository and the [v0.0.5](https://github.com/UnitVectorY-Labs/simplegoogleidtoken/releases/tag/v0.0.5) release.
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
