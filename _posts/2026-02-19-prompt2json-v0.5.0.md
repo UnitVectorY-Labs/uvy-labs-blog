@@ -1,88 +1,41 @@
 ---
 layout: post
-title: "prompt2json v0.5.0: OpenAI Provider Attachment Support Now Available"
-date: 2026-02-18 19:19:00 -0500
-tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "prompt2json v0.5.0: Bringing Multimodal Power to OpenAI"
+date: 2026-02-19 09:00:00 -0500
+tags: ["prompt2json", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introducing Multimodal Support Across All Providers
+Released on February 19, 2026, prompt2json v0.5.0 significantly expands the tool's capabilities by bringing multimodal support to the OpenAI provider. This update empowers users to extract structured JSON data from not just text, but also images and documents, widening the scope of automation and data processing possible with the CLI.
 
-On February 18, 2026, we released **prompt2json v0.5.0**, a significant update that brings attachment support to the OpenAI provider, unlocking multimodal capabilities for users across the entire ecosystem of supported models.
+## What's new
 
-This release removes a key limitation: previously, only the Gemini provider could process images and PDFs alongside text prompts. Now, whether you're using OpenAI's GPT models, Google Cloud's OpenAI-compatible endpoints, Ollama, or other compatible services, you can include visual and document attachments with your structured JSON extraction tasks.
+The headline feature of this release is the addition of attachment support for the OpenAI provider. Previously a Gemini-exclusive feature, the `--attach` flag now works with OpenAI-compatible endpoints.
 
-## What's New
+- **Visual and Document Analysis:** You can now attach images (PNG, JPG, JPEG, WEBP) and PDF files directly to your prompts. These are sent as base64-encoded data, allowing the LLM to "see" the content and return a structured JSON response based on your schema.
+- **Enhanced Compatibility:** We've added detailed documentation and examples for using OpenAI-compatible endpoints, including a guide for targeting the OpenAI-compatible API on Google Cloud's Vertex AI.
+- **Updated Examples:** Documentation has been refreshed with modern model references like `gpt-5-nano` and `llama3.2` to ensure you're using the best tools for the job.
 
-### OpenAI Provider Attachment Support
+## Why it matters
 
-The headline feature of v0.5.0 is full attachment support for the OpenAI provider. Users can now:
+For many users, the most valuable data is locked in images or PDF documents. By integrating multimodal support into the OpenAI provider, prompt2json makes it trivial to build shell pipelines that convert visual information into machine-readable JSON.
 
-- **Process images** (PNG, JPG, JPEG, WebP) in their prompts
-- **Analyze PDFs** alongside text instructions
-- **Combine multimodal inputs** with structured JSON schema requirements
+Whether you are automating the extraction of data from invoices, analyzing screenshots for reports, or parsing technical PDFs, you can now do so using your preferred OpenAI-compatible model. This removes the limitation of being tied to a single provider for multimodal tasks and allows for a more flexible, composable architecture in your automation scripts.
 
-This works through inline base64-encoded content sent directly in API requests, making it compatible with any OpenAI-compatible Chat Completions endpoint that supports multimodal payloads.
+## Getting started
 
-### Example Usage
-
-Here's a practical example of analyzing an image with OpenAI:
+Upgrading to v0.5.0 is simple. Use the following Go command to install the latest version:
 
 ```bash
-prompt2json \
-    --provider openai \
-    --prompt "Identify the character in this photo" \
-    --system-instruction "Extract the character name, franchise they belong to, and your confidence level" \
-    --schema '{"type":"object","properties":{"name":{"type":"string"},"franchise":{"type":"string"},"confidence":{"type":"integer","minimum":0,"maximum":100}},"required":["name","franchise","confidence"]}' \
-    --attach picture.png \
-    --model gpt-5-nano \
-    --api-key "$OPENAI_API_KEY" \
-    --pretty-print
+go install github.com/UnitVectorY-Labs/prompt2json@latest
 ```
 
-### Documentation Updates
+*Note: While prompt2json now supports sending multimodal payloads to OpenAI-compatible endpoints, please ensure that the specific model and endpoint you are using also support multimodal inputs.*
 
-The release includes comprehensive documentation updates showing how to leverage attachments with both providers. Example workflows now cover:
+***
 
-- Image processing with character identification and object detection use cases
-- PDF analysis for document extraction tasks
-- Side-by-side examples comparing Gemini and OpenAI provider usage
-
-## Why It Matters
-
-This release unifies multimodal capabilities across prompt2json's supported providers, giving users the flexibility to choose their preferred LLM ecosystem without sacrificing functionality. Before v0.5.0, teams working with Ollama for local inference or OpenAI-compatible endpoints couldn't leverage image and document processing features. Now they can.
-
-For shell automation and data pipeline workflows, this means:
-
-- **Consistent interfaces** regardless of provider choice
-- **Portable scripts** that work across different LLM backends
-- **Unified structured output** from multimodal analysis tasks
-
-The expanded attachment support opens up new use cases like automated image metadata extraction, document content parsing, and visual data analysis—all with the deterministic, schema-validated output prompt2json is known for.
-
-## Get Started
-
-### Installation
-
-prompt2json v0.5.0 is available through all standard installation methods:
-
-1. **Download binary** from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/prompt2json/releases/tag/v0.5.0)
-2. **Install with Go:** `go install github.com/UnitVectorY-Labs/prompt2json@latest`
-3. **Build from source:** Clone the repository and run `go build -o prompt2json`
-
-### Provider Considerations
-
-When using attachments with the OpenAI provider:
-
-- Ensure your chosen model or endpoint supports multimodal Chat Completions
-- Some Ollama setups may require specific model configurations for image processing
-- File types supported include PNG, JPG, JPEG, WebP, and PDF
-
-For Gemini users, the familiar size limits apply (7 MB per image, ~20 MB total per request).
-
-### Upgrading from v0.4.0
-
-This release has no breaking changes. Existing workflows using the `--prompt` flag or stdin piping will continue to work as before. The documentation has been updated to emphasize the `--prompt` flag syntax for new examples.
-
----
-
-**Transparency Note:** This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It was produced on February 18, 2026, referencing the prompt2json v0.5.0 release from https://github.com/UnitVectorY-Labs/prompt2json/releases/tag/v0.5.0. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
+This post was AI-generated.
+Model used: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+Repository: [UnitVectorY-Labs/prompt2json](https://github.com/UnitVectorY-Labs/prompt2json)
+Release: [v0.5.0](https://github.com/UnitVectorY-Labs/prompt2json/releases/tag/v0.5.0)
+Date: 2026-04-13
+Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

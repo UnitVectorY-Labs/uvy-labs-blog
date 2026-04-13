@@ -1,67 +1,38 @@
 ---
 layout: post
-title: "prompt2json v0.5.1: Intelligent HTTP Timeouts for Better Local and Remote API Support"
-date: 2026-03-01 08:48:40 -0500
-tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "prompt2json v0.5.1: Smarter Timeouts for Remote and Local LLMs"
+date: 2026-03-01 09:00:00 -0500
+tags: ["prompt2json", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the release of prompt2json v0.5.1, a focused update that makes working with local LLM servers smoother while giving you better control over API timeouts for remote services. Released on March 1, 2026, this version introduces intelligent HTTP timeout handling that automatically adapts to your setup.
+Released on March 1, 2026, prompt2json v0.5.1 introduces significant improvements to how the tool handles network requests. This release focuses on robustness and flexibility, ensuring that whether you are calling a powerful remote API or running a local model, your JSON generation workflows remain stable and reliable.
 
-## What's New
+## What's new
 
-### Intelligent HTTP Timeout Handling
+The headline feature of this release is the introduction of **Automatic HTTP Timeout Logic**. Instead of a one-size-fits-all timeout, prompt2json now intelligently determines the best timeout based on your destination:
 
-The headline feature in v0.5.1 is smarter timeout management for API requests. The tool now detects whether you're calling a remote service or a local server and applies the appropriate default:
+- **Remote APIs:** For hosted services like Vertex AI (Gemini) or OpenAI, the default timeout has been increased from 60 seconds to **300 seconds (5 minutes)**. This provides more breathing room for complex prompts that may take longer to process.
+- **Local APIs:** For requests sent to `localhost` or loopback addresses (such as those used by Ollama), the **timeout is now disabled by default**. This is a game-changer for local LLM inference, where generation speeds can vary wildly and often exceed standard timeout limits.
+- **Manual Control:** You still have full control. If the automatic defaults don't fit your specific use case, you can explicitly set a timeout using the `--timeout SECONDS` flag.
 
-- **Remote APIs (OpenAI, Vertex AI):** 300 seconds (5 minutes) default timeout
-- **Localhost URLs (Ollama, local inference servers):** Timeout disabled by default
+Additionally, we've updated the documentation in `USAGE.md` and `EXAMPLES.md` to reflect these changes, and added a new conceptual project diagram to the `README.md` to help new users get up to speed quickly.
 
-This means local LLM servers like Ollama won't get cut off prematurely during longer generation tasks, while remote API calls still have reasonable safeguards against hanging requests.
+## Why it matters
 
-You retain full control with the `--timeout` flag:
-- Leave it unspecified for automatic behavior
-- Set `-1` for auto mode (same as omitting the flag)
-- Use `0` to explicitly disable timeout
-- Specify any positive value for a fixed timeout
+Reliability is the core promise of prompt2json. When using LLMs in shell pipelines and automation scripts, a timeout is more than just an error—it's a break in the pipeline. 
 
-### Visual Guide Added
+By differentiating between remote and local endpoints, we've removed a major pain point for the local-first community. You no longer have to guess the maximum possible generation time for your local model or manually pass long timeout flags every time you run a command. At the same time, the increased remote timeout ensures that your production pipelines are less likely to fail during periods of high API latency.
 
-The README now includes a diagram that illustrates how prompt2json fits into your workflow, making it easier to understand the tool's place in your command-line pipeline.
+## Getting started
 
-### Developer Convenience
-
-A new `justfile` provides convenient shortcuts for common tasks:
-- `just build` - Build the Go application
-- `just test` - Run the test suite
-- `just docs-serve` - Serve documentation locally
-
-## Why It Matters
-
-For users working with local inference servers, this release removes a significant friction point. Previously, the fixed 60-second timeout could interrupt slower model generations, especially with larger models or complex prompts. The new localhost detection ensures your local LLM has the time it needs to complete requests.
-
-Remote API users benefit from the increased default timeout (5 minutes vs. 60 seconds), which accommodates more complex extraction tasks without hitting premature timeouts. This is particularly valuable when using prompt2json for data extraction, structured summarization, or batch processing where response times may vary.
-
-The intelligent defaults mean you can use prompt2json across different setups—cloud APIs and local servers—without constantly adjusting timeout parameters. It's a small change that makes the tool more polished and production-ready.
-
-## Getting Started
-
-Upgrade to v0.5.1 with one of these methods:
+Upgrading to v0.5.1 is simple. You can install the latest version directly using Go:
 
 ```bash
-# Install via Go
-go install github.com/UnitVectorY-Labs/prompt2json@v0.5.1
-
-# Or build from source
-git clone https://github.com/UnitVectorY-Labs/prompt2json.git
-cd prompt2json
-git checkout v0.5.1
-go build -o prompt2json
+go install github.com/UnitVectorY-Labs/prompt2json@latest
 ```
 
-**Backward Compatibility:** This release has no breaking changes. If you relied on the previous 60-second timeout default, simply add `--timeout 60` to your commands to preserve that behavior.
+This release is a non-breaking update, meaning your existing scripts will continue to work perfectly, but they will now benefit from more sensible and flexible timeout behaviors.
 
-Explore the full documentation in the [repository](https://github.com/UnitVectorY-Labs/prompt2json) and check out the [examples](https://github.com/UnitVectorY-Labs/prompt2json/blob/main/docs/EXAMPLES.md) to see how you can integrate prompt2json into your own workflows.
+***
 
----
-
-*This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on March 17, 2026. Source: [UnitVectorY-Labs/prompt2json](https://github.com/UnitVectorY-Labs/prompt2json) (v0.5.1). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL`. It was generated on 2026-04-13 based on the release v0.5.1 of the [UnitVectorY-Labs/prompt2json](https://github.com/UnitVectorY-Labs/prompt2json) repository. Written by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*

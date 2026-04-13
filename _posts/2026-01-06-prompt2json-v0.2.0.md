@@ -1,105 +1,36 @@
 ---
 layout: post
-title: "prompt2json v0.2.0: Debugging Just Got Easier with Dry-Run Flags"
-date: 2026-01-06 18:21:00 -0500
-tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Peek Under the Hood: prompt2json v0.2.0 Introduces Dry-Run Debugging"
+date: 2026-01-06 09:00:00 -0500
+tags: ["prompt2json", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on January 6, 2026, prompt2json v0.2.0 is all about enhancing observability and the developer experience. This release introduces powerful "dry-run" capabilities that let you inspect exactly what is being sent to the LLM, alongside a comprehensive overhaul of our documentation to help you get up and running faster.
 
-We're excited to announce the release of prompt2json v0.2.0, launched on January 6, 2026. This update brings powerful new debugging capabilities that make it easier than ever to understand and troubleshoot how your prompts are translated into API requests to Google's Vertex AI Gemini models.
+## What's new
 
-For developers integrating LLM-powered JSON extraction into their automation workflows, visibility matters. With v0.2.0, you can now inspect exactly what the tool is sending to the API before it actually makes the call—helping you debug issues faster and test commands without incurring unnecessary costs.
+The highlight of v0.2.0 is the introduction of dry-run debugging flags. When working with complex JSON schemas and intricate system instructions, it can be difficult to know exactly how your request is being constructed before it hits the API.
 
-## What's New
+To solve this, we've added two new flags:
+- `--show-url`: Displays the exact API endpoint URL that will be called.
+- `--show-request-body`: Outputs the full JSON request payload, including your schema and instructions.
 
-### Dry-Run Debugging Flags
+Pair these with the `--pretty-print` flag to get a human-readable view of your request, allowing you to verify your configuration without spending a single token.
 
-The star of this release is the introduction of two new command-line flags designed for debugging:
+Beyond the CLI, we've completely revamped our documentation. We've added a new system architecture diagram to clarify the operational flow, expanded our example library in `docs/EXAMPLES.md`, and updated our installation guides to prioritize pre-built binaries for a smoother setup.
 
-**`--show-url`**  
-See the exact Vertex AI endpoint URL that would be called. This is invaluable for verifying your regional endpoint configuration and understanding request routing.
+## Why it matters
 
-```bash
-echo "this is great" | prompt2json \
-    --system-instruction "Classify sentiment" \
-    --schema '{"type":"object","properties":{"sentiment":{"type":"string"}},"required":["sentiment"]}' \
-    --project my-project \
-    --location us-central1 \
-    --model gemini-2.5-flash \
-    --show-url
+Precision is everything when it comes to machine-reliable JSON. By exposing the request body, developers can now iterate on their prompt engineering with total transparency, ensuring that schemas are correctly formatted and system instructions are exactly as intended before deployment.
 
-# Output:
-# https://us-central1-aiplatform.googleapis.com/v1/projects/my-project/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent
-```
+Additionally, the shift toward promoting pre-built binaries lowers the barrier to entry, making `prompt2json` accessible to users who may not have a Go environment configured. Under the hood, we've also optimized the JSON formatting pipeline, reducing overhead and ensuring a leaner, more efficient tool.
 
-**`--show-request-body`**  
-View the complete JSON request payload that would be sent to the Gemini API. Use this to verify your prompt formatting, schema structure, and how attachments are processed.
+## Getting started with v0.2.0
 
-```bash
-echo "this is great" | prompt2json \
-    --system-instruction "Classify sentiment" \
-    --schema '{"type":"object","properties":{"sentiment":{"type":"string"}},"required":["sentiment"]}' \
-    --project my-project \
-    --location global \
-    --model gemini-2.5-flash \
-    --show-request-body \
-    --pretty-print
-```
+Updating to v0.2.0 is seamless, as this release introduces no breaking changes; your existing workflows will continue to work without modification. 
 
-### How Dry-Run Mode Works
-
-When you use either `--show-url` or `--show-request-body`:
-- No actual API call is made
-- No authentication credentials are required
-- Output goes to STDOUT (or a file if you specify `--out`)
-- You avoid hitting rate limits or incurring costs
-
-## Why It Matters
-
-Debugging LLM integrations has always been tricky. You send a prompt, expect JSON back, and when something goes wrong, you're often guessing whether the issue is with your schema, your prompt formatting, or how the request is being constructed.
-
-With v0.2.0's dry-run flags, you can:
-- **Verify endpoint configuration** before running production commands
-- **Inspect request structure** to ensure your prompts and schemas are formatted correctly
-- **Test safely** without burning through API quota or credits during development
-- **Understand the tool better** by seeing exactly what data prompt2json sends to Gemini
-
-This transparency turns prompt2json from a "black box" into a fully inspectable tool that fits naturally into Unix-style workflows where knowing what's happening at each step is essential.
-
-## Documentation Improvements
-
-Alongside the new flags, we've enhanced our documentation:
-- A new workflow diagram showing how prompt2json processes requests
-- Reorganized installation guide with clear billing warnings
-- Comprehensive examples demonstrating dry-run usage in real scenarios
-
-## Upgrade and Installation
-
-Upgrading to v0.2.0 is straightforward—and completely backward compatible. All existing commands work exactly as before.
-
-**Install via Go toolchain (recommended):**
-```bash
-go install github.com/UnitVectorY-Labs/prompt2json@v0.2.0
-```
-
-**Download a pre-built binary:**  
-Visit the [v0.2.0 release page](https://github.com/UnitVectorY-Labs/prompt2json/releases/tag/v0.2.0) to download binaries for your platform.
-
-**Build from source:**
-```bash
-git clone https://github.com/UnitVectorY-Labs/prompt2json.git
-cd prompt2json
-git checkout v0.2.0
-go build -o prompt2json
-```
-
-## Get Started Today
-
-Try the new dry-run flags with your existing commands to see exactly how prompt2json translates your inputs into API requests. Check out the full documentation on [Usage](https://unitvectory-labs.github.io/prompt2json/usage) and [Examples](https://unitvectory-labs.github.io/prompt2json/examples).
-
-As always, we welcome your feedback and contributions. Head over to the [repository](https://github.com/UnitVectorY-Labs/prompt2json) to open issues or submit pull requests.
+We now recommend downloading the pre-built binaries directly from the [GitHub Releases](https://github.com/UnitVectorY-Labs/prompt2json/releases) page for the fastest and easiest installation.
 
 ---
 
-**Transparency Note:** This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model on March 17, 2026, as part of an automated release documentation workflow. The tool used to generate this post is [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on 2026-04-13 based on the [v0.2.0 release](https://github.com/UnitVectorY-Labs/prompt2json/releases/tag/v0.2.0) of the [prompt2json](https://github.com/UnitVectorY-Labs/prompt2json) repository. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*

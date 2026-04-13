@@ -1,132 +1,42 @@
 ---
 layout: post
-title: "prompt2json v0.3.0: Multi-Provider Support Arrives"
-date: 2026-02-04 00:25:55 -0500
-tags: ["prompt2json", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "prompt2json v0.3.0: Breaking Boundaries with Multi-Provider Support"
+date: 2026-02-04 09:00:00 -0500
+tags: ["prompt2json", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-# prompt2json v0.3.0: Multi-Provider Support Arrives
+Released on February 4, 2026, prompt2json v0.3.0 marks a major milestone in the project's evolution. Previously a Gemini-centric tool, prompt2json has now expanded into a versatile, multi-provider utility, allowing users to bring the power of deterministic, schema-validated JSON to a wider array of Large Language Models.
 
-**Released:** February 4, 2026
+### What's new
 
-We're excited to announce **prompt2json v0.3.0**, a major release that transforms our CLI tool from a single-provider utility into a universal LLM-to-JSON interface. This release brings OpenAI provider support, enabling you to use prompt2json with OpenAI models, Ollama local deployments, Google Cloud's OpenAI-compatible endpoint, or any server implementing the OpenAI Chat Completions API.
+The headline feature of v0.3.0 is the introduction of **Multi-Provider Support**. By introducing the `--provider` flag, the tool now supports both Google's Gemini and OpenAI-compatible Chat Completions APIs.
 
-## What's New
+**OpenAI and Local LLM Integration**
+Users can now leverage OpenAI's state-of-the-art models or run local LLMs via servers like Ollama. This integration brings full support for structured outputs via `json_schema`, ensuring that the LLM adheres strictly to your defined output shape. For those using OpenAI, a new `--strict-schema` flag enables "Strict" mode for even more reliable validation.
 
-### Multi-Provider Support
+**Universal Control**
+To make the tool more flexible across different environments, v0.3.0 introduces universal API overrides. The `--url` flag allows you to point the tool at any compatible endpoint, and the `--api-key` flag provides a consistent way to handle authentication regardless of the provider you are using.
 
-The headline feature of v0.3.0 is **OpenAI provider support**. You can now choose between two providers:
+**Enhanced Gemini Experience**
+While expanding its horizons, prompt2json continues to support Gemini's unique capabilities, including the ability to attach images and PDFs to prompts. Additionally, Gemini users can now use the universal `--api-key` flag as an alternative to Application Default Credentials.
 
-- **`gemini`** - Google Cloud's Vertex AI (the previous single provider)
-- **`openai`** - OpenAI Chat Completions API and compatible endpoints
+### Why it matters
 
-This flexibility means you can switch between providers based on your budget, infrastructure preferences, or model requirements—all with the same prompt2json interface.
+For developers and automation engineers, the value of prompt2json lies in its ability to turn non-deterministic LLMs into reliable interfaces. By expanding provider support, this reliability is no longer locked to a single ecosystem.
 
-### New Command-Line Flags
+Whether you need the massive context windows of Gemini, the widespread availability of OpenAI, or the privacy and cost-efficiency of a local Ollama instance, prompt2json provides a unified CLI experience. You can now swap models and providers while keeping your JSON schemas and shell pipelines exactly the same.
 
-v0.3.0 introduces several new flags to support multi-provider functionality:
+### Getting Started and Upgrading
 
-- **`--provider`** (required) - Choose your backend: `gemini` or `openai`
-- **`--api-key`** - Supply bearer token authentication for the OpenAI provider
-- **`--url`** - Override default API endpoints (works with both providers)
-- **`--strict-schema`** - Enable OpenAI's strict mode for structured outputs
+If you are upgrading from a previous version, please note that the **`--provider` flag is now mandatory**. To keep your existing workflows running, simply add `--provider gemini` to your commands.
 
-### Local LLM Support
+To try out the new OpenAI support:
+1. Add `--provider openai`.
+2. Specify your model (e.g., `--model gpt-4o`).
+3. Provide your key via `--api-key` or the `OPENAI_API_KEY` environment variable.
 
-With the `--url` flag and OpenAI provider, you can now point prompt2json at local LLM deployments:
+For local LLMs, use the `--url` flag to specify your local server address.
 
-```bash
-echo "extract entities" | prompt2json \
-    --provider openai \
-    --url "http://localhost:11434/v1/chat/completions" \
-    --model "llama3.2" \
-    --schema '{"type": "object", "properties": {...}}'
-```
+***
 
-This opens up privacy-sensitive use cases and eliminates cloud dependency for development and testing.
-
-### OpenAI Structured Outputs
-
-The new `--strict-schema` flag leverages OpenAI's structured outputs feature, which rejects responses that don't conform exactly to your JSON schema. This provides stronger guarantees for automation workflows.
-
-## Breaking Changes
-
-**Important:** If you're upgrading from v0.2.0, your scripts need a quick update. The `--provider` flag is now required:
-
-**Before (v0.2.0):**
-```bash
-prompt2json --system-instruction "..." --schema '...' \
-    --project "my-project" --location "us-central1" \
-    --model "gemini-2.5-flash"
-```
-
-**After (v0.3.0):**
-```bash
-prompt2json --provider gemini --system-instruction "..." --schema '...' \
-    --project "my-project" --location "us-central1" \
-    --model "gemini-2.5-flash"
-```
-
-Note that `--project` and `--location` are now Gemini-only flags. Using them with the OpenAI provider will result in an error.
-
-## Why It Matters
-
-prompt2json solves a fundamental problem: **turning free-form LLM prompts into reliable, schema-validated JSON** for automation and batch processing. Before v0.3.0, you were locked into Google's Vertex AI. Now you have choices:
-
-- **Cost optimization:** Run local models with Ollama for zero per-call costs
-- **Model experimentation:** Test the same prompt across Gemini, GPT-4o, or open-source alternatives
-- **Infrastructure flexibility:** Use cloud APIs during development and switch to local deployment in production
-- **Vendor independence:** No more lock-in; your prompts work anywhere
-
-### Provider Comparison
-
-| Feature | Gemini | OpenAI |
-|---------|--------|--------|
-| Attachments (images/files) | ✅ Yes | ❌ Text-only |
-| Requires API key | ADC or `--url` | Required (or custom `--url`) |
-| Strict schema mode | ❌ | ✅ Via `--strict-schema` |
-| Local deployment | ❌ | ✅ Via `--url` |
-
-## Upgrade & Installation
-
-### Install v0.3.0
-
-**Using Go install:**
-```bash
-go install github.com/UnitVectorY-Labs/prompt2json@v0.3.0
-```
-
-**From source:**
-```bash
-git clone https://github.com/UnitVectorY-Labs/prompt2json.git
-cd prompt2json
-git checkout v0.3.0
-go build -o prompt2json
-```
-
-**Pre-built binaries:** Available for macOS (Intel/Apple Silicon), Linux (x86_64/ARM/32-bit), and Windows from the [GitHub release page](https://github.com/UnitVectorY-Labs/prompt2json/releases/tag/v0.3.0).
-
-### Getting Started with OpenAI Provider
-
-1. Set your API key:
-   ```bash
-   export OPENAI_API_KEY="sk-..."
-   ```
-
-2. Run your first OpenAI prompt:
-   ```bash
-   echo "summarize this" | prompt2json \
-       --provider openai \
-       --model "gpt-4o" \
-       --schema '{"type": "object", "properties": {"summary": {"type": "string"}}}'
-   ```
-
-### Documentation
-
-Full usage guides, examples, and installation instructions are available in the [docs](https://unitvectory-labs.github.io/prompt2json/).
-
----
-
-## Transparency Note
-
-This release announcement was AI-generated using the **unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M** model on February 4, 2026, based on the v0.3.0 release of the [prompt2json](https://github.com/UnitVectorY-Labs/prompt2json) repository. The article was authored by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Based on the release of prompt2json v0.3.0 on February 4, 2026. Generated on April 13, 2026. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
