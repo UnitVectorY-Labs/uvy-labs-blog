@@ -1,68 +1,31 @@
 ---
 layout: post
-title: "mcp-vertex-search-snippets v0.1.1 Released"
-date: 2025-09-03 09:37:15 -0500
-tags: ["mcp-vertex-search-snippets", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "Expanding Regional Support for Vertex AI Search: v0.1.1"
+date: 2025-09-03 09:00:00 -0500
+tags: ["mcp-vertex-search-snippets", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+Released on September 3, 2025, v0.1.1 of `mcp-vertex-search-snippets` focuses on enhancing regional connectivity for Google Cloud's Vertex AI Search. This update improves how the MCP server interacts with regional endpoints, ensuring a more robust integration for users deploying search instances outside of the global region.
 
-We're pleased to announce the release of **mcp-vertex-search-snippets v0.1.1**, published on September 3, 2025. This update addresses a critical configuration bug that affected users relying on US and global location settings in their Vertex AI Search integration.
+## What's new
 
-For those new to the project, mcp-vertex-search-snippets is a lightweight MCP (Model Context Protocol) server that integrates with Google Cloud's Vertex AI Search, enabling you to query indexed documents and retrieve high-quality search snippets directly through your MCP client.
+The primary update in this release is the refined logic for regional endpoint URL matching. The server now correctly identifies and routes requests to the `eu` regional endpoint, allowing for better support of European Vertex AI Search deployments.
 
-## What's New
+## Why it matters
 
-While v0.1.1 is primarily a maintenance release, it includes an important fix:
-
-### Fixed API Endpoint Configuration
-- Corrected the API URL construction logic for US and global location configurations
-- Users with `location: us` or `location: global` in their vertex.yaml configuration will now connect properly to Vertex AI Search APIs
-
-This bug in v0.1.0 could have caused connection failures for users in these regions without a clear indication of the root cause.
-
-## Why It Matters
-
-The corrected URL logic ensures that your MCP server can properly communicate with Google Cloud's Discovery Engine API based on your configured location:
-
-- **global**: Uses the standard `discoveryengine.googleapis.com` endpoint
-- **us**: Properly routes to the US regional endpoint
-- **eu**: Correctly uses `eu-discoveryengine.googleapis.com`
-
-If you're running v0.1.0 with US or global location settings, upgrading to v0.1.1 is strongly recommended to ensure reliable connectivity.
+As organizations increasingly prioritize data residency and regional performance, the ability to target specific regional endpoints becomes critical. By improving regional URL matching, `mcp-vertex-search-snippets` enables users to maintain tighter control over their data traffic and leverage the full capabilities of regional Vertex AI Search instances.
 
 ## Getting Started
 
-### Upgrade from v0.1.0
+You can upgrade to v0.1.1 through your standard MCP server update process. 
 
-Upgrading is straightforward - no configuration changes are needed:
+**Important Note for US Region Users**: We have identified a connectivity issue affecting the `us` regional endpoint in this specific version. If your configuration uses the `us` location, we strongly recommend skipping v0.1.1 and upgrading directly to **v0.1.2** to ensure uninterrupted service.
 
-**From GitHub Releases:**
-1. Download the appropriate binary for your platform from the [v0.1.1 release page](https://github.com/UnitVectorY-Labs/mcp-vertex-search-snippets/releases/tag/v0.1.1)
-2. Replace your existing binary
-3. Restart your MCP client
+***
 
-**From Source:**
-```bash
-go install github.com/UnitVectorY-Labs/mcp-vertex-search-snippets@v0.1.1
-```
-
-### First Time Installation
-
-If you're new to mcp-vertex-search-snippets:
-
-1. Download the pre-compiled binary for your platform (macOS, Linux, or Windows)
-2. Configure your `vertex.yaml` file with your GCP project details:
-   ```yaml
-   project_id: "your-gcp-project-id"
-   location: "us"  # or "eu" or "global"
-   app_id: "your-discovery-engine-app-id"
-   ```
-3. Set up authentication using Google Cloud Application Default Credentials
-4. Configure your MCP client to use the binary
-
-No breaking changes in this release means existing configurations continue to work seamlessly.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Release data sourced from the [mcp-vertex-search-snippets repository](https://github.com/UnitVectorY-Labs/mcp-vertex-search-snippets), release v0.1.1, published September 3, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
+This post was AI-generated.
+- Model: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
+- Repository: [UnitVectorY-Labs/mcp-vertex-search-snippets](https://github.com/UnitVectorY-Labs/mcp-vertex-search-snippets)
+- Release: [v0.1.1](https://github.com/UnitVectorY-Labs/mcp-vertex-search-snippets/releases/tag/v0.1.1)
+- Date of generation: 2026-04-13
+- Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)

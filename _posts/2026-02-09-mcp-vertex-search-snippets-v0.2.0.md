@@ -1,79 +1,30 @@
 ---
 layout: post
-title: "mcp-vertex-search-snippets v0.2.0: Stable API Integration and Version Reporting Improvements"
-date: 2026-02-09 03:05:26 -0500
-tags: ["mcp-vertex-search-snippets", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: \"mcp-vertex-search-snippets v0.2.0 Release\"
+date: 2026-02-09 09:00:00 -0500
+tags: ["mcp-vertex-search-snippets", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-## Introduction
+On February 9, 2026, we released v0.2.0 of mcp-vertex-search-snippets. This maintenance update focuses on strengthening the project's foundations by upgrading the toolchain and updating critical dependencies to ensure better stability and performance.
 
-Today we're pleased to announce the release of **mcp-vertex-search-snippets v0.2.0**, published on February 9, 2026. This release brings important improvements to the project's stability and reliability, including a transition to the stable Vertex AI Search API and enhanced version reporting for users who install from source.
+## What's new
 
-As a lightweight MCP (Model Context Protocol) server integrating with Google Cloud's Vertex AI Search, mcp-vertex-search-snippets enables document discovery through high-quality search snippets and extractive segments. Version 0.2.0 represents the project's commitment to production-readiness and ongoing maintenance.
+This release brings several under-the-hood improvements:
 
-## What's New
+- **Enhanced Version Reporting**: The server now more accurately reports its version by leveraging Go's build information, ensuring consistent versioning even when not explicitly defined.
+- **Dependency Updates**: We've updated key dependencies, including the `mcp-go` framework and `golang.org/x/oauth2`, to incorporate the latest fixes and improvements.
+- **Toolchain Upgrade**: The project has been upgraded to Go 1.25.7, bringing the latest language optimizations and security patches.
+- **CI/CD Improvements**: GitHub Action workflows have been refreshed for more reliable builds and deployments.
+- **Project Visibility**: Added health and status badges to the README for better project tracking.
 
-### Stable Vertex AI Search API
+## Why it matters
 
-The most significant technical improvement in v0.2.0 is the transition from the `/v1alpha/` API endpoints to the stable `/v1/` API. This change moves your Vertex AI Search integration from an alpha (pre-release) API to a production-grade endpoint, providing:
+While v0.2.0 doesn't introduce new user-facing features, these updates are crucial for the long-term health of the project. By keeping our dependencies and toolchain current, we ensure that mcp-vertex-search-snippets remains secure, performant, and compatible with the evolving MCP ecosystem. The improved version reporting also simplifies troubleshooting and support for users.
 
-- **Long-term stability**: Stable APIs are backed by Google's production commitments and are not subject to the deprecation timelines that affect alpha endpoints
-- **Better reliability**: Production APIs undergo more rigorous testing and monitoring
-- **Future-proofing**: Your integration is now aligned with Google's long-term API roadmap
+## Upgrade and Installation
 
-This upgrade happens automatically when you update to v0.2.0—no configuration changes required on your part.
-
-### Improved Version Reporting
-
-For users who install mcp-vertex-search-snippets from source using `go install`, version reporting has been significantly improved. Previously, installations built outside of formal release contexts would report "dev" as their version. Now:
-
-- The application correctly reads its version from Go's build information
-- Installing via `go install github.com/UnitVectorY-Labs/mcp-vertex-search-snippets@v0.2.0` will show the proper version number
-- This makes debugging and troubleshooting easier when working with different installations
-
-### Dependency Updates
-
-The release includes important updates to core dependencies:
-
-- **mcp-go (v0.38.0 → v0.43.2)**: Five minor version updates bring stability improvements and bug fixes to the underlying MCP protocol implementation
-- **OAuth2 (v0.30.0 → v0.35.0)**: Security and compatibility updates for Google Cloud authentication
-
-## Why It Matters
-
-This release may not introduce flashy new features, but it focuses on what matters most for production deployments: **reliability and maintainability**.
-
-By migrating to the stable Vertex AI Search API, the project ensures that your document discovery workflows remain stable over time without unexpected breaking changes from upstream API deprecations. This is especially important for teams relying on mcp-vertex-search-snippets as part of their infrastructure.
-
-The improved version reporting benefits developers and DevOps engineers who deploy from source or need to verify installed versions across multiple environments. Being able to accurately identify which version you're running is fundamental to effective operations.
-
-The steady pace of dependency updates demonstrates active maintenance and attention to security—a reassuring signal for anyone considering this tool for their stack.
-
-## Upgrade Instructions
-
-Upgrading to v0.2.0 is straightforward with no breaking changes from v0.1.0:
-
-### Pre-compiled Binaries (Recommended)
-
-Download the appropriate binary for your platform from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/mcp-vertex-search-snippets/releases/tag/v0.2.0):
-
-- **macOS**: `mcp-vertex-search-snippets-v0.2.0-darwin-amd64.tar.gz` or `darwin-arm64.tar.gz`
-- **Linux**: `mcp-vertex-search-snippets-v0.2.0-linux-amd64.tar.gz`, `linux-arm64.tar.gz`, or `linux-386.tar.gz`
-- **Windows**: `mcp-vertex-search-snippets-v0.2.0-windows-amd64.zip` or `windows-386.zip`
-
-Each archive includes checksums (MD5 and SHA256) for verification.
-
-### From Source
-
-```bash
-go install github.com/UnitVectorY-Labs/mcp-vertex-search-snippets@v0.2.0
-```
-
-No configuration file changes are needed—your existing `vertex.yaml` setup continues to work as before. All command-line flags, including the `--http` flag for streamable HTTP mode, remain unchanged.
-
-## Continue Exploring
-
-You can explore the full changelog, download binaries, and review the project documentation on the [GitHub repository](https://github.com/UnitVectorY-Labs/mcp-vertex-search-snippets). As the project continues to mature, we look forward to bringing more features while maintaining the stability and simplicity that make mcp-vertex-search-snippets useful for document discovery workflows.
+Users can upgrade to v0.2.0 by updating their installation to the latest version of the server. As this is a maintenance release with no breaking changes, the upgrade process is seamless.
 
 ---
 
-*Transparency note: This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. It was authored by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) on March 17, 2026, based on the v0.2.0 release published February 9, 2026 from the UnitVectorY-Labs/mcp-vertex-search-snippets repository.*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on April 13, 2026, based on the [UnitVectorY-Labs/mcp-vertex-search-snippets](https://github.com/UnitVectorY-Labs/mcp-vertex-search-snippets) repository and the [v0.2.0 release](https://github.com/UnitVectorY-Labs/mcp-vertex-search-snippets/releases/tag/v0.2.0). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
