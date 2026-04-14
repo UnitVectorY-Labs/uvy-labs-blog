@@ -1,82 +1,32 @@
 ---
 layout: post
-title: "Introducing tofu-template-tester v0.1.1"
+title: "Tofu Template Tester v0.1.1: Better Visibility and Stability"
 date: 2025-10-14 09:00:00 -0500
-tags: ["tofu-template-tester", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+tags: ["tofu-template-tester", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-# What's New in v0.1.1
+On October 14, 2025, we released tofu-template-tester v0.1.1. This update focuses on enhancing the user experience with better visibility into the tool's version and strengthening the project's foundation for future growth.
 
-The tofu-template-tester team is excited to announce the release of version 0.1.1, available now on GitHub. Published on October 14, 2025, this update brings a highly requested feature that enhances user experience and improves tool discoverability.
+## What's new
 
-## What's New
+The most notable addition in this release is the introduction of the `-version` flag. Users can now easily verify which version of the tofu-template-tester they are running directly from the command line, simplifying troubleshooting and ensuring consistency across different environments.
 
-### Version Flag Added
+## Why it matters
 
-The standout addition in v0.1.1 is the new `--version` flag. Users can now run:
+While a version flag may seem like a small addition, it is a fundamental piece of a professional CLI tool. It provides immediate clarity for users and developers alike. 
 
-```bash
-tofu-template-tester --version
-```
+Beyond the visible changes, v0.1.1 brings significant under-the-hood improvements. We have updated the project to Go 1.25.2 and implemented a comprehensive suite of unit tests. These changes ensure that the core logic—from property loading to template rendering—is stable, reliable, and performing at its best.
 
-This command displays the current version of the tool, making it easier than ever to verify your installation, troubleshoot issues, and confirm upgrades in CI/CD pipelines. The version string is embedded at build time, ensuring accuracy across all distributed binaries.
+## Getting started
 
-## Why It Matters
-
-Version tracking is fundamental to modern CLI tooling. Being able to quickly check which version you're running streamlines support workflows, simplifies debugging, and helps teams maintain consistency across their infrastructure as code environments.
-
-This release also includes behind-the-scenes improvements:
-- Updated Go runtime through version 1.25.2
-- Latest GitHub Actions dependencies for improved CI/CD security and performance
-- Enhanced build provenance attestations
-
-## Installation and Upgrade
-
-### Upgrading
-
-If you're already using tofu-template-tester, upgrading to v0.1.1 is straightforward:
-
-1. Download the pre-compiled binary for your platform from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/tofu-template-tester/releases/tag/v0.1.1)
-2. Extract the archive (`.tar.gz` for Unix-like systems, `.zip` for Windows)
-3. Replace your existing binary
-
-### Fresh Installation
-
-**Supported Platforms:**
-- macOS (Intel and Apple Silicon)
-- Linux (x86_64, ARM64, 32-bit)
-- Windows (x86_64, 32-bit)
-
-Each release includes MD5 and SHA256 checksums for verification.
-
-**Install via Go:**
+You can upgrade to the latest version by running:
 
 ```bash
-go install github.com/UnitVectorY-Labs/tofu-template-tester@v0.1.1
+go install github.com/UnitVectorY-Labs/tofu-template-tester@latest
 ```
 
-**Verify Your Installation:**
+Alternatively, pre-compiled binaries for macOS, Linux, and Windows are available on our [GitHub Releases](https://github.com/UnitVectorY-Labs/tofu-template-tester/releases) page.
 
-```bash
-tofu-template-tester --version
-# Output: Version: v0.1.1
-```
+***
 
-### About tofu-template-tester
-
-tofu-template-tester is a lightweight Go CLI tool that renders Terraform-compatible templates by replacing `${NAME}`-style placeholders with user-supplied values. Perfect for generating configuration files, infrastructure templates, and other variable-driven outputs.
-
-**Key Features:**
-- List all template variables with `-list-params`
-- Read templates from files or STDIN
-- Load variable assignments from properties files
-- Interactive prompts for missing variables
-- Output to files or STDOUT
-
-## Get Involved
-
-Head over to the [GitHub repository](https://github.com/UnitVectorY-Labs/tofu-template-tester) to explore the code, report issues, or contribute to future development. This release represents ~28 commits since v0.1.0, with special thanks to new contributor @JaredHatfield for implementing the version flag.
-
----
-
-*This post was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Release information sourced from [UnitVectorY-Labs/tofu-template-tester v0.1.1](https://github.com/UnitVectorY-Labs/tofu-template-tester/releases/tag/v0.1.1), published October 14, 2025. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
+*This post was AI-generated using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. It was generated on 2026-04-14 based on the v0.1.1 release of the [UnitVectorY-Labs/tofu-template-tester](https://github.com/UnitVectorY-Labs/tofu-template-tester) repository. Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
