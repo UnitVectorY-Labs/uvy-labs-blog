@@ -1,70 +1,34 @@
 ---
 layout: post
-title: "tofu-template-tester v0.2.0 Improves Version Reporting"
-date: 2026-02-09 03:04:00 -0500
-tags: ["tofu-template-tester", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "tofu-template-tester v0.2.0: Improving Stability and Transparency"
+date: 2026-02-09 09:00:00 -0500
+tags: ["tofu-template-tester", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're pleased to announce the availability of tofu-template-tester v0.2.0, released on February 9, 2026. This maintenance release focuses on reliability improvements and infrastructure updates that enhance the user experience.
+Released on February 9, 2026, tofu-template-tester v0.2.0 is a maintenance release dedicated to enhancing the stability and transparency of the tool. While this update focuses on the foundation rather than adding new features, it ensures a more reliable experience for users deploying the tool in their workflows.
 
-## What's New
+## What's new
 
-**Improved Version Detection**
+This release brings several key refinements to the tofu-template-tester CLI:
 
-The most notable change in v0.2.0 is a bug fix that ensures accurate version reporting when the tool is installed via `go install`. Previously, installations performed this way might report "dev" instead of the actual semantic version. Now, tofu-template-tester correctly identifies and displays its version (e.g., "v0.2.0") when you run `tofu-template-tester -version`. This improvement makes it easier for users to verify their installation and for maintainers to provide targeted support.
+* **Accurate Version Reporting**: We've fixed a common issue where the CLI would report its version as `dev` when installed via `go install`. The tool now correctly identifies and reports its semantic version, providing better clarity on exactly which version you are running.
+* **Core Runtime Upgrade**: The project has been updated to Go 1.25.7. This upgrade ensures the tool leverages the latest performance optimizations and security patches provided by the Go language.
+* **Pipeline & Documentation Fixes**: We've updated our GitHub Actions CI pipelines for improved reliability and fixed a broken license badge in the README to keep the project's documentation clean.
 
-**Updated Go Runtime**
+## Why it matters
 
-This release ships with Go 1.25.7, representing several incremental updates from the Go 1.25.2 runtime included in v0.1.1. These runtime updates bring performance improvements and security patches that benefit all users.
+For users of tofu-template-tester, these changes provide peace of mind. Accurate versioning is critical for debugging and ensuring consistency across different environments. Additionally, keeping the Go runtime current ensures that the tool remains secure and efficient, maintaining the lightweight performance that users expect from this template rendering utility.
 
-## Why It Matters
+## Upgrade and Installation
 
-While v0.2.0 doesn't introduce new features, it represents the maturation of tofu-template-tester as a reliable tool for infrastructure automation workflows. Accurate version reporting is crucial for:
-
-- **Troubleshooting**: When you encounter issues and reach out for help, precise version information helps maintainers reproduce and diagnose problems faster
-- **Compliance**: Organizations tracking software versions for security audits can now accurately identify deployed versions
-- **Confidence**: Knowing your tool correctly reports its version provides peace of mind that your installation is working as expected
-
-The underlying infrastructure improvements also matter. Automated dependency management through Dependabot ensures the project stays current with security patches and maintains compatibility with evolving GitHub Actions workflows.
-
-## Upgrade Instructions
-
-Upgrading to v0.2.0 is straightforward, and the good news is there are no breaking changes. Your existing command-line interfaces and configuration files will continue to work exactly as before.
-
-### Option 1: Download Pre-compiled Binary
-
-Visit the [v0.2.0 release page](https://github.com/UnitVectorY-Labs/tofu-template-tester/releases/tag/v0.2.0) and download the binary archive for your platform:
-
-- **macOS**: `darwin-amd64` or `darwin-arm64`
-- **Linux**: `linux-386`, `linux-amd64`, or `linux-arm64`
-- **Windows**: `windows-386` or `windows-amd64`
-
-Each archive includes checksum files (MD5 and SHA256) for verification. After downloading, simply extract and replace your existing binary.
-
-### Option 2: Reinstall from Source
-
-If you originally installed via `go install`, simply run:
+Since v0.2.0 is a non-breaking release, your existing templates and properties files will work exactly as they did before. You can upgrade to the latest version by downloading the binaries from our GitHub Releases page or by running the following command:
 
 ```bash
-go install github.com/UnitVectorY-Labs/tofu-template-tester@v0.2.0
+go install github.com/UnitVectorY-Labs/tofu-template-tester@latest
 ```
 
-This will download and install the latest version with the improved version detection fix.
+We appreciate your continued use of tofu-template-tester as we continue to refine the tool for better reliability.
 
-### Verify Your Installation
+***
 
-After upgrading, confirm you have v0.2.0 by running:
-
-```bash
-tofu-template-tester -version
-```
-
-You should see `v0.2.0` displayed (or whatever version is current if you've since upgraded further).
-
----
-
-**About tofu-template-tester**: A lightweight Go CLI tool that renders Terraform-compatible templates by replacing `${NAME}` placeholders with user-supplied values. Perfect for automating infrastructure configuration workflows.
-
-## Transparency Note
-
-This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. The post is based on research from the [UnitVectorY-Labs/tofu-template-tester](https://github.com/UnitVectorY-Labs/tofu-template-tester) repository, specifically the v0.2.0 release published on February 9, 2026. Generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) on 2026-04-13 using the model unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. Based on the release of tofu-template-tester v0.2.0 on 2026-02-09.*
