@@ -1,80 +1,33 @@
 ---
 layout: post
-title: "yamlequal v0.1.0: Correct Multi-Document YAML Comparison"
-date: 2026-02-28 17:30:00 -0500
-tags: ["yamlequal", "unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M"]
+title: "yamlequal v0.1.0: Bringing Full Semantic Equality to Multi-Document YAML"
+date: 2026-02-28 09:00:00 -0500
+tags: ["yamlequal", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-We're excited to announce the release of yamlequal v0.1.0, a significant update that fixes a critical bug in multi-document YAML handling and achieves 100% test coverage.
+Released on February 28, 2026, `yamlequal` v0.1.0 marks a significant step forward in the library's evolution. This release transforms the tool from an initial prototype into a robust utility for developers who need to ensure that their YAML configurations are semantically identical, regardless of formatting or structure.
 
-Released on February 28, 2026, this version ensures that YAML files with multiple documents are now compared correctly—no more silently ignoring subsequent documents. For developers working with YAML configuration files, data pipelines, or Kubernetes manifests, this release brings improved reliability and accuracy to your YAML comparisons.
+## What's new
 
-## What's New
+The headline feature of v0.1.0 is comprehensive support for multi-document YAML streams. Previously, `yamlequal` would only evaluate the first document it encountered in a file. Now, `CompareFiles` and `CompareYAML` iterate through every document in a stream, ensuring that the entire sequence of data is identical.
 
-### Multi-Document YAML Support Fixed
+Beyond multi-document support, this release brings a massive leap in reliability. We have achieved 100% test coverage, with rigorous verification of:
+- **YAML Anchors and Aliases**: Ensuring complex references are resolved and compared correctly.
+- **Semantic Noise**: Confirming that comments and formatting changes are ignored.
+- **Robust Error Handling**: Better feedback for invalid YAML syntax or missing files.
 
-The headline change in v0.1.0 is proper handling of multi-document YAML streams. In previous versions, only the first document in a YAML file was compared, while additional documents were silently ignored. This could lead to incorrect equality results when comparing files with multiple YAML documents.
+## Why it matters
 
-Now, yamlequal uses a decoder-based approach that parses and compares **all** documents in a YAML stream. Whether your YAML file contains one document or twenty, they will all be included in the comparison.
+For many teams, YAML is more than just a single config file; it's often a stream of documents used in Kubernetes manifests or complex CI pipelines. By supporting multi-document streams, `yamlequal` becomes a viable tool for validating these real-world workloads, preventing silent failures where only the first document was being checked.
 
-### New Validated Behaviors
+The commitment to 100% test coverage means you can integrate `yamlequal` into your critical paths—such as automated testing or deployment gates—with full confidence that the semantic equality check is accurate and stable.
 
-Beyond the multi-document fix, v0.1.0 now properly validates several edge cases:
+## Closing
 
-- **Document count differences:** Files with different numbers of documents are now correctly identified as unequal
-- **YAML anchors and aliases:** Anchor syntax is handled semantically—expanded anchors compare equal to their inline equivalents
-- **Comments:** Comments in YAML files continue to be ignored, ensuring comparison focuses on data rather than documentation
+Upgrading to v0.1.0 is seamless, as there are no breaking changes to the public API. If you are using Go 1.26.0 or later, you can simply update your dependency to the latest version.
 
-### 100% Test Coverage
-
-This release achieves complete test coverage across all code paths. New test suites cover multi-document scenarios, anchor handling, comment filtering, and error conditions. This investment in testing means you can trust yamlequal to handle edge cases correctly now and in future versions.
-
-## Why It Matters
-
-If you've ever compared YAML files containing multiple documents separated by `---`, v0.1.0 fixes a silent bug that could have affected your results. Imagine comparing two Kubernetes configuration files or database migration scripts with multiple documents—previous versions would only check the first document, potentially missing critical differences in subsequent ones.
-
-This isn't just a bug fix; it's a correctness guarantee. The library now does what users expect: compares entire YAML files for semantic equality, regardless of how many documents they contain.
-
-For teams using yamlequal in CI/CD pipelines, configuration validation, or testing frameworks, this release eliminates a class of false positives where unequal files could have been incorrectly reported as equal.
-
-## Upgrade and Installation
-
-Upgrading to v0.1.0 is straightforward—there are **no breaking changes** and the public API remains unchanged. Your existing code will continue to work without modifications.
-
-To install or update:
-
-```bash
-go get github.com/UnitVectorY-Labs/yamlequal@v0.1.0
-```
-
-**Requirements:** Go 1.26 or later
-
-The library requires Go 1.26 for modern type syntax (`any` instead of `interface{}`), but this is a straightforward requirement for most Go projects in 2026.
-
-### What to Expect When Upgrading
-
-- **No code changes needed:** The API signature remains identical
-- **Improved correctness:** Multi-document YAML files will now compare accurately
-- **Same behavior for single documents:** Files with one document behave exactly as before
-
-## Getting Started
-
-yamlequal is a lightweight Go library for semantic YAML file comparison. It ignores formatting differences (whitespace, indentation) and key ordering, focusing only on whether the data is the same.
-
-Basic usage:
-
-```go
-import "github.com/UnitVectorY-Labs/yamlequal"
-
-// Compare two files
-equal, err := yamlequal.CompareFiles("config1.yaml", "config2.yaml")
-
-// Or compare content strings directly
-equal, err := yamlequal.CompareYAML(content1, content2)
-```
-
-For complete documentation and examples, visit the [repository](https://github.com/UnitVectorY-Labs/yamlequal).
+Whether you are managing large-scale infrastructure or just want a cleaner way to compare config files in your tests, `yamlequal` provides the precision you need.
 
 ---
 
-**Transparency Note:** This release announcement was AI-generated using the unsloth/Qwen3.5-122B-A10B-GGUF:Q4_K_M model. Article generated on March 19, 2026. Source repository: [UnitVectorY-Labs/yamlequal](https://github.com/UnitVectorY-Labs/yamlequal/releases/tag/v0.1.0). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).
+*This post was AI-generated using the model `unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL` on 2026-04-14. Reference: [UnitVectorY-Labs/yamlequal](https://github.com/UnitVectorY-Labs/yamlequal), Release [v0.1.0](https://github.com/UnitVectorY-Labs/yamlequal/releases/tag/v0.1.0). Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)*
