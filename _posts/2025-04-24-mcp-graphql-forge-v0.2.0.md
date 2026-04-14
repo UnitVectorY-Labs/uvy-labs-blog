@@ -1,39 +1,40 @@
 ---
 layout: post
 title: "mcp-graphql-forge v0.2.0: Expanding Reach and Strengthening Stability"
-date: 2026-04-24 09:00:00 -0500
+date: 2025-04-24 09:00:00 -0500
 tags: ["mcp-graphql-forge", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
-Released on April 24, 2026, mcp-graphql-forge v0.2.0 marks a significant step forward in making the tool more accessible and resilient. This release focuses on breaking down platform barriers and ensuring that the server remains stable even when encountering unexpected configuration issues.
+Released on April 24, 2025, mcp-graphql-forge v0.2.0 is a significant update focused on broadening accessibility and enhancing the overall reliability of the server. This release ensures that more developers can easily expose their GraphQL APIs as modular tools for AI agents, regardless of their operating system.
 
 ## What's new
 
-The centerpiece of this release is full native support for Windows. The server now intelligently detects the host operating system and utilizes `cmd /C` for executing token commands on Windows, removing a major hurdle for developers on that platform.
+### Windows Compatibility
+For the first time, mcp-graphql-forge officially supports Windows. The `token_command` functionality has been updated to detect the operating system at runtime, using `cmd /C` on Windows to ensure that native shell commands for token retrieval work seamlessly.
 
-Beyond platform expansion, v0.2.0 introduces several critical robustness improvements:
-- **Graceful Error Handling**: We have replaced multiple `panic()` calls with structured error logging to `stderr`, preventing the server from crashing abruptly.
-- **Resilient Startup**: The server now gracefully skips invalid tool configuration files and unsupported input types during initialization instead of terminating.
-- **Enhanced Diagnostics**: When `token_command` fails, the server now captures and reports the `stderr` output, providing users with the precise information needed to debug authentication issues.
-- **Improved Client Communication**: Internal errors are now wrapped and returned as proper MCP tool result errors, ensuring the MCP client receives meaningful feedback rather than a silent failure.
+### Enhanced Server Stability
+We've overhauled how the server handles initialization and configuration. Instead of crashing (panicking) when encountering an error during startup, the server now handles these gracefully. If a specific tool's YAML configuration is malformed or uses an unsupported type, the server will simply log a warning and skip that tool, allowing all other valid tools to remain operational.
+
+### Improved Error Reporting
+Debugging just got easier. The server now captures and reports `stderr` output when a `token_command` fails, providing immediate context for authentication issues. Additionally, GraphQL execution errors are now properly propagated as MCP `ToolResultError` responses, giving AI agents clearer feedback on why a request failed.
 
 ## Why it matters
 
-For many users, the ability to run mcp-graphql-forge natively on Windows without complex workarounds is a game-changer, significantly lowering the barrier to entry for a large portion of the developer community.
+The additions in v0.2.0 move mcp-graphql-forge from a functional prototype to a more mature, production-ready tool. By adding Windows support, we've removed a major barrier for a large segment of the developer community.
 
-Equally important is the shift toward a "fail-soft" architecture. By eliminating abrupt crashes and providing detailed diagnostic information, we've transformed the user experience from one of mystery—where a server might simply stop working—to one of clarity, where the system tells you exactly what is wrong and how to fix it. These changes ensure that mcp-graphql-forge is not just more powerful, but more dependable for production-like environments.
+More importantly, the shift toward graceful error handling means your MCP server is now significantly more resilient. A single typo in a YAML tool definition no longer brings down your entire integration, which is critical for maintaining stable AI agent workflows. Coupled with better error propagation, developers can now identify and fix issues faster than ever before.
 
-## Getting started with v0.2.0
+## Getting Started and Upgrading
 
-To take advantage of these improvements, simply update your installation to version v0.2.0. Windows users can now dive in and start configuring their GraphQL MCP servers natively.
+Upgrading to v0.2.0 is straightforward and involves no breaking changes to your existing configuration files.
 
-We are excited to see how these stability and compatibility updates help you build more robust AI-powered workflows.
+You can install the latest version using Go:
+`go install github.com/UnitVectorY-Labs/mcp-graphql-forge@latest`
 
-***
+Alternatively, you can download the pre-compiled binaries for macOS, Linux, or Windows from the [GitHub Releases page](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.2.0).
 
-This post was AI-generated.
-Model used: unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL
-Repository: [UnitVectorY-Labs/mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge)
-Release: [v0.2.0](https://github.com/UnitVectorY-Labs/mcp-graphql-forge/releases/tag/v0.2.0)
-Date of generation: 2026-04-13
-Author: [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller)
+Whether you are deploying on a Linux server or developing on a Windows laptop, v0.2.0 provides the stability and compatibility needed to power your AI agents with the full strength of your GraphQL APIs.
+
+---
+
+*This post was AI-generated. The model used was unsloth/gemma-4-31B-it-GGUF:UD-Q5_K_XL. This content is based on the v0.2.0 release of the [mcp-graphql-forge](https://github.com/UnitVectorY-Labs/mcp-graphql-forge) repository, released on April 24, 2025. Generated on 2026-04-14 by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller).*
