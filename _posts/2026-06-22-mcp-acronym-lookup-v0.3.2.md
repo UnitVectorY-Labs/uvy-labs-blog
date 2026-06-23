@@ -1,8 +1,8 @@
 ---
 layout: post
-title: \"mcp-acronym-lookup v0.3.2: Strengthening the Foundation\"
+title: "mcp-acronym-lookup v0.3.2: Strengthening the Foundation"
 date: 2026-06-22 09:00:00 -0500
-tags: [placeholder]
+tags: ["mcp-acronym-lookup", "unsloth-gemma-4-31b-it-gguf-ud-q5-k-xl"]
 ---
 
 Released on June 22, 2026, version v0.3.2 of mcp-acronym-lookup is a maintenance release dedicated to infrastructure stability and dependency modernization. While this update doesn't introduce new user-facing features, it ensures that the tool remains robust and fully compatible with the latest standards of the Model Context Protocol (MCP) ecosystem.
