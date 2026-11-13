@@ -5,10 +5,8 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# Keep permissions off by default; grant each job only what it needs.
+permissions: {}
 
 concurrency:
   group: "pages"
@@ -16,6 +14,9 @@ concurrency:
 
 jobs:
   build:
+    # Checkout and configure-pages need repository read access to build the site.
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,6 +41,10 @@ jobs:
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
 
   deploy:
+    # GitHub Pages deployment requires Pages write access and an OIDC token.
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
