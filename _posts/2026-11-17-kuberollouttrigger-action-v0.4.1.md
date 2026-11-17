@@ -1,0 +1,49 @@
+---
+layout: post
+title: "kuberollouttrigger-action v0.4.1: A Security-Focused Patch for Your CD Trigger"
+date: 2026-11-17 02:19:03 +0000
+tags: ["kuberollouttrigger-action", "unsloth-qwen3-8-flash-next-gguf-iq4-xs"]
+---
+
+On **November 17, 2026**, we published [v0.4.1](https://github.com/UnitVectorY-Labs/kuberollouttrigger-action/releases/tag/v0.4.1) of [kuberollouttrigger-action](https://github.com/UnitVectorY-Labs/kuberollouttrigger-action). This is a small, focused maintenance release: it refreshes the action's bundled HTTP client with an upstream security update, and it changes nothing about how you use the action. If you already have a workflow pinned to an earlier version, this upgrade is a one-line change with no migration steps — and it's worth taking.
+
+For context, the action itself stays exactly what it has always been: a minimal GitHub Action that mints a short-lived GitHub OIDC token and POSTs your image and tags to a [kuberollouttrigger](https://github.com/UnitVectorY-Labs/kuberollouttrigger) webhook endpoint, triggering a container rollout in your development environment. No cluster credentials, no kubeconfig, no `kubectl` — just one authenticated HTTPS call. v0.4.1 keeps that model intact and tightens the plumbing underneath it.
+
+## What's new
+
+There are no new features, inputs, or behavior changes in v0.4.1. The headline change is a dependency security update:
+
+- **Updated HTTP stack (undici 6.28.0 → 6.29.1).** The action bundles its HTTP client directly into the published artifact, so the fix ships with the tag. Upstream undici 6.29.1 is a security release addressing five CVEs in the 6.x line, including a high-severity TLS certificate-validation bypass, a crash-the-process DoS via TLS renegotiation, and several parser-related denial-of-service fixes (excessive `Content-Encoding`, server-sent events, and WebSocket control frames). The 6.29 line also includes a retry-handling fix, which is a nice touch here since the action enables bounded retries (2 attempts) on its trigger request.
+- **Accurate version metadata.** The `package.json` and lockfile in the repo had lagged behind the git tags for most of the project's life; as of this release they finally match the actual version, keeping the bundle and tooling honest about what's running.
+
+The rest of the release range was repository housekeeping — CI tooling bumps, new vulnerability-scanning coverage on the project itself, and pinned action references — none of which changes what the action does for you.
+
+## Why it matters
+
+To be straightforward about risk: this action makes a single, simple HTTPS `POST` to a trigger URL you configure, and does not exercise the exotic code paths (streaming, WebSocket, custom TLS callbacks) where most of these CVEs bite. There is no indication anyone was exposed through this action. That said, "not obviously exposed" is not the same as "fine to ignore":
+
+- **Every earlier tag ships the older, vulnerable code.** `v0.1.0` through `v0.4.0` all bundle a pre-6.29.1 HTTP client, and moving to v0.4.1 is the only way to get the hardened version.
+- **Clean dependency scans keep paying off.** The project now runs OSV-Scanner on pull requests and weekly; an up-to-date bundle means your own supply-chain dashboards (and ours) stay quiet instead of flagging noise you have to triage forever.
+- **Defense in depth is cheap here.** The transport layer is now hardened against process-crashing edge cases from any endpoint, and the upgrade costs you one line in a YAML file. The action's security posture was already simple by design — short-lived OIDC tokens instead of stored secrets — and this release keeps the transport layer at the same standard.
+
+## Upgrading
+
+Upgrading is a one-line change to your workflow. There are no breaking changes: same inputs, same defaults, same required permissions (`id-token: write` and `contents: read`), same payload contract.
+
+```yaml
+- uses: unitvectory-labs/kuberollouttrigger-action@v0.4.1
+  with:
+    audience: ${{ vars.KRT_AUDIENCE }}
+    url: ${{ vars.KRT_URL }}
+    image: ghcr.io/myorg/myapp
+    tags: v1.2.3,latest
+    expand-versions: true
+```
+
+A couple of practical notes. The project publishes point tags only — there is no rolling `v0` or `latest` tag — so pinning to `@v0.4.1` (or a full commit SHA for a stricter supply-chain posture) is the way to consume it, and it means you'll see every change the moment you opt in. If you're still on an older pin from the README examples, this is a good moment to move forward: you'll pick up the security fix *and* the version of the action we actively support.
+
+Small maintenance releases like this one are how a tool stays trustworthy over time: no drama, no churn, just the quiet work of keeping the dependencies under your pipelines current. If you use kuberollouttrigger-action to close the loop between `git push` and a refreshed dev environment, v0.4.1 is the version to point your workflows at today.
+
+---
+
+*Transparency note: this post was AI-generated by [release-storyteller](https://github.com/UnitVectorY-Labs/release-storyteller) using the model `unsloth/Qwen3.8-Flash-Next-GGUF:IQ4_XS`. It was generated on November 17, 2026 from the [UnitVectorY-Labs/kuberollouttrigger-action](https://github.com/UnitVectorY-Labs/kuberollouttrigger-action) repository and its [v0.4.1 release](https://github.com/UnitVectorY-Labs/kuberollouttrigger-action/releases/tag/v0.4.1).*
