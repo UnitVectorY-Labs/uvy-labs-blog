@@ -1,0 +1,17 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {%- if page.url == '/' or page.title == nil or page.title == site.title -%}
+    <title>{{ site.title | escape }}</title>
+  {%- else -%}
+    <title>{{ page.title | escape }} — {{ site.title | escape }}</title>
+  {%- endif -%}
+  {%- seo title=false -%}
+  {%- feed_meta -%}
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/uvy-standalone-mark-light.svg' | relative_url }}" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/uvy-standalone-mark-dark.svg' | relative_url }}" media="(prefers-color-scheme: dark)" />
+  <link rel="stylesheet" href="{{ '/assets/css/uvy.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/uvy-blog.css' | relative_url }}" />
+  <script src="{{ '/assets/js/uvy.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/uvy-blog.js' | relative_url }}" data-search-index="{{ '/assets/js/search-data.json' | relative_url }}" defer></script>
+</head>

@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<div class="blog-page">
+  {%- if page.title -%}
+    <div class="uvy-page-header">
+      <div>
+        <h1>{{ page.title | escape }}</h1>
+        {%- if page.lead -%}
+          <p class="uvy-lead">{{ page.lead | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+  <div class="blog-page__content">
+    {{ content }}
+  </div>
+</div>

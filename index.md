@@ -1,9 +1,6 @@
 ---
 layout: home
-title: UnitVectorY Labs Blog
-list_title: Posts
+title: UnitVectorY-Labs Blog
 pagination:
   enabled: true
 ---
-
-The latest releases from UnitVectorY Labs.

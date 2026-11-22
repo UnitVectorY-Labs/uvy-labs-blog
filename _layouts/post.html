@@ -1,35 +1,130 @@
 ---
 layout: default
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+{%- assign words = content | number_of_words -%}
+{%- assign read_mins = words | divided_by: 200 | plus: 1 -%}
+{%- assign primary_tag = page.tags.first -%}
+{%- assign post_year = page.date | date: "%Y" -%}
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+<article class="blog-post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <nav class="uvy-breadcrumbs" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">blog</a></li>
+      <li><a href="{{ '/archive/' | relative_url }}#year-{{ post_year }}">{{ post_year }}</a></li>
+      {%- if primary_tag -%}
+        <li><a href="{{ '/tags/' | relative_url }}#{{ primary_tag | slugify }}">{{ primary_tag | escape }}</a></li>
       {%- endif -%}
-    </p>
+      <li aria-current="page">{{ page.date | date: "%Y-%m-%d" }}</li>
+    </ol>
+  </nav>
+
+  <header class="blog-post-header">
+    <h1 class="p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <div class="blog-post-meta">
+      <span class="with-icon">
+        <svg class="icon icon-small icon-muted" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-calendar"></use></svg>
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
+      </span>
+      <span class="blog-dot" aria-hidden="true">·</span>
+      <span class="with-icon">
+        <svg class="icon icon-small icon-muted" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-clock"></use></svg>
+        <span>{{ read_mins }} min read</span>
+      </span>
+      {%- if page.author -%}
+        <span class="blog-dot" aria-hidden="true">·</span>
+        <span itemprop="author" itemscope itemtype="http://schema.org/Organization"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span>
+      {%- endif -%}
+    </div>
+
     {%- if page.tags.size > 0 -%}
-    <p class="post-tags">
-      {%- for tag in page.tags -%}
-        <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
-      {%- endfor -%}
-    </p>
+      <div class="blog-tags blog-post-tags" aria-label="Post tags">
+        {%- for tag in page.tags -%}
+          <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="uvy-badge blog-tag{% if forloop.first %} blog-tag--project{% else %} blog-tag--model{% endif %}">
+            {%- if forloop.first -%}
+              <svg class="icon icon-small" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-tag"></use></svg>
+            {%- endif -%}
+            {{ tag | escape }}
+          </a>
+        {%- endfor -%}
+      </div>
     {%- endif -%}
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+  <div class="blog-post-layout">
+    <div class="blog-post-body">
+      <div class="blog-prose e-content" itemprop="articleBody">
+        {{ content }}
+      </div>
 
-  {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
-  {%- endif -%}
+      {%- if primary_tag -%}
+        {%- assign related_pool = site.tags[primary_tag] -%}
+        {%- assign related_count = 0 -%}
+        {%- for candidate in related_pool -%}
+          {%- if candidate.url != page.url -%}
+            {%- assign related_count = related_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if related_count > 0 -%}
+          <section class="uvy-panel blog-related" aria-labelledby="related-posts-heading">
+            <div class="uvy-panel__header">
+              <h2 id="related-posts-heading">More from {{ primary_tag | escape }}</h2>
+              <a class="uvy-count" href="{{ '/tags/' | relative_url }}#{{ primary_tag | slugify }}">All {{ related_pool.size }} posts</a>
+            </div>
+            <ul class="uvy-list">
+              {%- assign shown = 0 -%}
+              {%- for candidate in related_pool -%}
+                {%- if candidate.url != page.url and shown < 3 -%}
+                  {%- assign shown = shown | plus: 1 -%}
+                  <li>
+                    <a class="uvy-list__item" href="{{ candidate.url | relative_url }}">
+                      <span class="uvy-list__primary">
+                        <strong>{{ candidate.title | escape }}</strong>
+                      </span>
+                      <time class="uvy-list__meta" datetime="{{ candidate.date | date: '%Y-%m-%d' }}">{{ candidate.date | date: "%Y-%m-%d" }}</time>
+                    </a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </section>
+        {%- endif -%}
+      {%- endif -%}
+
+      <nav class="blog-post-nav" aria-label="Adjacent posts">
+        <div class="blog-post-nav__slot">
+          {%- if page.previous -%}
+            <a class="blog-post-nav__link" href="{{ page.previous.url | relative_url }}">
+              <span class="blog-post-nav__dir with-icon">
+                <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-arrow-left"></use></svg>
+                Older post
+              </span>
+              <span class="blog-post-nav__title">{{ page.previous.title | escape }}</span>
+              <time class="blog-post-nav__date" datetime="{{ page.previous.date | date: '%Y-%m-%d' }}">{{ page.previous.date | date: "%b %-d, %Y" }}</time>
+            </a>
+          {%- endif -%}
+        </div>
+        <div class="blog-post-nav__slot blog-post-nav__slot--next">
+          {%- if page.next -%}
+            <a class="blog-post-nav__link" href="{{ page.next.url | relative_url }}">
+              <span class="blog-post-nav__dir with-icon">
+                Newer post
+                <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-arrow-right"></use></svg>
+              </span>
+              <span class="blog-post-nav__title">{{ page.next.title | escape }}</span>
+              <time class="blog-post-nav__date" datetime="{{ page.next.date | date: '%Y-%m-%d' }}">{{ page.next.date | date: "%b %-d, %Y" }}</time>
+            </a>
+          {%- endif -%}
+        </div>
+      </nav>
+    </div>
+
+    <aside class="blog-toc" id="post-toc" aria-label="On this page" hidden>
+      <div class="blog-toc__inner">
+        <h2 class="blog-toc__heading">On this page</h2>
+        <nav class="blog-toc__nav" id="post-toc-nav" aria-label="Article sections"></nav>
+      </div>
+    </aside>
+  </div>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
