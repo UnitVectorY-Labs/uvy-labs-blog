@@ -1,0 +1,130 @@
+---
+layout: default
+---
+{%- assign tag_name = page.autopage.display_name | default: page.title -%}
+{%- assign tag_posts = site.tags[tag_name] -%}
+{%- assign tag_kind = "model" -%}
+{%- if tag_posts and tag_posts.first.tags.first == tag_name -%}
+  {%- assign tag_kind = "project" -%}
+{%- endif -%}
+{%- assign posts = paginator.posts | default: tag_posts -%}
+
+{%- assign seen_projects = "|" -%}
+{%- assign recent_projects = "" | split: "" -%}
+{%- for p in site.posts -%}
+  {%- assign proj = p.tags.first -%}
+  {%- if proj -%}
+    {%- assign marker = "|" | append: proj | append: "|" -%}
+    {%- unless seen_projects contains marker -%}
+      {%- assign seen_projects = seen_projects | append: proj | append: "|" -%}
+      {%- assign p_date = p.date | date: "%b %-d" -%}
+      {%- assign p_iso = p.date | date: "%Y-%m-%d" -%}
+      {%- assign item = proj | append: "|" | append: p_date | append: "|" | append: p_iso -%}
+      {%- assign recent_projects = recent_projects | push: item -%}
+      {%- if recent_projects.size >= 14 -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<nav class="uvy-breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ '/' | relative_url }}">blog</a></li>
+    <li><a href="{{ '/tags/' | relative_url }}">tags</a></li>
+    <li><a href="{{ '/tags/' | relative_url }}#{% if tag_kind == 'project' %}projects{% else %}models{% endif %}">{% if tag_kind == 'project' %}projects{% else %}models{% endif %}</a></li>
+    <li aria-current="page">{{ tag_name | escape }}</li>
+  </ol>
+</nav>
+
+<div class="uvy-page-header blog-tag-header">
+  <div>
+    <h1>{{ tag_name | escape }}</h1>
+    <p class="blog-tag-header__meta">
+      <span class="uvy-badge">{{ tag_kind }}</span>
+      <span class="uvy-count">
+        {%- if paginator -%}
+          {{ paginator.total_posts }} {% if paginator.total_posts == 1 %}post{% else %}posts{% endif %}
+          {%- if paginator.total_pages > 1 %} · Page {{ paginator.page }} of {{ paginator.total_pages }}{% endif -%}
+        {%- else -%}
+          {{ posts.size }} {% if posts.size == 1 %}post{% else %}posts{% endif %}
+        {%- endif -%}
+      </span>
+    </p>
+  </div>
+  <div class="uvy-actions">
+    <a class="uvy-button" href="{{ '/tags/' | relative_url }}">All tags</a>
+  </div>
+</div>
+
+<div class="blog-shell">
+  <div class="blog-main">
+    {%- if posts.size > 0 -%}
+      <ol class="blog-stream">
+        {%- for post in posts -%}
+          {%- assign words = post.content | number_of_words -%}
+          {%- assign read_mins = words | divided_by: 200 | plus: 1 -%}
+          {%- assign primary_tag = post.tags.first -%}
+          {%- assign post_preview = post.content | strip_html | normalize_whitespace | truncatewords: 42 -%}
+          <li class="blog-stream__item">
+            <article class="blog-entry">
+              <div class="blog-entry__aside">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+                <span class="blog-entry__readtime">{{ read_mins }} min read</span>
+                {%- if primary_tag and primary_tag != tag_name -%}
+                  <a href="{{ primary_tag | slugify | prepend: '/tags/' | append: '/' | relative_url }}" class="uvy-badge blog-tag blog-tag--project">{{ primary_tag | escape }}</a>
+                {%- endif -%}
+              </div>
+              <div class="blog-entry__body">
+                <h2 class="blog-entry__title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                </h2>
+                <p class="blog-entry__excerpt">{{ post_preview }}</p>
+                <div class="blog-entry__footer">
+                  <div class="blog-tags">
+                    {%- for tag in post.tags -%}
+                      {%- if tag != tag_name and tag != primary_tag -%}
+                        <a href="{{ tag | slugify | prepend: '/tags/' | append: '/' | relative_url }}" class="uvy-badge blog-tag blog-tag--model">{{ tag | escape }}</a>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                  <a class="blog-read-link" href="{{ post.url | relative_url }}">Read article</a>
+                </div>
+              </div>
+            </article>
+          </li>
+        {%- endfor -%}
+      </ol>
+
+      {%- include pagination.html -%}
+    {%- else -%}
+      <div class="uvy-empty">
+        <strong>No posts found for this tag</strong>
+        <p>Return to the tag directory to browse other projects and models.</p>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <aside class="blog-rail" aria-label="Recently updated projects">
+    <section class="blog-rail__section" aria-labelledby="tag-rail-recent">
+      <h2 id="tag-rail-recent">Recently updated</h2>
+      <ul class="blog-rail__list">
+        {%- for entry in recent_projects -%}
+          {%- assign parts = entry | split: "|" -%}
+          {%- assign proj_name = parts[0] -%}
+          {%- assign proj_date = parts[1] -%}
+          {%- assign proj_iso = parts[2] -%}
+          <li>
+            <a href="{{ proj_name | slugify | prepend: '/tags/' | append: '/' | relative_url }}"{% if proj_name == tag_name %} aria-current="page"{% endif %}>
+              <span>{{ proj_name | escape }}</span>
+              <time class="num" datetime="{{ proj_iso }}">{{ proj_date }}</time>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+      <p class="blog-rail__more">
+        <a href="{{ '/tags/' | relative_url }}">All projects &amp; tags</a>
+      </p>
+    </section>
+  </aside>
+</div>

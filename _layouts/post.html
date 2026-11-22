@@ -12,7 +12,7 @@ layout: default
       <li><a href="{{ '/' | relative_url }}">blog</a></li>
       <li><a href="{{ '/archive/' | relative_url }}#year-{{ post_year }}">{{ post_year }}</a></li>
       {%- if primary_tag -%}
-        <li><a href="{{ '/tags/' | relative_url }}#{{ primary_tag | slugify }}">{{ primary_tag | escape }}</a></li>
+        <li><a href="{{ primary_tag | slugify | prepend: '/tags/' | append: '/' | relative_url }}">{{ primary_tag | escape }}</a></li>
       {%- endif -%}
       <li aria-current="page">{{ page.date | date: "%Y-%m-%d" }}</li>
     </ol>
@@ -39,7 +39,7 @@ layout: default
     {%- if page.tags.size > 0 -%}
       <div class="blog-tags blog-post-tags" aria-label="Post tags">
         {%- for tag in page.tags -%}
-          <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="uvy-badge blog-tag{% if forloop.first %} blog-tag--project{% else %} blog-tag--model{% endif %}">
+          <a href="{{ tag | slugify | prepend: '/tags/' | append: '/' | relative_url }}" class="uvy-badge blog-tag{% if forloop.first %} blog-tag--project{% else %} blog-tag--model{% endif %}">
             {%- if forloop.first -%}
               <svg class="icon icon-small" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-tag"></use></svg>
             {%- endif -%}
@@ -68,7 +68,7 @@ layout: default
           <section class="uvy-panel blog-related" aria-labelledby="related-posts-heading">
             <div class="uvy-panel__header">
               <h2 id="related-posts-heading">More from {{ primary_tag | escape }}</h2>
-              <a class="uvy-count" href="{{ '/tags/' | relative_url }}#{{ primary_tag | slugify }}">All {{ related_pool.size }} posts</a>
+              <a class="uvy-count" href="{{ primary_tag | slugify | prepend: '/tags/' | append: '/' | relative_url }}">All {{ related_pool.size }} posts</a>
             </div>
             <ul class="uvy-list">
               {%- assign shown = 0 -%}

@@ -34,7 +34,7 @@ permalink: /archive/
             <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %d" }}</time>
             <a class="blog-archive-list__title" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
             {%- if primary_tag -%}
-              <a class="uvy-badge blog-tag blog-tag--project" href="{{ '/tags/' | relative_url }}#{{ primary_tag | slugify }}">{{ primary_tag | escape }}</a>
+              <a class="uvy-badge blog-tag blog-tag--project" href="{{ primary_tag | slugify | prepend: '/tags/' | append: '/' | relative_url }}">{{ primary_tag | escape }}</a>
             {%- endif -%}
           </li>
         {%- endfor -%}

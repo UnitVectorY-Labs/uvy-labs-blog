@@ -368,8 +368,10 @@
 
         const tags = Array.isArray(post.g) ? post.g : [];
         if (tags[0]) {
-          const badge = document.createElement("span");
+          const badge = document.createElement("a");
           badge.className = "uvy-badge blog-tag blog-tag--project";
+          const slug = tags[0].toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+          badge.href = searchIndexUrl.replace(/assets\/js\/search-data\.json$/, "") + "tags/" + encodeURIComponent(slug) + "/";
           highlightText(badge, tags[0], terms);
           aside.append(badge);
         }
@@ -377,12 +379,12 @@
         const body = document.createElement("div");
         body.className = "blog-entry__body";
 
-        const h3 = document.createElement("h3");
-        h3.className = "blog-entry__title";
+        const h2 = document.createElement("h2");
+        h2.className = "blog-entry__title";
         const a = document.createElement("a");
         a.href = post.u || "#";
         highlightText(a, post.t || "", terms);
-        h3.append(a);
+        h2.append(a);
 
         const p = document.createElement("p");
         p.className = "blog-entry__excerpt";
@@ -396,7 +398,7 @@
         readMore.textContent = "Read article";
         footer.append(readMore);
 
-        body.append(h3, p, footer);
+        body.append(h2, p, footer);
         article.append(aside, body);
         li.append(article);
         list.append(li);
@@ -455,9 +457,9 @@
     const countEl = document.getElementById("tag-filter-count");
     const emptyEl = document.getElementById("tag-filter-empty");
     const tabs = [...document.querySelectorAll("[data-tag-filter]")];
-    const chips = [...document.querySelectorAll("[data-tag-chip]")];
-    const sections = [...document.querySelectorAll("[data-tag-section]")];
-    if (!input || !chips.length) return;
+    const rows = [...document.querySelectorAll("[data-tag-row]")];
+    const groups = [...document.querySelectorAll("[data-tag-group]")];
+    if (!input || !rows.length) return;
 
     let activeKind = "all";
 
@@ -465,17 +467,18 @@
       const q = input.value.trim().toLowerCase();
       let shown = 0;
 
-      chips.forEach((chip) => {
-        const matchKind = activeKind === "all" || chip.dataset.tagKind === activeKind;
-        const matchText = !q || (chip.dataset.tagName || "").includes(q);
-        chip.hidden = !(matchKind && matchText);
-        if (!chip.hidden) shown++;
+      rows.forEach((row) => {
+        const matchKind = activeKind === "all" || row.dataset.tagKind === activeKind;
+        const matchText = !q || (row.dataset.tagName || "").includes(q);
+        row.hidden = !(matchKind && matchText);
+        if (!row.hidden) shown++;
       });
 
-      sections.forEach((sec) => {
-        const matchKind = activeKind === "all" || sec.dataset.tagKind === activeKind;
-        const matchText = !q || (sec.dataset.tagName || "").includes(q);
-        sec.hidden = !(matchKind && matchText);
+      groups.forEach((group) => {
+        const groupKind = group.dataset.tagGroup;
+        const matchKind = activeKind === "all" || groupKind === activeKind;
+        const hasVisible = [...group.querySelectorAll("[data-tag-row]")].some((r) => !r.hidden);
+        group.hidden = !(matchKind && hasVisible);
       });
 
       if (clearBtn) clearBtn.hidden = !q && activeKind === "all";

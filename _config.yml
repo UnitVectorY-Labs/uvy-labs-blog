@@ -28,6 +28,22 @@ pagination:
     before: 2
     after: 2
 
+autopages:
+  enabled: true
+  categories:
+    enabled: false
+  collections:
+    enabled: false
+  tags:
+    enabled: true
+    layouts:
+      - "tag.html"
+    title: ":tag"
+    permalink: "/tags/:tag/"
+    slugify:
+      mode: "default"
+      cased: true
+
 markdown: kramdown
 kramdown:
   input: GFM

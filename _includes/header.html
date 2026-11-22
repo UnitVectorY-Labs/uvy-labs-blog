@@ -1,6 +1,8 @@
 {%- assign is_posts_nav = false -%}
 {%- if page.url == '/' or page.url == '/index.html' or page.layout == 'post' or page.url contains '/page/' -%}
-  {%- assign is_posts_nav = true -%}
+  {%- unless page.url contains '/tags/' -%}
+    {%- assign is_posts_nav = true -%}
+  {%- endunless -%}
 {%- endif -%}
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
@@ -24,14 +26,14 @@
     <nav aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}"{% if is_posts_nav %} aria-current="page"{% endif %}>Posts</a>
       <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Archive</a>
-      <a href="{{ '/tags/' | relative_url }}"{% if page.url == '/tags/' %} aria-current="page"{% endif %}>Tags</a>
+      <a href="{{ '/tags/' | relative_url }}"{% if page.url contains '/tags/' %} aria-current="page"{% endif %}>Tags</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
     </nav>
     <div class="header-actions">
-      <a class="icon-button" href="{{ '/feed.xml' | relative_url }}" aria-label="Subscribe via RSS" title="Subscribe via RSS">
+      <a class="uvy-button icon-button" href="{{ '/feed.xml' | relative_url }}" aria-label="Subscribe via RSS" title="Subscribe via RSS">
         <svg class="icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-rss"></use></svg>
       </a>
-      <a class="icon-button" href="https://github.com/UnitVectorY-Labs/uvy-labs-blog" aria-label="uvy-labs-blog on GitHub" title="uvy-labs-blog on GitHub">
+      <a class="uvy-button icon-button" href="https://github.com/UnitVectorY-Labs/uvy-labs-blog" aria-label="uvy-labs-blog on GitHub" title="uvy-labs-blog on GitHub">
         <svg class="icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-brand-github"></use></svg>
       </a>
       <button id="theme" class="icon-button" type="button" aria-label="Switch color theme" hidden>

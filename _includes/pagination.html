@@ -1,0 +1,59 @@
+{%- if paginator and paginator.total_pages > 1 -%}
+  <nav class="uvy-pagination blog-pagination" aria-label="Pagination">
+    <span class="uvy-count">Page {{ paginator.page }} of {{ paginator.total_pages }} · {{ paginator.total_posts }} posts</span>
+    <div class="blog-pagination__controls">
+      {%- if paginator.previous_page -%}
+        <a class="uvy-button uvy-button--small" href="{{ paginator.previous_page_path | relative_url }}">
+          <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-chevron-left"></use></svg>
+          Newer
+        </a>
+      {%- else -%}
+        <span class="uvy-button uvy-button--small" aria-disabled="true">
+          <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-chevron-left"></use></svg>
+          Newer
+        </span>
+      {%- endif -%}
+
+      {%- if paginator.page_trail -%}
+        <ol class="blog-pagination__pages">
+          {%- assign first_trail = paginator.page_trail.first.num -%}
+          {%- assign last_trail = paginator.page_trail.last.num -%}
+          {%- if first_trail > 1 -%}
+            <li><a class="uvy-button uvy-button--small uvy-button--quiet" href="{{ paginator.first_page_path | relative_url }}">1</a></li>
+            {%- if first_trail > 2 -%}
+              <li class="blog-pagination__ellipsis" aria-hidden="true">…</li>
+            {%- endif -%}
+          {%- endif -%}
+          {%- for trail in paginator.page_trail -%}
+            <li>
+              {%- if paginator.page == trail.num -%}
+                <a class="uvy-button uvy-button--small blog-pagination__current" href="{{ trail.path | relative_url }}" aria-current="page">{{ trail.num }}</a>
+              {%- else -%}
+                <a class="uvy-button uvy-button--small uvy-button--quiet" href="{{ trail.path | relative_url }}">{{ trail.num }}</a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+          {%- if last_trail < paginator.total_pages -%}
+            {%- assign gap_end = paginator.total_pages | minus: 1 -%}
+            {%- if last_trail < gap_end -%}
+              <li class="blog-pagination__ellipsis" aria-hidden="true">…</li>
+            {%- endif -%}
+            <li><a class="uvy-button uvy-button--small uvy-button--quiet" href="{{ paginator.last_page_path | relative_url }}">{{ paginator.total_pages }}</a></li>
+          {%- endif -%}
+        </ol>
+      {%- endif -%}
+
+      {%- if paginator.next_page -%}
+        <a class="uvy-button uvy-button--small" href="{{ paginator.next_page_path | relative_url }}">
+          Older
+          <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-chevron-right"></use></svg>
+        </a>
+      {%- else -%}
+        <span class="uvy-button uvy-button--small" aria-disabled="true">
+          Older
+          <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-chevron-right"></use></svg>
+        </span>
+      {%- endif -%}
+    </div>
+  </nav>
+{%- endif -%}
