@@ -1,17 +1,14 @@
-<footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
-
-  <div class="wrapper">
-    <h2 class="footer-heading p-name">{{ site.title | escape }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-      </div>
-    </div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>
+      <a href="https://github.com/UnitVectorY-Labs">UnitVectorY-Labs</a>
+      <span class="footer-sep" aria-hidden="true">|</span>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a>
+      <span class="footer-sep" aria-hidden="true">|</span>
+      <a href="https://github.com/UnitVectorY-Labs/uvy-labs-blog"><strong>uvy-labs-blog</strong></a>
+      and
+      <a href="https://github.com/UnitVectorY-Labs/release-storyteller"><strong>release-storyteller</strong></a>
+      on GitHub
+    </p>
   </div>
 </footer>

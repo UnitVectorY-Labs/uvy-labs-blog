@@ -1,43 +1,253 @@
 ---
 layout: default
 ---
+{%- assign posts = paginator.posts | default: site.posts -%}
+{%- assign is_first_page = true -%}
+{%- if paginator and paginator.page > 1 -%}
+  {%- assign is_first_page = false -%}
+{%- endif -%}
 
-<div class="home">
-  {{ content }}
-
-  {%- assign posts = paginator.posts | default: site.posts -%}
-
-  {%- if posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list post-list-rich">
-      {%- for post in posts -%}
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {%- assign post_preview = post.content | strip_html | normalize_whitespace | truncatewords: 80 -%}
-      <li class="post-card">
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        <p class="post-preview">{{ post_preview }}</p>
-        <a class="post-read-more" href="{{ post.url | relative_url }}">Read article</a>
-      </li>
-      {%- endfor -%}
-    </ul>
-
-    {%- if paginator and paginator.total_pages > 1 -%}
-      <nav class="pagination" aria-label="Pagination">
-        {%- if paginator.previous_page -%}
-          <a class="previous page-numbers" href="{{ paginator.previous_page_path | relative_url }}">Newer posts</a>
-        {%- endif -%}
-        {%- if paginator.next_page -%}
-          <a class="next page-numbers" href="{{ paginator.next_page_path | relative_url }}">Older posts</a>
-        {%- endif -%}
-      </nav>
-    {%- endif -%}
-
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+{%- assign project_entries = "" | split: "" -%}
+{%- for tag in site.tags -%}
+  {%- assign t_name = tag[0] -%}
+  {%- assign t_posts = tag[1] -%}
+  {%- if t_posts.first.tags.first == t_name -%}
+    {%- assign padded = t_posts.size | prepend: "00000" | slice: -5, 5 -%}
+    {%- assign entry = padded | append: "|" | append: t_name | append: "|" | append: t_posts.size -%}
+    {%- assign project_entries = project_entries | push: entry -%}
   {%- endif -%}
+{%- endfor -%}
+{%- assign top_projects = project_entries | sort | reverse -%}
+{%- assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
 
+<div class="uvy-page-header blog-masthead">
+  <div>
+    <h1>{% if is_first_page %}{{ site.title | escape }}{% else %}Posts — Page {{ paginator.page }}{% endif %}</h1>
+    <p class="uvy-lead">{{ site.description | escape }}</p>
+    <p class="blog-masthead__stats">
+      <span class="num">{{ site.posts.size }}</span> posts
+      <span class="blog-dot" aria-hidden="true">·</span>
+      <span class="num">{{ top_projects.size }}</span> projects
+      {%- if site.posts.first -%}
+        <span class="blog-dot" aria-hidden="true">·</span>
+        Latest <time datetime="{{ site.posts.first.date | date: '%Y-%m-%d' }}">{{ site.posts.first.date | date: "%b %-d, %Y" }}</time>
+      {%- endif -%}
+    </p>
+  </div>
+  <div class="uvy-actions">
+    <a class="uvy-button" href="{{ '/archive/' | relative_url }}">Browse archive</a>
+    <a class="uvy-button" href="{{ '/feed.xml' | relative_url }}">
+      <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-rss"></use></svg>
+      RSS feed
+    </a>
+  </div>
+</div>
+
+<div class="blog-shell">
+  <div class="blog-main">
+    <div class="blog-search" data-requires-js hidden>
+      <div class="uvy-toolbar blog-search__toolbar">
+        <div class="uvy-field blog-search__field">
+          <label for="blog-search-input">Search posts</label>
+          <div class="blog-search__input-wrap">
+            <svg class="icon icon-small icon-muted blog-search__icon" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-search"></use></svg>
+            <input id="blog-search-input" class="uvy-input--mono blog-search__input" type="search" placeholder="Search titles, projects, models or topics…" autocomplete="off" aria-controls="blog-search-results" />
+            <kbd class="blog-search__kbd" aria-hidden="true">/</kbd>
+          </div>
+        </div>
+        <button id="blog-search-clear" class="uvy-button" type="button" hidden>Clear search</button>
+        <span id="blog-search-status" class="uvy-count" role="status" aria-live="polite"></span>
+      </div>
+      <div id="blog-search-results" class="blog-search__results" hidden></div>
+    </div>
+
+    <div id="blog-feed-view">
+      {%- if posts.size > 0 -%}
+        {%- for post in posts -%}
+          {%- assign words = post.content | number_of_words -%}
+          {%- assign read_mins = words | divided_by: 200 | plus: 1 -%}
+          {%- assign primary_tag = post.tags.first -%}
+          {%- assign post_preview = post.content | strip_html | normalize_whitespace | truncatewords: 42 -%}
+
+          {%- if is_first_page and forloop.first -%}
+            <article class="uvy-panel blog-featured" aria-labelledby="featured-post-title">
+              <div class="blog-featured__eyebrow">
+                <span class="blog-featured__label">Latest release</span>
+                <span class="blog-dot" aria-hidden="true">·</span>
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+                <span class="blog-dot" aria-hidden="true">·</span>
+                <span class="blog-meta-item">{{ read_mins }} min read</span>
+              </div>
+              <h2 id="featured-post-title" class="blog-featured__title">
+                <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+              </h2>
+              <p class="blog-featured__excerpt">{{ post_preview }}</p>
+              <div class="blog-entry__footer">
+                <div class="blog-tags">
+                  {%- for tag in post.tags -%}
+                    <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="uvy-badge blog-tag{% if forloop.first %} blog-tag--project{% else %} blog-tag--model{% endif %}">{{ tag | escape }}</a>
+                  {%- endfor -%}
+                </div>
+                <a class="blog-read-link" href="{{ post.url | relative_url }}">Read article</a>
+              </div>
+            </article>
+            {%- if posts.size > 1 -%}
+              <div class="blog-stream-heading">
+                <h2>Recent posts</h2>
+                {%- if paginator -%}
+                  <span class="uvy-count">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+                {%- endif -%}
+              </div>
+              <ol class="blog-stream">
+            {%- endif -%}
+          {%- else -%}
+            {%- if forloop.first -%}
+              <ol class="blog-stream">
+            {%- endif -%}
+            <li class="blog-stream__item">
+              <article class="blog-entry">
+                <div class="blog-entry__aside">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+                  <span class="blog-entry__readtime">{{ read_mins }} min read</span>
+                  {%- if primary_tag -%}
+                    <a href="{{ '/tags/' | relative_url }}#{{ primary_tag | slugify }}" class="uvy-badge blog-tag blog-tag--project">{{ primary_tag | escape }}</a>
+                  {%- endif -%}
+                </div>
+                <div class="blog-entry__body">
+                  <h3 class="blog-entry__title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                  </h3>
+                  <p class="blog-entry__excerpt">{{ post_preview }}</p>
+                  <div class="blog-entry__footer">
+                    {%- if post.tags.size > 1 -%}
+                      <div class="blog-tags">
+                        {%- for tag in post.tags offset: 1 -%}
+                          <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="uvy-badge blog-tag blog-tag--model">{{ tag | escape }}</a>
+                        {%- endfor -%}
+                      </div>
+                    {%- endif -%}
+                    <a class="blog-read-link" href="{{ post.url | relative_url }}">Read article</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+          {%- endif -%}
+          {%- if forloop.last -%}
+            {%- unless is_first_page and posts.size == 1 -%}
+              </ol>
+            {%- endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if paginator and paginator.total_pages > 1 -%}
+          <nav class="uvy-pagination blog-pagination" aria-label="Pagination">
+            <span class="uvy-count">Page {{ paginator.page }} of {{ paginator.total_pages }} · {{ paginator.total_posts }} posts</span>
+            <div class="blog-pagination__controls">
+              {%- if paginator.previous_page -%}
+                <a class="uvy-button uvy-button--small" href="{{ paginator.previous_page_path | relative_url }}">
+                  <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-chevron-left"></use></svg>
+                  Newer
+                </a>
+              {%- else -%}
+                <span class="uvy-button uvy-button--small" aria-disabled="true">
+                  <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-chevron-left"></use></svg>
+                  Newer
+                </span>
+              {%- endif -%}
+
+              {%- if paginator.page_trail -%}
+                <ol class="blog-pagination__pages">
+                  {%- assign first_trail = paginator.page_trail.first.num -%}
+                  {%- assign last_trail = paginator.page_trail.last.num -%}
+                  {%- if first_trail > 1 -%}
+                    <li><a class="uvy-button uvy-button--small uvy-button--quiet" href="{{ '/' | relative_url }}">1</a></li>
+                    {%- if first_trail > 2 -%}
+                      <li class="blog-pagination__ellipsis" aria-hidden="true">…</li>
+                    {%- endif -%}
+                  {%- endif -%}
+                  {%- for trail in paginator.page_trail -%}
+                    <li>
+                      {%- if page.url == trail.path -%}
+                        <a class="uvy-button uvy-button--small blog-pagination__current" href="{{ trail.path | relative_url }}" aria-current="page">{{ trail.num }}</a>
+                      {%- else -%}
+                        <a class="uvy-button uvy-button--small uvy-button--quiet" href="{{ trail.path | relative_url }}">{{ trail.num }}</a>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                  {%- if last_trail < paginator.total_pages -%}
+                    {%- assign gap_end = paginator.total_pages | minus: 1 -%}
+                    {%- if last_trail < gap_end -%}
+                      <li class="blog-pagination__ellipsis" aria-hidden="true">…</li>
+                    {%- endif -%}
+                    <li><a class="uvy-button uvy-button--small uvy-button--quiet" href="{{ '/page/' | append: paginator.total_pages | append: '/' | relative_url }}">{{ paginator.total_pages }}</a></li>
+                  {%- endif -%}
+                </ol>
+              {%- endif -%}
+
+              {%- if paginator.next_page -%}
+                <a class="uvy-button uvy-button--small" href="{{ paginator.next_page_path | relative_url }}">
+                  Older
+                  <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-chevron-right"></use></svg>
+                </a>
+              {%- else -%}
+                <span class="uvy-button uvy-button--small" aria-disabled="true">
+                  Older
+                  <svg class="icon icon-small" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-chevron-right"></use></svg>
+                </span>
+              {%- endif -%}
+            </div>
+          </nav>
+        {%- endif -%}
+      {%- else -%}
+        <div class="uvy-empty">
+          <strong>No posts published yet</strong>
+          <p>Check back soon or subscribe via RSS for new release announcements.</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <aside class="blog-rail" aria-label="Blog discovery">
+    <section class="blog-rail__section" aria-labelledby="rail-projects">
+      <h2 id="rail-projects">Active projects</h2>
+      <ul class="blog-rail__list">
+        {%- for entry in top_projects limit: 12 -%}
+          {%- assign parts = entry | split: "|" -%}
+          {%- assign proj_name = parts[1] -%}
+          {%- assign proj_count = parts[2] -%}
+          <li>
+            <a href="{{ '/tags/' | relative_url }}#{{ proj_name | slugify }}">
+              <span>{{ proj_name | escape }}</span>
+              <span class="num">{{ proj_count }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+      <p class="blog-rail__more">
+        <a href="{{ '/tags/' | relative_url }}">View all {{ top_projects.size }} projects</a>
+      </p>
+    </section>
+
+    <section class="blog-rail__section" aria-labelledby="rail-years">
+      <h2 id="rail-years">Archive by year</h2>
+      <ul class="blog-rail__list">
+        {%- for yr in posts_by_year -%}
+          <li>
+            <a href="{{ '/archive/' | relative_url }}#year-{{ yr.name }}">
+              <span>{{ yr.name }}</span>
+              <span class="num">{{ yr.items.size }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+
+    <section class="blog-rail__section" aria-labelledby="rail-about">
+      <h2 id="rail-about">About this blog</h2>
+      <p class="uvy-hint">Release announcements for <a href="https://github.com/UnitVectorY-Labs">UnitVectorY-Labs</a> repositories, automatically researched and drafted by <a href="https://github.com/UnitVectorY-Labs/release-storyteller">release-storyteller</a>.</p>
+      <p class="blog-rail__more">
+        <a href="{{ '/about/' | relative_url }}">How posts are generated</a>
+      </p>
+    </section>
+  </aside>
 </div>

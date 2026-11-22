@@ -1,0 +1,43 @@
+{%- assign is_posts_nav = false -%}
+{%- if page.url == '/' or page.url == '/index.html' or page.layout == 'post' or page.url contains '/page/' -%}
+  {%- assign is_posts_nav = true -%}
+{%- endif -%}
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  {%- if page.layout == 'post' -%}
+    <div class="blog-progress" aria-hidden="true"><div class="blog-progress__bar" id="reading-progress"></div></div>
+  {%- endif -%}
+  <div class="header-inner">
+    {%- include icons.html -%}
+    <div class="header-identity">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <svg class="uvy-mark" aria-hidden="true" width="28" height="28" viewBox="0 0 100 100">
+          <g stroke-width="4" stroke-linejoin="round">
+            <polygon class="uvy-mark__top" points="50,8 82.5,26.75 50,45.5 17.5,26.75" />
+            <polygon class="uvy-mark__left" points="12.3,35.75 44.8,54.5 44.8,92 12.3,73.25" />
+            <polygon class="uvy-mark__right" points="55.2,54.5 87.7,35.75 87.7,73.25 55.2,92" />
+          </g>
+        </svg>
+        <span>{{ site.title | escape }}</span>
+      </a>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}"{% if is_posts_nav %} aria-current="page"{% endif %}>Posts</a>
+      <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Archive</a>
+      <a href="{{ '/tags/' | relative_url }}"{% if page.url == '/tags/' %} aria-current="page"{% endif %}>Tags</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-button" href="{{ '/feed.xml' | relative_url }}" aria-label="Subscribe via RSS" title="Subscribe via RSS">
+        <svg class="icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-rss"></use></svg>
+      </a>
+      <a class="icon-button" href="https://github.com/UnitVectorY-Labs/uvy-labs-blog" aria-label="uvy-labs-blog on GitHub" title="uvy-labs-blog on GitHub">
+        <svg class="icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-brand-github"></use></svg>
+      </a>
+      <button id="theme" class="icon-button" type="button" aria-label="Switch color theme" hidden>
+        <svg class="icon" aria-hidden="true" data-icon="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-moon"></use></svg>
+        <svg class="icon" aria-hidden="true" data-icon="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#tabler-sun"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>

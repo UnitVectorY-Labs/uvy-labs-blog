@@ -1,0 +1,4 @@
+---
+layout: null
+---
+[{%- for post in site.posts -%}{%- unless forloop.first -%},{%- endunless -%}{%- assign words = post.content | number_of_words -%}{%- assign mins = words | divided_by: 200 | plus: 1 -%}{"t":{{ post.title | jsonify }},"u":{{ post.url | relative_url | jsonify }},"d":{{ post.date | date: "%Y-%m-%d" | jsonify }},"ds":{{ post.date | date: "%b %-d, %Y" | jsonify }},"m":{{ mins }},"g":{{ post.tags | jsonify }},"e":{{ post.content | strip_html | normalize_whitespace | truncatewords: 28 | jsonify }}}{%- endfor -%}]

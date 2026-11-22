@@ -1,24 +1,16 @@
-title: UnitVectorY Labs Blog
+title: UnitVectorY-Labs Blog
 description: >-
-  The latest updates from UnitVectorY Labs.
-baseurl: "/"
+  Release announcements and engineering updates from UnitVectorY-Labs.
+baseurl: ""
 url: "https://blog.unitvectorylabs.com"
+lang: en
 timezone: America/New_York
 future: true
 
-author: Jared Hatfield
+author: UnitVectorY-Labs
 github_username: UnitVectorY-Labs
-rss: RSS
+repository: UnitVectorY-Labs/uvy-labs-blog
 
-# Navigation header links
-header_pages:
-  - about.md
-  - tags.md
-
-# Theme
-theme: minima
-
-# Plugins
 plugins:
   - jekyll-feed
   - jekyll-paginate-v2
@@ -27,17 +19,20 @@ plugins:
 
 pagination:
   enabled: true
-  per_page: 10
+  per_page: 12
   permalink: "/page/:num/"
-  title: ":title - page :num"
+  title: ":title — Page :num"
   sort_field: "date"
   sort_reverse: true
+  trail:
+    before: 2
+    after: 2
 
-# Build settings
 markdown: kramdown
-highlighter: rouge
-
-show_excerpts: true
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  auto_ids: true
 
 defaults:
   - scope:
@@ -45,17 +40,17 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "UnitVectorY Labs"
+      author: "UnitVectorY-Labs"
 
-# Exclude from build
 exclude:
   - Gemfile
   - Gemfile.lock
+  - README.md
+  - justfile
   - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - scripts/
+  - vendor/
   - .bundle/
   - .sass-cache/
+  - .jekyll-cache/
   - _site/
